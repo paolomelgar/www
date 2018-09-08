@@ -1,0 +1,33 @@
+<?php 
+require('../fpdf/fpdf.php');
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',10);
+$pdf->SetY(36);
+$pdf->SetX(55);
+$pdf->Cell(15,10,'L/000045');
+$pdf->SetX(77);
+$pdf->Cell(25,10,'F/001-000453');
+$pdf->SetX(105);
+$pdf->Cell(18,10,'03/11/2015');
+$pdf->SetX(130);
+$pdf->Cell(15,10,'Huancayo');
+$pdf->SetX(155);
+$pdf->Cell(20,10,'12/12/2015');
+$pdf->SetX(183);
+$pdf->Cell(20,10,'S/. 2052.37');
+$pdf->SetY(48);
+$pdf->SetX(55);
+$pdf->Cell(150,10,'DOS MIL CINCUENTA Y DOS CON 37/100 SOLES');
+$pdf->SetFont('Arial','B',8);
+$pdf->SetY(59);
+$pdf->SetX(65);
+$pdf->Cell(60,10,'PAUL ALEXIS MELGAR POVEZ');
+$pdf->SetY(69);
+$pdf->SetX(65);
+$pdf->MultiCell(60,3,'PROLONFACION HUANUCO 259 -A HUANCAYO - HUANCAYO - HUANCAYO');
+$pdf->SetY(73);
+$pdf->SetX(65);
+$pdf->Cell(60,10,'10443630088');
+$pdf->Output();
+?>
