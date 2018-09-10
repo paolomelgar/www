@@ -7,12 +7,12 @@ session_start();
 <title>FERREBOOM - Iniciar Sesion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="huanuco/favicon.ico"/>
-<link type="text/css" href="ferreboom/bootstrap.min.css" rel="stylesheet" />
-<link type="text/css" href="ferreboom/sweet-alert.css" rel="stylesheet" />
-<script type="text/javascript" src="ferreboom/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="ferreboom/jquery-ui-1.10.4.custom.min.js"></script>
-<script type="text/javascript" src="ferreboom/bootstrap.min.js"></script>
-<script type="text/javascript" src="ferreboom/sweet-alert.min.js"></script>
+<link type="text/css" href="huanuco/bootstrap.min.css" rel="stylesheet" />
+<link type="text/css" href="huanuco/sweet-alert.css" rel="stylesheet" />
+<script type="text/javascript" src="huanuco/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="huanuco/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript" src="huanuco/bootstrap.min.js"></script>
+<script type="text/javascript" src="huanuco/sweet-alert.min.js"></script>
 <script type="text/javascript">
   $(function(){
     var sesion="<?php if(isset($_SESSION['valida'])){echo $_SESSION['valida'];}else{echo "";}; ?>";
