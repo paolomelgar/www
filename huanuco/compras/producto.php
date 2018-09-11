@@ -7,7 +7,7 @@ require_once('../connection.php');;
       $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
     }
     $producto = substr($producto, 0, -4);
-    $query = "SELECT * FROM producto WHERE $producto   ORDER BY producto,marca LIMIT 12";
+    $query = "SELECT * FROM producto WHERE $producto AND activo!='ANULADO' ORDER BY producto,marca LIMIT 12";
     $result=mysqli_query($con,$query);
     ?>
     <?php

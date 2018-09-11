@@ -195,8 +195,6 @@ var stock,compra,promotor,unit;
           }else{
             $("#result").hide();
           }
-          $('#tb1> tr:even').addClass('par');
-          $('#tb1> tr:odd').addClass('impar');
           $("#tb1> tr").hover(
             function () {
               $('#tb1> tr').removeClass('selected');

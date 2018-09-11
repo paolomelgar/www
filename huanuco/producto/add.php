@@ -9,14 +9,14 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
     switch ($_POST['accion']) {
         case 'add':
             if($_FILES['imagen']['tmp_name']!=''){
-                $sql1= mysqli_query($con1,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha) 
-                    VALUES ('".$_POST['codigo']."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0',NOW(),'0',NOW())");
+                $sql1= mysqli_query($con1,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha,antiguedad) 
+                    VALUES ('".$_POST['codigo']."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0',NOW(),'0',NOW(),NOW())");
                 //$sql2= mysqli_query($con2,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha) 
                     //VALUES ('".$_POST['producto']."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0',NOW(),'0',NOW())");
             }
             else{
-                $sql1= mysqli_query($con1,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha) 
-                    VALUES ('".$_POST['codigo']."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0','NO','0',NOW())");
+                $sql1= mysqli_query($con1,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha,antiguedad) 
+                    VALUES ('".$_POST['codigo']."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0','NO','0',NOW(),NOW())");
                 //$sql2= mysqli_query($con2,"INSERT INTO producto (producto,marca,familia,cant_caja,activo,stock_real,stock_con,proveedor,porcentaje,p_promotor,p_especial,p_compra,foto,stock_con1,fecha) 
                     //VALUES ('".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','".$_POST['proveedor']."','0','0','0','0','NO','0',NOW())");
             }

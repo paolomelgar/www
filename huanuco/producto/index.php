@@ -131,14 +131,14 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
               <th style="text-align: center;width:18.3%">PRODUCTO</th>
               <th style="text-align: center;width:8%">MARCA</th>
               <th style="text-align: center;width:10%">CATEGORIA</th>
-              <th style="text-align: center;width:12%">PROVEEDOR</th>
+              <th style="text-align: center;width:10%">PROVEEDOR</th>
               <th style="text-align: center;width:6%">X/CAJA</th>
               <th style="text-align: center;width:6%">S.REAL</th>
               <th style="text-align: center;width:6%">S.CONT</th>
               <th style="text-align: center;width:6%">P.MAYOR</th>
               <th style="text-align: center;width:6%">P.ESP</th>
               <th style="text-align: center;width:6%">P.COMPRA</th>
-              <th style="text-align: center;width:4%">PORCENTAJE</th>
+              <th style="text-align: center;width:6%">U.COMPRA</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
       </thead>
