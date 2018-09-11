@@ -18,7 +18,7 @@ require_once('../connection.php');
     while($row=mysqli_fetch_assoc($result)){
     ?>
       <tr class="tr" bgcolor='white' <?php if($row['stock_real']<=0 && $_POST['doc']!='FACTURA PAUL' && $_POST['doc']!='FACTURA BOOM'){echo "style='font-weight:bold;background-color:#FF9D9D;'";}else{echo "style='font-weight:bold;'";} ?>>
-        <td style='padding:0px;' title='s'><?php echo '<img src="../fotos/producto/a'.$row['id'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
+        <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a'.$row['id'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>

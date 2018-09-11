@@ -319,7 +319,7 @@ $(document).ready(function(){
       if($('#id').val()>0){
         $('#row').append(
           "<tr class='fila'>\n" +
-          "  <td width='2%' style='padding:0px;' title='s'><img src='../fotos/producto/a"+$("#id").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
+          "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a"+$("#id").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
           "  <td width='66%' class='produ'>" + $("#busqueda").val() + "</td>\n"+
           "  <td width='10%' contenteditable='true' class='editme1' style='text-align:right'>" + $("#cantidad").val() + "</td>\n"+
           "  <td width='10%' contenteditable='true' class='editme2' style='text-align:right'>" + parseFloat($("#precio_u").val()).toFixed(2) + "</td>\n"+
@@ -723,7 +723,7 @@ $(document).ready(function(){
             for (var i=0;i<data[0].length;i++) {
               $('#row').append(
                 "<tr class='fila'>\n" +
-                "  <td width='2%' style='padding:0px;' title='s'><img src='../fotos/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
+                "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
                 "  <td width='66%' class='produ'>" + data[0][i][0] + "</td>\n"+
                 "  <td width='10%' contenteditable='true' class='editme1' style='text-align:right'>" + data[0][i][1] + "</td>\n"+
                 "  <td width='10%' contenteditable='true' class='editme2' style='text-align:right'>" + data[0][i][2] + "</td>\n"+
@@ -795,7 +795,7 @@ $(document).ready(function(){
             for (var i=0;i<data[0].length;i++) {
               $('#row').append(
                 "<tr class='fila'>\n" +
-                "  <td width='2%' style='padding:0px;' title='s'><img src='../fotos/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
+                "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
                 "  <td width='66%' class='produ'>" + data[0][i][0] + "</td>\n"+
                 "  <td width='10%' contenteditable='true' class='editme1' style='text-align:right'>" + data[0][i][1] + "</td>\n"+
                 "  <td width='10%' contenteditable='true' class='editme2' style='text-align:right'>" + data[0][i][2] + "</td>\n"+

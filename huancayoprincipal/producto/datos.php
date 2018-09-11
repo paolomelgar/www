@@ -13,7 +13,7 @@ while($row=mysqli_fetch_assoc($result)){ ?>
     <tr class="tr">
         <td style='display:none'><?php echo mysqli_num_rows(mysqli_query($con,"SELECT * FROM producto WHERE $producto AND activo='".$_POST['activo']."'"))?></td>
         <td style="display:none"><?php echo $row['id']; ?></td>
-        <td style='padding:0px' align='center' title='a'><?php echo '<img src="../fotos/producto/a'.$row['id'].'.jpg?timestamp=41232" height="100%" width="100%">'; ?></td>
+        <td style='padding:0px' align='center' title='a'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a'.$row['id'].'.jpg?timestamp=41232" height="100%" width="100%">'; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>
         <td><?php echo $row['familia']; ?></td>
