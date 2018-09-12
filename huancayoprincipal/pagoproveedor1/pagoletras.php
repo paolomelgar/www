@@ -1,5 +1,5 @@
 <?php
-require_once('../connection.php');
+    require_once('../connection.php');
     $query=mysqli_query($con,"UPDATE total_compras SET letra='SI' WHERE value='".$_POST['value']."'");
     if($_POST['pendiente']=='S'){
 	    for ($i=0; $i<sizeof($_POST['monto']) ; $i++) {

@@ -1,5 +1,5 @@
 <?php 
-require_once('../connection.php');
+  require_once('../connection.php');
   if(isset($_POST) && !empty($_POST)){
     $q=$_POST['value'];
     $sql1=mysqli_query($con,"SELECT * FROM adelantoscompras WHERE value='$q' ORDER BY id");

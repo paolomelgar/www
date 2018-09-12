@@ -1,30 +1,49 @@
 $(function(){
+  var date = new Date();
   $('#fechaini').datepicker({
     firstDay:1,
     dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
     changeMonth: true,
     changeYear: true,
-    monthNames: ['Enero', 'Febrero', 'Marzo',
-    'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Setiembre',
-    'Octubre', 'Noviembre', 'Diciembre'],
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
-  });
+  }).datepicker("setDate", date);
   $('#fechafin').datepicker({
     firstDay:1,
     dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
     changeMonth: true,
     changeYear: true,
-    monthNames: ['Enero', 'Febrero', 'Marzo',
-    'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Setiembre',
-    'Octubre', 'Noviembre', 'Diciembre'],
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
-  });
-  $("#cliente").focus();
-  var date = new Date();
-  $('#fechaini').datepicker('setDate', date);
-  $('#fechafin').datepicker('setDate', date);
+  }).datepicker("setDate", date);
+
+  $('#venta').tableFilter({
+        filteredRows: function(filterStates) {
+          var sumatotal  = 0;
+          var sumapendiente = 0;
+          var sumaacuenta  = 0;
+          var sumatotal1  = 0;
+          var sumapendiente1 = 0;
+          var sumaacuenta1  = 0;
+          $('#verbody tr').filter(":visible").each(function(){
+            if($(this).find("td:eq(3)").text().slice(0,1)=='S'){
+              sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(2)").text().slice(3));        
+              sumapendiente =   parseFloat(sumapendiente) +  parseFloat($(this).find("td:eq(3)").text().slice(3));
+              sumaacuenta =   parseFloat(sumaacuenta) +  parseFloat($(this).find("td:eq(4)").text().slice(3));
+            }
+            else{
+              sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(2)").text().slice(2));        
+              sumapendiente1 =   parseFloat(sumapendiente1) +  parseFloat($(this).find("td:eq(3)").text().slice(2));
+              sumaacuenta1 =   parseFloat(sumaacuenta1) +  parseFloat($(this).find("td:eq(4)").text().slice(2));
+            }
+          });
+          $('#sumatotal').html("<b style='color:blue'>S/ "+sumatotal.toFixed(2)+"</b><br><b style='color:green'>$ "+sumatotal1.toFixed(2)+"</b>"); 
+          $('#sumapendiente').html("<b style='color:blue'>S/ "+sumapendiente.toFixed(2)+"</b><br><b style='color:green'>$ "+sumapendiente1.toFixed(2)+"</b>"); 
+          $('#sumaacuenta').html("<b style='color:blue'>S/ "+sumaacuenta.toFixed(2)+"</b><br><b style='color:green'>$ "+sumaacuenta1.toFixed(2)+"</b>"); 
+        },
+        enableCookies: false
+      });
+
   $("input").keyup(function(){
     var start = this.selectionStart,
         end = this.selectionEnd;
@@ -38,64 +57,66 @@ $(function(){
   });
   $('#forma').change(function(){
     if($('#forma').val()!='EFECTIVO'){
-      $('#banco1').css({"display":"block"});
-      $('#nro1').css({"display":"block"});
+      $('.pago').show();
     }
     else{
-      $('#banco1').css({"display":"none"});
-      $('#nro1').css({"display":"none"});
+      $('.pago').hide();
     }
   });
-  $.ajax({
-    type: "POST",
-    url: "lista.php",
-    data: 'proveedor='+$('#proveedor').val()+'&ini='+$('#fechaini').val()+'&fin='+$('#fechafin').val()+'&estado=PENDIENTE',
-    success: function(data){
-      $('#row').empty();
-      $('#row').append(data);
-      $("#verbody> tr").hover(
-        function () {
-          $('#verbody> tr').removeClass('selected');
-          $(this).addClass('selected');
-        }, 
-        function () {
-          $(this).removeClass('selected');
-        }
-      );
-      $("#verbody tr").click(function(){
-        $("#verbody tr").removeClass('select');
-        $(this).addClass('select');
-      });
-    }
-  });
-  $('#buscar').click(function(){
+
+  function buscar(){
+    var str = $('#form').serializeArray();
     $.ajax({
       type: "POST",
+      dataType: "json",
       url: "lista.php",
-      data: 'proveedor='+$('#proveedor').val()+'&ini='+$('#fechaini').val()+'&fin='+$('#fechafin').val()+'&estado='+$('#estado').val(),
-      success: function(data){
-        $('#row').empty();
-        $('#row').append(data);
-        $("#verbody> tr").hover(
-          function () {
-            $('#verbody> tr').removeClass('selected');
-            $(this).addClass('selected');
-          }, 
-          function () {
-            $(this).removeClass('selected');
-          }
-        );
-        $("#verbody tr").click(function(){
-          $("#verbody tr").removeClass('select');
-          $(this).addClass('select');
+      data: str,
+      beforeSend:function(){
+        swal({
+          title: "Buscando Deudas..",
+          text: "",
+          imageUrl: "../loading.gif",
+          showConfirmButton: false
         });
+      },
+      success: function(data){
+        swal.close();
+        $("#verbody").empty();
+        for (var i = 0; i <= data.length-1; i++) {
+          var n="<tr class='fila'\n>"+
+            "<td width='11%' align='right'>"+data[i][0]+"</td>\n"+
+            "<td width='24%'>"+data[i][1]+"</td>";
+          if(data[i][10]=='SOLES'){
+            n+="<td width='10%' align='right' style='color:blue'>S/ "+data[i][2]+"</td>\n"+
+            "<td width='10%' style='background-color:#f63;color:blue;font-size:14px' align='right'>S/ "+data[i][3]+"</td>\n"+
+            "<td width='10%' align='right' style='color:blue'>S/ "+data[i][4]+"</td>";
+          }else{
+            n+="<td width='10%' align='right' style='color:green'>$ "+data[i][2]+"</td>\n"+
+            "<td width='10%' style='background-color:#f63;color:green;font-size:14px' align='right'>$ "+data[i][3]+"</td>\n"+
+            "<td width='10%' align='right' style='color:green'>$ "+data[i][4]+"</td>";
+          }
+            n+="<td width='10%' align='center'>"+data[i][5]+"</td>\n"+
+            "<td width='10%' align='center'>"+data[i][6]+"</td>\n"+
+            "<td width='5%' align='center'>"+data[i][7]+"</td>\n"+
+            "<td width='10%' align='center'><div style='cursor:pointer;color:red' class='detail'>"+data[i][8]+"</div></td>\n"+
+            "<td style='display:none'>"+data[i][9]+"</td>\n"+
+          "</tr>";
+          $('#verbody').append(n);
+        }
+        $('#venta').tableFilterRefresh();
       }
     });
+  }
+
+  buscar();
+  $('#buscar').click(function(){
+    buscar();
   });
   $("#proveedor").autocomplete({
     source:"../kardex_proveedor/proveedor.php",
     minLength:1
   });
+
   var value;
   var total;
   var name;
@@ -105,28 +126,37 @@ $(function(){
     total=$(this).parent().parent().find('td:eq(2)').text();
     name=$(this).parent().parent().find('td:eq(1)').text();
     pendiente=$(this).parent().parent().find('td:eq(3)').text();
-    if($(this).parent().parent().find('td:eq(10)').text()=='SI'){
-      $('.pagar').show();
-      $('.cobrar').hide();
+    $("#verbody tr").removeClass('select');
+    $(this).parent().parent().addClass('select');
+    if($(this).parent().parent().find('td:eq(8)').text()=='LETRA'){
+      $('#pagarletra').show();
+      $('#pagar').hide();
       $('#letras').hide();
       $.ajax({
         type: "POST",
-        url: "adelantosletras.php",
+        url: "adelantosletra.php",
         data: 'value='+value,
+        beforeSend:function(){
+          $('#adelantos').empty();
+          $('#adelantos').append("<table width='100%'><tr><td align='center'><img src='../loading.gif' width='220px'></td></tr></table>");
+        },
         success: function(data){
           $("#adelantos").empty();
           $("#adelantos").append(data);
         }
       });
-    }
-    else{
-      $('.pagar').hide();
-      $('.cobrar').show();
+    }else{
+      $('#pagarletra').hide();
+      $('#pagar').show();
       $('#letras').show();
       $.ajax({
         type: "POST",
         url: "adelantos.php",
         data: 'value='+value,
+        beforeSend:function(){
+          $('#adelantos').empty();
+          $('#adelantos').append("<table width='100%'><tr><td align='center'><img src='../loading.gif' width='220px'></td></tr></table>");
+        },
         success: function(data){
           $("#adelantos").empty();
           $("#adelantos").append(data);
@@ -137,85 +167,70 @@ $(function(){
       type: "POST",
       url: "productos.php",
       data: 'value='+value,
+      beforeSend:function(){
+        $('#productos').empty();
+        $('#productos').append("<table width='100%'><tr><td align='center'><img src='../loading.gif' width='220px'></td></tr></table>");
+      },
       success: function(data){
         $("#productos").empty();
         $("#productos").append(data);
       }
     });
   });
-    $(".cobrar").on('click',function(){
-      $('#monto').val("");
-      $('#cambio').val("");
-      if (total.slice(0,1)=='S'){
-        $('#tipocambio').hide();
-        pendiente=pendiente.slice(4);
-      }
-      else{
-        $('#tipocambio').show();
-        pendiente=pendiente.slice(4);
-      }
-      $('#name').val(name);
-      $('#total').val(total);
-      $('#pendiente').val(pendiente);
-      $("#dialog").dialog({
-        title:"PAGO PROVEEDORES",
-        position: ['',140],
-        height: 230,
-        width: "70%",
-        modal: true,
-        buttons: { 
-          "Si" : function(){
-            $.ajax({
-              type: "POST",
-              url: "monto.php",
-              data: 'value='+value+'&banco='+$('#banco').val()+'&nro='+$('#nro').val()+'&monto='+$('#monto').val()+'&cambio='+$('#cambio').val()+'&forma='+$('#forma').val()+'&proveedor='+$('#name').val(),
-              success: function(data){
-                $.ajax({
-                  type: "POST",
-                  url: "lista.php",
-                  data: 'proveedor='+$('#proveedor').val()+'&ini='+$('#fechaini').val()+'&fin='+$('#fechafin').val()+'&estado=PENDIENTE',
-                  success: function(data){
-                    $('#row').empty();
-                    $('#row').append(data);
-                    $("#verbody> tr").hover(
-                      function () {
-                        $('#verbody> tr').removeClass('selected');
-                        $(this).addClass('selected');
-                      }, 
-                      function () {
-                        $(this).removeClass('selected');
-                      }
-                    );
-                    $("#verbody tr").click(function(){
-                      $("#verbody tr").removeClass('select');
-                      $(this).addClass('select');
-                    });
-                  }
-                });
-              }
-            });
-            $( this ).dialog( "close" ); 
-            $('.pagar').hide();
-            $('.cobrar').hide();
-            $('#letras').hide();
-          },
-          "No" : function(){
-            $( this ).dialog( "close" );
-          } 
-        },
-        open:function(){
-          $('#monto').focus();
-          $('#banco').val('');
-          $('#nro').val('');
-          $('#monto').val('');
-          $('select[id="forma"]').val('DEPOSITO');
-          $('#banco1').show();
-          $('#nro1').show();
-        } 
-      });
+  var pendiente1;
+  $("#pagar").on('click',function(){
+    if (total.slice(0,1)=='S'){
+      $('.cambio').hide();
+      pendiente1=pendiente.slice(3);
+    }
+    else{
+      $('.cambio').show();
+      pendiente1=pendiente.slice(2);
+    }
+    $('#name').val(name);
+    $('#total').val(total);
+    $('#pendiente').val(pendiente1);
+    $("#dialog").dialog({
+      title:"PAGO PROVEEDORES",
+      position: ['',140],
+      height: 230,
+      width: "70%",
+      modal: true,
+      buttons: { 
+        "Confirmar Pago" : function(){
+          $.ajax({
+            type: "POST",
+            url: "monto.php",
+            data: {value:value,
+                   banco:$('#banco').val(),
+                   nro:$('#nro').val(),
+                   monto:$('#monto').val(),
+                   cambio:$('#tipocambio').val(),
+                   forma:$('#forma').val(),
+                   proveedor:$('#name').val(),
+                  },
+            success: function(data){
+              buscar();
+            }
+          });
+          $( this ).dialog( "close" ); 
+          $('#pagarletra').hide();
+          $('#pagar').hide();
+          $('#letras').hide();
+        }
+      },
+      open:function(){
+        $('#monto').focus();
+        $('#banco').val('');
+        $('#nro').val('');
+        $('#monto').val('');
+        $('#tipocambio').val('');
+        $('select[id="forma"]').val('DEPOSITO');
+        $('.pago').show();
+      } 
     });
-    $(".pagar").on('click',function(){
-      $('#cambio2').val("");
+  });
+    $("#pagarletra").on('click',function(){
       if (total.slice(0,1)=='S'){
         $('#cambio1').hide();
       }
@@ -227,24 +242,20 @@ $(function(){
       $("#dialogpagoletra").dialog({
         title:"PAGO LETRAS",
         position: ['',140],
-        width: "32%",
+        width: "38%",
         modal:true,
         buttons: { 
-          "Pagar" : function(){
+          "Si" : function(){
             var monto=new Array();
             var fecha=new Array();
             var real=new Array();
-            var id=new Array();
             var cambio=$('#cambio2').val();
-            var i=0;    
-            $('#dialogpagoletra .real').each(function(){
-              if($(this).val()>0){
-                monto[i]=$(this).parent().find('.monto').val();
-                fecha[i]=$(this).parent().find('.fech').val();
-                real[i]=$(this).val();
-                id[i]=$(this).parent().find('.idd').val();
-                i++;
-              }
+            var i=0;
+            $('#dialogpagoletra div').each(function(){
+              monto[i]=$(this).find('.monto').val();
+              fecha[i]=$(this).find('.fech').val();
+              real[i]=$(this).find('.real').val();
+              i++;
             });
             $.ajax({
               type: "POST",
@@ -252,48 +263,23 @@ $(function(){
               data: {monto:monto,
                     fecha:fecha,
                     real:real,
-                    id:id,
                     cambio:cambio,
                     proveedor:name,
                     value:value},
               cache: false,
               success: function(data){
-                $.ajax({
-                  type: "POST",
-                  url: "lista.php",
-                  data: 'proveedor='+$('#proveedor').val()+'&ini='+$('#fechaini').val()+'&fin='+$('#fechafin').val()+'&estado=PENDIENTE',
-                  success: function(data){
-                    $('#row').empty();
-                    $('#row').append(data);
-                    $("#verbody> tr").hover(
-                      function () {
-                        $('#verbody> tr').removeClass('selected');
-                        $(this).addClass('selected');
-                      }, 
-                      function () {
-                        $(this).removeClass('selected');
-                      }
-                    );
-                    $("#verbody tr").click(function(){
-                      $("#verbody tr").removeClass('select');
-                      $(this).addClass('select');
-                    });
-                  }
-                });
+                buscar();
               }
             });
             $( this ).dialog( "close" );
             $('.pagar').hide();
             $('.cobrar').hide();
             $('#letras').hide(); 
-          },
-          "Cancelar" : function(){
-            $( this ).dialog( "close" );
-          } 
+          }
         },
         open:function(){
           $('#monto').focus();
-          $('#banco').val('');
+          $('#cambio2').val("");
           $.ajax({
             type: "POST",
             url: "verletras.php",
@@ -303,50 +289,11 @@ $(function(){
               $('#letras1').empty();
               for (var i=0;i<data.length;i++) {
                 $('#letras1').append(
-                  "<div style='margin-top:10px'>\n" +
-                  "<input type='text' size='9' class='monto' value='"+data[i][0]+"' style='text-align:right'>&nbsp<input type='text' class='fech' value='"+data[i][1]+"' size='9'>&nbsp<input  style='text-align:right' type='text' class='real' size='9'><input type='hidden' class='idd' value='"+data[i][3]+"'>\n" +
+                  "<div style='margin-top:10px' align='center'>\n" +
+                  "<input type='text' class='monto' value='"+data[i][0]+"' style='text-align:right;width:120px' readonly='readonly'>&nbsp<input type='text' class='fech' value='"+data[i][1]+"' style='width:120px;text-align:center' readonly='readonly'>&nbsp<input  style='text-align:right;width:120px' type='text' class='real'><input type='hidden' class='idd' value='"+data[i][3]+"'>\n" +
                   "</div>\n"
                 );
               }
-              $('.fech').datepicker({
-                firstDay:1,
-                dateFormat:'dd/mm/yy',
-                changeMonth: true,
-                changeYear: true,
-                monthNames: ['Enero', 'Febrero', 'Marzo',
-                'Abril', 'Mayo', 'Junio',
-                'Julio', 'Agosto', 'Setiembre',
-                'Octubre', 'Noviembre', 'Diciembre'],
-                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
-              });
-              $('.fech').change(function(){
-                var aa=$(this).parent().find('.idd').val();
-                var bb=$(this).parent().find('.fech').val();
-                swal({
-                  title: "Esta Seguro de Cambiar Fecha!",
-                  text: "La Nueva Fecha sera: "+bb,
-                  type: "warning",
-                  showCancelButton: true,
-                  confirmButtonColor: "#DD6B55",
-                  confirmButtonText: "Aceptar",
-                  cancelButtonText: "Cancelar"
-                },
-                function(isConfirm){
-                  if (isConfirm) {
-                    $.ajax({
-                      type: "POST",
-                      url: "cambiarfecha.php",
-                      data: {id:aa,
-                             fecha:bb
-                            },
-                      success: function(data){
-                      }
-                    });
-                    $('#dialogpagoletra').dialog("close");
-                    $('#dialogpagoletra').dialog("open");
-                  } 
-                });
-              });
             }
           });
         } 
@@ -354,7 +301,7 @@ $(function(){
     });
     $('#monto').keyup(function(){
       var v=parseFloat($('#monto').val());
-      if(v>parseFloat(pendiente)){
+      if(v>parseFloat(pendiente1)){
         if ($('#total').val().slice(0,1)=='S'){
         $('#monto').val($('#pendiente').val());
         }
@@ -395,28 +342,7 @@ $(function(){
                     pendiente:pen},
               cache: false,
               success: function(data){
-                $.ajax({
-                  type: "POST",
-                  url: "lista.php",
-                  data: 'proveedor='+$('#proveedor').val()+'&ini='+$('#fechaini').val()+'&fin='+$('#fechafin').val()+'&estado=PENDIENTE',
-                  success: function(data){
-                    $('#row').empty();
-                    $('#row').append(data);
-                    $("#verbody> tr").hover(
-                      function () {
-                        $('#verbody> tr').removeClass('selected');
-                        $(this).addClass('selected');
-                      }, 
-                      function () {
-                        $(this).removeClass('selected');
-                      }
-                    );
-                    $("#verbody tr").click(function(){
-                      $("#verbody tr").removeClass('select');
-                      $(this).addClass('select');
-                    });
-                  }
-                });
+                buscar();
               }
             });
             $( this ).dialog( "close" ); 
@@ -434,13 +360,16 @@ $(function(){
       });
     });
   $('#dialogletra').on('click','#addletra',function(){
-    $('#dialogletra').append('<div style="margin-top:10px"><input type="text" size="8" class="monto" style="text-align:right">&nbsp<input type="text" class="fech" size="9">&nbsp<input type="text" size="9" class="unico" style="text-align:right">&nbsp<input type="button" value="X" class="x"></div>');
+    $('#dialogletra').append('<div style="margin-top:2px"><input type="text" class="monto" style="text-align:right;width:100px">&nbsp<input type="text" class="fech" style="width:100px;text-align:center">&nbsp<input type="text" class="unico" style="text-align:right;width:100px">&nbsp<input type="button" class="btn btn-danger x" value="X"></div>');
     $('.fech').datepicker({
       firstDay:1,
       dateFormat:'dd/mm/yy',
       changeMonth: true,
       changeYear: true,
-      monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+      monthNames: ['Enero', 'Febrero', 'Marzo',
+      'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Setiembre',
+      'Octubre', 'Noviembre', 'Diciembre'],
       dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
     });
     $('.x').click(function(){

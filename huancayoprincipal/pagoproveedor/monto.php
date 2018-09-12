@@ -1,5 +1,5 @@
 <?php
-	require_once('../connection.php');
+require_once('../connection.php');
     $hoy=date("Y-m-d");
     if($_POST['cambio']>0){
 	    $monto=$_POST['monto']*$_POST['cambio'];
