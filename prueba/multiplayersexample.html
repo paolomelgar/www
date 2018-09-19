@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Media Player PNaCl</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<meta name="author" content="videoexpertsgroup" />
+	<meta name="copyright" lang="ru" content="videoexpertsgroup" />
+	<meta name="description" content="Demo VXG Media Player for Chrome" />
+	<meta name="keywords" content=""/>
+	<!-- vxgplayer -->
+	<script type="text/javascript" src="vxgplayer-1.8.23.min.js"></script>
+	<link href="vxgplayer-1.8.23.min.css" rel="stylesheet"/>
+
+	<!-- demo page -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<style>
+		.content-absolute{
+			top: 0px;
+			padding: 0px;
+			margin: 0px;
+			height: 100%;
+		}
+
+		.content{
+			width: 100% !important;
+			height: 100%;
+			padding: 0px;
+			top: -25px;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="content-absolute">
+		<div class="content">
+			<div id="vxg_media_player1" class="vxgplayer" width="600" height="300" url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/101" aspect-ratio latency="6000000" autostart controls avsync debug></div>
+			<div id="vxg_media_player2" class="vxgplayer" width="600" height="300" url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/201" aspect-ratio latency="6000000" autostart controls audio="0" mute="1" debug></div>
+			<div id="vxg_media_player3" class="vxgplayer" width="600" height="300" url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/301" aspect-ratio latency="6000000" autostart controls audio="0" mute="1"></div>
+			<div id="vxg_media_player4" class="vxgplayer" width="600" height="300" url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/401" aspect-ratio latency="6000000" autostart controls audio="0" mute="1"></div>
+		</div>
+	</div>
+</body>
+</html>

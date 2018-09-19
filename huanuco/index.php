@@ -156,7 +156,7 @@ if($_SESSION['valida']=='huanuco'){
 									<li><a href="familia/" target="contenedor">CATEGORIAS</a></li>
 									<li><a href="query/" target="contenedor">CONSULTAS</a></li>
 									<?php if($_SESSION['nombre']=='PAOLO MELGAR'){?>
-									<li><a href="http://admin:12345678@ferreboom.com:81/" target="_blank">CAMARA VIGILANCIA</a></li>
+									<li><a href="camara/admin.php" target="contenedor">CAMARA VIGILANCIA</a></li>
 									<?php } ?>
 									<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
 								</ul>
@@ -217,7 +217,7 @@ if($_SESSION['valida']=='huanuco'){
 									<li><a href="producto/" target="contenedor">PRODUCTOS</a></li>
 									<li><a href="marca/" target="contenedor">MARCAS</a></li>
 									<li><a href="familia/" target="contenedor">CATEGORIAS</a></li>
-									<li><a href="http://admin:12345678@192.168.0.100:81/" target="_blank">CAMARA VIGILANCIA</a></li>
+									<li><a href="camara/" target="contenedor">CAMARA VIGILANCIA</a></li>
 									<li><a href="maps/" target="contenedor">MAPS</a></li>
 								</ul>
 							</li>

@@ -180,15 +180,15 @@ $(function(){
 	
 	$("#editar").on('click',function(){
 		$(".selected").each(function(){
-			var dato=$(".selected").children( "td:eq(1)" ).text();
-			var dato1=$(".selected").children( "td:eq(3)" ).text();
-			var dato2=$(".selected").children( "td:eq(4)" ).text();
-			var dato3=$(".selected").children( "td:eq(5)" ).text();
-			var dato4=$(".selected").children( "td:eq(18)" ).text();
+			var dato=$(".selected").children( "td:eq(3)" ).text();
+			var dato1=$(".selected").children( "td:eq(4)" ).text();
+			var dato2=$(".selected").children( "td:eq(5)" ).text();
+			var dato3=$(".selected").children( "td:eq(6)" ).text();
+			var dato4=$(".selected").children( "td:eq(19)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar Producto',
 				open:function(){
-					$('#formagregar input[name="id"]').val(dato);
+					$('#formagregar input[name="codigo"]').val(dato);
 					$('#formagregar input[name="producto"]').val(dato1);
 					$('#formagregar input[name="marca"]').val(dato2);
 					$('#formagregar select[name="familia"]').val(dato3);
@@ -214,7 +214,7 @@ $(function(){
 			                type: "POST",
 			                url: "add.php",
 			                data:{
-		                    	id:$(".selected").children( "td:eq(1)" ).text(),
+		                    	codigo:$(".selected").children( "td:eq(3)" ).text(),
 			                	accion:"del"
 		                    },
 			                cache: false,

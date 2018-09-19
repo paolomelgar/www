@@ -97,7 +97,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
   <div style='display:none' id="agregardatos">
   <form name="formagregar" id="formagregar">
     <table width='100%'>
-      <tr><td><input type="hidden" name="id"/></td></tr>
+      <tr><td><input type="hidden" name="codigo"/></td></tr>
       <tr><td>PRODUCTO:</td><td><input type="text" name="producto" class="span3" style="float:left;"/></td></tr>
       <tr><td>MARCA:</td><td><input type="text" name="marca" id='marca' class="span3" style="float:left;"/><a id='add' href='#'>ADD</a></td></tr>
       <tr><td>CATEGORIA:</td><td><select name="familia" class="span3">
@@ -142,9 +142,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       <thead>
           <tr style='background-color:#428bca;color:white'>
               <th style="text-align: center;width:3%"></th>
-              <th style="text-align: center;width:25%">PRODUCTO</th>
-              <th style="text-align: center;width:8%">MARCA</th>
-              <th style="text-align: center;width:10%">FAMILIA</th>
+              <th style="text-align: center;width:5%">CODIGO</th>
+              <th style="text-align: center;width:23%">PRODUCTO</th>
+              <th style="text-align: center;width:7%">MARCA</th>
+              <th style="text-align: center;width:8%">FAMILIA</th>
               <th style="text-align: center;width:12%">PROVEEDOR</th>
               <th style="text-align: center;width:4%">UBICACION</th>
               <th style="text-align: center;width:4%">CAJA</th>
