@@ -24,9 +24,9 @@ require_once('../connection.php');
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-        <td style='text-align:right;display:none'><?php echo $row['p_compra']; ?></td>
+        <td style='text-align:right;color:green'><?php echo $row['p_compra']; ?></td>
         <?php }else{ ?>
-        <td style='text-align:right;display:none'><?php echo $row['p_compra']; ?></td>
+        <td style='text-align:right;color:green'><?php echo $row['p_compra']; ?></td>
         <?php } ?>
         <td style='text-align:right'><?php echo $row['cant_caja']; ?></td>
         <?php if($_POST['doc']=='FACTURA'){ ?>

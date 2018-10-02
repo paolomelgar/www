@@ -34,6 +34,7 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
         <?php }else{ ?>
@@ -41,6 +42,7 @@ while($row=mysqli_fetch_assoc($result)){
         <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
+        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
         <?php } ?>

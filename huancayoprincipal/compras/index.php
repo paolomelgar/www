@@ -345,10 +345,14 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <tr style='background-color:#2E9AFE;font-weight:bold;color:white'>
           <td style='text-align:center'>P.ANTERIOR</td>
           <td style='text-align:center'>P.ACTUAL</td>
-          <td style='text-align:center'>P.PROV</td>
-          <td style='text-align:center'>P.MAYOR</td>
-          <td style='text-align:center'>P.ESPECIAL</td>
-          <td style='text-align:center'>P.FRANQUICI</td>
+          <td style='text-align:center;background-color:#FE3F33'>P.FRAN</td>
+          <td style='text-align:center;background-color:#F7EC0F'>P.MAY</td>
+          <td style='text-align:center;background-color:#F7EC0F'>P.PROM</td>
+          <td style='text-align:center;background-color:#0FC6F7'>P.T.MAY</td>
+          <td style='text-align:center;background-color:#0FC6F7'>P.T.PUB1</td>
+          <td style='text-align:center;background-color:#f63'>P.T.PUB2</td>
+          <td style='text-align:center;background-color:#21AA4D'>P.T.MAY2</td>
+          <td style='text-align:center;background-color:#21AA4D'>P.T.PUB3</td>
         </tr>
         <tr>
           <td id='iden' style='display:none'></td>
@@ -358,6 +362,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <td id='4' contenteditable='true' class='text' style='text-align:right'></td>
           <td id='5' contenteditable='true' class='text' style='text-align:right'></td>
           <td id='6' contenteditable='true' class='text' style='text-align:right'></td>
+          <td id='7' contenteditable='true' class='text' style='text-align:right'></td>
+          <td id='8' contenteditable='true' class='text' style='text-align:right'></td>
+          <td id='9' contenteditable='true' class='text' style='text-align:right'></td>
+          <td id='10' contenteditable='true' class='text' style='text-align:right'></td>
         </tr>
         <tr>
           <td colspan='2' style='text-align:right'>PORCENTAJE:</td>
@@ -365,6 +373,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <td id='12' style='text-align:right'></td>
           <td id='13' style='text-align:right'></td>
           <td id='14' style='text-align:right'></td>
+          <td id='15' style='text-align:right'></td>
+          <td id='16' style='text-align:right'></td>
+          <td id='17' style='text-align:right'></td>
+          <td id='18' style='text-align:right'></td>
         </tr>
       </table>
     </div>

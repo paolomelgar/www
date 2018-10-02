@@ -99,7 +99,6 @@ session_start();
               <select name="local" id="local">
                 <option disabled selected value>Local</option>
                 <option value='huanuco'>Huanuco</option>
-                <option value='tingomaria'>Tingo Maria</option>
                 <option value='huancayo'>Huancayo</option>
                 <option value='huancayoprincipal'>Huancayo Principal</option>
                 <option value='tarapaca'>Tarapaca</option>

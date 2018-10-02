@@ -1,6 +1,6 @@
 var socket=io.connect('http://ferreboom.com:3500');
 socket.on('connect', function() {
-  socket.emit('room', "caja");
+  socket.emit('room', "Huanuco");
 });
 $(function(){
   var date = new Date();
@@ -886,17 +886,21 @@ var stock,compra,promotor,unit;
     });
   });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  $("#sunat").click(function(){
-    $('#dialogsunat').empty();
-    $('#dialogsunat').show();
-    $('#ruc').select();
-    document.execCommand("copy");
-    $('#dialogsunat').append("<iframe src='http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias' width='100%' height='98%' id='frameDemo'></iframe><span class='ui-icon ui-icon-circle-close' id='sal' style='position:absolute;right:0px;top:0px;cursor:pointer'>");
-    $('#sal').click(function(){
-      $('#dialogsunat').hide();
+  $("#informacion").on('click','#sunat',function(data){
+    swal({
+      title: "Buscando en la Sunat..",
+      text: "",
+      imageUrl: "../loading.gif",
+      showConfirmButton: false
+    });
+    socket.emit('sunat',$("#ruc").val());
+    socket.on('sunat',function(data){ 
+      $('#razon_social').val(data.razon);
+      $('#direccion').val(data.direccion);
+      swal.close();
     });
   });
-
+  
   $('#buscar').click(function(){
     var fechaini=$('#fechaini').val();
     var fechafin=$('#fechafin').val();
@@ -989,8 +993,13 @@ var stock,compra,promotor,unit;
       }
     }else{
         if($(this).parent().find('td:eq(3)').text().slice(0,10)!=fech){
-          $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
-          $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+          if($(this).parent().find('td:eq(6)').text()=='NO AFECTA'){
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+          }else{
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+          }
         }else{
           if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
@@ -1339,7 +1348,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                socket.emit('notificacion',"");
+                socket.emit('notificacion',"Huanuco");
                 location.reload();
                 //document.write(data);
               }
@@ -1376,7 +1385,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                socket.emit('notificacion',"");
+                socket.emit('notificacion',"Huanuco");
                 imprimir(data,$('#documento').val());
                 //setTimeout(function(){location.reload();}, 200);
               }
@@ -1592,7 +1601,7 @@ var stock,compra,promotor,unit;
       url:"eliminarpedido.php",
       data:"del="+pen,
       success:function(data){
-        socket.emit('notificacion',"");
+        socket.emit('notificacion',"Huanuco");
         $('#mostrarpendientes').click();
       }
     });
@@ -1742,44 +1751,41 @@ var stock,compra,promotor,unit;
     });
   });
 
-  var not;
+  var not=0;
+  var audio = new Audio('notificacion.mp3');
+  function notify(id){
     $.ajax({
       type:"POST",
       url:"notificaciones.php",
       data:"",
       async: false,
       success:function(data){
-        if(data>0){
+        if(parseInt(data)>parseInt(not)){
+          if(id>0){audio.play();}
+          $('#mes').show();
           $('#mostrarpendientes').removeClass("gray");
           $('#mes').text(data);
+          if($('#pendientes').css('display') == 'block'){
+            $('#mostrarpendientes').click();
+          }
+        }else if(parseInt(data)>0 && parseInt(data)<=not){
+          $('#mes').show();
+          $('#mes').text(data);
+          if($('#pendientes').css('display') == 'block'){
+            $('#mostrarpendientes').click();
+          }
         }else{
+          $('#mes').hide();
           $('#mostrarpendientes').addClass("gray");
+          $('#pendientes').hide();
         }
         not=data;
       }
     });
-  var audio = new Audio('notificacion.mp3');
+  }
+  notify(0);
   socket.on('notificacion',function(data){ 
-      if(parseInt(data)>parseInt(not)){
-        audio.play();
-        $('#mes').show();
-        $('#mostrarpendientes').removeClass("gray");
-        $('#mes').text(data);
-        if($('#pendientes').css('display') == 'block'){
-          $('#mostrarpendientes').click();
-        }
-      }else if(parseInt(data)>0 && parseInt(data)<=parseInt(not)){
-        $('#mes').show();
-        $('#mes').text(data);
-        if($('#pendientes').css('display') == 'block'){
-          $('#mostrarpendientes').click();
-        }
-      }else{
-        $('#mes').hide();
-        $('#mostrarpendientes').addClass("gray");
-        $('#pendientes').hide();
-      }
-      not=data;
+      notify(1);
   });
   
   $('#efectivo').keyup(function(){

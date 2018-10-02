@@ -33,7 +33,7 @@ require_once('../connection.php');
         <?php } ?>
         <td style='text-align:right;'><?php echo $row['p_mayor']; ?></td>
         <td style='text-align:right;background-color:#f63'><?php echo $row['p_promotor']; ?></td>
-        <td style='text-align:right'><?php echo $row['p_especial']; ?></td>
+        <td style='text-align:right'><?php echo $row['p_franquicia']; ?></td>
         </tr>
     <?php
     }

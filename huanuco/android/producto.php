@@ -15,11 +15,11 @@ require_once('../connection.php');
     $n = $_REQUEST['page']*12;
   }
   if($_REQUEST['cargo']=='ADMIN'){
-    $query = "SELECT producto,marca,p_promotor,p_compra,stock_real,id,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND activo!='ANULADO' ORDER BY producto LIMIT 12";
+    $query = "SELECT producto,marca,p_promotor,p_compra,stock_real,id,cant_caja,activo,codigo,antiguedad FROM producto WHERE ($producto AND activo!='NO' AND activo!='ANULADO') OR codigo='".$_REQUEST['producto']."' ORDER BY producto LIMIT 12";
   }else if($_REQUEST['cargo']=='CLIENTE' || $_REQUEST['cargo']=='TIENDA'){
-    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND activo!='ANULADO' AND foto!='NO' ORDER BY producto LIMIT $n,12";
+    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,cant_caja,activo,codigo,antiguedad FROM producto WHERE ($producto AND activo!='NO' AND activo!='ANULADO' AND foto!='NO') OR codigo='".$_REQUEST['producto']."' ORDER BY producto LIMIT $n,12";
   }else{
-    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND activo!='ANULADO' ORDER BY producto LIMIT 12";
+    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,cant_caja,activo,codigo,antiguedad FROM producto WHERE ($producto AND activo!='NO' AND activo!='ANULADO') OR codigo='".$_REQUEST['producto']."' ORDER BY producto LIMIT 12";
   }
   $sql=mysqli_query($con,$query);
   $datos=array();
@@ -40,6 +40,8 @@ require_once('../connection.php');
     $datos[$i]["id"]=$row["id"];
     $datos[$i]["cant_caja"]=$row["cant_caja"];
     $datos[$i]["activo"]=$row["activo"];
+    $datos[$i]["codigo"]=$row["codigo"];
+    $datos[$i]["antiguedad"]=$row["antiguedad"];
     $i++;
   }
   echo json_encode($datos);

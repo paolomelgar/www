@@ -379,7 +379,25 @@ $(document).ready(function(){
   $('#row').on('click','.editme3',function(){
     document.execCommand('selectAll', false, null);
   });
-  $('#row').on('keyup','.editme1',function(){
+  $('#row').on('keypress','.editme1',function(e){
+    $(this).val($(this).val().replace(/[^\d].+/, ""));
+      if ((event.which < 48 || event.which > 57)) {
+          event.preventDefault();
+      }
+  });
+  $('#row').on('keypress','.editme2',function(e){
+    $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+    if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+  });
+  $('#row').on('keypress','.editme3',function(e){
+    $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+    if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+  });
+  $('#row').on('input','.editme1',function(){
     $(this).parent().find('td:eq(4)').text(parseFloat(parseFloat($(this).parent().find('td:eq(3)').text())*parseFloat($(this).text())).toFixed(2));
     $('#subtotal').val(parseFloat(suma()).toFixed(2));
     $('#total').val(parseFloat(parseFloat($('#subtotal').val())+parseFloat($('#flete').val())).toFixed(2));
@@ -459,25 +477,16 @@ $(document).ready(function(){
       $('#dialogsunat').hide();
     });
   });
+  var id;
   $('#row').on('click','.radio',function(){
     $('.radio').attr('checked',false);
     $(this).prop("checked", true);
     var prod=$(this).parent().parent().find('td:eq(1)').text();
-    var id=$(this).parent().parent().find('td:eq(6)').text();
+    id=$(this).parent().parent().find('td:eq(6)').text();
     var unit=$(this).parent().parent().find('td:eq(3)').text();
     var compr;
     anterior(id);
     $("#iden").text(id);
-    $('.text').on('click', function () { document.execCommand('selectAll', false, null); });
-    $('#precios').on('focusout','td[contenteditable=true]',function(){
-      $.ajax({
-        type: "POST",
-        url: "cambiarprecios.php",
-        data: "val="+$(this).text()+"&pos="+$(this).index()+"&id="+$(this).parent().find('td:eq(0)').text(),
-        success: function(data){   
-        }
-      });
-    });
     if($('#billete').val()=='SOLES'){
       $('#2').text(unit);
       compr=parseFloat(unit);
@@ -498,6 +507,18 @@ $(document).ready(function(){
     $("#6").keyup(function(){
       $('#14').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
     });
+    $("#7").keyup(function(){
+      $('#15').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
+    });
+    $("#8").keyup(function(){
+      $('#16').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
+    });
+    $("#9").keyup(function(){
+      $('#17').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
+    });
+    $("#10").keyup(function(){
+      $('#18').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
+    });
     $.ajax({
       type: "POST",
       url: "verprecios.php",
@@ -509,16 +530,24 @@ $(document).ready(function(){
         $('#4').text(data[2]);
         $('#5').text(data[3]);
         $('#6').text(data[4]);
+        $('#7').text(data[5]);
+        $('#8').text(data[6]);
+        $('#9').text(data[7]);
+        $('#10').text(data[8]);
         $('#11').text(parseFloat((data[1]-compr)*100/compr).toFixed(2)+"%");
         $('#12').text(parseFloat((data[2]-compr)*100/compr).toFixed(2)+"%");
         $('#13').text(parseFloat((data[3]-compr)*100/compr).toFixed(2)+"%");
         $('#14').text(parseFloat((data[4]-compr)*100/compr).toFixed(2)+"%");
+        $('#15').text(parseFloat((data[5]-compr)*100/compr).toFixed(2)+"%");
+        $('#16').text(parseFloat((data[6]-compr)*100/compr).toFixed(2)+"%");
+        $('#17').text(parseFloat((data[7]-compr)*100/compr).toFixed(2)+"%");
+        $('#18').text(parseFloat((data[8]-compr)*100/compr).toFixed(2)+"%");
       }
     });
     $("#precios").dialog({
       title:prod,
       height: 200,
-      width: "55%",
+      width: "75%",
       hide: { effect: "slideUp", duration: 100 },
       show: { effect: "slideDown", duration: 100 },
       close:function(){
@@ -526,7 +555,18 @@ $(document).ready(function(){
       }
     });
   }); 
-  $('#flete').keyup(function(){
+  $('.text').on('click',function () { document.execCommand('selectAll', false, null); });
+  $('#precios').on('focusout','td[contenteditable=true]',function(){
+    $.ajax({
+      type: "POST",
+      url: "cambiarprecios.php",
+      data: "val="+$(this).text()+"&pos="+$(this).index()+"&id="+id,
+      success: function(data){   
+          $('.error').fadeIn(400).delay(1000).fadeOut(400);
+      }
+    });
+  });
+  $('#flete').on('input',function(){
     $('#total').val(parseFloat(parseFloat($('#subtotal').val())+parseFloat($(this).val())).toFixed(2));
   });
   $("#agregar").click(function(){

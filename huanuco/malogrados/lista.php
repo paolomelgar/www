@@ -8,7 +8,7 @@ session_start();
     if($_SESSION['cargo']=='ADMIN'){
       $query.=" AND estado!='BUENO'";
     }else{
-      $query.=" AND estado!='BUENO' AND estado!='CORRECCION STOCK'";
+      $query.=" AND estado!='BUENO'";
     }
   }
   else{

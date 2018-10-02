@@ -934,7 +934,7 @@ $(function(){
           });
         },
         success: function(data){
-          socket.emit('notificacion',"");
+          socket.emit('notificacion',"Huanuco");
           swal({
             title: "Nro Pedido",
             text: "<span style='color:#F63;font-weight:bold;font-size:80px'>"+data+"</span>",

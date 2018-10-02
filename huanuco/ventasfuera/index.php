@@ -1063,7 +1063,7 @@ if($_SESSION['valida']=='huanuco'){
 		}
 	</style>
 </head>
-<body style='overflow-y:scroll;background-image:url("http://www.zastavki.com/pictures/originals/2014/Backgrounds_Wooden_floor_082130_.jpg");background-attachment: fixed;'>
+<body style='overflow-y:scroll;background-image:url("madera.jpg");background-attachment: fixed;'>
 	<div id='dx' style='display:none'></div>
 	<div id="myModal" class="modal"></div>
 	<div id='result' style='position:fixed;display:none;width:30%;z-index:3;box-shadow: 5px 5px 2px grey;'></div>

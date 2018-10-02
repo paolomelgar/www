@@ -6,12 +6,12 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
             $sq=mysqli_fetch_row(mysqli_query($con,"SELECT MAX(codigo)+1 FROM producto"));
             $s=mysqli_query($con,"UPDATE producto SET codigo='".$sq[0]."' WHERE id='".$row['id']."'");
             if($_FILES['imagen']['tmp_name']!=''){
-                $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_mayor,p_promotor,p_especial,p_franquicia,p_compra,foto,stock_con1,fecha) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0','0','0','0','0',NOW(),'0',NOW())");
+                $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0',NOW(),'0',NOW())");
             }
             else{
-               $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_mayor,p_promotor,p_especial,p_franquicia,p_compra,foto,stock_con1,fecha) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0','0','0','0','0','NO','0',NOW())");
+               $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0','NO','0',NOW())");
             }
             move_uploaded_file($_FILES['imagen']['tmp_name'], realpath("../fotos/producto ")."/a".$sq[0].".jpg");
             break;

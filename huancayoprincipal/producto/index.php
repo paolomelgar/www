@@ -142,23 +142,27 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       <thead>
           <tr style='background-color:#428bca;color:white'>
               <th style="text-align: center;width:3%"></th>
-              <th style="text-align: center;width:5%">CODIGO</th>
-              <th style="text-align: center;width:23%">PRODUCTO</th>
+              <th style="text-align: center;width:4%">CODIGO</th>
+              <th style="text-align: center;width:20%">PRODUCTO</th>
               <th style="text-align: center;width:7%">MARCA</th>
               <th style="text-align: center;width:8%">FAMILIA</th>
-              <th style="text-align: center;width:12%">PROVEEDOR</th>
+              <th style="text-align: center;width:8%">PROVEEDOR</th>
               <th style="text-align: center;width:4%">UBICACION</th>
               <th style="text-align: center;width:4%">CAJA</th>
               <th style="text-align: center;width:4%">MASTER</th>
               <th style="text-align: center;width:4%">S.REAL</th>
               <th style="text-align: center;width:4%">S.PAUL</th>
               <th style="text-align: center;width:4%">S.BOOM</th>
-              <th style="text-align: center;width:4%">P.PROV</th>
-              <th style="text-align: center;width:4%">P.MAYOR</th>
-              <th style="text-align: center;width:4%">P.ESP</th>
-              <th style="text-align: center;width:4%">P.FRAN</th>
               <th style="text-align: center;width:4%">P.COMPRA</th>
-              <th style="text-align: center;width:4%">ACTIVO</th>
+              <th style="text-align: center;width:4%;background-color:#FE3F33">P.FRAN</th>
+              <th style="text-align: center;width:4%;background-color:#F7EC0F">P.MAY</th>
+              <th style="text-align: center;width:4%;background-color:#F7EC0F">P.PROV</th>
+              <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.MAY</th>
+              <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.PUB1</th>
+              <th style="text-align: center;width:4%;background-color:#f63">P.T.PUB2</th>
+              <th style="text-align: center;width:4%;background-color:#21AA4D">P.T.MAY2</th>
+              <th style="text-align: center;width:4%;background-color:#21AA4D">P.T.PUB3</th>
+              <th style="text-align: center;width:3%">ACTIVO</th>
           </tr>
       </thead>
       <tbody id="resultado">  
@@ -166,7 +170,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       </tbody>
       <tfoot id='foot'>
         <tr>
-          <td colspan='18'>
+          <td colspan='30'>
             <div style='float:left;margin-bottom:-10px'>
               <select id='pagina' style='width:70px'>
                 <option>12</option>

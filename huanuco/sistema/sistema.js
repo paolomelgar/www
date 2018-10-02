@@ -19,7 +19,8 @@
 		var i=0;
 		socket.emit('usuario',{ 
 			usuario:$('#name').text(),
-			cargo:$('#cargo').text()
+			cargo:$('#cargo').text(),
+			local:"huanuco"
 		}); 
 		var array;
 		$.ajax({

@@ -436,11 +436,11 @@ if($_SESSION['valida']=='huanucotienda' && $_SESSION['cargo']!='VENDEDOR' ){
             <th width="47.5%">PRODUCTO</th>
             <th width="23%">MARCA</th>
             <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-            <th width="7%" style='display:none'>P. PROM</th>
+            <th width="7%">P. COMPRA</th>
             <th width="10%">X/CAJA</th>
             <th width="8%">STOCK</th>
             <?php }else{ ?>
-            <th width="7%" style='display:none'>P. PROM</th>
+            <th width="7%">P. COMPRA</th>
             <th width="10%">X/CAJA</th>
             <th width="8%">STOCK</th>
             <?php } ?>

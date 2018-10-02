@@ -38,15 +38,15 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td style="text-align:right"><?php echo $row['stock_con1']; ?></td>
         <?php } ?>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_mayor']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_franquicia']; ?></td>
-        <?php if($_SESSION['nombre']=='PAUL MELGAR'){ ?>
-        <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
-        <?php }else{ ?>
-        <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
-        <?php } ?>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_mayor']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_1']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_2']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_3']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_4']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_5']; ?></td>
         <td style="text-align:right"><?php echo $row['activo']; ?></td>
     <tr>
 <?php } ?>

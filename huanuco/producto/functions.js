@@ -201,7 +201,7 @@ $(function(){
 			var dato1=$(".selected").children( "td:eq(4)" ).text();
 			var dato2=$(".selected").children( "td:eq(5)" ).text();
 			var dato3=$(".selected").children( "td:eq(6)" ).text();
-			var dato4=$(".selected").children( "td:eq(15)" ).text();
+			var dato4=$(".selected").children( "td:eq(16)" ).text();
 			var dato5=$(".selected").children( "td:eq(7)" ).text();
 			var dato6=$(".selected").children( "td:eq(3)" ).text();
 			$("#agregardatos").dialog({

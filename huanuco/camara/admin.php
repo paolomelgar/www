@@ -30,10 +30,10 @@
 <body style='margin:0px !important'>
 	<div class="content-absolute">
 		<div class="content">
-			<div id="vxg_media_player1" class="vxgplayer" width='544' height='306' url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/801" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
-			<div id="vxg_media_player2" class="vxgplayer" width='544' height='306' url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/101" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
-			<div id="vxg_media_player3" class="vxgplayer" width='544' height='306' url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/201" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
-			<div id="vxg_media_player4" class="vxgplayer" width='544' height='306' url="rtsp://admin:Hik12345@ferreboom.com:554/Streaming/Channels/301" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
+			<div id="vxg_media_player1" class="vxgplayer" width='544' height='306' url="rtsp://admin:PAERcosou981.@ferreboom.com:554/Streaming/Channels/101" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
+			<div id="vxg_media_player2" class="vxgplayer" width='544' height='306' url="rtsp://admin:PAERcosou981.@ferreboom.com:554/Streaming/Channels/201" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
+			<div id="vxg_media_player3" class="vxgplayer" width='544' height='306' url="rtsp://admin:PAERcosou981.@ferreboom.com:554/Streaming/Channels/301" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
+			<div id="vxg_media_player4" class="vxgplayer" width='544' height='306' url="rtsp://admin:PAERcosou981.@ferreboom.com:554/Streaming/Channels/601" aspect-ratio latency="6000000" autostart controls avsync mute="1" debug></div>
 		</div>
 	</div>
 </body>

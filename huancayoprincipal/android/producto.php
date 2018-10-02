@@ -17,11 +17,11 @@ require_once('../connection.php');
   if($_REQUEST['cargo']=='ADMIN'){
     $query = "SELECT producto,marca,p_promotor,p_compra,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' ORDER BY producto LIMIT 12";
   }else if($_REQUEST['cargo']=='CLIENTE'){
-    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND foto!='NO' ORDER BY producto LIMIT $n,12";
+    $query = "SELECT producto,marca,p_promotor,p_5,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND foto!='NO' ORDER BY producto LIMIT $n,12";
   }else if($_REQUEST['cargo']=='CLIENTE PROVINCIA'){
-    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND foto!='NO' ORDER BY producto LIMIT $n,12";
+    $query = "SELECT producto,marca,p_promotor,p_5,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' AND foto!='NO' ORDER BY producto LIMIT $n,12";
   }else{
-    $query = "SELECT producto,marca,p_promotor,p_especial,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' ORDER BY producto LIMIT 12";
+    $query = "SELECT producto,marca,p_promotor,p_5,stock_real,id,p_mayor,cant_caja,activo FROM producto WHERE $producto AND activo!='NO' ORDER BY producto LIMIT 12";
   }
   $sql=mysqli_query($con,$query);
   $datos=array();
@@ -40,7 +40,7 @@ require_once('../connection.php');
     if($_REQUEST['cargo']=='ADMIN'){
       $datos[$i]["p_especial"]=$row["p_compra"];
     }else{
-      $datos[$i]["p_especial"]=$row["p_especial"];
+      $datos[$i]["p_especial"]=$row["p_5"];
     }
     $datos[$i]["stock_real"]=$row["stock_real"];
     $datos[$i]["id"]=$row["id"];

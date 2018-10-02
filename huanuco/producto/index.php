@@ -128,16 +128,17 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
           <tr style='background-color:#428bca;color:white'>
               <th style="text-align: center;width:2.7%;max-width:36px">IMG</th>
               <th style="text-align: center;width:5%">CODIGO</th>
-              <th style="text-align: center;width:18.3%">PRODUCTO</th>
+              <th style="text-align: center;width:19.3%">PRODUCTO</th>
               <th style="text-align: center;width:8%">MARCA</th>
               <th style="text-align: center;width:10%">CATEGORIA</th>
               <th style="text-align: center;width:10%">PROVEEDOR</th>
-              <th style="text-align: center;width:6%">X/CAJA</th>
-              <th style="text-align: center;width:6%">S.REAL</th>
-              <th style="text-align: center;width:6%">S.CONT</th>
-              <th style="text-align: center;width:6%">P.MAYOR</th>
-              <th style="text-align: center;width:6%">P.ESP</th>
-              <th style="text-align: center;width:6%">P.COMPRA</th>
+              <th style="text-align: center;width:5%">X/CAJA</th>
+              <th style="text-align: center;width:5%">S.REAL</th>
+              <th style="text-align: center;width:5%">S.CONT</th>
+              <th style="text-align: center;width:5%">P.MAYOR</th>
+              <th style="text-align: center;width:5%">P.ESP</th>
+              <th style="text-align: center;width:5%">P.OFERTA</th>
+              <th style="text-align: center;width:5%">P.COMPRA</th>
               <th style="text-align: center;width:6%">U.COMPRA</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
