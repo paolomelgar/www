@@ -34,8 +34,8 @@ $(function(){
 
 	$('#resultado').on('focusout','td[contenteditable=true]',function(){
 		$("#busqueda").focus();
-		if($(this).index()>9 && $(this).index()<13){
-			if(parseFloat($(this).text())>parseFloat($(this).parent().find('td:eq(13)').text())){
+		if($(this).index()>14 && $(this).index()<23){
+			if(parseFloat($(this).text())>parseFloat($(this).parent().find('td:eq(14)').text())){
 				$.ajax({
 		            type: "POST",
 		            url: "precios.php",

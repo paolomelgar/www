@@ -1,7 +1,4 @@
-var socket=io.connect('http://ferreboom.com:3500');
-socket.on('connect', function() {
-  socket.emit('room', "ventas");
-});
+var socket=io.connect('http://ferreboom.com:4000');
 $(function(){
   var date = new Date();
   $('#fechaini').datepicker({
@@ -747,7 +744,6 @@ $(function(){
     hide: {effect: "slide",duration: 100},
     buttons: { 
       "EDITAR" : function(){ 
-        socket.emit('notificacion',serie1);
         $.ajax({
           type: "POST",
           url: "editarpedido.php",
@@ -803,6 +799,7 @@ $(function(){
             }
             $('#cantprod').empty();
             $('#cantprod').append($('#row tr').length+" Productos");
+            socket.emit('notificacion',"");
           }
         });
         $("#dialogver").hide();

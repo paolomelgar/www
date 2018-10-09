@@ -52,7 +52,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN'){
 				<option value="ADMIN">ADMIN</option>
 				<option value="LOGISTICA">LOGISTICA</option>
 				<option value="ASISTENTE">ASISTENTE</option>
-				<option value="PROMOTOR">PROMOTOR</option>
+				<option value="VENDEDOR">VENDEDOR</option>
+				<option value="VENDEDOR PROVINCIA">VENDEDOR PROVINCIA</option>
 				<option value="CLIENTE">CLIENTE</option>
 				<option value="CLIENTE PROVINCIA">CLIENTE PROVINCIA</option>
 			</select></td></tr>

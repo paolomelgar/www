@@ -53,7 +53,7 @@ while($s=mysqli_fetch_assoc($sls)){
 	$pdf->Ln(9);
 	$pdf->SetFont('Arial','B',22);
 	$pdf->Cell(90,7,"Caja: ".$s["cant_caja"],20,'','C',true);
-	$pdf->Image('../fotos/producto/a'.$s['id'].'.jpg', $pdf->GetX()+10, $pdf->GetY()-60,75,75);
+	$pdf->Image('../fotos/producto/a'.$s['codigo'].'.jpg', $pdf->GetX()+10, $pdf->GetY()-60,75,75);
 	$n++;
 	$pdf->Ln(23);
 	

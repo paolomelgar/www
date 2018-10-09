@@ -4,7 +4,7 @@ var app = require('express')(),
 server = require('http').createServer(app), 
 io = require('socket.io').listen(server),
 mysql = require('mysql');
-server.listen(3500);
+server.listen(4000);
 
 app.get('/',function(req,res){ 
 	res.sendFile(__dirname+'/index.html'); 

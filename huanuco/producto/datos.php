@@ -22,7 +22,7 @@ while($row=mysqli_fetch_assoc($result)){
     <tr class="tr" <?php if($diff->format("%a")>=365){echo "bgcolor='#FF8B8B'";}else if($diff->format("%a")<365 && $diff->format("%a")>=182){echo "bgcolor='#FBFE33'";}else{echo "";} ?>>
         <td style='display:none'><?php echo mysqli_num_rows(mysqli_query($con,"SELECT * FROM producto WHERE $producto AND activo='".$_POST['activo']."'"))?></td>
         <td style="display:none"><?php echo $row['id']; ?></td>
-        <td style='padding:0px' align='center' title='a'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['id'].'.jpg?timestamp=41232" height="100%" width="100%">'; ?></td>
+        <td style='padding:0px' align='center' title='a'><?php echo '<img src="../fotos/producto/a'.$row['codigo'].'.jpg?timestamp=41232" height="100%" width="100%">'; ?></td>
         <td style='text-align: center'><?php echo $row['codigo']; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>

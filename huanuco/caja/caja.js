@@ -1,4 +1,4 @@
-var socket=io.connect('http://ferreboom.com:3500');
+var socket=io.connect('http://ferreboom.com:4000');
 socket.on('connect', function() {
   socket.emit('room', "Huanuco");
 });

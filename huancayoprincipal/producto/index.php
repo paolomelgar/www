@@ -110,6 +110,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       <tr><td>ACTIVO:</td><td><select name="activo1" class="span3">
         <option value="SI">SI</option>
         <option value="NO">NO</option>
+        <option value='UNIDAD'>UNIDAD</option>
         <option value="OFERTA">OFERTA</option>
       </select></td></tr>
       <tr><td>IMAGEN:</td><td><input type="file" name="imagen" class="span3" accept="image/jpeg"/></td></tr>
@@ -126,6 +127,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       ACTIVO:<select id='selactivo' class='span1'>
         <option value='SI'>SI</option>
         <option value='NO'>NO</option>
+        <option value='UNIDAD'>UNIDAD</option>
         <option value='OFERTA'>OFERTA</option>
       </select>
       <?php if($_SESSION['cargo']=='ADMIN'){ ?>

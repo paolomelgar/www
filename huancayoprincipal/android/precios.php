@@ -1,6 +1,7 @@
 <?php 
 require_once('../connection.php');
-  $query = "SELECT producto,marca,p_promotor,p_5,p_compra,stock_real,id,cant_caja,foto,activo,familia,fecha FROM producto ORDER BY producto";
+  $query = "SELECT producto,marca,p_promotor,p_mayor,p_compra,stock_real,id,cant_caja,foto,activo,familia,fecha,codigo,antiguedad FROM producto WHERE activo!='UNIDAD' ORDER BY producto";
+  
   $sql=mysqli_query($con,$query);
   $datos=array();
   $i=0;
@@ -8,7 +9,7 @@ require_once('../connection.php');
     $datos[$i]["producto"]=$row["producto"];
     $datos[$i]["marca"]=$row["marca"];
     $datos[$i]["p_promotor"]=$row["p_promotor"];
-    $datos[$i]["p_especial"]=$row["p_5"];
+    $datos[$i]["p_especial"]=$row["p_mayor"];
     $datos[$i]["p_compra"]=$row["p_compra"];
     $datos[$i]["stock_real"]=$row["stock_real"];
     $datos[$i]["id"]=$row["id"];
@@ -17,6 +18,8 @@ require_once('../connection.php');
     $datos[$i]["activo"]=$row["activo"];
     $datos[$i]["familia"]=$row["familia"];
     $datos[$i]["fecha"]=$row["fecha"];
+    $datos[$i]["codigo"]=$row["codigo"];
+    $datos[$i]["antiguedad"]=$row["antiguedad"];
     $i++;
   }
   echo json_encode($datos);
