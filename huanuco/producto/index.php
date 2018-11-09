@@ -120,16 +120,16 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
       <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php } ?>
-      <!--<button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>-->
+      <button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>
     </div>
     <table class="table table-bordered">
       <thead>
           <tr style='background-color:#428bca;color:white'>
               <th style="text-align: center;width:2.7%;max-width:36px">IMG</th>
               <th style="text-align: center;width:5%">CODIGO</th>
-              <th style="text-align: center;width:19.3%">PRODUCTO</th>
-              <th style="text-align: center;width:8%">MARCA</th>
-              <th style="text-align: center;width:10%">CATEGORIA</th>
+              <th style="text-align: center;width:17.3%">PRODUCTO</th>
+              <th style="text-align: center;width:7%">MARCA</th>
+              <th style="text-align: center;width:9%">CATEGORIA</th>
               <th style="text-align: center;width:10%">PROVEEDOR</th>
               <th style="text-align: center;width:5%">X/CAJA</th>
               <th style="text-align: center;width:5%">S.REAL</th>
@@ -139,6 +139,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
               <th style="text-align: center;width:5%">P.OFERTA</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
               <th style="text-align: center;width:6%">U.COMPRA</th>
+              <th style="text-align: center;width:5%">FRAN</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
       </thead>
@@ -179,6 +180,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
       </tfoot>
     </table>
   </div>
+  <div id='dx'></div>
 </body>
 </html>
 <?php }else{

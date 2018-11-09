@@ -5,6 +5,7 @@ require_once('../connection.php');
     $producto = "";
     foreach($search AS $s){
       $producto .= "concat(ruc,cliente) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
+      //$producto .= "ruc='".$_POST['b']."'";
     }
     $producto = substr($producto, 0, -4);
     $query = "SELECT * FROM cliente WHERE $producto ORDER BY cliente LIMIT 10";

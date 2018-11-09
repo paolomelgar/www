@@ -618,6 +618,14 @@ var stock,compra,promotor,unit;
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          case 'TOTAL':
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='50%' style='margin-top:-9px'><tr><td width='2%' align='center'></td><td width='5%' align='right'>"+data[0][i][1]+"</td><td width='2%'>&nbsp</td><td width='93%'>"+data[0][i][0]+"</td></tr></table>");
+            }
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          break;
         }
         w.focus();
         w.print();

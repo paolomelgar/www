@@ -54,10 +54,7 @@ $(function(){
         }
     });
 	$( "th" ).resizable({ grid: [1, 10000] });
-	$('#ruc').keydown(function(e) {
-	    if ((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105) && e.keyCode != 8 && e.keyCode != 9)
-	      e.preventDefault();
-	});
+	
 	$('#credito').keydown(function(e) {
 	    if ((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105) && e.keyCode != 8 && e.keyCode != 9)
 	      e.preventDefault();
@@ -195,9 +192,9 @@ $(function(){
                     url: "vercliente.php",
                     data: {a:$('#cliente').val()},
                     success: function(data){     
-                        if(data>0){
+                        /*if(data>0){
                          	alert("Este Cliente ya existe, Cambiar de nombre");
-                        }else{
+                        }else{*/
                          	$.ajax({
 			                    type: "POST",
 			                    url: "mn.php",
@@ -213,13 +210,13 @@ $(function(){
 			                    }
 				            });
 				            $("#agregardatos").dialog( "close" ); 
-                        }
+                        //}
                     }
 	            });
 		} } ],
 			open:function(){
 					$('#formagregar input[type="text"]').val('');
-					$('#formagregar select[id="tipo"]').val("FERRETERIA");
+					$('#formagregar select[id="tipo"]').val("FERIA");
 					$('#formagregar select[id="activo1"]').val("SI");},
 			close:function(){
 					$('#formagregar input[type="text"]').val('');

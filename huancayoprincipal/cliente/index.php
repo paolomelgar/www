@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php 
+require_once('../connection.php');
+?>
 <html>
 <head>
 	<title>CLIENTES</title>
@@ -46,36 +48,23 @@
 	<form name="formagregar" id="formagregar">
 		<table width='100%'>
 			<tr><td><input type="hidden" name="id" id="id"/><input type="hidden" id="lat"><input type="hidden" id="lon"></td></tr>
-			<tr><td>RUC:</td><td><input type="text" name="ruc" id="ruc" class="span3" maxlength="11"/></td></tr>
+			<tr><td>RUC:</td><td><input type="text" name="ruc" id="ruc" class="span3" maxlength="11" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>CLIENTE:</td><td><input type="text" name="cliente" id="cliente" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>DIRECCION:</td><td><input type="text" name="direccion" id="direccion" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>TIPO:</td><td><select id="tipo" name="tipo" class="span3">
-				<option value="UNIDAD">UNIDAD</option>
-				<option value="MAYOR">MAYOR</option>
-				<option value="PROMOTOR">PROMOTOR</option>
+				<option value="FERIA">FERIA</option>
 				<option value="FERRETERIA">FERRETERIA</option>
 			</select></td></tr>
 			<tr><td>PROMOTOR:</td><td><select id="representante" name="representante" class="span3">
 				<option value=""></option>
 				<?php 
-                $con = mysqli_connect('localhost','root','','paolo');
-                       mysqli_query ($con,"SET NAMES 'utf8'");
-                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE (cargo='ADMIN' OR cargo='LOGISTICA' OR cargo='PROMOTOR') AND activo='SI'");
+                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE cargo='VENDEDOR' AND activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
                 <?php } ?>
 			</select></td></tr>
 			<tr><td>TELEFONO:</td><td><input type="text" name="telefono" id="telefono" class="span3" maxlength="100"/></td></tr>
-			<tr><td>UBICACION:</td><td><select id="mail" name="mail" class="span3">
-				<option value=""></option>
-				<?php 
-                $con = mysqli_connect('localhost','root','','paolo');
-                       mysqli_query ($con,"SET NAMES 'utf8'");
-                $sql=mysqli_query($con,"SELECT * FROM ubicacion WHERE activo='SI'");
-                while($row=mysqli_fetch_assoc($sql)){ ?>
-                  <option value="<?php echo $row['ubicacion']?>"><?php echo $row['ubicacion']?></option>
-                <?php } ?>
-			</select></td></tr>
+			<tr><td>NOM TIENDA:</td><td><input type="text" name="mail" id="mail" class="span3"/></td></tr>
 			<tr><td>LIMITE CREDITO:</td><td><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td>ACTIVO:</td><td><select id="activo1" name="activo1" class="span3">
 				<option value="SI">SI</option>
@@ -98,9 +87,7 @@
 		PROMOTOR:<select id="promotor" name="promotor" class="span2">
 				<option value=""></option>
 				<?php 
-                $con = mysqli_connect('localhost','root','','paolo');
-                       mysqli_query ($con,"SET NAMES 'utf8'");
-                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE (cargo='ADMIN' OR cargo='LOGISTICA' OR cargo='PROMOTOR') AND activo='SI'");
+                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE cargo='VENDEDOR' AND activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
                 <?php } ?>
@@ -108,8 +95,6 @@
 		UBICACION:<select id="ubicacion" name="ubicacion" class="span2">
 				<option value=""></option>
 				<?php 
-                $con = mysqli_connect('localhost','root','','paolo');
-                       mysqli_query ($con,"SET NAMES 'utf8'");
                 $sql=mysqli_query($con,"SELECT * FROM ubicacion WHERE activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['ubicacion']?>"><?php echo $row['ubicacion']?></option>
@@ -135,7 +120,7 @@
 				<th style="text-align: center;width:5%">CREDITO</th>
 				<th style="text-align: center;width:10%">REPRESENTANTE</th>
 				<th style="text-align: center;width:10%">TELEFONO</th>
-				<th style="text-align: center;width:10%">UBICACION</th>
+				<th style="text-align: center;width:10%">NOM TIENDA</th>
 				<th style="text-align: center;width:5%">ACTIVO</th>
 			</tr>
 		</thead>

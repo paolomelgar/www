@@ -103,6 +103,7 @@ session_start();
                 <option value='huancayoprincipal'>Huancayo Principal</option>
                 <option value='tarapaca'>Tarapaca</option>
                 <option value='huanucotienda'>Huanuco Tienda</option>
+                <option value='neofer'>Neofer</option>
               </select>
             </div>
             <div style='margin-top:10px'><input class="btn btn-primary" name="button" id="button" value="Iniciar Sesion" type="button"></div>

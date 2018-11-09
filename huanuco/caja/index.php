@@ -313,7 +313,8 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='PAOLO'>PAOLO</option>
                       <option id='ROMEL'>ROMEL</option>
                       <option id='LINCOL'>LINCOL</option>
-                      <option id='SEGUNDO'>SEGUNDO</option>
+                      <option id='DARWIN'>DARWIN</option>
+                      <option id='MARILIA'>MARILIA</option>
                     </select>
                   </td>
                 </tr>
