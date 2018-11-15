@@ -7,7 +7,7 @@ require_once('../connection.php');
       $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
     }
     $producto = substr($producto, 0, -4);
-    $query = "SELECT * FROM producto WHERE $producto AND activo!='NO' ORDER BY producto,marca LIMIT 12";
+    $query = "SELECT * FROM producto WHERE $producto AND activo!='NO' AND activo!='ANULADO' ORDER BY producto,marca LIMIT 12";
     $result=mysqli_query($con,$query);
     $i=0;
     $dat=array();
@@ -17,9 +17,9 @@ require_once('../connection.php');
       $dat[$i][2]=$row['p_compra'];
       $dat[$i][3]=$row['cant_caja'];
       $dat[$i][4]=$row['stock_real'];
-      $dat[$i][5]=$row['porcentaje'];
-      $dat[$i][6]=$row['p_promotor'];
-      $dat[$i][7]=$row['p_especial'];
+      $dat[$i][5]=$row['p_promotor'];
+      $dat[$i][6]=$row['p_especial'];
+      $dat[$i][7]=$row['porcentaje'];
       $i++;
     }
     echo json_encode($dat);
