@@ -181,7 +181,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                 <option>100</option>
               </select> 
             </div>
-            <?php if($_SESSION['nombre']=='PAUL MELGAR'){ ?>
+            <?php if($_SESSION['nombre']=='PAUL MELGAR' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAOLA MELGAR'){ ?>
             <div style='float:left;margin-top:5px;margin-left:100px;font-size:25px;font-weight:bold;color:blue'>
               <?php 
                 $sql=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");

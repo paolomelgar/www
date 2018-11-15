@@ -139,13 +139,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' ){
       <td width='3%' id='sumacantidad'></td>
       <td width='7%' id='sumacompra'></td>
       <td width='7%' id='sumaventa'></td>
-      <?php if($_SESSION['nombre']=='PAUL MELGAR'){ ?>
       <td width='7%' id='porcentaje'></td>
       <td width='7%' id='sumatotal' style='padding-right:10px;'></td>
-      <?php }else{ ?>
-      <td width='7%'></td>
-      <td width='7%' style='padding-right:10px;'></td>
-      <?php } ?>
     </tr>
   </table>
 </div>
