@@ -106,7 +106,7 @@ if($_SESSION['valida']=='neofer'){
 	<audio id="sound"><source src="sistema/notify.wav"></source></audio>
 	<div id='name' style='display:none'><?php echo $_SESSION['nombre']; ?></div>
 	<div id='cargo' style='display:none'><?php echo $_SESSION['cargo']; ?></div>
-	<div style='position:absolute;bottom:0px;right:0px;cursor:pointer;background: linear-gradient(#4b6cb7, #182848);color:white;padding:5px;border-radius:10px 0px 0px 10px' id='chat'>
+	<div style='position:absolute;display:none;bottom:0px;right:0px;cursor:pointer;background: linear-gradient(#4b6cb7, #182848);color:white;padding:5px;border-radius:10px 0px 0px 10px' id='chat'>
 		<img src='sistema/chat1.png' width='45px'>
 		<div>CHAT</div>
 	</div>

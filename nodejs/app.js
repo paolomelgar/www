@@ -2,8 +2,8 @@ const request = require('request').defaults({jar: true});
 const cheerio = require('cheerio');
 var app = require('express')(), 
 server = require('http').createServer(app), 
-io = require('socket.io').listen(server),
-mysql = require('mysql');
+io = require('socket.io').listen(server);
+//mysql = require('mysql')
 server.listen(4000);
 
 app.get('/',function(req,res){ 
@@ -15,7 +15,7 @@ const urlCode = 'http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/captcha?acc
 const urlPost = 'http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias';
 var usuarios=[]; 
 io.on('connection',function(socket){ 
-	socket.on('room', function(room) {
+	/*socket.on('room', function(room) {
         socket.join(room);
     });
     socket.on('usuario',function(data){ 
@@ -43,7 +43,7 @@ io.on('connection',function(socket){
 	   io.sockets.in(data).emit('notificacion',"");
 		    
 		
-	});
+	});*/
 	socket.on('sunat', (data) => { 
 		request(urlCode, (err, response, code) => {
 		  const formData = {

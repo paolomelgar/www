@@ -120,7 +120,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
       <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php } ?>
-      <button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>
+      <!--<button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>-->
     </div>
     <table class="table table-bordered">
       <thead>
@@ -148,7 +148,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
       </tbody>
       <tfoot id='foot'>
         <tr>
-          <td colspan='14'>
+          <td colspan='100'>
             <div style='float:left;margin-bottom:-10px'>
               <select id='pagina' style='width:70px'>
                 <option>12</option>

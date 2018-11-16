@@ -148,7 +148,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
       </tbody>
       <tfoot id='foot'>
         <tr>
-          <td colspan='20'>
+          <td colspan='100'>
             <div style='float:left;margin-bottom:-10px'>
               <select id='pagina' style='width:70px'>
                 <option>12</option>
