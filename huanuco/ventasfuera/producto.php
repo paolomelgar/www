@@ -17,7 +17,7 @@ require_once('../connection.php');
     while($row=mysqli_fetch_assoc($result)){
     ?>
       <tr bgcolor='white' style='border:1px solid grey'>
-        <td style='padding:0px;'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['id'].'.jpg?timestamp=23124" width="60px" height="60px">'; ?></td>
+        <td style='padding:0px;'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="60px" height="60px">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td stye='padding:0px'>
           <table width='100%' class="tr">
@@ -26,10 +26,10 @@ require_once('../connection.php');
             </tr>
             <tr>
               <td width='50%'><?php echo $row['marca']; ?></td>
-              <?php if($_SESSION['cargo']=='CLIENTE'){ ?>
-              <td style='text-align:center;color:#f63;font-weight:bold' width='50%'><?php echo "S/ ".$row['p_promotor']; ?></td>
+              <?php if($_SESSION['cargo']=='CLIENTE ESPECIAL'){ ?>
+              <td style='text-align:center;color:#f63;font-weight:bold' width='50%'><?php echo "S/ ".number_format($row['p_compra']*1.05,2, '.', ''); ?></td>
               <?php }else{ ?>
-              <td style='text-align:center;color:#f63;font-weight:bold' width='50%'><?php echo "S/ ".$row['p_unidad']; ?></td>
+              <td style='text-align:center;color:#f63;font-weight:bold' width='50%'><?php echo "S/ ".$row['p_promotor']; ?></td>
               <?php } ?>
             </tr>
           </table>

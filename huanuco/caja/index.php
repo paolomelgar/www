@@ -431,22 +431,13 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
         <thead>
           <tr bgcolor="#428bca" style="color:#FFF;text-align:center;font-size:13px">
             <th width="3.5%">IMG</th>
-            <th width="47.5%">PRODUCTO</th>
-            <th width="23%">MARCA</th>
-            <?php if($_SESSION['cargo']=='ADMIN'){ ?>
+            <th width="8%">CODIGO</th>
+            <th width="43.5%">PRODUCTO</th>
+            <th width="20%">MARCA</th>
             <th width="7%" style='display:none'>P. PROM</th>
             <th width="10%">X/CAJA</th>
             <th width="8%">STOCK</th>
-            <?php }else{ ?>
-            <th width="7%" style='display:none'>P. PROM</th>
-            <th width="10%">X/CAJA</th>
-            <th width="8%">STOCK</th>
-            <?php } ?>
-            <?php if($_SESSION['cargo']=='ADMIN'){ ?>
             <th width="7%">P. PROMO</th>
-            <?php }else{ ?>
-            <th width="7%">P. MAYOR</th>
-            <?php } ?>
           </tr>
         </thead>
         <tbody id="tb1">
@@ -466,7 +457,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
             <td colspan='3'><input type="text" id="busqueda" style="background-color: #F8FD8D;" class='span8'/><input type='hidden' id='id'></td>
             <td align='right'><span id='stock' style='color:red;font-weight:bold;margin-right:10px;display:none'></span><input type="text" id="cantidad" style="text-align:right;background-color: #F8FD8D" class='span1'/></td>
             <td align='right'><input type="text" id="precio_u" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='promotor'></td>
-            <td align='right'><input type="text" id="importe" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='compra'></td>
+            <td align='right'><input type="text" id="importe" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='compra'><input type='hidden' id='codigo'></td>
           </tr>
         </thead>
         <tbody>
@@ -523,7 +514,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
             <td ><input type="text" id="busqueda1" style="background-color: #F8FD8D" class='span6'/></td>
             <td align='right'><input type="text" id="cantidad1" style="text-align:right;background-color: #F8FD8D" class='span1'/></td>
             <td align='right'><input type="text" id="precio_u1" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='compra1'></td>
-            <td align='right'><input type="text" id="importe1" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='id1'></td>
+            <td align='right'><input type="text" id="importe1" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='id1'><input type='hidden' id='codigo1'></td>
             <td align='right'>
               <select id="estado" class='span2' style="background-color: #F8FD8D;margin-bottom:0px">
                 <option value="">-------------</option>

@@ -1161,7 +1161,7 @@ if($_SESSION['valida']=='huanuco'){
 			            			<td style='background-color:white;width:200px'>
 			                        	<h1 align='center'><img src="../catalogo1/oferta.jpg" width='150px' height='40px'/></h1>
 			                        	<h3 align='center' style='color:#4061a7'><?php echo $row['producto']." ".$row['marca']; ?></h4>
-			                        	<?php if($_SESSION['cargo']=='CLIENTE'){ ?>
+			                        	<?php if($_SESSION['cargo']=='CLIENTE' || $_SESSION['cargo']=='CLIENTE ESPECIAL'){ ?>
 			                        	<h2 align='center' style='text-decoration: line-through;margin-top:-15px;color:red'><?php echo "S/ ".$row['p_promotor']; ?></h2>
 			                        	<h1 align='center' style='font-size:45px;margin-top:-20px;color:#f63;font-family: "Lato", "sans-serif";'><?php echo "S/ ".$row['p_especial']; ?></h1>
 			                        	<?php }else{ ?>

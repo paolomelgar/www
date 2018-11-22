@@ -207,11 +207,12 @@ var stock,compra,promotor,unit;
           );
           $('#tb1 tr').click(function(){
             var id=$('#tb1>tr:eq('+x+')').find('td:eq(1)').text();
-            var producto=$('#tb1>tr:eq('+x+')').find('td:eq(2)').text()+" "+$('#tb1>tr:eq('+x+')').find('td:eq(3)').text();
-            compra=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(4)').text());
-            stock=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(6)').text());
-            promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(7)').text()).toFixed(2);
-            unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(7)').text()).toFixed(2);
+            var producto=$('#tb1>tr:eq('+x+')').find('td:eq(3)').text()+" "+$('#tb1>tr:eq('+x+')').find('td:eq(4)').text();
+            var codigo=$('#tb1>tr:eq('+x+')').find('td:eq(2)').text();
+            compra=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(5)').text());
+            stock=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(7)').text());
+            promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(8)').text()).toFixed(2);
+            unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(8)').text()).toFixed(2);
             $('#row'+result+' tr').each(function () {
               if(producto == $(this).find('td:eq(1)').text()){
                 swal("","Este producto ya esta en la lista","error");
@@ -230,6 +231,7 @@ var stock,compra,promotor,unit;
               $('#stock'+result).text("");
               $('#compra'+result).val("");
               $('#promotor'+result).val("");
+              $('#codigo'+result).val("");
               $("#result"+result).hide();
               $("#busqueda"+result).focus();
             }
@@ -243,6 +245,7 @@ var stock,compra,promotor,unit;
               $('#stock'+result).text(stock);
               $('#compra'+result).val(compra);
               $('#promotor'+result).val(promotor);
+              $('#codigo'+result).val(codigo);
               $("#result"+result).hide();
               $("#cantidad"+result).focus();
             }
@@ -367,7 +370,7 @@ var stock,compra,promotor,unit;
       }
       if($('#id').val()>0){
         var next= "<tr class='fila'>\n" +
-                  "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$("#id").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
+                  "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$("#codigo").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
                   "<td width='68%' class='produ'>" + $("#busqueda").val() + "</td>\n";
         if($('#cantidad').hasClass('mayorstock')){
           next += "<td width='10%' contenteditable='true' class='editme1 mayorstock' style='text-align:right'>" + $("#cantidad").val() + "</td>\n";
@@ -383,6 +386,7 @@ var stock,compra,promotor,unit;
                   "<td style='display:none'>" + $("#compra").val() +"</td>\n" +
                   "<td style='display:none'>" + $("#promotor").val() +"</td>\n" +
                   "<td style='display:none'>" + $("#stock").text() +"</td>\n" +
+                  "<td style='display:none'>" + $("#codigo").text() +"</td>\n" +
                   "</tr>";
         $('#cantidad').removeClass('mayorstock');
         $('#precio_u').removeClass('mayorstock');
@@ -803,7 +807,7 @@ var stock,compra,promotor,unit;
       if($('#id1').val()>0 && $('#estado').val()!=""){
         $('#row1').append(
           "<tr class='fila'>\n" +
-          "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$("#id1").val()+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
+          "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$("#codigo1").val()+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
           "  <td width='53%' class='produ'>" + $("#busqueda1").val() + "</td>\n" +
           "  <td width='10%' contenteditable='true' class='editme3' style='text-align:right'>" + $("#cantidad1").val() + "</td>\n" +
           "  <td width='10%' contenteditable='true' class='editme4' style='text-align:right'>" + parseFloat($("#precio_u1").val()).toFixed(2) + "</td>\n" +
@@ -811,6 +815,7 @@ var stock,compra,promotor,unit;
           "  <td width='15%' style='text-align:center'>" + $("#estado").val()+ "</td>\n" +
           "  <td style='display:none'>" + $("#id1").val() +"</td>\n" +
           "  <td style='display:none'>" + $("#compra1").val() +"</td>\n" +
+          "  <td style='display:none'>" + $("#codigo1").val() +"</td>\n" +
           "</tr>\n"
         );
         $('#subtotal_devol').val(parseFloat(suma1()).toFixed(2));

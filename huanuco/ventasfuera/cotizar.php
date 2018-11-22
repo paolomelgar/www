@@ -21,12 +21,12 @@ if(isset($_POST) && !empty($_POST)){
 		$q = mysqli_query($con,"SELECT id FROM marca WHERE marca='".$row['marca']."' AND foto='SI'");
 		$d = mysqli_fetch_row($q);
 		$dat[$i][0]=$row['producto'];
-		if($_SESSION['nombre']!='GRUPO FERRETERO INNOVA S.R.L.'){
+		if($_SESSION['cargo']!='CLIENTE ESPECIAL'){
 			$dat[$i][1]=$row['p_promotor'];
 			$dat[$i][2]=$row['p_especial'];
 		}else{
-			$dat[$i][1]=round($row['p_compra']*1.05,2);
-			$dat[$i][2]=round($row['p_compra']*1.05,2);
+			$dat[$i][1]=number_format($row['p_compra']*1.05,2, '.', '');
+			$dat[$i][2]=number_format($row['p_compra']*1.05,2, '.', '');
 		}
 		$dat[$i][3]=$row['stock_real'];
 		$dat[$i][4]=$row['id'];

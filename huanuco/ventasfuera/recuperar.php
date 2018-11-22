@@ -8,10 +8,10 @@ if(isset($_POST) && !empty($_POST)){
   		$query = mysqli_query($con,"SELECT producto,marca,p_promotor,p_compra FROM producto WHERE id='".$data[$i]."'"); 
 		$row = mysqli_fetch_row($query);
 		$dat[$i][0]=$row[0]." ".$row[1];
-		if($_SESSION['nombre']!='GRUPO FERRETERO INNOVA S.R.L.'){
+		if($_SESSION['cargo']!='CLIENTE ESPECIAL'){
 			$dat[$i][1]=$row[2];
 		}else{
-			$dat[$i][1]=round($row[3]*1.05,2);
+			$dat[$i][1]=number_format($row[3]*1.05,2, '.', '');
 		}
   	}
 	echo json_encode($dat);

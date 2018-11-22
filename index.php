@@ -21,7 +21,7 @@ session_start();
       if (screen.width <= 699) {
         location.href=sesion+"/mobile";
       }else{
-        if(cargo=='CLIENTE'){
+        if(cargo=='CLIENTE' || cargo=='CLIENTE ESPECIAL'){
           location.href=sesion+"/ventasfuera/";
         }else{
           location.href=sesion+"/";
@@ -53,7 +53,7 @@ session_start();
             if (screen.width <= 699) {
               location.href=data[0]+"/mobile";
             }else{
-              if(data[1]=='CLIENTE'){
+              if(data[1]=='CLIENTE' || data[1]=='CLIENTE ESPECIAL'){
                 location.href=data[0]+"/ventasfuera/";
               }else{
                 location.href=data[0]+"/";

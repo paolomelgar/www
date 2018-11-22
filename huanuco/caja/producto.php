@@ -22,6 +22,7 @@ require_once('../connection.php');
       <tr class="tr" <?php if($diff->format("%a")>=365){echo "bgcolor='#FF8B8B'";}else if($diff->format("%a")<365 && $diff->format("%a")>=182){echo "bgcolor='#FBFE33'";}else{echo "bgcolor='white'";}?> style='font-weight: bold'>
         <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
+        <td style='text-align: center'><?php echo $row['codigo']; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN'){ ?>
