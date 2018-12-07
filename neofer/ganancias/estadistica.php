@@ -123,8 +123,8 @@ switch ($_POST['t']) {
 		$d[0]='mensual';
 	break;
 	case 'hora':
-		for($j=0;$j<12;$j++){
-			$quer = mysqli_query($con,"SELECT SUM(total) FROM total_ventas WHERE entregado='SI' AND MONTH(fecha)='".($_POST['m']+1)."' AND YEAR(fecha)='".$_POST['y']."' AND HOUR(hora) between '".($j+8)."' and '".($j+9)."'");
+		for($j=0;$j<14;$j++){
+			$quer = mysqli_query($con,"SELECT SUM(total) FROM total_ventas WHERE entregado='SI' AND MONTH(fecha)='".($_POST['m']+1)."' AND YEAR(fecha)='".$_POST['y']."' AND HOUR(hora) between '".($j+8).":00:00' and '".($j+8).":59:59'");
 			$rr=mysqli_fetch_row($quer);
 			$a[$j]=$rr[0];
 			switch ($j) {
@@ -163,6 +163,12 @@ switch ($_POST['t']) {
 				break;
 				case '11':
 					$b[$j]="19:00-20:00";
+				break;
+				case '12':
+					$b[$j]="20:00-21:00";
+				break;
+				case '13':
+					$b[$j]="21:00-22:00";
 				break;
 				default:
 				break;

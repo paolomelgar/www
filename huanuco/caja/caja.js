@@ -481,7 +481,7 @@ var stock,compra,promotor,unit;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
             if(parseInt(data[0].length)<15){
-              $('#dx').append("<table width='100%' style='margin-top:155px;font:0.8em Verdana;'><tr><td width='9%'>.</td><td width='91%'>"+data[1][12]+"</td></tr></table>\n"+
+              $('#dx').append("<table width='100%' style='margin-top:148px;font:0.8em Verdana;'><tr><td width='9%'>.</td><td width='91%'>"+data[1][12]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='9%'>.</td><td width='76%'>"+data[1][1]+"</td><td width='15%'>"+data[1][0]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='9%'>.</td><td width='91%'>"+data[1][2]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"

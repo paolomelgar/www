@@ -108,6 +108,7 @@ session_start();
                 <option value='lymgroup'>L & M Group</option>
                 <option value='tingomaria'>Tingo Maria</option>
                 <option value='tarapac'>Tarapaca</option>
+                <option value='prolongacionhuanuco'>Prolongacion Huanuco</option>
                 <option value='almacen'>Almacen</option>
               </select>
             </div>

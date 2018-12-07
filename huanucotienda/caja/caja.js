@@ -1,4 +1,4 @@
-var socket=io.connect('http://ferreboomasdd.com:3500');
+var socket=io.connect('http://ferreboom.com:4000');
 socket.on('connect', function() {
   socket.emit('room', "caja");
 });
@@ -889,13 +889,17 @@ var stock,compra,promotor,unit;
   });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $("#sunat").click(function(){
-    $('#dialogsunat').empty();
-    $('#dialogsunat').show();
-    $('#ruc').select();
-    document.execCommand("copy");
-    $('#dialogsunat').append("<iframe src='http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias' width='100%' height='98%' id='frameDemo'></iframe><span class='ui-icon ui-icon-circle-close' id='sal' style='position:absolute;right:0px;top:0px;cursor:pointer'>");
-    $('#sal').click(function(){
-      $('#dialogsunat').hide();
+    swal({
+      title: "Buscando en la Sunat..",
+      text: "",
+      imageUrl: "../loading.gif",
+      showConfirmButton: false
+    });
+    socket.emit('sunat',$("#ruc").val());
+    socket.on('sunat',function(data){ 
+      $('#razon_social').val(data.razon);
+      $('#direccion').val(data.direccion);
+      swal.close();
     });
   });
 

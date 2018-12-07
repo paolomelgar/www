@@ -77,7 +77,7 @@ io.on('connection',function(socket){
 		      }
 			  socket.emit("sunat",{ 
 					razon:razon,
-					direccion:direccion
+					direccion:direccion.replace(/\s*\(.*?\)\s*/g, ' - ')
 				});
 		      return;
 		    }

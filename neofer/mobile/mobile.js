@@ -1,4 +1,7 @@
-var socket=io.connect('http://ferreboom.com:3500');
+var socket=io.connect('http://ferreboom.com:4000');
+socket.on('connect', function() {
+  socket.emit('room', "Huanuco");
+});
 $(function () {
   var date = new Date();
   $('#fechaini').datepicker({
@@ -120,10 +123,24 @@ $(function () {
             $("#resultruc").append("<div style='border-bottom: 1px solid #ccc;' class='w3-round-top sel'><div style='font-size:11px;font-weight:bold' class='r'>"+data[i][0]+"</div><div style='font-size:11px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color:blue;font-weight:bold' class='n'>"+data[i][1]+"</div><div style='font-size:10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' class='d'>"+data[i][2]+"</div></div>");
           }
         }else{
-          $("#resultruc").append("<div class='w3-text-red' style='text-align:center'><div>No Hay Resultados</div></div>");
+          $("#resultruc").append("<div class='w3-text-red' style='text-align:center' id='sunat'><div>Buscar en Sunat</div><div></div></div>");
         }
         $('#resultruc> div:odd').addClass('impar');
         $('#resultruc> div:even').addClass('par');
+        $("#sunat").click(function(){
+        swal({
+          title: "Buscando en la Sunat..",
+          text: "",
+          imageUrl: "../loading.gif",
+          showConfirmButton: false
+        });
+        socket.emit('sunat',$("#ruc").val());
+        socket.on('sunat',function(data){ 
+          $('#razon_social').val(data.razon);
+          $('#direccion').val(data.direccion);
+          swal.close();
+        });
+      });
       }
     });
   }

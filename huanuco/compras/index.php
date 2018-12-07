@@ -15,6 +15,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
 <script type="text/javascript" src="../sweet-alert.min.js"></script> 
 <script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
+<script src="../socket.io.js"></script>
 <script src="../Chart.min.js"></script>
 <script type="text/javascript" src="compras.js"></script>
 <style>

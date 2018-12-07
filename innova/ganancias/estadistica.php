@@ -147,7 +147,7 @@ switch ($_POST['t']) {
 	break;
 	case 'hora':
 		for($j=0;$j<12;$j++){
-			$quer = mysqli_query($con,"SELECT SUM(total) FROM total_ventas WHERE entregado='SI' AND MONTH(fecha)='".$_POST['m']."' AND YEAR(fecha)='".$_POST['y']."' AND HOUR(hora) between '".($j+8)."' and '".($j+9)."'");
+			$quer = mysqli_query($con,"SELECT SUM(total) FROM total_ventas WHERE entregado='SI' AND MONTH(fecha)='".$_POST['m']."' AND YEAR(fecha)='".$_POST['y']."' AND HOUR(hora) between '".($j+8).":00:00' and '".($j+8).":59:59'");
 			$rr=mysqli_fetch_row($quer);
 			$a[$j]=$rr[0];
 			switch ($j) {

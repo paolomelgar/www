@@ -23,6 +23,8 @@ if($_SESSION['mysql']=="dorispovez"){
   $a="TINGO MARIA";
 }else if($_SESSION['mysql']=="tarapac"){
   $a="TARAPACA";
+}else if($_SESSION['mysql']=="prolongacionhuanuco"){
+  $a="PROLONGACION HUANUCO";
 }
 if($_SESSION['valida']=='innova'){
 ?>

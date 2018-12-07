@@ -112,6 +112,7 @@ $(function(){
       dataType: "json",
       data: 'm='+$('select[id="month"]').val()+'&y='+$('select[id="year"]').val()+'&t='+$('#forma').val(),
       beforeSend:function(){
+        //alert($('select[id="month"]').val()+" "+$('select[id="year"]').val()+" "+$('#forma').val())
         swal({
           title: "Consultando Estadistica..",
           text: "Esto puede tardar unos Segundos",

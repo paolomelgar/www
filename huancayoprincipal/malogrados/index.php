@@ -76,7 +76,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
       <td style='text-align:right'>FECHA INICIO:</td>
       <td><input type='text' id='inicio' name='inicio' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></td>
       <td style='text-align:right'>FECHA FINAL:</td>
-      <td><input type='text' id='final' name='final' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></td>
+      <td><input type='text' id='final' name='final' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"><input type="hidden" id="prueba"></td>
       <td style='text-align:right'>ESTADO:</td>
       <td>
         <select id='estado' name='estado' style='margin-bottom: 0px;' class='span2'>
