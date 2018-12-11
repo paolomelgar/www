@@ -17,6 +17,14 @@ $(function(){
     changeYear: true,
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);
+  $('#prueba').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
   $("input").keyup(function(){
     var start = this.selectionStart,
         end = this.selectionEnd;
@@ -296,29 +304,37 @@ var typingTimer;
     return z;
   }
   $('#row').on('contextmenu','.fila',function(e){
-    $("#row tr").removeClass('selected1');
-    $(this).addClass('selected1');
-    e.preventDefault();
-    swal({
-      title: "Esta Seguro de Eliminar!",
-      text: "",
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Aceptar",
-      cancelButtonText: "Cancelar"
-    },
-    function(isConfirm){
-      if (isConfirm) {
-        $.ajax({
-          type: "POST",
-          url: "eliminar.php",
-          data: 'prod='+$('.selected1').find('td:eq(3)').text()+'&cant='+$('.selected1').find('td:eq(4)').text()+'&id='+$('.selected1').find('td:eq(8)').text(),
-          success: function(data){
-          }
+    if($('#cargo').text()=='ADMIN'){
+      $("#row tr").removeClass('selected1');
+      $(this).addClass('selected1');
+      e.preventDefault();
+      if($('.selected1').find('td:eq(1)').text()!=$('#prueba').val()){
+        swal("","No se puede eliminar egreso de fecha anterior","error");
+      }else{
+        swal({
+          title: "Esta Seguro de Eliminar!",
+          text: "",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Aceptar",
+          cancelButtonText: "Cancelar"
+        },
+        function(isConfirm){
+          if (isConfirm) {
+            $.ajax({
+              type: "POST",
+              url: "eliminar.php",
+              data: {prod:$('.selected1').find('td:eq(3)').text(),
+                     cant:$('.selected1').find('td:eq(4)').text(),
+                     id:$('.selected1').find('td:eq(8)').text()},
+              success: function(data){
+              }
+            });
+            $('.selected1').remove();
+          } 
         });
-        $('.selected1').remove();
-      } 
-    });
+      }
+    }
   });
 });

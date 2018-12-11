@@ -18,6 +18,7 @@ if($_SESSION['valida']=='innova'){
   <script type="text/javascript" src="../sweet-alert.min.js"></script>
   <script type="text/javascript" src="../jquery.longpress.js"></script>
   <script src="../Chart.min.js"></script>
+  <script src="../socket.io.js"></script>
   <style type="text/css">
   
   input,textarea{
@@ -87,6 +88,10 @@ if($_SESSION['valida']=='innova'){
   }
 </style>
 <script type="text/javascript">
+  var socket=io.connect('http://ferreboom.com:4000');
+socket.on('connect', function() {
+  socket.emit('room', "Huanuco");
+});
   $(function () {
   var date = new Date();
   $('#fechaini').datepicker({
@@ -214,10 +219,24 @@ if($_SESSION['valida']=='innova'){
             $("#resultruc").append("<div style='border-bottom: 1px solid #ccc;' class='w3-round-top sel'><div style='font-size:11px;font-weight:bold' class='r'>"+data[i][0]+"</div><div style='font-size:11px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color:blue;font-weight:bold' class='n'>"+data[i][1]+"</div><div style='font-size:10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' class='d'>"+data[i][2]+"</div></div>");
           }
         }else{
-          $("#resultruc").append("<div class='w3-text-red' style='text-align:center'><div>No Hay Resultados</div></div>");
+          $("#resultruc").append("<div class='w3-text-red' style='text-align:center' id='sunat'><div>Buscar en Sunat</div><div></div></div>");
         }
         $('#resultruc> div:odd').addClass('impar');
         $('#resultruc> div:even').addClass('par');
+         $("#sunat").click(function(){
+          swal({
+            title: "Buscando en la Sunat..",
+            text: "",
+            imageUrl: "../loading.gif",
+            showConfirmButton: false
+          });
+          socket.emit('sunat',$("#ruc").val());
+          socket.on('sunat',function(data){ 
+            $('#razon_social').val(data.razon);
+            $('#direccion').val(data.direccion);
+            swal.close();
+          });
+        });
       }
     });
   }
@@ -264,7 +283,7 @@ if($_SESSION['valida']=='innova'){
           $("#result").empty();
           if(data.length>0){
             for (var i = 0; i <= data.length-1; i++) {
-              $("#result").append("<div style='height:60px;border-bottom: 1px solid #ccc;' class='w3-row'><input type='hidden' value='"+data[i][2]+"' class='compra'><input type='hidden' value='"+data[i][7]+"' class='espe'><input type='hidden' value='"+data[i][0]+"' class='id'><div class='w3-col imag' style='width:59px' id='"+data[i][0]+"'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/innova/foto"+$("#mysql").val()+"/a"+data[i][0]+".jpg' width='59' height='59'></div><div class='w3-rest prod"+r+"' style='height:60px'><div style='height:30px;font-size:13px;font-weight:bold;color:#797979;line-height: 1.2;' class='pro'>"+data[i][1]+"</div><div class='w3-row' style='height:30px;font-size:9px'><div class='w3-col' style='width:20%;text-align:center'><div>STOCK</div><div style='font-weight:bold;color:red;font-size:14px' class='stock'>"+data[i][4]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>UNIDAD</div><div style='font-weight:bold;color:blue;font-size:14px' class='unidad'>"+data[i][5]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>MAYOR</div><div style='font-weight:bold;color:blue;font-size:14px' class='mayor'>"+data[i][6]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>ESPECIAL</div><div style='font-weight:bold;color:blue;font-size:14px' class='especial'>"+data[i][7]+"</div></div><div class='w3-col' style='width:20%;text-align:center'><div>X/CAJA</div><div style='font-weight:bold;color:#797979;font-size:14px'>"+data[i][3]+"</div></div></div></div></div>");
+              $("#result").append("<div style='height:60px;border-bottom: 1px solid #ccc;' class='w3-row'><input type='hidden' value='"+data[i][2]+"' class='compra'><input type='hidden' value='"+data[i][7]+"' class='espe'><input type='hidden' value='"+data[i][0]+"' class='id'><div class='w3-col imag' style='width:59px' id='"+data[i][0]+"'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a"+data[i][8]+".jpg' width='59' height='59'></div><div class='w3-rest prod"+r+"' style='height:60px'><div style='height:30px;font-size:13px;font-weight:bold;color:#797979;line-height: 1.2;' class='pro'>"+data[i][1]+"</div><div class='w3-row' style='height:30px;font-size:9px'><div class='w3-col' style='width:20%;text-align:center'><div>STOCK</div><div style='font-weight:bold;color:red;font-size:14px' class='stock'>"+data[i][4]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>UNIDAD</div><div style='font-weight:bold;color:blue;font-size:14px' class='unidad'>"+data[i][5]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>MAYOR</div><div style='font-weight:bold;color:blue;font-size:14px' class='mayor'>"+data[i][6]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>ESPECIAL</div><div style='font-weight:bold;color:blue;font-size:14px' class='especial'>"+data[i][7]+"</div></div><div class='w3-col' style='width:20%;text-align:center'><div>X/CAJA</div><div style='font-weight:bold;color:#797979;font-size:14px'>"+data[i][3]+"</div></div></div></div></div>");
             }
           }else{
             $("#result").append("<div class='w3-text-red' style='text-align:center'><div>No Hay Resultados</div></div>");

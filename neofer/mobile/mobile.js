@@ -128,19 +128,19 @@ $(function () {
         $('#resultruc> div:odd').addClass('impar');
         $('#resultruc> div:even').addClass('par');
         $("#sunat").click(function(){
-        swal({
-          title: "Buscando en la Sunat..",
-          text: "",
-          imageUrl: "../loading.gif",
-          showConfirmButton: false
+          swal({
+            title: "Buscando en la Sunat..",
+            text: "",
+            imageUrl: "../loading.gif",
+            showConfirmButton: false
+          });
+          socket.emit('sunat',$("#ruc").val());
+          socket.on('sunat',function(data){ 
+            $('#razon_social').val(data.razon);
+            $('#direccion').val(data.direccion);
+            swal.close();
+          });
         });
-        socket.emit('sunat',$("#ruc").val());
-        socket.on('sunat',function(data){ 
-          $('#razon_social').val(data.razon);
-          $('#direccion').val(data.direccion);
-          swal.close();
-        });
-      });
       }
     });
   }

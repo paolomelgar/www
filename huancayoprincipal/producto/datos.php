@@ -7,6 +7,8 @@ if(substr($_POST['b'],0,3)=='/P '){
     $producto .= "marca LIKE '%".substr($_POST['b'],3)."%'";
 }else if(substr($_POST['b'],0,3)=='/F '){
     $producto .= "familia LIKE '%".substr($_POST['b'],3)."%'";
+}else if(substr($_POST['b'],0,3)=='/U '){
+    $producto .= "ubicacion=".substr($_POST['b'],3);
 }else{
     $search = explode(" ", $_POST['b']);
     foreach($search AS $s){

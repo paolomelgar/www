@@ -20,6 +20,7 @@ require_once('../connection.php');
       $dat[$i][5]=$row['p_unidad'];
       $dat[$i][6]=$row['p_promotor'];
       $dat[$i][7]=$row['p_especial'];
+      $dat[$i][8]=$row['codigo'];
       $i++;
     }
     echo json_encode($dat);

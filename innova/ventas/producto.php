@@ -25,7 +25,7 @@ require_once('../connection.php');
         }
     ?>
       <tr class="tr" <?php echo $as; ?> style='font-weight:bold;'>
-        <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/innova/foto'.$_SESSION['mysql'].'/a'.$row['id'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
+        <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>

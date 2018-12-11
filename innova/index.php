@@ -109,7 +109,8 @@ session_start();
                 <option value='tingomaria'>Tingo Maria</option>
                 <option value='tarapac'>Tarapaca</option>
                 <option value='prolongacionhuanuco'>Prolongacion Huanuco</option>
-                <option value='almacen'>Almacen</option>
+                <option value='kalimax'>Kalimax</option>
+                <option value='ayacucho'>Ayacucho</option>
               </select>
             </div>
             <div style='margin-top:10px'><input class="btn btn-warning" name="button" id="button" value="Iniciar Sesion" type="button"></div>

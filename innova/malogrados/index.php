@@ -67,6 +67,7 @@ if($_SESSION['valida']=='innova'){
   </style>
 </head>
 <body>
+  <div id='cargo' style='display:none'><?php echo $_SESSION['cargo']; ?></div>
 <form id="form" action="" method="post">
   <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;background-color:#3FED59;font-weight:bold;'>PRODUCTOS MALOGRADOS</h3>
   <table width='100%'>
@@ -75,7 +76,7 @@ if($_SESSION['valida']=='innova'){
       <td style='text-align:right'>FECHA INICIO:</td>
       <td><input type='text' id='inicio' name='inicio' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></td>
       <td style='text-align:right'>FECHA FINAL:</td>
-      <td><input type='text' id='final' name='final' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></td>
+      <td><input type='text' id='final' name='final' style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"><input type="hidden" id="prueba"></td>
       <td style='text-align:right'>ESTADO:</td>
       <td>
         <select id='estado' name='estado' style='margin-bottom: 0px;' class='span2'>

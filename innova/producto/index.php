@@ -75,7 +75,6 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
   <form name="formagregar" id="formagregar">
     <table width='100%'>
       <tr><td width='25%'><input type="hidden" name="id"/></td></tr>
-      <tr><td width='25%'>CODIGO:</td><td width='75%'><input type="text" id='codigo' name="codigo" class="span3" maxlength="5" style="float:left;"/></td></tr>
       <tr><td width='25%'>PRODUCTO:</td><td width='75%'><input type="text" name="producto" class="span3" style="float:left;"/></td></tr>
       <tr><td width='25%'>MARCA:</td><td width='75%'><input type="text" name="marca" id='marca' class="span3" style="float:left;"/><a id='add' href='#'>ADD</a></td></tr>
       <tr><td width='25%'>CATEGORIA:</td><td width='75%'><select name="familia" class="span3">
@@ -85,7 +84,6 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
                   <option value="<?php echo $row['familia']?>"><?php echo $row['familia']?></option>
                 <?php } ?> 
       </select></td></tr>
-      <tr><td width='25%'>PROVEEDOR:</td><td width='75%'><input type="text" name="proveedor" id='proveedor' class="span3" style="float:left;"/></td></tr>
       <tr><td width='25%'>ACTIVO:</td><td width='75%'><select name="activo1" class="span3">
         <option value="SI">SI</option>
         <option value="NO">NO</option>
