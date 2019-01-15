@@ -16,7 +16,7 @@ if($_POST['personal']!=''){
     $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,sesion) 
                 VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."','".$_POST['concepto']."',NOW(),'".$_SESSION['cargo']."')");
 }
-if($_SESSION['cargo']=='CAJERO'){
+if($_SESSION['cargo']=='ADMIN'){
     if($_POST['oper']=='INGRESO'){
     	$inser=mysqli_query($con,"UPDATE dinerodiario SET ingresos=(ingresos+".$_POST['monto'].") WHERE fecha='$hoy'");}
     else{

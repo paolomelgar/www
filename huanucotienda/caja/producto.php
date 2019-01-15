@@ -35,7 +35,6 @@ require_once('../connection.php');
         <td style='color:red;text-align:right'><?php echo $row['stock_real']; ?></td>
         <?php } ?>
         <td style='text-align:right;background-color:#f63'><?php echo $row['p_promotor']; ?></td>
-        <td style='text-align:right;'><?php echo $row['p_especial']; ?></td>
         </tr>
     <?php
     }

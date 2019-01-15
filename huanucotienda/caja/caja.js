@@ -888,6 +888,30 @@ var stock,compra,promotor,unit;
     });
   });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$('#tienda').click(function(){
+  $.ajax({
+      type: "POST",
+      url: "otrastiendas.php",
+      data: {b:$('#busqueda').val(),
+             doc:$('#documento').val()},
+      cache: false,
+      beforeSend:function(){
+        $('#result').show();
+        $('#tb1').empty();
+        $('#tb1').append("<tr><td align='center'><img src='../loading.gif'></td></tr>");
+      },
+      success: function(data){
+        $("#tb1").empty();
+        $("#tb1").append(data);
+        if($('#tb1 >tr').length =="0"){
+          $("#result").hide();
+        }else{
+          $('#result').show();
+        }
+      }
+    });
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $("#sunat").click(function(){
     swal({
       title: "Buscando en la Sunat..",

@@ -443,7 +443,6 @@ if($_SESSION['valida']=='huanucotienda' && $_SESSION['cargo']!='VENDEDOR' ){
             <th width="8%">STOCK</th>
             <?php } ?>
             <th width="7%">P. UND</th>
-            <th width="7%">P. MAYOR</th>
           </tr>
         </thead>
         <tbody id="tb1">
@@ -460,7 +459,7 @@ if($_SESSION['valida']=='huanucotienda' && $_SESSION['cargo']!='VENDEDOR' ){
             <th width="10%" style="text-align:center">IMPORTE</th>
           </tr>
           <tr>
-            <td colspan='3'><input type="text" id="busqueda" style="background-color: #F8FD8D;" class='span8'/><input type='hidden' id='id'></td>
+            <td colspan='3'><input type="text" id="busqueda" style="background-color: #F8FD8D;" class='span7'/><input type='hidden' id='id'><span style='text-decoration:none;font-weight:bold;color:blue;font-size: 18px;cursor:pointer' id='tienda'>Consultar Tienda Ferreboom</span></td>
             <td align='right'><span id='stock' style='color:red;font-weight:bold;margin-right:10px;display:none'></span><input type="text" id="cantidad" style="text-align:right;background-color: #F8FD8D" class='span1'/></td>
             <td align='right'><input type="text" id="precio_u" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='promotor'></td>
             <td align='right'><input type="text" id="importe" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='compra'></td>

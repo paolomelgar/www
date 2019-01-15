@@ -639,6 +639,30 @@ var stock,compra,promotor,unit;
     });
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$('#tienda').click(function(){
+  $.ajax({
+      type: "POST",
+      url: "otrastiendas.php",
+      data: {b:$('#busqueda').val(),
+             doc:$('#documento').val()},
+      cache: false,
+      beforeSend:function(){
+        $('#result').show();
+        $('#tb1').empty();
+        $('#tb1').append("<tr><td align='center'><img src='../loading.gif'></td></tr>");
+      },
+      success: function(data){
+        $("#tb1").empty();
+        $("#tb1").append(data);
+        if($('#tb1 >tr').length =="0"){
+          $("#result").hide();
+        }else{
+          $('#result').show();
+        }
+      }
+    });
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $('#row').on('click','.editme1',function(){
     document.execCommand('selectAll', false, null);
   });
