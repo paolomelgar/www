@@ -213,12 +213,9 @@ if($_SESSION['valida']=='neofer'){
 						  		<ul>
 						  			<li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="cliente/" target="contenedor">CLIENTES</a></li>
-									<li><a href="transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="producto/" target="contenedor">PRODUCTOS</a></li>
 									<li><a href="marca/" target="contenedor">MARCAS</a></li>
 									<li><a href="familia/" target="contenedor">CATEGORIAS</a></li>
-									<li><a href="camara/" target="contenedor">CAMARA VIGILANCIA</a></li>
-									<li><a href="maps/" target="contenedor">MAPS</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -246,7 +243,6 @@ if($_SESSION['valida']=='neofer'){
 							<li><a href="#" >ESTADISTICAS</a>
 							  	<ul>
 									<li><a href="kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
-									<li><a href="kardex_proveedor/" target="contenedor">REPORTE PROVEEDORES</a></li>
 								</ul>
 							</li>
 						</ul>

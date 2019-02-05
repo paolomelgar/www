@@ -498,9 +498,6 @@ $(function(){
     $("#3").keyup(function(){
       $('#11').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
     });
-    $("#4").keyup(function(){
-      $('#12').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
-    });
     $.ajax({
       type: "POST",
       url: "verprecios.php",
@@ -510,15 +507,13 @@ $(function(){
         $('#1').text(data[0]);
         $('#3').text(data[1]);
         $('#4').text(data[2]);
-        $('#5').text(data[3]);
         $('#11').text(parseFloat((data[1]-compr)*100/compr).toFixed(2)+"%");
-        $('#12').text(parseFloat((data[2]-compr)*100/compr).toFixed(2)+"%");
       }
     });
     $("#precios").dialog({
       title:prod,
       height: 200,
-      width: "55%",
+      width: "50%",
       hide: { effect: "slideUp", duration: 100 },
       show: { effect: "slideDown", duration: 100 },
       close:function(){

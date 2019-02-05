@@ -294,7 +294,6 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='tipomov' class='span2'>
                       <option style='display:none'></option>
                       <option id='FLETE'>FLETE</option>
-                      <option id='DELIVERY'>DELIVERY</option>
                       <option id='PERSONAL'>PERSONAL</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
                       <option id='IMPUESTOS'>IMPUESTOS</option>
@@ -308,10 +307,8 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
-                      <option id='PAOLO'>PAOLO</option>
-                      <option id='ROMEL'>ROMEL</option>
-                      <option id='LINCOL'>LINCOL</option>
-                      <option id='DARWIN'>DARWIN</option>
+                      <option id='MARILIA'>MARILIA</option>
+                      <option id='JHON'>JHON</option>
                     </select>
                   </td>
                 </tr>
@@ -324,8 +321,8 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='INTERNET'>INTERNET</option>
                       <option id='LUZ'>LUZ</option>
                       <option id='AGUA'>AGUA</option>
-                      <option id='CELULAR'>CELULAR</option>
                       <option id='CONTADOR'>CONTADOR</option>
+                      <option id='VIGILANCIA'>VIGILANCIA</option>
                     </select>
                   </td>
                 </tr>
@@ -335,7 +332,6 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='impuestos' class='span2'>
                       <option style='display:none'></option>
                       <option id='RENTA'>RENTA</option>
-                      <option id='IGV'>IGV</option>
                       <option id='ESSALUD'>ESSALUD</option>
                     </select>
                   </td>

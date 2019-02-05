@@ -210,10 +210,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           <td width='30%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <option value="FACTURA">FACTURA</option>
-              <?php if($_SESSION['cargo']=='ADMIN'){ ?>
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
-              <?php } ?>
             </select>
             <input type='text' id='serie' name='serie' style='text-align:right;display:none;width:27px'>
             <input type='text' id='numero' name='numero' class='span1' style='text-align:right;display:none'>
@@ -349,9 +346,8 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         <tr style='background-color:#2E9AFE;font-weight:bold;color:white'>
           <td style='text-align:center'>P.ANTERIOR</td>
           <td style='text-align:center'>P.ACTUAL</td>
-          <td style='text-align:center'>P.PROMOTOR</td>
-          <td style='text-align:center'>P.ESPECIAL</td>
-          <td style='text-align:center'>PORCENTAJE</td>
+          <td style='text-align:center'>P.UNIDAD</td>
+          <td style='text-align:center'>S.RECOMENDADO</td>
         </tr>
         <tr>
           <td id='iden' style='display:none'></td>
@@ -359,13 +355,11 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           <td id='2' style='text-align:right'></td>
           <td id='3' contenteditable='true' class='text' style='text-align:right'></td>
           <td id='4' contenteditable='true' class='text' style='text-align:right'></td>
-          <td id='5' contenteditable='true' class='text' style='text-align:right'></td>
         </tr>
         <tr>
           <td colspan='2' style='text-align:right'>PORCENTAJE:</td>
           <td id='11' style='text-align:right'></td>
           <td id='12' style='text-align:right'></td>
-          <td id='13' style='text-align:right'></td>
         </tr>
       </table>
     </div>

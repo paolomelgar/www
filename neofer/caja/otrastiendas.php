@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con =  mysqli_connect('localhost','root','','huanucotienda');
+$con =  mysqli_connect('localhost','root','','huanuco');
   mysqli_query ($con,"SET NAMES 'utf8'");
   if(isset($_POST) && !empty($_POST)){
     $search = explode(" ", $_POST['b']);
@@ -35,7 +35,7 @@ $con =  mysqli_connect('localhost','root','','huanucotienda');
         <?php }else{ ?>
         <td style='color:red;text-align:right'><?php echo $row['stock_real']; ?></td>
         <?php } ?>
-        <td style='text-align:right;background-color:#f63'><?php echo $row['p_promotor']; ?></td>
+        <td style='text-align:right;background-color:#f63'><?php echo number_format($row['p_compra']*1.05,2,".",""); ?></td>
         </tr>
     <?php
     }

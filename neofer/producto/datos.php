@@ -9,8 +9,8 @@ foreach($search AS $s){
 $producto = substr($producto, 0, -4);
 $num=($_POST['numero']-1)*$_POST['pagina'];
 
-if($_POST['cont']=="CONT"){
-    $producto.=" AND stock_con>0";
+if($_POST['cont']=="MITAD"){
+    $producto.=" AND stock_real<porcentaje/2";
 }
 if($_POST['prov']!=""){
     $producto.=" AND proveedor LIKE '%".$_POST['prov']."%'";
@@ -31,19 +31,15 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN'){ ?>
         <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:black;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
-        <td                             Vstyle="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
+        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:grey;font-weight:bold"><?php echo $row['fran']; ?></td>
         <?php }else{ ?>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
-        <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
+        <td style="text-align:right;color:black;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['porcentaje']; ?></td>
         <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
         <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['fran']; ?></td>

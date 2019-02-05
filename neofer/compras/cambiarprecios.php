@@ -6,9 +6,6 @@ if(isset($_POST) && !empty($_POST)){
     $sql=mysqli_query($con,"UPDATE producto SET p_promotor='".$_POST['val']."' WHERE id='".$_POST['id']."'");
     break;
     case '4':
-    $sql=mysqli_query($con,"UPDATE producto SET p_especial='".$_POST['val']."' WHERE id='".$_POST['id']."'");
-    break;
-    case '5':
     $sql=mysqli_query($con,"UPDATE producto SET porcentaje='".$_POST['val']."' WHERE id='".$_POST['id']."'");
     break;
   }

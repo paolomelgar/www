@@ -88,7 +88,6 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       <tr><td width='25%'>ACTIVO:</td><td width='75%'><select name="activo1" class="span3">
         <option value="SI">SI</option>
         <option value="NO">NO</option>
-        <option value="OFERTA">OFERTA</option>
       </select></td></tr>
       <tr><td width='25%'>IMAGEN:</td><td width='75%'><input type="file" name="imagen" class="span3" accept=".jpg" id='upload'/></td></tr>
     </table>
@@ -105,11 +104,10 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       ACTIVO:<select id='selactivo' class='span1'>
         <option value='SI'>SI</option>
         <option value='NO'>NO</option>
-        <option value='OFERTA'>OFERTA</option>
       </select>
-      CONTABLE:<select id='contable' class='span1' style='width:90px'>
+      STOCK:<select id='contable' class='span1' style='width:90px'>
         <option value='NADA'></option>
-        <option value='CONT'>CONT</option>
+        <option value='MITAD'>MITAD</option>
       </select>
       <?php if($_SESSION['cargo']=='ADMIN'){ ?>
       <button id="eliminar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
@@ -120,7 +118,6 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php } ?>
-      <button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>
     </div>
     <table class="table table-bordered">
       <thead>
@@ -133,13 +130,11 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
               <th style="text-align: center;width:10%">PROVEEDOR</th>
               <th style="text-align: center;width:5%">X/CAJA</th>
               <th style="text-align: center;width:5%">S.REAL</th>
-              <th style="text-align: center;width:5%">S.CONT</th>
-              <th style="text-align: center;width:5%">P.MAYOR</th>
-              <th style="text-align: center;width:5%">P.ESP</th>
-              <th style="text-align: center;width:5%">P.OFERTA</th>
+              <th style="text-align: center;width:5%">S.RECOMENDADO</th>
+              <th style="text-align: center;width:5%">P.UNIDAD</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
-              <th style="text-align: center;width:6%">U.COMPRA</th>
-              <th style="text-align: center;width:5%">FRAN</th>
+              <th style="text-align: center;width:6%">ANTIGUEDAD</th>
+              <th style="text-align: center;width:5%">LIBRE</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
       </thead>
