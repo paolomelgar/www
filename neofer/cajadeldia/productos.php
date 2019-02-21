@@ -47,8 +47,8 @@
 			}
 			?><tr style="font-size:12px"><td colspan='2'><td width="20%" align="right" colspan='2'><?php echo "S/. ".number_format($i-$j,2);?></td></tr></table><?php
 		}
-		elseif($_POST['doc']=='PROFORMA'){
-			$sql1=mysqli_query($con,"SELECT * FROM proforma WHERE serieproforma='$q' ORDER BY idproforma");
+		elseif($_POST['doc']=='FACTURA'){
+			$sql1=mysqli_query($con,"SELECT * FROM facturapaola WHERE seriefactura='$q' ORDER BY idfactura");
 			?> <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center"><?php
 			if (mysqli_num_rows($sql1)>0){
 		    	?>

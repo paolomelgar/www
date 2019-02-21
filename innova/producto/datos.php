@@ -43,7 +43,11 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td contenteditable="true" class="text"><?php echo $row['ubicacion']; ?></td>
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <td class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <?php if($_SESSION['mysql']=="prolongacionhuanuco"){ ?>
+            <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <?php }else{ ?>
+            <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <?php } ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>

@@ -131,7 +131,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <option value='OFERTA'>OFERTA</option>
       </select>
       <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-      <button id="eliminar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
+      <button id="eliminar" class="btn btn-success disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <?php }else{ ?>
       <button id="eliminar" class="btn btn-success disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>

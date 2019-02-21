@@ -8,8 +8,13 @@ require_once('../connection.php');
   while ($row=mysqli_fetch_assoc($sql)) {
     $datos[$i]["producto"]=$row["producto"];
     $datos[$i]["marca"]=$row["marca"];
-    $datos[$i]["p_promotor"]=$row["p_promotor"];
-    $datos[$i]["p_especial"]=$row["p_mayor"];
+    if($_REQUEST['cargo']=='VENDEDOR PROVINCIA'){
+      $datos[$i]["p_promotor"]=$row["p_mayor"];
+      $datos[$i]["p_especial"]=$row["p_mayor"];
+    }else{
+      $datos[$i]["p_promotor"]=$row["p_promotor"];
+      $datos[$i]["p_especial"]=$row["p_promotor"];
+    }
     $datos[$i]["p_compra"]=$row["p_compra"];
     $datos[$i]["stock_real"]=$row["stock_real"];
     $datos[$i]["id"]=$row["id"];

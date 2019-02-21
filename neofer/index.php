@@ -23,7 +23,7 @@ if($_SESSION['valida']=='neofer'){
 
 		.menu{
 			display: flex;
-			background: linear-gradient(#4b6cb7, #182848);
+			background: linear-gradient(#100A0A, #383232);
 		}
 
 		#btn-menu{
@@ -39,13 +39,13 @@ if($_SESSION['valida']=='neofer'){
 		}
 
 		.menu ul {
-			background: linear-gradient(#4b6cb7, #182848);
+			background: linear-gradient(#100A0A, #383232);
 			list-style: none;
 		}
 
 		.menu ul ul {
 			display: none;
-			background: linear-gradient(#182848,#4b6cb7);
+			background: linear-gradient(#100A0A,#383232);
 		}
 
 		.menu ul a {
@@ -64,7 +64,7 @@ if($_SESSION['valida']=='neofer'){
 		}
 
 		.menu a:hover {
-			background-color: #FFF105;
+			background-color: #FFFFFF;
 			color:black;
 		}
 
@@ -145,7 +145,7 @@ if($_SESSION['valida']=='neofer'){
 					case 'ADMIN':
 						?>
 						<ul>
-							<li style="background-color: #FFF105;" class='submenu'><a href="#" >ADMINISTRACION</a>
+							<li style="background-color: #EFEFEF;" class='submenu'><a href="#" style='color:black !important'>ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="cliente/" target="contenedor">CLIENTES</a></li>
@@ -209,7 +209,7 @@ if($_SESSION['valida']=='neofer'){
 					case 'CAJERO':
 						?>
 						<ul>
-							<li style="background-color: #FFF105;" class='submenu'><a href="#" >ADMINISTRACION</a>
+							<li style="background-color: #FFFFFF;color:black" class='submenu'><a href="#" >ADMINISTRACION</a>
 						  		<ul>
 						  			<li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="cliente/" target="contenedor">CLIENTES</a></li>

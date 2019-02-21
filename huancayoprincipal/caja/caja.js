@@ -1259,9 +1259,27 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                socket.emit('notificacion',"");
+                if($('#documento').val()=='FACTURA BOOM' || $('#documento').val()=='FACTURA PAUL'){
+                  var serieee=data;
+                  $.ajax({
+                    type: "POST",
+                    url: "numerosaletras.php",
+                    async: false,
+                    data: 'b='+$('#subtotal').val(),
+                    success: function(data){
+                      $.ajax({
+                        type: "POST",
+                        url: "ley.php",
+                        data: { b : data,
+                                serie : serieee,
+                                doc : $('#documento').val()},
+                        success: function(data){
+                        }
+                      });
+                    }
+                  });
+                }
                 location.reload();
-                //document.write(data);
               }
             });
           },
@@ -1296,7 +1314,26 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                socket.emit('notificacion',"");
+                if($('#documento').val()=='FACTURA BOOM' || $('#documento').val()=='FACTURA PAUL'){
+                  var serieee=data;
+                  $.ajax({
+                    type: "POST",
+                    url: "numerosaletras.php",
+                    async: false,
+                    data: 'b='+$('#subtotal').val(),
+                    success: function(data){
+                      $.ajax({
+                        type: "POST",
+                        url: "ley.php",
+                        data: { b : data,
+                                serie : serieee,
+                                doc : $('#documento').val()},
+                        success: function(data){
+                        }
+                      });
+                    }
+                  });
+                }
                 imprimir(data,$('#documento').val());
                 //setTimeout(function(){location.reload();}, 200);
               }

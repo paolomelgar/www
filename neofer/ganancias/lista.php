@@ -19,7 +19,7 @@ require_once('../connection.php');
   $query.=" AND entregado='SI'";
   $i=0;
   $dat=array();
-  $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,cliente,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");
+  $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT * FROM facturapaola WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,cliente,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");
   while($row=mysqli_fetch_assoc($sql)){
     $dat[$i][0]=$row['serienota'];
     $dat[$i][1]=date('d/m/Y',strtotime(str_replace('-','/',$row['fecha'])));

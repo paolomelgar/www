@@ -25,7 +25,7 @@
         $sql = mysqli_query($con,"SELECT * FROM pagoletras WHERE pendiente='SI' AND fecha='$fech'");
         $sql1 = mysqli_query($con,"SELECT * FROM total_compras WHERE credito='CREDITO' AND letra='NO' AND entregado='SI' AND fechapago='$fech'");
         if($day_num==1){
-            $montos.="<div style='color:#A504FC;'>ALQUILER LOCAL S/ 2000.00</div>";
+            $montos.="<div style='color:red;font-weight:bold'>ALQUILER LOCAL S/ 2500.00</div>";
         }
         if(mysqli_num_rows($sql)>0 || mysqli_num_rows($sql1)>0){
             while($row = mysqli_fetch_assoc($sql)){

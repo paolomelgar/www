@@ -414,9 +414,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           <tr>
             <td>PORCENTAJE:<input type='text' id='porcentaje' class='span1'></td>
             <td>ENTREGADO <select id='entregado' name="entregado" style='border: solid 2px red;' class='span1'>
-              <?php if($_SESSION['cargo']=='ADMIN'){ ?>
               <option value="SI">SI</option>
-              <?php } ?>
               <option value="NO">NO</option>
             </td>
             <td id="cantprod" style='color:red;font-weight:bold'></td>

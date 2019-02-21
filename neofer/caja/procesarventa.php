@@ -137,7 +137,9 @@ if(isset($_POST) && !empty($_POST)){
                             '".$_POST['str'][0]['value']."',
                             '".$_POST['str'][9]['value']."'
                             )");
-                $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+                if($_POST['str'][9]['value']=='SI'){
+                    $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+                }
             }
             $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito) 
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
@@ -147,7 +149,7 @@ if(isset($_POST) && !empty($_POST)){
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',
-                                'NO',
+                                '".$_POST['str'][9]['value']."',
                                 '".$_POST['str'][10]['value']."',
                                 '".$_POST['str'][11]['value']."',
                                 '".$_POST['str'][12]['value']."',
@@ -157,10 +159,12 @@ if(isset($_POST) && !empty($_POST)){
                                 )");
         }
         else{
-            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturapaola WHERE seriefactura='".$_POST['serieventa']."'"); 
-            while($row = mysqli_fetch_assoc($del)){
-                if($row['entregado']=='NO' ){
-                    $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
+            $sqla=mysqli_query($con,"SELECT total,entregado FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA'");
+            $del = mysqli_query($con,"SELECT id,cantidad FROM facturapaola WHERE seriefactura='".$_POST['serieventa']."'"); 
+            $ro=mysqli_fetch_row($sqla);
+            if($ro[1]=='SI'){
+                while($row = mysqli_fetch_assoc($del)){
+                    $ins=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$row['cantidad'].") WHERE id='".$row['id']."'");
                 }
             }
             $del1 = mysqli_query($con,"DELETE FROM facturapaola WHERE seriefactura='".$_POST['serieventa']."'");
@@ -183,7 +187,9 @@ if(isset($_POST) && !empty($_POST)){
                             '".$_POST['str'][0]['value']."',
                             '".$_POST['str'][9]['value']."'
                             )");
-                $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+                if($_POST['str'][9]['value']=='SI'){
+                    $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+                }
             }
             $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito) 
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
@@ -193,7 +199,7 @@ if(isset($_POST) && !empty($_POST)){
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',
-                                'NO',
+                                '".$_POST['str'][9]['value']."',
                                 '".$_POST['str'][10]['value']."',
                                 '".$_POST['str'][11]['value']."',
                                 '".$_POST['str'][12]['value']."',

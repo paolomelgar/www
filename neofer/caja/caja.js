@@ -477,7 +477,7 @@ var stock,compra,promotor,unit;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
             if(parseInt(data[0].length)<15){
-              $('#dx').append("<table width='100%' style='margin-top:155px;font:0.8em Verdana;'><tr><td width='7%'>.</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
+              $('#dx').append("<table width='100%' style='margin-top:152px;font:0.8em Verdana;'><tr><td width='7%'>.</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'>.</td><td width='76%'>"+data[1][1]+"</td><td width='17%'>"+data[1][0]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'>.</td><td width='93%'>"+data[1][2]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
@@ -495,38 +495,7 @@ var stock,compra,promotor,unit;
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
               $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;'><tr><td width='2%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td><td width='2%'></td></tr></table>\n"+
                 "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='78%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td><td width='2%'></td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='57%'>.</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td><td width='2%'></td></tr></table>");
-              $.ajax({
-                type: "POST",
-                url: "numerosaletras.php",
-                async: false,
-                data: 'b='+data[1][3],
-                success: function(data){
-                  $('#let').append(data);
-                }
-              });
-              contenid = document.getElementById("dx");
-              w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
-            }else{
-              $('#dx').append("<table width='100%' style='margin-top:180px;font:0.8em Verdana;'><tr><td width='6%'>.</td><td width='94%'>"+data[1][12]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='6%'>.</td><td width='77%'>"+data[1][1]+"</td><td width='17%'>"+data[1][0]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='6%'>.</td><td width='94%'>"+data[1][2]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
-              );
-              for (var i=0;i<data[0].length;i++) {
-                $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em Verdana;'><tr height='18px'><td width='6%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='59%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='16%' align='right'>"+data[0][i][3]+"</td><td width='1%'></td></tr></table>");
-              }
-              while(v1<42-parseInt(data[0].length)){
-                $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em Verdana;'><tr height='18px'><td>&nbsp</td></tr></table>");
-                v1++;
-              }
-              var subigv1;
-              var igv1;
-              subigv1=parseFloat(data[1][3]).toFixed(2);
-              igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
-              $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:5px;'><tr><td width='2%'></td><td width='78%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:5px;font:0.8em Verdana'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:5px;font:0.8em Verdana'><tr><td width='59%'>.</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='60%'>.</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='16%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td><td width='2%'></td></tr></table>");
               $.ajax({
                 type: "POST",
                 url: "numerosaletras.php",
@@ -604,8 +573,7 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'COTIZACION':
-            $('#dx').append("<div align='center'><img id='theImg' src='../sistema/logo_ferreboom.png' style='width:50%;height:150px;'></div>\n"+
-              "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
+            $('#dx').append("<div id='xd'><table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
               "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+data[1][6]+"</td></tr></table>\n"+
@@ -1026,6 +994,9 @@ $('#tienda').click(function(){
     }else{
         if($(this).parent().find('td:eq(3)').text().slice(0,10)!=fech){
           if($(this).parent().find('td:eq(6)').text()=='NO AFECTA'){
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+          }else if($(this).parent().find('td:eq(6)').text()=='CREDITO'){
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
           }else{
@@ -1532,8 +1503,7 @@ $('#tienda').click(function(){
               break;
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 'COTIZACION':
-              $(this).append("<div id='xd'><div align='center'><img id='theImg' src='../sistema/logo_ferreboom.png' style='width:50%;height:150px'></div>\n"+
-                "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
+              $(this).append("<div id='xd'><table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
                 "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+$('#ruc').val()+"</td><td width='10%'>Fecha:</td><td width='15%'>"+$('#fecha').val()+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+$('#razon_social').val()+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+$('#direccion').val()+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+$('#vendedor').val()+"</td></tr></table>\n"+
@@ -1561,7 +1531,7 @@ $('#tienda').click(function(){
       $('#form select[name="entregar"]').val('SI');
       $('#entregar option[value="NO"]').hide();
       $('#entregar option[value="SI"]').show();
-    }else if($('#documento').val()=='BOLETA DE VENTA'){
+    }else if($('#documento').val()=='BOLETA DE VENTA' || $('#documento').val()=='FACTURA'){
       $('#devol').prop('disabled', true);
       $('#forma-pago option[value=CREDITO]').hide();
       $('#forma-pago option[value=CONTADO]').show();
@@ -1569,17 +1539,6 @@ $('#tienda').click(function(){
       $('#form select[name="forma-pago"]').val('CONTADO');
       $('#form select[name="entregar"]').val('SI');
       $('#entregar option[value="NO"]').show();
-      $('#entregar option[value="SI"]').show();
-      $('.pago').hide();
-      $('#acuenta').val(0);
-    }else if($('#documento').val()=='PROFORMA'){
-      $('#devol').prop('disabled', true);
-      $('#forma-pago option[value=CREDITO]').hide();
-      $('#forma-pago option[value=CONTADO]').show();
-      $('#forma-pago option[value="NO AFECTA"]').hide();
-      $('#form select[name="forma-pago"]').val('CONTADO');
-      $('#form select[name="entregar"]').val('SI');
-      $('#entregar option[value="NO"]').hide();
       $('#entregar option[value="SI"]').show();
       $('.pago').hide();
       $('#acuenta').val(0);

@@ -11,6 +11,10 @@
         $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
       }
       $sql12=mysqli_query($con,"UPDATE facturapaola SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
+      unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".CAB");
+      unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".DET");
+      unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".TRI");
+      unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".LEY");
     }
     elseif($_POST['com']=='FACTURA BOOM'){
       $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaboom WHERE seriefactura='".$_POST['serie']."'"); 
@@ -18,6 +22,10 @@
         $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1+".$row['cantidad'].") WHERE id='".$row['id']."'");
       }
       $sql12=mysqli_query($con,"UPDATE facturaboom SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
+      unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".CAB");
+      unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".DET");
+      unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".TRI");
+      unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".LEY");
     }
     elseif($_POST['com']=='NOTA DE PEDIDO'){
       $del = mysqli_query($con,"SELECT id,cantidad FROM notapedido WHERE serienota='".$_POST['serie']."'"); 

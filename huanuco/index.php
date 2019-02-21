@@ -155,9 +155,7 @@ if($_SESSION['valida']=='huanuco'){
 									<li><a href="marca/" target="contenedor">MARCAS</a></li>
 									<li><a href="familia/" target="contenedor">CATEGORIAS</a></li>
 									<li><a href="query/" target="contenedor">CONSULTAS</a></li>
-									<?php if($_SESSION['nombre']=='PAOLO MELGAR'){?>
 									<li><a href="camara/admin.php" target="contenedor">CAMARA VIGILANCIA</a></li>
-									<?php } ?>
 									<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
 								</ul>
 							</li>
