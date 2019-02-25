@@ -459,7 +459,7 @@ var stock,compra,promotor,unit;
         var w=window.open('','',"width=1200,height=600,left="+x1+",top="+y1);
         switch(comprobante){
           case 'BOLETA DE VENTA':
-            $('#dx').append("<table width='80%' style='margin-top:44px;margin-left:18px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
+            $('#dx').append("<table width='80%' style='margin-top:41px;margin-left:18px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' style='margin-top:-5px;margin-left:18px;font:0.9em Agency FB;'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' style='margin-bottom:0px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
             );
@@ -477,9 +477,9 @@ var stock,compra,promotor,unit;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
             if(parseInt(data[0].length)<15){
-              $('#dx').append("<table width='100%' style='margin-top:152px;font:0.8em Verdana;'><tr><td width='7%'>.</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'>.</td><td width='76%'>"+data[1][1]+"</td><td width='17%'>"+data[1][0]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'>.</td><td width='93%'>"+data[1][2]+"</td></tr></table>\n"+
+              $('#dx').append("<table width='100%' style='margin-top:148px;font:0.8em Verdana;'><tr><td width='7%'></td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'></td><td width='76%'>"+data[1][1]+"</td><td width='17%'>"+data[1][0]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='7%'></td><td width='93%'>"+data[1][2]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
               );
               for (var i=0;i<data[0].length;i++) {
@@ -494,8 +494,8 @@ var stock,compra,promotor,unit;
               subigv1=parseFloat(data[1][3]).toFixed(2);
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
               $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;'><tr><td width='2%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td><td width='2%'></td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='78%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td><td width='2%'></td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='60%'>.</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='16%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td><td width='2%'></td></tr></table>");
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='78%'></td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td><td width='2%'></td></tr></table>\n"+
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='54%'></td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='5%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='17%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td><td width='2%'></td></tr></table>");
               $.ajax({
                 type: "POST",
                 url: "numerosaletras.php",
@@ -528,7 +528,7 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'NOTA DE PEDIDO':
-            $('#dx').append("<table width='80%' style='font:0.8em Verdana;' align='center'><tr><td><span style='margin-left:220px'><b>NOTA DE PEDIDO</b></span><span style='float:right;font-family:Calibri'>Tel: (062)503715 - Cel: 999050151</span></td></tr></table>\n"+
+            $('#dx').append("<table width='80%' style='font:0.8em Verdana;' align='center'><tr><td><span style='margin-left:220px'><b>NOTA DE PEDIDO</b></span><span style='float:right;font-family:Calibri'>Tel: (062)622537 - Cel: 982056224</span></td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>RUC:</td><td width='55%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='25%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>CLIENTE:</td><td width='55%'>"+data[1][1]+"</td><td width='10%'>Vendedor:</td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>DIRECCION:</td><td width=100%' style='font-family:Agency FB'>"+data[1][2]+"</td></tr></table>\n"+

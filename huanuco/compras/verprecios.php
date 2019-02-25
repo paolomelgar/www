@@ -5,9 +5,9 @@ require_once('../connection.php');
     $sql=mysqli_query($con,"SELECT * FROM producto WHERE id='".$_POST['id']."'");
     $row=mysqli_fetch_assoc($sql);
     $data[0]=$row['p_compra'];
-    $data[1]=$row['p_promotor'];
-    $data[2]=$row['p_especial'];
-    $data[3]=$row['porcentaje'];
+    $data[1]=$row['fran'];
+    $data[2]=$row['p_promotor'];
+    $data[3]=$row['p_especial'];
     echo json_encode($data);
   }
 ?>

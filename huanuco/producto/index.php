@@ -135,11 +135,11 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
               <th style="text-align: center;width:5%">X/CAJA</th>
               <th style="text-align: center;width:5%">S.REAL</th>
               <th style="text-align: center;width:5%">S.CONT</th>
+              <th style="text-align: center;width:5%">P.UNIDAD</th>
               <th style="text-align: center;width:5%">P.MAYOR</th>
               <th style="text-align: center;width:5%">P.ESP</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
               <th style="text-align: center;width:6%">U.COMPRA</th>
-              <th style="text-align: center;width:5%">FRAN</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
       </thead>

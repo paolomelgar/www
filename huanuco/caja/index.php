@@ -433,11 +433,11 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
           <tr bgcolor="#428bca" style="color:#FFF;text-align:center;font-size:13px">
             <th width="3.5%">IMG</th>
             <th width="8%">CODIGO</th>
-            <th width="43.5%">PRODUCTO</th>
-            <th width="20%">MARCA</th>
-            <th width="7%" style='display:none'>P. PROM</th>
-            <th width="10%">X/CAJA</th>
+            <th width="40.5%">PRODUCTO</th>
+            <th width="18%">MARCA</th>
+            <th width="8%">X/CAJA</th>
             <th width="8%">STOCK</th>
+            <th width="7%">P. UND</th>
             <th width="7%">P. PROMO</th>
           </tr>
         </thead>

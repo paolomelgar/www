@@ -73,12 +73,13 @@ switch ($_POST['t']) {
 			$quer1 = mysqli_query($con,"SELECT sum(cantidad*(unitario-compra)) FROM proforma WHERE $query");
 			$quer2 = mysqli_query($con,"SELECT sum(cantidad*(unitario-compra)) FROM boleta WHERE $query");
 			$quer3 = mysqli_query($con,"SELECT sum(cantidad*(unitario-compra)) FROM devoluciones WHERE $query");
-			//$quer = mysqli_query($con,"SELECT sum(cantidad*(unitario-compra)) FROM devoluciones WHERE $query ");
+			$quer4 = mysqli_query($con,"SELECT sum(cantidad*(unitario-compra)) FROM facturapaola WHERE $query");
 			$rr=mysqli_fetch_row($quer);
 			$rr1=mysqli_fetch_row($quer1);
 			$rr2=mysqli_fetch_row($quer2);
 			$rr3=mysqli_fetch_row($quer3);
-			$a[$j]=$rr[0]+$rr1[0]+$rr2[0]-$rr3[0];
+			$rr4=mysqli_fetch_row($quer4);
+			$a[$j]=$rr[0]+$rr1[0]+$rr2[0]-$rr3[0]+$rr4[0];
 			switch ($j) {
 				case '0':
 					$b[$j]="ENERO";

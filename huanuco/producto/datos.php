@@ -29,26 +29,26 @@ while($row=mysqli_fetch_assoc($result)){
         <td><?php echo $row['familia']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN'){ ?>
         <td contenteditable="true" class="text" title=""><?php echo $row['proveedor']; ?></td>
-        <td contenteditable="true" class="text"><?php echo $row['porcentaje']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['porcentaje']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
+        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['fran']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:grey;font-weight:bold"><?php echo $row['fran']; ?></td>
         <?php }else{ ?>
         <td title=""><?php echo $row['proveedor']; ?></td>
-        <td><?php echo $row['porcentaje']; ?></td>
+        <td style="text-align:right"><?php echo $row['porcentaje']; ?></td>
         <td style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
         <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
+        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['fran']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>
         <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $diff->format("%a Dias"); ?></td>
-        <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['fran']; ?></td>
         <?php } ?>
         <td style="text-align:right"><?php echo $row['activo']; ?></td>
     <tr>

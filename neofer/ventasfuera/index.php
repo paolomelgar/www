@@ -1,7 +1,7 @@
 <?php 
 session_start();
 date_default_timezone_set("America/Lima");
-if($_SESSION['valida']=='huanuco'){
+if($_SESSION['valida']=='neofer'){
 ?>
 <html>
 <head>
@@ -29,7 +29,7 @@ if($_SESSION['valida']=='huanuco'){
 	      dataType:"json",
 	      success: function(data){
 	      	for(var i=0; i<data.length; i++){
-	            $('#row').append("<tr class='fila'><td width='2.5%' title='s' height='20px' style='padding:0px;cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+index[i]+".jpg' width='100%'></td><td style='display:none'>"+index[i]+"</td><td align='right' width='7.5%' contenteditable='true' class='edit'>"+$.jStorage.get(index[i])+"</td><td width='60%'>"+data[i][0]+"</td><td align='right' width='10%'>"+data[i][1]+"</td><td align='right' width='15%'>"+parseFloat(data[i][1]*$.jStorage.get(index[i])).toFixed(2)+"</td><td width='5%' align='center'><span class='ui-icon ui-icon-circle-close del' style='cursor:pointer'></td></tr>")
+	            $('#row').append("<tr class='fila'><td width='2.5%' title='s' height='20px' style='padding:0px;cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+index[i]+".jpg' width='100%'></td><td style='display:none'>"+index[i]+"</td><td align='right' width='7.5%' contenteditable='true' class='edit'>"+$.jStorage.get(index[i])+"</td><td width='60%'>"+data[i][0]+"</td><td align='right' width='10%'>"+data[i][1]+"</td><td align='right' width='15%'>"+parseFloat(data[i][1]*$.jStorage.get(index[i])).toFixed(2)+"</td><td width='5%' align='center'><span class='ui-icon ui-icon-circle-close del' style='cursor:pointer'></td></tr>")
 	        }
 	        sum=0;
     		$('#row tr').each(function(){
@@ -330,9 +330,9 @@ if($_SESSION['valida']=='huanuco'){
 	          		if(data[i][3]<=0){
 	          			d += "<td width='15%' align='center' style='font-size:14px;border:4px solid #FF5566;border-radius:5px;background-color:white;padding:0px' class='aa'>\n"+
 	          					"<table width='100%' style='border-collapse:collapse;'>\n"+
-	          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='agotado.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:26px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
+	          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='agotado.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:26px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
 	          					if(data[i][7]>0){
-		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
+		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}else{
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
@@ -344,9 +344,9 @@ if($_SESSION['valida']=='huanuco'){
 	          			if(data[i][6]=='OFERTA'){
 	          				d += "<td width='15%' align='center' style='font-size:14px;border:4px solid #8E8E8E;border-radius:5px;background-color:white;padding:0px' class='aa'>\n"+
 		          					"<table width='100%' style='border-collapse:collapse;'>\n"+
-		          					"<tr><td colspan='2' align='center' class='imgoferta' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='oferta.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:0px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
+		          					"<tr><td colspan='2' align='center' class='imgoferta' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='oferta.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:0px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
 		          			if(data[i][7]>0){
-		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
+		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}else{
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
@@ -358,14 +358,14 @@ if($_SESSION['valida']=='huanuco'){
 	          				if(data[i][9]=="nuevo"){
 		          				d += "<td width='15%' align='center' style='font-size:14px;border:4px solid #8E8E8E;border-radius:5px;background-color:white;padding:0px' class='aa'>\n"+
 			          					"<table width='100%' height='300px' style='border-collapse:collapse;'>\n"+
-			          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='nuevo.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:0px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
+			          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'><img src='nuevo.png' width='200px' style='position:absolute;margin-left:-200px;margin-top:0px;color:red;font-weight:bold;font-size:30px;'/></td></tr>\n";
 		          			}else{
 		          				d += "<td width='15%' align='center' style='font-size:14px;border:4px solid #8E8E8E;border-radius:5px;background-color:white;padding:0px' class='aa'>\n"+
 			          					"<table width='100%' height='300px' style='border-collapse:collapse;'>\n"+
-			          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'></td></tr>\n";
+			          					"<tr><td colspan='2' align='center' class='img' style='cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[i][10]+".jpg' height='200' width='200'></td></tr>\n";
 		          			}
 		          			if(data[i][7]>0){
-		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
+		          				d += "<tr><td width='100px'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/marca/a"+data[i][7]+".jpg' width='100px'></td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}else{
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
@@ -493,7 +493,7 @@ if($_SESSION['valida']=='huanuco'){
 	                if(id == m){i++;}
 	            });
 	            if(i==0){
-		    		$('#row').append("<tr class='fila'><td width='2.5%' title='s' height='20px' style='padding:0px;cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+id+".jpg' width='100%'></td><td style='display:none'>"+id+"</td><td align='right' width='7.5%' contenteditable='true' class='edit'>"+cant+"</td><td width='60%'>"+prod+" "+marca+"</td><td align='right' width='10%'>"+precio+"</td><td align='right' width='15%'>"+total+"</td><td width='5%' align='center'><span class='ui-icon ui-icon-circle-close del' style='cursor:pointer'></td></tr>");
+		    		$('#row').append("<tr class='fila'><td width='2.5%' title='s' height='20px' style='padding:0px;cursor:pointer'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+id+".jpg' width='100%'></td><td style='display:none'>"+id+"</td><td align='right' width='7.5%' contenteditable='true' class='edit'>"+cant+"</td><td width='60%'>"+prod+" "+marca+"</td><td align='right' width='10%'>"+precio+"</td><td align='right' width='15%'>"+total+"</td><td width='5%' align='center'><span class='ui-icon ui-icon-circle-close del' style='cursor:pointer'></td></tr>");
 	            	$('#agregado').fadeIn().delay(1000).fadeOut();
 	            	$('#mes').text($('#row tr').length);
 	            	$('#mes').show();
@@ -644,13 +644,13 @@ if($_SESSION['valida']=='huanuco'){
 		$('#table').on('click','.img',function(){
 			var a;
 			if(parseInt($(this).parent().parent().find('.idmarca').val())>0){
-				a="<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+$(this).parent().parent().find('.idmarca').val()+".jpg' height='50' width='250'>";
+				a="<img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/marca/a"+$(this).parent().parent().find('.idmarca').val()+".jpg' height='50' width='250'>";
 			}else{
 				a=$(this).parent().parent().find('.idmarca').val();
 			}
             swal({
               title: a,
-              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$(this).parent().parent().find('.ii').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:40px;color:blue;font-weight:bold'>"+$(this).parent().parent().find('.precio').text()+"</div>",   
+              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+$(this).parent().parent().find('.ii').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:40px;color:blue;font-weight:bold'>"+$(this).parent().parent().find('.precio').text()+"</div>",   
               html: true,
               animation: "slide-from-top",
 			  confirmButtonColor: "#DD6B55"
@@ -659,13 +659,13 @@ if($_SESSION['valida']=='huanuco'){
 		$('#table').on('click','.imgoferta',function(){
 			var a;
 			if(parseInt($(this).parent().parent().find('.idmarca').val())>0){
-				a="<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+$(this).parent().parent().find('.idmarca').val()+".jpg' height='50' width='250'>";
+				a="<img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/marca/a"+$(this).parent().parent().find('.idmarca').val()+".jpg' height='50' width='250'>";
 			}else{
 				a=$(this).parent().parent().find('.idmarca').val();
 			}
             swal({
               title: a,   
-              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$(this).parent().parent().find('.ii').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:22px;color:black;font-weight:bold;text-decoration: line-through;'>"+$(this).parent().parent().find('.precio').text()+"</div><div style='font-size:40px;color:blue;font-weight:bold'>S/ "+$(this).parent().parent().find('.especial').val()+"</div><div style='font-size:16px;color:grey'>Cant Minima: "+$(this).parent().parent().find('.caja').val()+"</div>",   
+              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+$(this).parent().parent().find('.ii').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:22px;color:black;font-weight:bold;text-decoration: line-through;'>"+$(this).parent().parent().find('.precio').text()+"</div><div style='font-size:40px;color:blue;font-weight:bold'>S/ "+$(this).parent().parent().find('.especial').val()+"</div><div style='font-size:16px;color:grey'>Cant Minima: "+$(this).parent().parent().find('.caja').val()+"</div>",   
               html: true,
               animation: "slide-from-top",
 			  confirmButtonColor: "#DD6B55"
@@ -1091,7 +1091,7 @@ if($_SESSION['valida']=='huanuco'){
 	</table>
 	<nav>
 		<img src="header.png" style='width:18em;'>
-		<img src="https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/logo_ferreboom.png" style='width:12em;left:3em;position:absolute;top:1em'>
+		<img src="https://raw.githubusercontent.com/paolomelgar/ferreboom/master/neofer/logo_ferreboom.png" style='width:12em;left:3em;position:absolute;top:1em'>
 		<h3 align='center' style='margin-top:-4em;color:white;width:15em;background:red;' id='nombre'><?php echo $_SESSION['nombre']; ?></h3>
 		<h5 align='center' style='margin-top:-1em'><a href="#" id='credencial'>Cambiar Contraseña</a></h6>
 		<ul class='menu' style='margin-top:-5px'>
@@ -1152,11 +1152,11 @@ if($_SESSION['valida']=='huanuco'){
                 	<?php 
 		            $sql = mysqli_query($con,"SELECT * FROM producto WHERE activo='OFERTA'");
 		            while($row=mysqli_fetch_assoc($sql)){ ?>
-		            	<li data-thumb="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"> 
+		            	<li data-thumb="https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"> 
 		            		<table style='margin-bottom:50px;border-collapse:collapse;border:5px solid black'>
 		            			<tr>
 		            				<td style='background-color:white;padding:0px'>
-			                        	<img width='300px' height='300px' src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"/>
+			                        	<img width='300px' height='300px' src="https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"/>
 			            			</td>
 			            			<td style='background-color:white;width:200px'>
 			                        	<h1 align='center'><img src="../catalogo1/oferta.jpg" width='150px' height='40px'/></h1>
@@ -1176,7 +1176,7 @@ if($_SESSION['valida']=='huanuco'){
 		            <?php } ?> 
                 </ul>
                 <div style='position:absolute;left:70px;top:40px;'>
-                	<img src="https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/logo_ferreboom.png" width='300px'>
+                	<img src="https://raw.githubusercontent.com/paolomelgar/ferreboom/master/neofer/logo_ferreboom.png" width='300px'>
 					<table width="300px" style='margin-top:100px'>
 						<tr>
 							<td style='font-size: 14px;color: white;letter-spacing: 1.2px;' align='center'>Atencion al Cliente</td>
@@ -1223,7 +1223,7 @@ if($_SESSION['valida']=='huanuco'){
 		</table>
 	</div>	
 	<div id='dialog' style='display:none;'>
-		<div align='center'><img id='theImg' src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/logo_ferreboom.png' style='width:25%;height:80px;'></div>
+		<div align='center'><img id='theImg' src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/neofer/logo_ferreboom.png' style='width:25%;height:80px;'></div>
 		<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='65%'><?php echo $_SESSION['nombre']; ?></td><td width='25%'> <?php echo "FECHA: ".date("d/m/Y") ?> </td></tr></table>
 		<table width='100%' style='margin-bottom:5px;margin-top:-5px'><tr bgcolor='black' style='color:white;font-weight:bold;font-size:12px;'><td width='2%' align='center'></td><td width='8%' align='center'>CAN</td><td width='60%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td><td width='15%' align='center'>IMPORTE</td><td width='5%'></td></tr></table>
 		<div style='margin-top:-5px;'><table id='row' width='100%'></table></div>

@@ -524,6 +524,9 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'NOTA DE PEDIDO':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='78%' style='margin-top:135px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][12]+"</td><td width='10%'>Serie: </td><td width='25%' style='font-size:1.2em;font-weight:bold'>"+data[1][13]+"</td></tr></table>\n"+
               "<table width='78%' style='margin-top:0px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='78%' style='margin-top:3px;font:0.7em arial;'><tr><td width='5%'>&nbsp</td><td width='95%'>"+data[1][2].slice(0,84)+"</td></tr></table>\n"+

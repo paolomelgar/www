@@ -475,6 +475,9 @@ var stock,compra,promotor,unit,y=7;
         var w=window.open('','',"width=1200,height=600,left="+x1+",top="+y1);
         switch(comprobante){
           case 'BOLETA DE VENTA':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='50%' style='margin-top:125px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][1]+"</td></tr></table>\n"+
               "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][2]+"</td></tr></table>\n"+
@@ -493,6 +496,9 @@ var stock,compra,promotor,unit,y=7;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='100%' style='margin-top:158px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-2px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='72%'>"+data[1][1]+"</td><td width='2%'>&nbsp</td><td width='15%'>"+data[1][0]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-2px;font:0.7em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][2]+"</td></tr></table>\n"+
@@ -529,6 +535,9 @@ var stock,compra,promotor,unit,y=7;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'PROFORMA':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='50%' style='margin-top:125px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][1]+"</td></tr></table>\n"+
               "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][2]+"</td></tr></table>\n"+
@@ -547,6 +556,9 @@ var stock,compra,promotor,unit,y=7;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'NOTA DE PEDIDO':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='78%' style='margin-top:135px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][12]+"</td><td width='10%'>Serie: </td><td width='25%' style='font-size:0.9em;font-weight:bold'>"+data[1][13]+"</td></tr></table>\n"+
               "<table width='78%' style='margin-top:0px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='78%' style='margin-top:3px;font:0.7em arial;'><tr><td width='5%'>&nbsp</td><td width='95%'>"+data[1][2].slice(0,84)+"</td></tr></table>\n"+
@@ -1289,6 +1301,26 @@ var stock,compra,promotor,unit,y=7;
                 });
               },
               success: function(data){
+                if($('#documento').val()=='FACTURA' || $('#documento').val()=='BOLETA DE VENTA'){
+                  var serieee=data;
+                  $.ajax({
+                    type: "POST",
+                    url: "numerosaletras.php",
+                    async: false,
+                    data: 'b='+$('#subtotal').val(),
+                    success: function(data){
+                      $.ajax({
+                        type: "POST",
+                        url: "ley.php",
+                        data: { b : data,
+                                serie : serieee,
+                                doc : $('#documento').val()},
+                        success: function(data){
+                        }
+                      });
+                    }
+                  });
+                }
                 location.reload();
               }
             });

@@ -350,9 +350,9 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
         <tr style='background-color:#2E9AFE;font-weight:bold;color:white'>
           <td style='text-align:center'>P.ANTERIOR</td>
           <td style='text-align:center'>P.ACTUAL</td>
+          <td style='text-align:center'>P.UNIDAD</td>
           <td style='text-align:center'>P.PROMOTOR</td>
           <td style='text-align:center'>P.ESPECIAL</td>
-          <td style='text-align:center'>PORCENTAJE</td>
         </tr>
         <tr>
           <td id='iden' style='display:none'></td>

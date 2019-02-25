@@ -211,8 +211,8 @@ var stock,compra,promotor,unit;
             var codigo=$('#tb1>tr:eq('+x+')').find('td:eq(2)').text();
             compra=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(5)').text());
             stock=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(7)').text());
-            promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(8)').text()).toFixed(2);
-            unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(8)').text()).toFixed(2);
+            promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(9)').text()).toFixed(2);
+            unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(9)').text()).toFixed(2);
             $('#row'+result+' tr').each(function () {
               if(producto == $(this).find('td:eq(1)').text()){
                 swal("","Este producto ya esta en la lista","error");
@@ -563,6 +563,9 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'NOTA DE PEDIDO':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
             $('#dx').append("<table width='80%' style='font:0.8em Verdana;' align='center'><tr><td><span style='margin-left:220px'><b>NOTA DE PEDIDO</b></span><span style='float:right;font-family:Calibri'>Tel: (062)503715 - Cel: 999050151</span></td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>RUC:</td><td width='55%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='25%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>CLIENTE:</td><td width='55%'>"+data[1][1]+"</td><td width='10%'>Vendedor:</td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+

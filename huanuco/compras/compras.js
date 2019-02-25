@@ -521,6 +521,7 @@ $(function(){
         $('#5').text(data[3]);
         $('#11').text(parseFloat((data[1]-compr)*100/compr).toFixed(2)+"%");
         $('#12').text(parseFloat((data[2]-compr)*100/compr).toFixed(2)+"%");
+        $('#13').text(parseFloat((data[3]-compr)*100/compr).toFixed(2)+"%");
       }
     });
     $("#precios").dialog({

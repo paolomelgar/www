@@ -41,6 +41,7 @@
 	    if (mysqli_num_rows($sql)>0){
 	    	$i=0;
 		    while($row=mysqli_fetch_assoc($sql)){
+		    	$s=mysqli_fetch_row(mysqli_query($con,"SELECT stock_real,ubicacion FROM producto WHERE id='".$row['id']."'"));
 		    	$data[$i][0]=$row['producto'];
 		    	$data[$i][1]=$row['cantidad'];
 		    	$data[$i][2]=$row['unitario'];
@@ -48,6 +49,8 @@
 		    	$data[$i][4]=$row['id'];
 		    	$data[$i][5]=$row['compra'];
 		    	$data[$i][6]=$row['especial'];
+		    	$data[$i][7]=$s[0];
+		    	$data[$i][8]=$s[1];
 		    	$i++;
 		    }
 		}

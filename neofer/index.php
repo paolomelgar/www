@@ -4,7 +4,7 @@ if($_SESSION['valida']=='neofer'){
 ?>
 <html>
 <head>
-	<title>FERREBOOM</title>
+	<title>NEOFER</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="sistema/style/principal.css">
@@ -145,7 +145,7 @@ if($_SESSION['valida']=='neofer'){
 					case 'ADMIN':
 						?>
 						<ul>
-							<li style="background-color: #EFEFEF;" class='submenu'><a href="#" style='color:black !important'>ADMINISTRACION</a>
+							<li style="background-color: #FD2323" class='submenu'><a href="#">ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="cliente/" target="contenedor">CLIENTES</a></li>
@@ -209,7 +209,7 @@ if($_SESSION['valida']=='neofer'){
 					case 'CAJERO':
 						?>
 						<ul>
-							<li style="background-color: #FFFFFF;color:black" class='submenu'><a href="#" >ADMINISTRACION</a>
+							<li style="background-color: #FD2323" class='submenu'><a href="#" >ADMINISTRACION</a>
 						  		<ul>
 						  			<li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="cliente/" target="contenedor">CLIENTES</a></li>
