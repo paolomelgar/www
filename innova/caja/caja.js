@@ -495,6 +495,56 @@ var stock,compra,promotor,unit,y=7;
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          case 'BOLETA ELECTRONICA':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
+            if($('#mysql').val()=='innovaelectric'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 260 - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20601765641</td></tr></table>");
+            }else if($('#mysql').val()=='innovaprincipal'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>INVERSIONES E IMPORTACIONES FERRE BOOM S.R.L.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 258A - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20487211410</td></tr></table>");
+            }else if($('#mysql').val()=='prolongacionhuanuco'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>MELGAR POVEZ PAUL ALEXIS</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH N° 101 INT. B - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 10433690058</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>BOLETA ELECTRONICA: B001-"+data[1][13]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.innovagrupoferretero.com</td></tr></table></div>");
+            jQuery('#qrcodeTable').qrcode({
+              render  : "table",
+              text  : "http://ferreboom.com:2000",
+              width: 64,
+              height: 64
+            });
+            $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          break;
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
             data[0].sort(function(a, b) {
                 return a[8] - b[8];
@@ -521,6 +571,58 @@ var stock,compra,promotor,unit,y=7;
             $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:-0px;'><tr><td width='10%'></td><td width='70%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='90%'></td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='90%'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
+            $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          break;
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          case 'FACTURA ELECTRONICA':
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
+            if($('#mysql').val()=='innovaelectric'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 260 - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20601765641</td></tr></table>");
+            }else if($('#mysql').val()=='innovaprincipal'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>INVERSIONES E IMPORTACIONES FERRE BOOM S.R.L.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 258A - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20487211410</td></tr></table>");
+            }else if($('#mysql').val()=='prolongacionhuanuco'){
+              $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>MELGAR POVEZ PAUL ALEXIS</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH N° 101 INT. B - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 10433690058</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
+            "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.innovagrupoferretero.com</td></tr></table></div>");
+            jQuery('#qrcodeTable').qrcode({
+              render  : "table",
+              text  : "http://ferreboom.com:2000",
+              width: 64,
+              height: 64
+            });
             $.ajax({
               type: "POST",
               url: "numerosaletras.php",
@@ -614,14 +716,16 @@ var stock,compra,promotor,unit,y=7;
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}@media print {html,body {width: 190mm;height: 320mm;}}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
         }
-        w.focus();
-        w.print();
         setTimeout(function(){
-          w.close();
-          if($('#dialogver').css('display') != 'block'){
-            location.reload();
-          }
-        }, 200);
+          w.focus();
+          w.print();
+          setTimeout(function(){
+            w.close();
+            if($('#dialogver').css('display') != 'block'){
+              location.reload();
+            }
+          }, 200);
+        }, 100);
       }
     });
   }
@@ -1301,7 +1405,7 @@ var stock,compra,promotor,unit,y=7;
                 });
               },
               success: function(data){
-                if($('#documento').val()=='FACTURA' || $('#documento').val()=='BOLETA DE VENTA'){
+                if($('#documento').val()=='FACTURA ELECTRONICA' || $('#documento').val()=='BOLETA ELECTRONICA'){
                   var serieee=data;
                   $.ajax({
                     type: "POST",
@@ -1356,6 +1460,26 @@ var stock,compra,promotor,unit,y=7;
                 });
               },
               success: function(data){
+                if($('#documento').val()=='FACTURA ELECTRONICA' || $('#documento').val()=='BOLETA ELECTRONICA'){
+                  var serieee=data;
+                  $.ajax({
+                    type: "POST",
+                    url: "numerosaletras.php",
+                    async: false,
+                    data: 'b='+$('#subtotal').val(),
+                    success: function(data){
+                      $.ajax({
+                        type: "POST",
+                        url: "ley.php",
+                        data: { b : data,
+                                serie : serieee,
+                                doc : $('#documento').val()},
+                        success: function(data){
+                        }
+                      });
+                    }
+                  });
+                }
                 imprimir(data,$('#documento').val());
                 //setTimeout(function(){location.reload();}, 200);
               }
@@ -1501,17 +1625,30 @@ var stock,compra,promotor,unit,y=7;
       $('#entregar option[value="SI"]').show();
     }
     else if($('#documento').val()=='BOLETA DE VENTA' || $('#documento').val()=='PROFORMA'){
-      $('#devol').prop('disabled', true);
-      $('#forma-pago option[value=CREDITO]').hide();
-      $('#forma-pago option[value=CONTADO]').show();
-      $('#forma-pago option[value="NO AFECTA"]').hide();
-      $('#form select[name="forma-pago"]').val('CONTADO');
-      $('#form select[name="entregar"]').val('SI');
-      $('#entregar option[value="NO"]').show();
-      $('#entregar option[value="SI"]').show();
-      $('.pago').hide();
-      $('#fechapago').val('');
-      $('#acuenta').val(0);
+      if($('#row1 tr').length>0){
+        swal("","Solo Nota de Pedido acepta Devoluciones","error");
+        $('#documento').val("NOTA DE PEDIDO");
+        $('#devol').prop('disabled', false);
+        $('#forma-pago option[value=CONTADO]').show();
+        $('#forma-pago option[value=CREDITO]').show();
+        $('#forma-pago option[value="NO AFECTA"]').hide();
+        $('#form select[name="forma-pago"]').val('CONTADO');
+        $('#form select[name="entregar"]').val('SI');
+        $('#entregar option[value="NO"]').hide();
+        $('#entregar option[value="SI"]').show();
+      }else{
+        $('#devol').prop('disabled', true);
+        $('#forma-pago option[value=CREDITO]').hide();
+        $('#forma-pago option[value=CONTADO]').show();
+        $('#forma-pago option[value="NO AFECTA"]').hide();
+        $('#form select[name="forma-pago"]').val('CONTADO');
+        $('#form select[name="entregar"]').val('SI');
+        $('#entregar option[value="NO"]').show();
+        $('#entregar option[value="SI"]').show();
+        $('.pago').hide();
+        $('#fechapago').val('');
+        $('#acuenta').val(0);
+      }
     }
     else{
       $('#devol').prop('disabled', true);

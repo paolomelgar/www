@@ -151,9 +151,9 @@ $(function(){
           var dat = {
             labels: data[1],
             datasets: [{
-              fillColor: "rgba(151,187,205,0.2)",
-              strokeColor: "rgba(151,187,205,1)",
-              pointColor: "rgba(151,187,205,1)",
+              fillColor: "rgba(85, 190, 255, .4)",
+              strokeColor: "rgba(85, 190, 255)",
+              pointColor: "rgba(85, 190, 255)",
               pointStrokeColor: "#fff",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(151,187,205,1)",

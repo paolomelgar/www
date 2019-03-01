@@ -16,6 +16,14 @@
 	    		$sql=mysqli_query($con,"SELECT * FROM facturaboom WHERE seriefactura='$q' ORDER BY idfactura");
 	    		$da='';
 			break;
+			case 'FACTURA ELECTRONICA PAUL':
+	    		$sql=mysqli_query($con,"SELECT * FROM facturaelectronicapaul WHERE seriefactura='$q' ORDER BY idfactura");
+	    		$da='';
+			break;
+			case 'FACTURA ELECTRONICA BOOM':
+	    		$sql=mysqli_query($con,"SELECT * FROM facturaelectronicaboom WHERE seriefactura='$q' ORDER BY idfactura");
+	    		$da='';
+			break;
 			case 'NOTA DE PEDIDO':
 	    		$sql=mysqli_query($con,"SELECT * FROM notapedido WHERE serienota='$q' ORDER BY idnota");
 	    		$sql2=mysqli_query($con,"SELECT * FROM devoluciones WHERE seriedevolucion='$q' ORDER BY iddevolucion");

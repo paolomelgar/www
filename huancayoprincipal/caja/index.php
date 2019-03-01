@@ -15,6 +15,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
 <script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
 <script type="text/javascript" src="../sweet-alert.min.js"></script>  
+<script type="text/javascript" src="../jquery.qrcode.min.js"></script>
 <script src="../Chart.min.js"></script>
 <script src="../socket.io.js"></script>
 <script type="text/javascript" src="caja.js"></script>
@@ -230,6 +231,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
               <option value="0">---------------</option>
               <option value="FACTURA PAUL">FACTURA PAUL</option>
               <option value="FACTURA BOOM">FACTURA BOOM</option>
+              <option value="FACTURA ELECTRONICA PAUL">FACTURA ELECTRONICA PAUL</option>
+              <option value="FACTURA ELECTRONICA BOOM">FACTURA ELECTRONICA BOOM</option>
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>
               <option value="COTIZACION">COTIZACION</option>

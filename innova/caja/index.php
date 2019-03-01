@@ -16,6 +16,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
 <script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
 <script type="text/javascript" src="../sweet-alert.min.js"></script>  
+<script type="text/javascript" src="../jquery.qrcode.min.js"></script>
 <script src="../Chart.min.js"></script>
 <script src="../socket.io.js"></script>
 <script type="text/javascript" src="caja.js"></script>
@@ -231,8 +232,13 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
           <td width='15%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
+              <?php if($_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="prolongacionhuanuco"){ ?>
+              <option value="BOLETA ELECTRONICA">BOLETA ELECTRONICA</option>
+              <option value="FACTURA ELECTRONICA">FACTURA ELECTRONICA</option>
+            <?php }else{ ?>
               <option value="BOLETA DE VENTA">BOLETA DE VENTA</option>
               <option value="FACTURA">FACTURA</option>
+            <?php } ?>
               <option value="PROFORMA">PROFORMA</option>
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>

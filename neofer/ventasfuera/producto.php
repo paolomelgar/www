@@ -17,7 +17,7 @@ require_once('../connection.php');
     while($row=mysqli_fetch_assoc($result)){
     ?>
       <tr bgcolor='white' style='border:1px solid grey'>
-        <td style='padding:0px;'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['id'].'.jpg?timestamp=23124" width="60px" height="60px">'; ?></td>
+        <td style='padding:0px;'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="60px" height="60px">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td stye='padding:0px'>
           <table width='100%' class="tr">

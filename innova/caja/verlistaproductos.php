@@ -12,6 +12,12 @@
 			case 'FACTURA':
 	    		$sql=mysqli_query($con,"SELECT * FROM factura WHERE seriefactura='$q' ORDER BY idfactura");
 			break;
+			case 'BOLETA ELECTRONICA':
+	    		$sql=mysqli_query($con,"SELECT * FROM boletaelectronica WHERE serieboleta='$q' ORDER BY idboleta");
+			break;
+			case 'FACTURA ELECTRONICA':
+	    		$sql=mysqli_query($con,"SELECT * FROM facturaelectronica WHERE seriefactura='$q' ORDER BY idfactura");
+			break;
 			case 'PROFORMA':
 	    		$sql=mysqli_query($con,"SELECT * FROM proforma WHERE serieproforma='$q' ORDER BY idproforma");
 			break;

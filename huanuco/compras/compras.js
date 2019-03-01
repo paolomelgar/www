@@ -693,6 +693,11 @@ $(function(){
       if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
       }else{
+        if($(this).parent().find('td:eq(5)').text()=='CREDITO'){
+          $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+        }else{
+          $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+        }
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
       }
     }else{
@@ -1010,15 +1015,18 @@ $('#form select[name="forma-pago"]').val('');
       $('#forma-pago option[value=CREDITO]').show();
       $('#serie').hide();
       $('#numero').hide();
-      $('#form select[name="forma-pago"]').val('CONTADO');
+      $('#form select[name="forma-pago"]').val('CREDITO');
+      $('.pago').show();
+      $('#fechapago').val('');
+
     }
     else if($('#documento').val()=='FACTURA'){
       $('#forma-pago option[value=CONTADO]').show();
       $('#forma-pago option[value=CREDITO]').show();
       $('#serie').show();
       $('#numero').show();
-      $('#form select[name="forma-pago"]').val('CONTADO');
-      $('.pago').hide();
+      $('#form select[name="forma-pago"]').val('CREDITO');
+      $('.pago').show();
       $('#fechapago').val('');
     }
     else{

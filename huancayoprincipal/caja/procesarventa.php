@@ -118,11 +118,107 @@ if(isset($_POST) && !empty($_POST)){
             $row = mysqli_fetch_row($res);
             $num="000000".$row[0];
             $num=substr($num,-7);
-            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
                 $sql= mysqli_query($con,"INSERT INTO facturapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
                             'FACTURA PAUL',
+                            '".$_POST['id'][$i]."',
+                            '".$_POST['compra'][$i]."',
+                            '".$_POST['producto'][$i]."',
+                            '".$_POST['cantidad'][$i]."',
+                            '".$_POST['unitario'][$i]."',
+                            '".$_POST['importe'][$i]."',
+                            '".$_POST['promotor'][$i]."',
+                            '".$_POST['str'][6]['value']."',
+                            '".$_POST['str'][7]['value']."',
+                            '".$_POST['str'][8]['value']."',
+                            '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                            NOW(),
+                            '".$_POST['str'][0]['value']."',
+                            '".$_POST['str'][9]['value']."'
+                            )");
+                $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+            }
+            $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,igv) 
+                        VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                                NOW(),
+                                '".$num."',
+                                'FACTURA PAUL',
+                                '".$_POST['str'][6]['value']."',
+                                '".$_POST['str'][7]['value']."',
+                                '".$_POST['str'][8]['value']."',
+                                'NO',
+                                '".$_POST['str'][10]['value']."',
+                                '".$_POST['str'][11]['value']."',
+                                '".$_POST['str'][12]['value']."',
+                                '".$_POST['str'][0]['value']."',
+                                '".$_POST['str'][13]['value']."',
+                                '".$_POST['str'][2]['value']."',
+                                '1'
+                                )");
+        }
+        else{
+            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturapaul WHERE seriefactura='".$_POST['serieventa']."'"); 
+            while($row = mysqli_fetch_assoc($del)){
+                if($row['entregado']=='NO' ){
+                    $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
+                }
+            }
+            $del1 = mysqli_query($con,"DELETE FROM facturapaul WHERE seriefactura='".$_POST['serieventa']."'");
+            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA PAUL'");
+            $num=$_POST['serieventa'];
+            for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
+                $sql= mysqli_query($con,"INSERT INTO facturapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                    VALUES ('".$num."',
+                            'FACTURA PAUL',
+                            '".$_POST['id'][$i]."',
+                            '".$_POST['compra'][$i]."',
+                            '".$_POST['producto'][$i]."',
+                            '".$_POST['cantidad'][$i]."',
+                            '".$_POST['unitario'][$i]."',
+                            '".$_POST['importe'][$i]."',
+                            '".$_POST['promotor'][$i]."',
+                            '".$_POST['str'][6]['value']."',
+                            '".$_POST['str'][7]['value']."',
+                            '".$_POST['str'][8]['value']."',
+                            '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                            NOW(),
+                            '".$_POST['str'][0]['value']."',
+                            '".$_POST['str'][9]['value']."'
+                            )");
+                $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
+            }
+            $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,igv) 
+                        VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                                NOW(),
+                                '".$num."',
+                                'FACTURA PAUL',
+                                '".$_POST['str'][6]['value']."',
+                                '".$_POST['str'][7]['value']."',
+                                '".$_POST['str'][8]['value']."',
+                                'NO',
+                                '".$_POST['str'][10]['value']."',
+                                '".$_POST['str'][11]['value']."',
+                                '".$_POST['str'][12]['value']."',
+                                '".$_POST['str'][0]['value']."',
+                                '".$_POST['str'][13]['value']."',
+                                '".$_POST['str'][2]['value']."',
+                                '1'
+                                )");
+        }
+    break;
+    case 'FACTURA ELECTRONICA PAUL':
+        if ($_POST['serieventa']==0) {
+            $res = mysqli_query($con,"SELECT MAX(serieventas) FROM total_ventas WHERE documento='FACTURA ELECTRONICA PAUL'"); 
+            $row = mysqli_fetch_row($res);
+            $mm=$row[0]+1;
+            $num="000000".$mm;
+            $num=substr($num,-7);
+            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$num.".DET", "w");
+            for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
+                $sql= mysqli_query($con,"INSERT INTO facturaelectronicapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                    VALUES ('".$num."',
+                            'FACTURA ELECTRONICA PAUL',
                             '".$_POST['id'][$i]."',
                             '".$_POST['compra'][$i]."',
                             '".$_POST['producto'][$i]."',
@@ -154,7 +250,7 @@ if(isset($_POST) && !empty($_POST)){
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
                                 NOW(),
                                 '".$num."',
-                                'FACTURA PAUL',
+                                'FACTURA ELECTRONICA PAUL',
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',
@@ -177,20 +273,20 @@ if(isset($_POST) && !empty($_POST)){
             fclose($archivo2);
         }
         else{
-            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturapaul WHERE seriefactura='".$_POST['serieventa']."'"); 
+            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaelectronicapaul WHERE seriefactura='".$_POST['serieventa']."'"); 
             while($row = mysqli_fetch_assoc($del)){
                 if($row['entregado']=='NO' ){
                     $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
                 }
             }
-            $del1 = mysqli_query($con,"DELETE FROM facturapaul WHERE seriefactura='".$_POST['serieventa']."'");
-            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA PAUL'");
+            $del1 = mysqli_query($con,"DELETE FROM facturaelectronicapaul WHERE seriefactura='".$_POST['serieventa']."'");
+            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA ELECTRONICA PAUL'");
             $num=$_POST['serieventa'];
             $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
-                $sql= mysqli_query($con,"INSERT INTO facturapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                $sql= mysqli_query($con,"INSERT INTO facturaelectronicapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
-                            'FACTURA PAUL',
+                            'FACTURA ELECTRONICA PAUL',
                             '".$_POST['id'][$i]."',
                             '".$_POST['compra'][$i]."',
                             '".$_POST['producto'][$i]."',
@@ -222,7 +318,7 @@ if(isset($_POST) && !empty($_POST)){
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
                                 NOW(),
                                 '".$num."',
-                                'FACTURA PAUL',
+                                'FACTURA ELECTRONICA PAUL',
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',
@@ -251,11 +347,105 @@ if(isset($_POST) && !empty($_POST)){
             $row = mysqli_fetch_row($res);
             $num="000000".$row[0];
             $num=substr($num,-7);
-            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
                 $sql= mysqli_query($con,"INSERT INTO facturaboom (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
                             'FACTURA BOOM',
+                            '".$_POST['id'][$i]."',
+                            '".$_POST['compra'][$i]."',
+                            '".$_POST['producto'][$i]."',
+                            '".$_POST['cantidad'][$i]."',
+                            '".$_POST['unitario'][$i]."',
+                            '".$_POST['importe'][$i]."',
+                            '".$_POST['promotor'][$i]."',
+                            '".$_POST['str'][6]['value']."',
+                            '".$_POST['str'][7]['value']."',
+                            '".$_POST['str'][8]['value']."',
+                            '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                            NOW(),
+                            '".$_POST['str'][0]['value']."',
+                            '".$_POST['str'][9]['value']."'
+                            )");
+            }
+            $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,igv) 
+                        VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                                NOW(),
+                                '".$num."',
+                                'FACTURA BOOM',
+                                '".$_POST['str'][6]['value']."',
+                                '".$_POST['str'][7]['value']."',
+                                '".$_POST['str'][8]['value']."',
+                                'NO',
+                                '".$_POST['str'][10]['value']."',
+                                '".$_POST['str'][11]['value']."',
+                                '".$_POST['str'][12]['value']."',
+                                '".$_POST['str'][0]['value']."',
+                                '".$_POST['str'][13]['value']."',
+                                '".$_POST['str'][2]['value']."',
+                                '1'
+                                )");
+        }
+        else{
+            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaboom WHERE seriefactura='".$_POST['serieventa']."'"); 
+            while($row = mysqli_fetch_assoc($del)){
+                if($row['entregado']=='NO' ){
+                    $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1+".$row['cantidad'].") WHERE id='".$row['id']."'");
+                }
+            }
+            $del1 = mysqli_query($con,"DELETE FROM facturaboom WHERE seriefactura='".$_POST['serieventa']."'");
+            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA BOOM'");
+            $num=$_POST['serieventa'];
+            for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
+                $sql= mysqli_query($con,"INSERT INTO facturaboom (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                    VALUES ('".$num."',
+                            'FACTURA BOOM',
+                            '".$_POST['id'][$i]."',
+                            '".$_POST['compra'][$i]."',
+                            '".$_POST['producto'][$i]."',
+                            '".$_POST['cantidad'][$i]."',
+                            '".$_POST['unitario'][$i]."',
+                            '".$_POST['importe'][$i]."',
+                            '".$_POST['promotor'][$i]."',
+                            '".$_POST['str'][6]['value']."',
+                            '".$_POST['str'][7]['value']."',
+                            '".$_POST['str'][8]['value']."',
+                            '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                            NOW(),
+                            '".$_POST['str'][0]['value']."',
+                            '".$_POST['str'][9]['value']."'
+                            )");
+            }
+            $query= mysqli_query($con,"INSERT INTO total_ventas (fecha,hora,serieventas,documento,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,igv) 
+                        VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
+                                NOW(),
+                                '".$num."',
+                                'FACTURA BOOM',
+                                '".$_POST['str'][6]['value']."',
+                                '".$_POST['str'][7]['value']."',
+                                '".$_POST['str'][8]['value']."',
+                                'NO',
+                                '".$_POST['str'][10]['value']."',
+                                '".$_POST['str'][11]['value']."',
+                                '".$_POST['str'][12]['value']."',
+                                '".$_POST['str'][0]['value']."',
+                                '".$_POST['str'][13]['value']."',
+                                '".$_POST['str'][2]['value']."',
+                                '1'
+                                )");
+        }
+    break;
+    case 'FACTURA ELECTRONICA BOOM':
+        if ($_POST['serieventa']==0) {
+            $res = mysqli_query($con,"SELECT MAX(serieventas) FROM total_ventas WHERE documento='FACTURA ELECTRONICA BOOM'"); 
+            $row = mysqli_fetch_row($res);
+            $mm=$row[0]+1;
+            $num="000000".$mm;
+            $num=substr($num,-7);
+            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$num.".DET", "w");
+            for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
+                $sql= mysqli_query($con,"INSERT INTO facturaelectronicaboom (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                    VALUES ('".$num."',
+                            'FACTURA ELECTRONICA BOOM',
                             '".$_POST['id'][$i]."',
                             '".$_POST['compra'][$i]."',
                             '".$_POST['producto'][$i]."',
@@ -288,7 +478,7 @@ if(isset($_POST) && !empty($_POST)){
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
                                 NOW(),
                                 '".$num."',
-                                'FACTURA BOOM',
+                                'FACTURA ELECTRONICA BOOM',
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',
@@ -311,20 +501,20 @@ if(isset($_POST) && !empty($_POST)){
             fclose($archivo2);
         }
         else{
-            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaboom WHERE seriefactura='".$_POST['serieventa']."'"); 
+            $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaelectronicaboom WHERE seriefactura='".$_POST['serieventa']."'"); 
             while($row = mysqli_fetch_assoc($del)){
                 if($row['entregado']=='NO' ){
                     $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1+".$row['cantidad'].") WHERE id='".$row['id']."'");
                 }
             }
-            $del1 = mysqli_query($con,"DELETE FROM facturaboom WHERE seriefactura='".$_POST['serieventa']."'");
-            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA BOOM'");
+            $del1 = mysqli_query($con,"DELETE FROM facturaelectronicaboom WHERE seriefactura='".$_POST['serieventa']."'");
+            $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA ELECTRONICA BOOM'");
             $num=$_POST['serieventa'];
             $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
-                $sql= mysqli_query($con,"INSERT INTO facturaboom (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
+                $sql= mysqli_query($con,"INSERT INTO facturaelectronicaboom (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
-                            'FACTURA BOOM',
+                            'FACTURA ELECTRONICA BOOM',
                             '".$_POST['id'][$i]."',
                             '".$_POST['compra'][$i]."',
                             '".$_POST['producto'][$i]."',
@@ -356,7 +546,7 @@ if(isset($_POST) && !empty($_POST)){
                         VALUES ('".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
                                 NOW(),
                                 '".$num."',
-                                'FACTURA BOOM',
+                                'FACTURA ELECTRONICA BOOM',
                                 '".$_POST['str'][6]['value']."',
                                 '".$_POST['str'][7]['value']."',
                                 '".$_POST['str'][8]['value']."',

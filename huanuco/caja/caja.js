@@ -1582,7 +1582,7 @@ var stock,compra,promotor,unit;
   });
   $('#forma-pago').change(function(){
     if($('#forma-pago').val()=='CREDITO'){
-      $('.pago').show();
+      $('.pago').hide();
     }
     else if($('#forma-pago').val()=='CONTADO'){
       $('.pago').hide();

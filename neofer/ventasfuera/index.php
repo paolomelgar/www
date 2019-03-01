@@ -388,7 +388,7 @@ if($_SESSION['valida']=='neofer'){
             	    $('#table').append("<tr style='height:270px'><td colspan='4' align='center' style='color:red;font-weight:bold;font-size:40px'>NO SE ENCONTRARON RESULTADOS</td></tr>");
 		        }
 		        if(m==0 && a==0){
-	          		$(window).scrollTop(400);
+	          		$(window).scrollTop(0);
 	          	}else if(a>0){
 		          	$(window).scrollTop(0);
 	          	}
@@ -1145,54 +1145,8 @@ if($_SESSION['valida']=='neofer'){
               </div>
               <div id='observarpedido'></div>
             </div>
-	<table width='100%' style='border-collapse:collapse;position:absolute;top:45px;left:0px'>
-		<tr>
-			<td align='center' style="max-width:400px;background-size: 100%;" id='back'>
-                <ul id="image-gallery" class="gallery list-unstyled cS-hidden" style='margin-top:50px'>
-                	<?php 
-		            $sql = mysqli_query($con,"SELECT * FROM producto WHERE activo='OFERTA'");
-		            while($row=mysqli_fetch_assoc($sql)){ ?>
-		            	<li data-thumb="https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"> 
-		            		<table style='margin-bottom:50px;border-collapse:collapse;border:5px solid black'>
-		            			<tr>
-		            				<td style='background-color:white;padding:0px'>
-			                        	<img width='300px' height='300px' src="https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a<?php echo $row['codigo']; ?>.jpg"/>
-			            			</td>
-			            			<td style='background-color:white;width:200px'>
-			                        	<h1 align='center'><img src="../catalogo1/oferta.jpg" width='150px' height='40px'/></h1>
-			                        	<h3 align='center' style='color:#4061a7'><?php echo $row['producto']." ".$row['marca']; ?></h4>
-			                        	<?php if($_SESSION['cargo']=='CLIENTE'){ ?>
-			                        	<h2 align='center' style='text-decoration: line-through;margin-top:-15px;color:red'><?php echo "S/ ".$row['p_promotor']; ?></h2>
-			                        	<h1 align='center' style='font-size:45px;margin-top:-20px;color:#f63;font-family: "Lato", "sans-serif";'><?php echo "S/ ".$row['p_especial']; ?></h1>
-			                        	<?php }else{ ?>
-			                        	<h2 align='center' style='text-decoration: line-through;margin-top:-15px;color:red'><?php echo "S/ ".$row['p_unidad']; ?></h2>
-			                        	<h1 align='center' style='font-size:45px;margin-top:-20px;color:#f63;font-family: "Lato", "sans-serif";'><?php echo "S/ ".$row['p_mayor']; ?></h1>
-			                        	<?php } ?>
-			                        	<h5 align='center' style='margin-top:-15px;margin-bottom:20px;color:#9E9E9E'><?php echo "Cant Minima: ".$row['cant_caja']; ?></h3>
-		            				</td>
-		            			</tr>
-		            		</table>
-                        </li>
-		            <?php } ?> 
-                </ul>
-                <div style='position:absolute;left:70px;top:40px;'>
-                	<img src="https://raw.githubusercontent.com/paolomelgar/ferreboom/master/neofer/logo_ferreboom.png" width='300px'>
-					<table width="300px" style='margin-top:100px'>
-						<tr>
-							<td style='font-size: 14px;color: white;letter-spacing: 1.2px;' align='center'>Atencion al Cliente</td>
-						</tr>
-						<tr>
-							<td style='color: white;font-size: 28px;' align='center'>Tel: (062) 503715</td>
-						</tr>
-						<tr>
-							<td style='color: white;font-size: 28px;' align='center'>RPM: #999050151</td>
-						</tr>
-					</table>
-				</div>
-			</td>
-		</tr>
-	</table>
-	<table width="60%" border='0' style='font-size:12px;margin-top:570px' id='table' cellspacing="10" align='center'>
+	
+	<table width="60%" border='0' style='font-size:12px;margin-top:50px' id='table' cellspacing="10" align='center'>
 		
 	</table>
 	<div style='position:fixed;bottom:0px;right:0px;' id='area'>

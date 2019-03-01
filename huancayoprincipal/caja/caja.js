@@ -492,6 +492,45 @@ var stock,compra,promotor,unit;
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          case 'FACTURA ELECTRONICA PAUL':
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:300px;height:80px;'></div>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>MELGAR POVEZ PAUL ALEXIS</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH N° 101 INT. B - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>10433690058</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.ferreboom.com</td></tr></table></div>");
+            jQuery('#qrcodeTable').qrcode({
+              render  : "table",
+              text  : "http://ferreboom.com:2000",
+              width: 64,
+              height: 64
+            });
+            $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          break;
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA BOOM':
             $('#dx').append("<table width='100%' style='margin-top:145px;font:0.8em arial;'><tr><td width='6%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='10%'>"+data[1][12].slice(3,5)+"</td><td width='78%'>"+data[1][12].slice(6,10)+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:9px;font:0.8em arial;'><tr><td width='70%'>"+data[1][1]+"</td><td width='30%'>"+data[1][0]+"</td></tr></table>\n"+
@@ -510,6 +549,45 @@ var stock,compra,promotor,unit;
             $("#dx").append("<table width='100%' style='font:0.8em arial;margin-top:18px;'><tr><td width='6%'>&nbsp</td><td width='74%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
+            $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          break;
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          case 'FACTURA ELECTRONICA BOOM':
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:300px;height:80px;'></div>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>DISTRIBUIDORA DE HERRAMIENTAS Y ACCESORIOS FERREBOOM S.A.C.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. YAPURA N° 163 URB. CHACRA COLORADA - LIMA - LIMA - BREÑA</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>20600996968</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.ferreboom.com</td></tr></table></div>");
+            jQuery('#qrcodeTable').qrcode({
+              render  : "table",
+              text  : "http://ferreboom.com:2000",
+              width: 64,
+              height: 64
+            });
             $.ajax({
               type: "POST",
               url: "numerosaletras.php",
@@ -567,7 +645,7 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'COTIZACION':
-            $('#dx').append("<div align='center'><img id='theImg' src='../sistema/logo_ferreboom.png' style='width:70%;height:150px;'></div>\n"+
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:70%;height:150px;'></div>\n"+
               "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
               "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
@@ -582,14 +660,17 @@ var stock,compra,promotor,unit;
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}@media print {html,body {width: 190mm;height: 320mm;}}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
         }
-        w.focus();
-        w.print();
-        setTimeout(function(){
-          w.close();
-          if($('#dialogver').css('display') != 'block'){
-            location.reload();
-          }
-        }, 200);
+        setTimeout(function() {
+          w.focus();
+          w.print();
+          setTimeout(function(){
+            w.close();
+            if($('#dialogver').css('display') != 'block'){
+              location.reload();
+            }
+          }, 200);
+        }, 100);
+        
       }
     });
   }
@@ -1262,7 +1343,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                if($('#documento').val()=='FACTURA BOOM' || $('#documento').val()=='FACTURA PAUL'){
+                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA PAUL'){
                   var serieee=data;
                   $.ajax({
                     type: "POST",
@@ -1317,7 +1398,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                if($('#documento').val()=='FACTURA BOOM' || $('#documento').val()=='FACTURA PAUL'){
+                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA PAUL'){
                   var serieee=data;
                   $.ajax({
                     type: "POST",

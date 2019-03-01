@@ -7,7 +7,7 @@ if(isset($_POST) && !empty($_POST)){
       $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
     }
     $producto = substr($producto, 0, -4);
-    if($_POST['doc']=='FACTURA PAOLA' || $_POST['doc']=='FACTURA DORIS'){
+    if($_POST['doc']=='FACTURA' || $_POST['doc']=='FACTURA ELECTRONICA'){
       $query = "SELECT * FROM producto WHERE $producto ORDER BY producto,marca LIMIT 12";
     }else{
       $query = "SELECT * FROM producto WHERE $producto AND activo!='NO' AND activo!='ANULADO' ORDER BY producto,marca LIMIT 12";
@@ -17,7 +17,7 @@ if(isset($_POST) && !empty($_POST)){
     <?php
     while($row=mysqli_fetch_assoc($result)){
     ?>
-    <tr class="tr" bgcolor='white' <?php if($row['stock_real']<=0 && $_POST['doc']!='FACTURA PAOLA' && $_POST['doc']!='FACTURA DORIS'){echo "style='font-weight:bold;background-color:#FF9D9D;'";}else{echo "style='font-weight:bold;'";} ?>>
+    <tr class="tr" bgcolor='white' <?php if($row['stock_real']<=0 && $_POST['doc']!='FACTURA' && $_POST['doc']!='FACTURA ELECTRONICA'){echo "style='font-weight:bold;background-color:#FF9D9D;'";}else{echo "style='font-weight:bold;'";} ?>>
         <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huancayoprincipal/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td><?php echo $row['producto']; ?></td>

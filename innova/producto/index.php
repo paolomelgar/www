@@ -111,7 +111,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
         <option value='CONT'>CONT</option>
       </select>
       <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-      <button id="eliminar" class="btn btn-success disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
+      <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php }else{ ?>

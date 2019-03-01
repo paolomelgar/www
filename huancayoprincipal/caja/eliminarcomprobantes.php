@@ -10,7 +10,14 @@
       while($row = mysqli_fetch_assoc($del)){
         $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
       }
-      $sql12=mysqli_query($con,"UPDATE facturapaola SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
+      $sql12=mysqli_query($con,"UPDATE facturapaul SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
+    }
+    elseif($_POST['com']=='FACTURA ELECTRONICA PAUL'){
+      $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaelectronicapaul WHERE seriefactura='".$_POST['serie']."'"); 
+      while($row = mysqli_fetch_assoc($del)){
+        $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con+".$row['cantidad'].") WHERE id='".$row['id']."'");
+      }
+      $sql12=mysqli_query($con,"UPDATE facturaelectronicapaul SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
       unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".CAB");
       unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".DET");
       unlink("C:/Users/FERREBOOM/Dropbox/10433690058/10433690058-01-F001-".$_POST['serie'].".TRI");
@@ -22,6 +29,13 @@
         $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1+".$row['cantidad'].") WHERE id='".$row['id']."'");
       }
       $sql12=mysqli_query($con,"UPDATE facturaboom SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
+    }
+    elseif($_POST['com']=='FACTURA ELECTRONICA BOOM'){
+      $del = mysqli_query($con,"SELECT id,cantidad,entregado FROM facturaelectronicaboom WHERE seriefactura='".$_POST['serie']."'"); 
+      while($row = mysqli_fetch_assoc($del)){
+        $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1+".$row['cantidad'].") WHERE id='".$row['id']."'");
+      }
+      $sql12=mysqli_query($con,"UPDATE facturaelectronicaboom SET entregado='ANULADO' WHERE seriefactura='".$_POST['serie']."'");
       unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".CAB");
       unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".DET");
       unlink("C:/Users/FERREBOOM/Dropbox/20600996968/20600996968-01-F001-".$_POST['serie'].".TRI");
