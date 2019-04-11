@@ -4,7 +4,7 @@ require_once('../connection.php');
 $ini = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['inicio'])));
 $fin = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['final'])));
 $output="<table border='1'><tr style='font-weight:bold;background-color:#428bca;color:white'><td>PRODUCTO</td><td>MARCA</td><td>CATEGORIA</td><td>CANTIDAD</td><td>P. COMPRA</td><td>P. VENTA</td><td>GANANCIA</td><td>PORCENTAJE</td><td>CAJA</td><td>CAJA MASTER</td><td>STOCK REAL</td><td>PROVEEDOR</td><td>P. COMPRA BD</td><td>P. UNIDAD BD</td><td>P. MAYOR BD</td><td>UBICACION 1</td></tr>";
-$sql=mysqli_query($con,"SELECT * FROM producto WHERE activo='SI'");
+$sql=mysqli_query($con,"SELECT * FROM producto WHERE activo='SI' or actiVo='UNIDAD' or activo='OFERTA'");
 while($row=mysqli_fetch_assoc($sql)){
     $query="id='".$row['id']."' AND entregado='SI' AND ('$ini' <= fecha AND fecha <= '$fin')";
     $sql1=mysqli_query($con,"SELECT SUM(cantidad),sum(compra),sum(importe) FROM

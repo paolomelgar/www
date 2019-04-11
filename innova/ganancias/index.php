@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 require_once('../connection.php'); 
-if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
+if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' || $_SESSION['cargo']=='ASISTENTE'){
     $q=mysqli_query($con,"SELECT * FROM usuario WHERE cargo!='CLIENTE'");
 ?>
 <html>

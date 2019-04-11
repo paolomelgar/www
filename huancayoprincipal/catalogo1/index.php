@@ -19,7 +19,7 @@ class PDF extends FPDF
 		$this->SetY(-15);
 		$this->SetFont('Arial','I',8);
 		$this->SetTextColor(0,80,180);
-		$this->Cell(0,10,utf8_decode('JR. INCLAN N° 360 - HUANCAYO'),0,0,'C');
+		$this->Cell(0,10,utf8_decode('JR. ANCASH 101 - CHILCA - HUANCAYO'),0,0,'C');
 		$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'R');
     }
 }

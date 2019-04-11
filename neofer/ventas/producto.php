@@ -19,6 +19,7 @@ require_once('../connection.php');
       $dat[$i][4]=$row['cant_caja'];
       $dat[$i][5]=$row['stock_real'];
       $dat[$i][6]=$row['p_promotor'];
+      $dat[$i][7]=$row['codigo'];
       $i++;
     }
     echo json_encode($dat);

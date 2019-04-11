@@ -18,8 +18,9 @@
     $dat[$i][2]=$row['tipo'];
     $dat[$i][3]=$row['monto'];
     $dat[$i][4]=$row['detalle'];
-    $dat[$i][5]=$row['sesion'];
-    $dat[$i][6]=$row['id'];
+    $dat[$i][5]=$row['usuario'];
+    $dat[$i][6]=$row['sesion'];
+    $dat[$i][7]=$row['id'];
     $i++;
   }
   echo json_encode($dat);

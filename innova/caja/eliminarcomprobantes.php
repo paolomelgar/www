@@ -9,6 +9,8 @@
     $aa="20487211410";
   }else if($_SESSION['mysql']=="prolongacionhuanuco"){
     $aa="10433690058";
+  }else if($_SESSION['mysql']=="jauja"){
+    $aa="20603695055"; 
   }
   if(isset($_POST) && !empty($_POST)){
     $sql2=mysqli_query($con,"SELECT total,entregado,credito FROM total_ventas WHERE serieventas='".$_POST['serie']."' AND documento='".$_POST['com']."'");

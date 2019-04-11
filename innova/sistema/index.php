@@ -200,6 +200,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../ventas/" target="_blank">VENTA TIENDA</a></li>
 									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
 									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
+									<li><a href="../ticketpromedio/" target="contenedor">TICKET PROMEDIO</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -209,6 +210,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
+									<li><a href="../cobranzasvisa/" target="contenedor">COBRANZAS VISA</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
@@ -228,15 +230,18 @@ if($_SESSION['valida']=='innova'){
 						</ul>
 						<?php
 					break;
-					case 'ASISTENTE':
+					case 'ENCARGADOTIENDA':
 						?>
 						<ul>
-							<li style="background-color: #FF6500;"><a href="#" >ADMINISTRACION</a>
+							<li style="background-color: #F63;"><a href="#" >ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="../proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
+									<li><a href="../marca/" target="contenedor">MARCAS</a></li>
+									<li><a href="../familia/" target="contenedor">FAMILIAS</a></li>
+									<li><a href="../query/" target="contenedor">CONSULTAS</a></li>
 									<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
 								</ul>
 							</li>
@@ -245,7 +250,55 @@ if($_SESSION['valida']=='innova'){
 							<li><a href="#" >COMPRAS</a>
 							  	<ul>
 									<li><a href="../compras/" target="_blank">COMPRAS</a></li>
+									<li><a href="../calendario/" target="contenedor">CRONOGRAMA PAGOS</a></li>
 									<li><a href="../maps/" target="contenedor">GOOGLE MAPS</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><a href="#" >VENTAS</a>
+							  	<ul>
+									<li><a href="../caja/" target="_blank">CAJA TIENDA</a></li>
+									<li><a href="../ventas/" target="_blank">VENTA TIENDA</a></li>
+									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
+									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
+									<li><a href="../ticketpromedio/" target="contenedor">TICKET PROMEDIO</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><a href="#" >TESORERIA</a>
+							  	<ul>
+									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
+									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
+									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
+									<li><a href="../cobranzasvisa/" target="contenedor">COBRANZAS VISA</a></li>
+									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
+									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
+									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><a href="#" >ESTADISTICAS</a>
+							  	<ul>
+									<li><a href="../kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
+									<li><a href="../kardex_proveedor/" target="contenedor">REPORTE PROVEEDORES</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><a href="salir.php" >SALIR</a></li>
+						</ul>
+						<?php
+					break;					
+					case 'ASISTENTE':
+						?>
+						<ul>
+							<li style="background-color: #FF6500;"><a href="#" >ADMINISTRACION</a>
+						  		<ul>
+									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -262,16 +315,8 @@ if($_SESSION['valida']=='innova'){
 							<li><a href="#" >TESORERIA</a>
 							  	<ul>
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
-									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
-									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li><a href="#" >ESTADISTICAS</a>
-							  	<ul>
-									<li><a href="../kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
-									<li><a href="../kardex_proveedor/" target="contenedor">REPORTE PROVEEDORES</a></li>
+									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>								
+									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -297,7 +342,6 @@ if($_SESSION['valida']=='innova'){
 							<li><a href="#" >VENTAS</a>
 							  	<ul>
 									<li><a href="../caja/" target="_blank">CAJA</a></li>
-									<li><a href="../malogrados/" target="contenedor">MALOGRADOS</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -307,21 +351,16 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li><a href="../kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
+							</li>				
 						</ul>
 						<ul>
 							<li><a href="salir.php" >SALIR</a></li>
 						</ul>
+
 						<?php
 					break;
 					case 'VENDEDOR':
 						?>
-						<ul>
-							<li style="background-color: #FF6500"><a href="../cliente/" target="contenedor">CLIENTES</a></li>
-						</ul>
 						<ul>
 							<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">SUNAT RUC</a></li>
 						</ul>

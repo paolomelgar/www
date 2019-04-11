@@ -24,7 +24,9 @@
       $aa="20487211410";
     }else if($_SESSION['mysql']=="prolongacionhuanuco"){
       $aa="10433690058";
-    }
+    }else if($_SESSION['mysql']=="jauja"){
+      $aa="20603695055"; 
+  }
 if(isset($_POST) && !empty($_POST)){
 	switch ($_POST['str'][1]['value']) {
     case 'BOLETA DE VENTA':
@@ -128,7 +130,7 @@ if(isset($_POST) && !empty($_POST)){
 	break;
     case 'BOLETA ELECTRONICA':
         if ($_POST['serieventa']==0) {
-            $res = mysqli_query($con,"SELECT MAX(serieventas)+1 FROM total_ventas WHERE documento='BOLETA ELECTRONICA'"); 
+            $res = mysqli_query($con,"SELECT MAX(serieventas) FROM total_ventas WHERE documento='BOLETA ELECTRONICA'"); 
             $row = mysqli_fetch_row($res);
             $mm=$row[0]+1;
             $num="000000".$mm;
@@ -157,10 +159,10 @@ if(isset($_POST) && !empty($_POST)){
                     $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
                 }
                 if($aa!=""){
-                    $a1=number_format($_POST['unitario'][$i]/1.18,2,".","");
-                    $b1=number_format($_POST['unitario'][$i]-$a1,2,".","");
-                    $a11=number_format($_POST['importe'][$i]/1.18,2,".","");
-                    $b11=number_format($_POST['importe'][$i]-$a11,2,".","");
+                    $a1=number_format($_POST['unitario'][$i]/1.18,2,'.','');
+                    $b1=number_format($_POST['unitario'][$i]-$a1,2,'.','');
+                    $a11=number_format($_POST['importe'][$i]/1.18,2,'.','');
+                    $b11=number_format($_POST['importe'][$i]-$a11,2,'.','');
                     if($i>0){
                         fwrite($archivo1,PHP_EOL ."NIU|".$_POST['cantidad'][$i]."||-|".$_POST['producto'][$i]."|".$a1."|".$b11."|1000|".$b11."|".$a1*$_POST['cantidad'][$i]."|IGV|VAT|10|18|-|0|0|||-|0|-|0|0|||0|".$_POST['importe'][$i]."|".$a1*$_POST['cantidad'][$i]."|0|");
                     }else{
@@ -186,17 +188,17 @@ if(isset($_POST) && !empty($_POST)){
                                 '".$_POST['str'][2]['value']."'
                                 )");
             if($aa!=""){
-                $a=number_format($_POST['str'][12]['value']/1.18,2,".","");
-                $b=number_format($_POST['str'][12]['value']-$a,2,".","");
+                $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
+                $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
                 $archivo = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-03-B".$bb."-".$num.".CAB", "w");
-                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".$_POST['str'][7]['value']."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
+                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|1|0|".trim($_POST['str'][7]['value'])."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
                 fclose($archivo);
                 $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-03-B".$bb."-".$num.".TRI", "w");
                 fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");
                 fclose($archivo2);
             }
         }else{
-            $sqla=mysqli_query($con,"SELECT total,entregado FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='BOLETA ELECTRONICA'");
+            $sqla=mysqli_query($con,"SELECT total,entregado,hora FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='BOLETA ELECTRONICA'");
             $del = mysqli_query($con,"SELECT id,cantidad FROM boletaelectronica WHERE serieboleta='".$_POST['serieventa']."'"); 
             $ro=mysqli_fetch_row($sqla);
             if($ro[1]=='SI'){
@@ -231,10 +233,10 @@ if(isset($_POST) && !empty($_POST)){
                     $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
                 }
                 if($aa!=""){
-                    $a1=number_format($_POST['unitario'][$i]/1.18,2,".","");
-                    $b1=number_format($_POST['unitario'][$i]-$a1,2,".","");
-                    $a11=number_format($_POST['importe'][$i]/1.18,2,".","");
-                    $b11=number_format($_POST['importe'][$i]-$a11,2,".","");
+                    $a1=number_format($_POST['unitario'][$i]/1.18,2,'.','');
+                    $b1=number_format($_POST['unitario'][$i]-$a1,2,'.','');
+                    $a11=number_format($_POST['importe'][$i]/1.18,2,'.','');
+                    $b11=number_format($_POST['importe'][$i]-$a11,2,'.','');
                     if($i>0){
                         fwrite($archivo1,PHP_EOL ."NIU|".$_POST['cantidad'][$i]."||-|".$_POST['producto'][$i]."|".$a1."|".$b11."|1000|".$b11."|".$a1*$_POST['cantidad'][$i]."|IGV|VAT|10|18|-|0|0|||-|0|-|0|0|||0|".$_POST['importe'][$i]."|".$a1*$_POST['cantidad'][$i]."|0|");
                     }else{
@@ -260,10 +262,10 @@ if(isset($_POST) && !empty($_POST)){
                                 '".$_POST['str'][2]['value']."'
                                 )");
             if($aa!=""){
-                $a=number_format($_POST['str'][12]['value']/1.18,2,".","");
-                $b=number_format($_POST['str'][12]['value']-$a,2,".","");
+                $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
+                $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
                 $archivo = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-03-B".$bb."-".$num.".CAB", "w");
-                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".$_POST['str'][7]['value']."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
+                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".$ro[2]."|-|000|1|0|".trim($_POST['str'][7]['value'])."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
                 fclose($archivo);
                 $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-03-B".$bb."-".$num.".TRI", "w");
                 fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");
@@ -300,10 +302,10 @@ if(isset($_POST) && !empty($_POST)){
                             )");
                 $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
                 if($aa!=""){
-                    $a1=number_format($_POST['unitario'][$i]/1.18,2,".","");
-                    $b1=number_format($_POST['unitario'][$i]-$a1,2,".","");
-                    $a11=number_format($_POST['importe'][$i]/1.18,2,".","");
-                    $b11=number_format($_POST['importe'][$i]-$a11,2,".","");
+                    $a1=number_format($_POST['unitario'][$i]/1.18,2,'.','');
+                    $b1=number_format($_POST['unitario'][$i]-$a1,2,'.','');
+                    $a11=number_format($_POST['importe'][$i]/1.18,2,'.','');
+                    $b11=number_format($_POST['importe'][$i]-$a11,2,'.','');
                     if($i>0){
                         fwrite($archivo1,PHP_EOL ."NIU|".$_POST['cantidad'][$i]."||-|".$_POST['producto'][$i]."|".$a1."|".$b11."|1000|".$b11."|".$a1*$_POST['cantidad'][$i]."|IGV|VAT|10|18|-|0|0|||-|0|-|0|0|||0|".$_POST['importe'][$i]."|".$a1*$_POST['cantidad'][$i]."|0|");
                     }else{
@@ -330,10 +332,10 @@ if(isset($_POST) && !empty($_POST)){
                                 '1'
                                 )");
             if($aa!=""){
-                $a=number_format($_POST['str'][12]['value']/1.18,2,".","");
-                $b=number_format($_POST['str'][12]['value']-$a,2,".","");
+                $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
+                $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
                 $archivo = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-01-F".$bb."-".$num.".CAB", "w");
-                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".$_POST['str'][7]['value']."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
+                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".trim($_POST['str'][7]['value'])."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
                 fclose($archivo);
                 $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-01-F".$bb."-".$num.".TRI", "w");
                 fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");
@@ -372,10 +374,10 @@ if(isset($_POST) && !empty($_POST)){
                             )");
                 $inse=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$_POST['cantidad'][$i].") WHERE id='".$_POST['id'][$i]."'");
                 if($aa!=""){
-                    $a1=number_format($_POST['unitario'][$i]/1.18,2,".","");
-                    $b1=number_format($_POST['unitario'][$i]-$a1,2,".","");
-                    $a11=number_format($_POST['importe'][$i]/1.18,2,".","");
-                    $b11=number_format($_POST['importe'][$i]-$a11,2,".","");
+                    $a1=number_format($_POST['unitario'][$i]/1.18,2,'.','');
+                    $b1=number_format($_POST['unitario'][$i]-$a1,2,'.','');
+                    $a11=number_format($_POST['importe'][$i]/1.18,2,'.','');
+                    $b11=number_format($_POST['importe'][$i]-$a11,2,'.','');
                     if($i>0){
                         fwrite($archivo1,PHP_EOL ."NIU|".$_POST['cantidad'][$i]."||-|".$_POST['producto'][$i]."|".$a1."|".$b11."|1000|".$b11."|".$a1*$_POST['cantidad'][$i]."|IGV|VAT|10|18|-|0|0|||-|0|-|0|0|||0|".$_POST['importe'][$i]."|".$a1*$_POST['cantidad'][$i]."|0|");
                     }else{
@@ -402,10 +404,10 @@ if(isset($_POST) && !empty($_POST)){
                                 '1'
                                 )");
             if($aa!=""){
-                $a=number_format($_POST['str'][12]['value']/1.18,2,".","");
-                $b=number_format($_POST['str'][12]['value']-$a,2,".","");
+                $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
+                $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
                 $archivo = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-01-F".$bb."-".$num.".CAB", "w");
-                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".$_POST['str'][7]['value']."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
+                fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".trim($_POST['str'][7]['value'])."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
                 fclose($archivo);
                 $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/".$aa."/".$aa."-01-F".$bb."-".$num.".TRI", "w");
                 fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");

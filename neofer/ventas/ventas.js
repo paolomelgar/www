@@ -164,7 +164,7 @@ $(function(){
           if(data!=''){
             for (var i = 0; i <= data.length-1; i++) {
               $("#tb1").append("<tr class='tr' style='font-weight:bold;'>\n"+
-                                "<td style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+data[i][0]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
+                                "<td style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[i][7]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
                                 "<td style='display:none;'>"+data[i][0]+"</td>\n"+
                                 "<td>"+data[i][1]+"</td>\n"+
                                 "<td>"+data[i][2]+"</td>\n"+
@@ -332,7 +332,7 @@ $(function(){
       }
       if($('#id').val()>0){
         var next= "<tr class='fila'>\n" +
-                  "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+$("#id").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
+                  "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+$("#id").val()+".jpg?timestamp=23124' width='100%' height='100%' class='img'></td>\n"+
                   "<td width='68%' class='produ'>" + $("#busqueda").val() + "</td>\n";
         if($('#cantidad').hasClass('mayorstock')){
           next += "<td width='10%' contenteditable='true' class='editme1 mayorstock' style='text-align:right'>" + $("#cantidad").val() + "</td>\n";
@@ -555,7 +555,7 @@ $(function(){
       if($('#id1').val()>0 && $('#estado').val()!=""){
         $('#row1').append(
           "<tr class='fila'>\n" +
-          "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+$("#id1").val()+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
+          "  <td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+$("#id1").val()+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
           "  <td width='53%' class='produ'>" + $("#busqueda1").val() + "</td>\n" +
           "  <td width='10%' contenteditable='true' class='editme3' style='text-align:right'>" + $("#cantidad1").val() + "</td>\n" +
           "  <td width='10%' contenteditable='true' class='editme4' style='text-align:right'>" + parseFloat($("#precio_u1").val()).toFixed(2) + "</td>\n" +
@@ -765,7 +765,7 @@ $(function(){
             $('#row').empty();
             for (var i=0;i<data[0].length;i++) {
               var next= "<tr class='fila'>\n" +
-                        "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
+                        "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[0][i][4]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
                         "<td width='68%' class='produ'>" + data[0][i][0] + "</td>\n"+
                         "<td width='10%' contenteditable='true' class='editme1' style='text-align:right'>" + data[0][i][1] + "</td>\n";
               if(parseFloat(data[0][i][2])<parseFloat(data[0][i][6])){
@@ -786,7 +786,7 @@ $(function(){
               $('#devol').addClass('btn-danger');
               $('#row1').append(
                 "<tr class='fila'>\n" +
-                "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+data[2][i][4]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
+                "<td width='2%' style='padding:0px;' title='s'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/neofer/fotos/producto/a"+data[2][i][4]+".jpg?timestamp=23124' width='100%' height='100%'></td>\n"+
                 "<td width='53%' class='produ'>" + data[2][i][0] + "</td>\n" +
                 "<td width='10%' contenteditable='true' class='editme3' style='text-align:right'>" + data[2][i][1] + "</td>\n" +
                 "<td width='10%' contenteditable='true' class='editme4' style='text-align:right'>" + data[2][i][2] + "</td>\n" +

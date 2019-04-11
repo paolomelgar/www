@@ -17,7 +17,7 @@ function NumerosALetras($monto){
         $restocentena = $monto%pow(10,3);
         $restomillar  = $monto%pow(10,6);
         if (!$monto) return "";
-    if (is_int($monto) && $monto>0 && $monto < abs($maximo)){            
+    if (is_int($monto) && $monto>0 && $monto < abs($maximo)){
         switch ($base) {
                 case 1: return $unidad[$monto];
                 case 2: return array_key_exists($monto, $decena)  ? $decena[$monto]  : $prefijo_decena[$pren*10]   . NumerosALetras($resto);

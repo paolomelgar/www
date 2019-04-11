@@ -674,14 +674,22 @@ $(document).ready(function(){
   $('#dialogver').on('click','.visualizar',function(){
     $( '#observarpedido' ).dialog( "open" );
     value=$(this).parent().find('td:eq(8)').text();
-    doc=$(this).parent().find('td:eq(3)').text();
-    if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
-      $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
-    }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
+    doc=$(this).parent().find('td:eq(3)').text();    
+    if($('#cargo').val()!='ENCARGADOTIENDA'){
+      if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+        $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+      }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
+        $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+      }else{
+        $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+
+      }
+    }else{
       $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
       $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
-    }else{
-      $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
     }
     $.ajax({
       type: "POST",

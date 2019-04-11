@@ -476,7 +476,8 @@ var stock,compra,promotor,unit;
             }
             var subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
             var igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
-            $("#dx").append("<table width='100%' style='font:0.8em arial;margin-top:18px;'><tr><td width='6%'>&nbsp</td><td width='74%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
+            $("#dx").append(
+              "<table width='100%' style='font:0.8em arial;margin-top:18px;'><tr><td width='6%'>&nbsp</td><td width='74%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
             $.ajax({
@@ -507,6 +508,13 @@ var stock,compra,promotor,unit;
             for (var i=0;i<data[0].length;i++) {
               $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
+
+            var subigv2=parseFloat(data[1][3]/1.18).toFixed(2);
+            var igv2=parseFloat(data[1][3]-subigv2).toFixed(2);
+
+
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>OP. GRAVADAS: S/ "+subigv2+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>IGV: S/ "+igv2+"</td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
@@ -577,6 +585,14 @@ var stock,compra,promotor,unit;
             for (var i=0;i<data[0].length;i++) {
               $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
+            
+            var subigv2=parseFloat(data[1][3]/1.18).toFixed(2);
+            var igv2=parseFloat(data[1][3]-subigv2).toFixed(2);
+
+
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>OP. GRAVADAS: S/ "+subigv2+"</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>IGV: S/ "+igv2+"</td></tr></table></div>");
+
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
@@ -669,7 +685,7 @@ var stock,compra,promotor,unit;
               location.reload();
             }
           }, 200);
-        }, 100);
+        }, 200);
         
       }
     });
@@ -1555,6 +1571,7 @@ var stock,compra,promotor,unit;
       $('#form select[name="entregar"]').val('SI');
       $('#entregar option[value="NO"]').hide();
       $('#entregar option[value="SI"]').show();
+      $('.notacredito').hide();
       $('.pago').show();
     }
     else if($('#documento').val()=='FACTURA PAUL' || $('#documento').val()=='FACTURA BOOM'){
@@ -1567,6 +1584,24 @@ var stock,compra,promotor,unit;
       $('#form select[name="entregar"]').val('NO');
       $('#entregar option[value="NO"]').show();
       $('#entregar option[value="SI"]').hide();
+      $('.notacredito').hide();
+      $('.pago').hide();
+      $('#fechapago').val('');
+      $('#acuenta').val(0);
+    }
+    else if($('#documento').val()=='NOTA DE CREDITO'){
+      $('#devol').prop('disabled', true);
+      $('#forma-pago option[value=CONTADO]').show();
+      $('#forma-pago option[value=CREDITO]').show();
+      $('#forma-pago option[value=LETRA]').hide();
+      $('#forma-pago option[value="NO AFECTA"]').hide();
+      $('#form select[name="forma-pago"]').val('CONTADO');
+      $('#form select[name="entregar"]').val('NO');
+      $('#entregar option[value="NO"]').show();
+      $('#entregar option[value="SI"]').hide();
+      
+      $('.notacredito').show();
+
       $('.pago').hide();
       $('#fechapago').val('');
       $('#acuenta').val(0);
@@ -1581,6 +1616,7 @@ var stock,compra,promotor,unit;
       $('#form select[name="entregar"]').val('NO');
       $('#entregar option[value="NO"]').show();
       $('#entregar option[value="SI"]').hide();
+      $('.notacredito').hide();
       $('.pago').hide();
       $('#fechapago').val('');
       $('#acuenta').val(0);

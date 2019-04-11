@@ -4,13 +4,13 @@ $hoy=date("Y-m-d");
 if($_SESSION['cargo']=='CAJERO'){
 	$insert=mysqli_query($con,"UPDATE dinerodiario SET creditos=(creditos+".$_POST['monto'].") WHERE fecha='$hoy'");
 }
-elseif($_SESSION['cargo']=='ADMIN'){
+else{
     $insert=mysqli_query($con,"UPDATE cajamayor SET creditos=(creditos+".$_POST['monto'].") WHERE fecha='$hoy'");
 }
 $que=mysqli_query($con,"INSERT INTO adelantos (serie,adelanto,encargado,fecha,forma,banco,nro,cliente,sesion) 
                 VALUES ('".$_POST['serie']."',
                         '".$_POST['monto']."',
-                        '".$_POST['vendedor']."',
+                        '".$_SESSION['nombre']."',
                         NOW(),
                         '".$_POST['forma']."',
                         '".$_POST['banco']."',

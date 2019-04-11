@@ -24,7 +24,7 @@ if(isset($_POST) && !empty($_POST)){
         <td><?php echo $row['marca']; ?></td>
         <td style='text-align:right'><?php echo $row['p_compra']; ?></td>
         <td style='text-align:right'><?php echo $row['cant_caja']; ?></td>
-        <?php if($_POST['doc']=='FACTURA'){ ?>
+        <?php if($_POST['doc']=='FACTURA' || $_POST['doc']=='FACTURA ELECTRONICA'){ ?>
         <td style='color:blue;text-align:right'><?php echo $row['stock_con']; ?></td>
         <?php }else{ ?>
         <td style='color:red;text-align:right'><?php echo $row['stock_real']; ?></td>

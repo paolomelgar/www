@@ -1,12 +1,12 @@
 <?php
   require_once('../connection.php');
     if(isset($_POST) && !empty($_POST)){
-      $a=mysqli_query($con,"SELECT sum(adelanto) FROM adelantos WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion='ADMIN'");
-      $b=mysqli_query($con,"SELECT sum(monto) FROM ingresos WHERE ingreso='INGRESO' AND fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion='ADMIN'");
+      $a=mysqli_query($con,"SELECT sum(adelanto) FROM adelantos WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion!='CAJERO'");
+      $b=mysqli_query($con,"SELECT sum(monto) FROM ingresos WHERE ingreso='INGRESO' AND fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion!='CAJERO'");
       $c=mysqli_query($con,"SELECT sum(montototal) FROM total_compras WHERE fechafactura='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND credito='CONTADO' AND entregado='SI'");
       $d=mysqli_query($con,"SELECT sum(adelanto) FROM adelantoscompras WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."'");
       $e=mysqli_query($con,"SELECT sum(adelanto) FROM adelantosletra WHERE fechapago='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."'");
-      $f=mysqli_query($con,"SELECT sum(monto) FROM ingresos WHERE ingreso='EGRESO' AND fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion='ADMIN'");
+      $f=mysqli_query($con,"SELECT sum(monto) FROM ingresos WHERE ingreso='EGRESO' AND fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion!='CAJERO'");
       $a1=mysqli_fetch_row($a);
       $b1=mysqli_fetch_row($b);
       $c1=mysqli_fetch_row($c);

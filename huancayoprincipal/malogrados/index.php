@@ -80,12 +80,10 @@ if($_SESSION['valida']=='huancayoprincipal'){
       <td style='text-align:right'>ESTADO:</td>
       <td>
         <select id='estado' name='estado' style='margin-bottom: 0px;' class='span2'>
-          <option value"TODOS">TODOS</option>
-          <option value"MALOGRADO TIENDA">MALOGRADO TIENDA</option>
-          <option value"MALOGRADO FABRICA">MALOGRADO FABRICA</option>
-          <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-          <option value"CORRECCION STOCK">CORRECCION STOCK</option>
-          <?php } ?>
+          <option value="TODOS">TODOS</option>
+          <option value="MALOGRADO TIENDA">MALOGRADO TIENDA</option>
+          <option value="MALOGRADO FABRICA">MALOGRADO FABRICA</option>
+          <option value="CORRECCION STOCK">CORRECCION STOCK</option>
         </select>
       </td>
       <td><input type='button' id='buscar' value='BUSCAR' class='btn btn-success'></td>
@@ -128,9 +126,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                 <option value="">-------------</option>
                 <option value="MALOGRADO TIENDA">MALOGRADO TIENDA</option>
                 <option value="MALOGRADO FABRICA">MALOGRADO FABRICA</option>
-                <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-                <option value"CORRECCION STOCK">CORRECCION STOCK</option>
-                <?php } ?>
+                <option value="CORRECCION STOCK">CORRECCION STOCK</option>
             </select>
             </td>
           </tr>

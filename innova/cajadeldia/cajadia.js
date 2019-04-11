@@ -49,6 +49,20 @@ $(function(){
     },
     enableCookies: false
   });
+
+
+    $('#filter5').tableFilter({
+    filteredRows: function(filterStates) {
+      var sumatotal  = 0;
+      $('#verbody5 tr').filter(":visible").each(function(){
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+      });
+      $('#total5').text("S/ "+sumatotal.toFixed(2)); 
+    },
+    enableCookies: false
+  });
+
+
   function buscar(){
     $.ajax({
       type: "POST",
@@ -237,6 +251,42 @@ $(function(){
       }
     });
   });
+
+
+  $('#5').click(function(){
+    $.ajax({
+      type: "POST",
+      dataType:"json",
+      url: "visa.php",
+      data: 'fecha='+$('#fecha').val(),
+      beforeSend:function(){
+        swal({
+          title: "Buscando..",
+          text: "",
+          imageUrl: "../loading.gif",
+          showConfirmButton: false
+        });
+      },
+      success: function(data){
+        $(".result").hide();
+        $("#result5").show();
+        $("#verbody5").empty();
+        for (var i = 0; i <= data.length-1; i++) {
+          var n="<tr class='fila'>\n"+
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
+                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "</tr>";
+          $('#verbody5').append(n);
+        }
+        $('#filter5').tableFilterRefresh();
+        swal.close();
+      }
+    });
+  });
+
+
   $('#real').keyup(function(){
     $('#diferencia').val(parseFloat(parseFloat($(this).val())-parseFloat($('#total').val())).toFixed(2));
   });

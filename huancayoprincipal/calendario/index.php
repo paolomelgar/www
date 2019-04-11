@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='ASISTENTE'){
+if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='ENCARGADOTIENDA'){
 ?>
 <html>
 <head>

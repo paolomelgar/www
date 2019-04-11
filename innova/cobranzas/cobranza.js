@@ -166,7 +166,7 @@ $(function(){
                   banco:$('#banco').val(),
                   nro:$('#nro').val(),
                   monto:$('#monto').val(),
-                  vendedor:$('#vendedor').val(),
+                  // vendedor:$('#vendedor').val(),
                   forma:$('#forma').val(),
                   cliente:$('#name').val()
             },

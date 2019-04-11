@@ -28,7 +28,7 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
         break;
     }
 }
-$query = "SELECT * FROM usuario WHERE $producto AND activo='".$_POST['activo']."' ORDER BY nombre LIMIT $num,".$_POST['pagina'];
+$query = "SELECT * FROM usuario WHERE $producto AND activo='".$_POST['activo']."' ORDER BY cargo,nombre LIMIT $num,".$_POST['pagina'];
 $result=mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($result)){ ?>  
     <tr class="tr">

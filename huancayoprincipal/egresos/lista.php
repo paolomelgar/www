@@ -14,14 +14,23 @@
   $dat=array();
   while($row=mysqli_fetch_assoc($sql)){
     $dat[$i][0]=date('d/m/Y', strtotime(str_replace('-','/',$row['fecha'])));
-    $dat[$i][1]=$row['origen'];
+    $dat[$i][1]=$row['ingreso'];
+    $dat[$i][2]=$row['tipo'];
+    $dat[$i][3]=$row['monto'];
+    $dat[$i][4]=$row['detalle'];
+    $dat[$i][5]=$row['usuario'];
+    $dat[$i][6]=$row['sesion'];
+    $dat[$i][7]=$row['id'];
+    $i++;
+
+    /* $dat[$i][1]=$row['origen'];
     $dat[$i][2]=$row['ingreso'];
     $dat[$i][3]=$row['tipo'];
     $dat[$i][4]=$row['monto'];
     $dat[$i][5]=$row['detalle'];
     $dat[$i][6]=$row['sesion'];
     $dat[$i][7]=$row['id'];
-    $i++;
+    $i++; */
   }
   echo json_encode($dat);
 ?>

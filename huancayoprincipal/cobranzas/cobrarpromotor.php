@@ -12,9 +12,15 @@ require_once('../connection.php');
 	                        '',
                             '',
 	                        '".$_POST['cliente'][$i]."',
-	                        'ADMIN'
+	                        '".$_SESSION['cargo']."'
 	                    )");
-        $insert=mysqli_query($con,"UPDATE cajamayor SET creditos=(creditos+".$_POST['monto'][$i].") WHERE fecha='$hoy'");
+        if($_SESSION['cargo']=='CAJERO'){
+			$insert=mysqli_query($con,"UPDATE dinerodiario SET creditos=(creditos+".$_POST['monto'][$i].") WHERE fecha='$hoy'");
+		}
+		elseif($_SESSION['cargo']=='ADMIN'){
+		    $insert=mysqli_query($con,"UPDATE cajamayor SET creditos=(creditos+".$_POST['monto'][$i].") WHERE fecha='$hoy'");
+		}
+        
         $res=mysqli_query($con,"SELECT pendiente,acuenta FROM total_ventas WHERE serieventas='".$_POST['serie'][$i]."' AND documento='NOTA DE PEDIDO'");
 		$row = mysqli_fetch_row($res);
 		$pendiente=$row[0]-$_POST['monto'][$i];
@@ -26,5 +32,4 @@ require_once('../connection.php');
 			$sql=mysqli_query($con,"UPDATE total_ventas SET pendiente='$pendiente',acuenta='$acuenta',credito='CANCELADO' WHERE serieventas='".$_POST['serie'][$i]."' AND documento='NOTA DE PEDIDO'");
 		}
     }
-
- ?>
+?>

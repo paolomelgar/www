@@ -50,6 +50,8 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN'){
 			<tr><td>CELULAR:</td><td><input type="text" name="celular" id="celular" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>CARGO:</td><td><select id="cargo" name="cargo" class="span3">
 				<option value="ADMIN">ADMIN</option>
+				<option value="ENCARGADOTIENDA">ENCARGADO TIENDA</option>
+				<option value="ASISTENTE">ASISTENTE</option>
 				<option value="CAJERO">CAJERO</option>
 				<option value="VENDEDOR">VENDEDOR</option>
 				<option value="CLIENTE">CLIENTE</option>

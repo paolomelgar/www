@@ -74,14 +74,15 @@ $(function(){
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'\n>"+
             "<td width='5%' align='right'>"+(i+1)+"</td>\n"+
-            "<td width='10%' align='center'>"+data[i][0]+"</td>\n"+
-            "<td width='15%' align='center'>"+data[i][1]+"</td>\n"+
-            "<td width='15%' align='center'>"+data[i][2]+"</td>\n"+
-            "<td width='10%' align='right'>"+data[i][3]+"</td>\n"+
-            "<td width='30%'>"+data[i][4]+"</td>\n"+
-            "<td width='15%' align='center'>"+data[i][5]+"</td>\n"+
-            "<td style='display:none'>"+data[i][6]+"</td>\n"+
-          "</tr>";
+            "<td width='8%' align='center'>"+data[i][0]+"</td>\n"+
+            "<td width='8%' align='center'>"+data[i][1]+"</td>\n"+
+            "<td width='10%' align='center'>"+data[i][2]+"</td>\n"+
+            "<td width='5%' align='right'>"+data[i][3]+"</td>\n"+
+            "<td width='39%'>"+data[i][4]+"</td>\n"+
+            "<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
+            "<td width='15%' align='center'>"+data[i][6]+"</td>\n"+
+            "<td style='display:none'>"+data[i][7]+"</td>\n"+
+            "</tr>";
           $('#verbody').append(n);
         }
         $('#venta').tableFilterRefresh();
@@ -173,7 +174,7 @@ $(function(){
         "Si" : function(){ 
           $.ajax({
             type:"POST",
-            url:"egresos.php",
+            url:"../caja/ingresos.php",
             data:"oper="+$('#operacion').val()+"&tipo="+$('#tipomov').val()+"&monto="+$('#monto').val()+"&detalle="+$('#detalle').val()+"&transporte="+$('#transporte').val()+"&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
@@ -191,7 +192,7 @@ $(function(){
         $('#transporte').val("");
         $('.transporte').hide();
         $('#tipomov').change(function(){
-          if($('select[id="tipomov"]').val()=='FLETE'){
+          if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
           }else{
             $('.transporte').hide();
@@ -223,7 +224,7 @@ $(function(){
           $.ajax({
             type: "POST",
             url: "eliminar.php",
-            data: 'monto='+$('.selected1').find('td:eq(4)').text()+'&sesion='+$('.selected1').find('td:eq(6)').text()+'&tipo='+$('.selected1').find('td:eq(2)').text()+'&id='+$('.selected1').find('td:eq(7)').text()+'&fecha='+$('.selected1').find('td:eq(1)').text(),
+            data: 'monto='+$('.selected1').find('td:eq(4)').text()+'&sesion='+$('.selected1').find('td:eq(7)').text()+'&tipo='+$('.selected1').find('td:eq(2)').text()+'&id='+$('.selected1').find('td:eq(8)').text()+'&fecha='+$('.selected1').find('td:eq(1)').text(),
             success: function(data){
             }
           });

@@ -669,6 +669,7 @@ $(function(){
     if($('#cargo').val()!='CAJERO'){
       if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
       }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");

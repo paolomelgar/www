@@ -34,6 +34,9 @@
 			case 'COTIZACION':
 	    		$sql=mysqli_query($con,"SELECT * FROM cotizacion WHERE seriecotizacion='$q' ORDER BY idcotizacion");
 			break;
+			case 'NOTA DE CREDITO':
+	    		$sql=mysqli_query($con,"SELECT * FROM notacredito WHERE serienota='$q' ORDER BY idnota");
+			break;
 		}
 		if (mysqli_num_rows($sql)>0){ ?>
 	    	<table width="100%" class='table table-condensed table-bordered'>

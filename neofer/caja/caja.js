@@ -461,10 +461,10 @@ var stock,compra,promotor,unit;
           case 'BOLETA DE VENTA':
             $('#dx').append("<table width='80%' style='margin-top:41px;margin-left:18px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' style='margin-top:-5px;margin-left:18px;font:0.9em Agency FB;'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
-              "<table width='80%' style='margin-bottom:0px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
+              "<table width='80%' style='margin-bottom:-1px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
             );
             for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;margin-left:18px;'><tr height='17px'><td width='8%' align='right'>"+data[0][i][1]+"&nbsp&nbsp&nbsp</td><td width='62%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;margin-left:18px;'><tr height='17px'><td width='6%' align='right'>"+data[0][i][1]+"&nbsp&nbsp</td><td width='73%'>"+data[0][i][0]+"</td><td width='9%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
             while(v1<16-parseInt(data[0].length)){
               $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;'><tr height='17px'><td>&nbsp</td></tr></table>");

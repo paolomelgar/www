@@ -2,7 +2,7 @@
   require_once('../connection.php');
   if(isset($_POST) && !empty($_POST['cliente'])){
     $query="cliente='".$_POST['cliente']."' AND id='".$_POST['id']."' AND entregado='SI'";
-    $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT * FROM boleta WHERE $query ORDER BY fecha DESC LIMIT 3");
+    $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM facturapaola WHERE $query ORDER BY fecha DESC LIMIT 3");
 ?>
     <table width="100%" align="center" style="font-size:13px;" id='listanterior'>
       <thead>

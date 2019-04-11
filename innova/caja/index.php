@@ -232,7 +232,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
           <td width='15%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <?php if($_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="prolongacionhuanuco"){ ?>
+              <?php if($_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="jauja"){ ?>
               <option value="BOLETA ELECTRONICA">BOLETA ELECTRONICA</option>
               <option value="FACTURA ELECTRONICA">FACTURA ELECTRONICA</option>
             <?php }else{ ?>
@@ -250,6 +250,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
             <select class='span2' id="forma-pago" name="forma-pago" style='margin-bottom: 0px;'>
               <option value="CONTADO" style="display:none">CONTADO</option>
               <option value="CREDITO" style="display:none">CREDITO</option>
+              <option value="VISA" style="display:none">VISA</option>
               <option value="NO AFECTA" selected="selected">NO AFECTA</option>
             </select>
           </td>
@@ -299,12 +300,16 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>TIPO MOV:</td>
                   <td>
                     <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
-                      <option id='FLETE'>FLETE</option>
                       <option id='PERSONAL'>PERSONAL</option>
+                      <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
-                      <option id='COLABORACION'>COLABORACION</option>
-                      <option id='LIMPIEZA'>LIMPIEZA</option>
+                      <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
+                      <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+                      <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                      <option id='LIMPIEZA'>LIMPIEZA</option>
+                      <option id='COLABORACION'>COLABORACION</option>
                       <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
@@ -312,8 +317,8 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                 <tr>
                   <td>MONTO:</td>
                   <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
-                  <td class='transporte' style='display:none'>TRANSPORTE:</td>
-                  <td class='transporte' style='display:none'><input type='text' id='transporte' class='span2'></td>
+                  <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>
+                  <td class='transporte ingreso' style='display:none'><input type='text' id='transporte' class='span2'></td>
                 </tr>
                 <tr>
                   <td>DETALLE:</td>

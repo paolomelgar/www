@@ -148,6 +148,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
 </style>
 </head>
 <body>
+  <input type='hidden' value='<?php echo $_SESSION['cargo']?>' id='cargo'>
   <form id="form" name="form" action="" method="post" autocomplete="off">
     <input type='hidden' value='as' id='mysql'>
     <input type='text' name='vendedor' id='vendedor' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
@@ -275,16 +276,33 @@ if($_SESSION['valida']=='huancayoprincipal'){
     <div id="result" style='position:absolute;width:60%;display:none;z-index:2'>
       <table id='listcliente' class='table table-bordered table-condensed'>
         <thead>
+          
+          <?php if ($_SESSION['cargo']!='FRANQUICIA') { ?>
+            
           <tr bgcolor="#428bca" style="color:#FFF;text-align:center;font-size:13px">
             <th width="3.5%">IMG</th>
             <th width="48.5%">PRODUCTO</th>
             <th width="23%">MARCA</th>
             <th width="6%">X/CAJA</th>
             <th width="5%">STOCK</th>
-            <th width="7%">P. UNIDAD</th>
-            <th width="7%">P.MAYOR</th>
-            <th width="7%">P. ESPEC</th>
+            <th width="7%">P. PROV</th>
+            <th width="7%">P. PROMO</th>
+            <th width="7%">P. FRANQ</th>
           </tr>
+
+          <?php }else{ ?>
+
+            <tr bgcolor="#428bca" style="color:#FFF;text-align:center;font-size:13px">
+            <th width="4%">IMG</th>
+            <th width="49%">PRODUCTO</th>
+            <th width="23%">MARCA</th>
+            <th width="6%">X/CAJA</th>
+            <th width="5%">STOCK</th>
+            <th width="7%">P. FRANQ</th>
+          </tr>
+
+        <?php } ?>
+
         </thead>
         <tbody id="tb1">
         </tbody>

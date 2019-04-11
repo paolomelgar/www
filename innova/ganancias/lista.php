@@ -17,6 +17,29 @@
     $query.=" AND vendedor='".$_POST['vendedor']."'";
   }
   $query.=" AND entregado='SI'";
+
+  if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="innovaelectric"){
+  $i=0;
+  $dat=array();
+  $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM boletaelectronica WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");
+  while($row=mysqli_fetch_assoc($sql)){
+    $dat[$i][0]=$row['serienota'];
+    $dat[$i][1]=date('d/m/Y',strtotime(str_replace('-','/',$row['fecha'])));
+    $dat[$i][2]=$row['hora'];
+    $dat[$i][3]=$row['documento'];
+    $dat[$i][4]=$row['cliente'];
+    $dat[$i][5]=$row['producto'];
+    $dat[$i][6]=number_format($row['cantidad'],0,",","");
+    $dat[$i][7]=$row['compra'];
+    $dat[$i][8]=number_format($row['unitario'],2,".","");
+    $dat[$i][9]=number_format($row['unitario']-$row['compra'],2,".","");
+    $dat[$i][10]=number_format($row['cantidad']*($row['unitario']-$row['compra']),2,".","");
+    $dat[$i][11]=$row['vendedor'];
+    $i++;
+  }
+  echo json_encode($dat);
+}
+else{
   $i=0;
   $dat=array();
   $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");
@@ -36,4 +59,6 @@
     $i++;
   }
   echo json_encode($dat);
+}
+
 ?>

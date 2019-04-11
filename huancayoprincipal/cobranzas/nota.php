@@ -23,11 +23,11 @@ $pdf->Ln();
 $pdf->SetXY($pdf->GetX()+25,$pdf->GetY());
 $pdf->MultiCell(145,5,"DIRECCION: ".$row1[2],'','','L',true);
 $pdf->Ln();
-$pdf->SetXY($pdf->GetX()+25,$pdf->GetY()-4);
+$pdf->SetXY($pdf->GetX()+25,$pdf->GetY());
 $pdf->SetFont('Arial','B',10);
-//$pdf->Cell(12,6,"IMG",1,'','C');
+$pdf->Cell(12,6,"IMG",1,'','C');
 $pdf->Cell(12,6,"CAN",1,'','C',true);
-$pdf->Cell(92,6,"PRODUCTO",1,'','C',true);
+$pdf->Cell(80,6,"PRODUCTO",1,'','C',true);
 $pdf->Cell(15,6,"UNID",1,'','C',true);
 $pdf->Cell(20,6,"IMPORTE",1,'','C',true);
 $pdf->Ln();
@@ -35,30 +35,30 @@ $pdf->SetFont('Arial','',9);
 $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE serienota='".$_GET['id']."' ORDER BY idnota");
 while($row=mysqli_fetch_assoc($sql)){
 	$pdf->SetXY($pdf->GetX()+25,$pdf->GetY());
-	//$pdf->Cell(12,12,$pdf->Image('../fotos/producto/a'.$row['codigo'].'.jpg', $pdf->GetX(), $pdf->GetY(),12,12),'','','C');
-	$pdf->Cell(12,6,$row["cantidad"],'','','R',true);
-	$pdf->Cell(92,6,utf8_decode($row["producto"]),'','','L',true);
-	$pdf->Cell(15,6,$row["unitario"],'','','R',true);
-	$pdf->Cell(20,6,$row["importe"],'','','R',true);
+	$pdf->Cell(12,12,$pdf->Image('../fotos/producto/a'.$row['id'].'.jpg', $pdf->GetX(), $pdf->GetY(),12,12),'','','C');
+	$pdf->Cell(12,12,$row["cantidad"],'','','R',true);
+	$pdf->Cell(80,12,utf8_decode($row["producto"]),'','','L',true);
+	$pdf->Cell(15,12,$row["unitario"],'','','R',true);
+	$pdf->Cell(20,12,$row["importe"],'','','R',true);
 	$pdf->Ln();
 }
 $sql2=mysqli_query($con,"SELECT * FROM devoluciones WHERE seriedevolucion='".$_GET['id']."' ORDER BY iddevolucion");
 if(mysqli_num_rows($sql2)>0){
-	$pdf->Cell(164,6,"SUBTOTAL      S/ ".$row1[5],'','','R',true);
+	$pdf->Cell(164,12,"SUBTOTAL      S/ ".$row1[5],'','','R',true);
 	$pdf->Ln();
 	$pdf->Line(25,$pdf->GetY()-3,185,$pdf->GetY()-3);
 	while($row2=mysqli_fetch_assoc($sql2)){
 		$pdf->SetXY($pdf->GetX()+25,$pdf->GetY());
-		//$pdf->Cell(12,12,$pdf->Image('../fotos/producto/a'.$row2['codigo'].'.jpg', $pdf->GetX(), $pdf->GetY(),12,12),'','','C');
-		$pdf->Cell(12,6,$row2["cantidad"],'','','R',true);
-		$pdf->Cell(92,6,utf8_decode($row2["producto"]),'','','L',true);
-		$pdf->Cell(15,6,$row2["unitario"],'','','R',true);
-		$pdf->Cell(20,6,$row2["importe"],'','','R',true);
+		$pdf->Cell(12,12,$pdf->Image('../fotos/producto/a'.$row2['id'].'.jpg', $pdf->GetX(), $pdf->GetY(),12,12),'','','C');
+		$pdf->Cell(12,12,$row2["cantidad"],'','','R',true);
+		$pdf->Cell(80,12,utf8_decode($row2["producto"]),'','','L',true);
+		$pdf->Cell(15,12,$row2["unitario"],'','','R',true);
+		$pdf->Cell(20,12,$row2["importe"],'','','R',true);
 		$pdf->Ln();
 	}
-	$pdf->Cell(164,6,"DEVOLUCION      S/ ".$row1[6],'','','R',true);
+	$pdf->Cell(164,12,"DEVOLUCION      S/ ".$row1[6],'','','R',true);
 	$pdf->Ln();
 }
-$pdf->Cell(164,6," TOTAL      S/ ".$row1[7],'','','R',true);
-$pdf->Output('Ferreboom.pdf','I');
+$pdf->Cell(164,12," TOTAL      S/ ".$row1[7],'','','R',true);
+$pdf->Output($row1[1].' '.$row1[3].'.pdf','I');
 ?>

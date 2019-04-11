@@ -1,5 +1,5 @@
 <?php 
-require_once('../connection.php');
+	require_once('../connection.php');
 	if(isset($_POST) && !empty($_POST)){
 		$q=$_POST['serie'];
 		$i=0;
@@ -44,6 +44,5 @@ require_once('../connection.php');
           <?php
           }
 		}
-		?><tr style="font-size:12px"><td colspan='3'><td width="10%" align="right"><?php echo "S/. ".number_format($i-$j,2);?></td></tr></table>
-		<?php
-	}?>
+		?><tr style="font-size:12px"><td colspan='3'><td width="10%" align="right"><?php echo "S/. ".number_format($i-$j,2);?></td></tr></table><?php
+	}

@@ -52,6 +52,10 @@
 	    		$sql=mysqli_query($con,"SELECT * FROM guiaderemision WHERE serieguia='$q' ORDER BY idguia");
 	    		$da='';
 			break;
+			case 'NOTA DE CREDITO':
+	    		$sql=mysqli_query($con,"SELECT * FROM notacredito WHERE serienota='$q' ORDER BY idnota");
+	    		$da='';
+			break;
 		}
 	    if (mysqli_num_rows($sql)>0){
 	    	$i=0;

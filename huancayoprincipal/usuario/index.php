@@ -50,8 +50,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN'){
 			<tr><td>PASSWORD:</td><td><input type="password" name="password" id="password" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>CARGO:</td><td><select id="cargo" name="cargo" class="span3">
 				<option value="ADMIN">ADMIN</option>
+				<option value="ENCARGADOTIENDA">ENCARGADO TIENDA</option>
 				<option value="LOGISTICA">LOGISTICA</option>
 				<option value="ASISTENTE">ASISTENTE</option>
+				<option value="FRANQUICIA">FRANQUICIA</option>
 				<option value="VENDEDOR">VENDEDOR</option>
 				<option value="VENDEDOR PROVINCIA">VENDEDOR PROVINCIA</option>
 				<option value="CLIENTE">CLIENTE</option>

@@ -8,6 +8,8 @@
       $aa="20487211410";
     }else if($_SESSION['mysql']=="prolongacionhuanuco"){
       $aa="10433690058";
+    }else if($_SESSION['mysql']=="jauja"){
+      $aa="20603695055";
     }
     if($aa!=""){
 	    if($_POST['doc']=='FACTURA ELECTRONICA'){

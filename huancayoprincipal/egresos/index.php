@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ASISTENTE' || $_SESSION['cargo']=='LOGISTICA'){
+if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ASISTENTE' || $_SESSION['cargo']=='ENCARGADOTIENDA'){
 ?>
 <html>
 <head>
@@ -63,9 +63,9 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <td width='15%' style='padding:5px'>FECHA FIN:<input type="text" name="final" id="final" style="cursor:pointer;text-align:right;width:80px;"><input type="hidden" id="prueba"></td>
           <td width='25%' style='padding:5px'>ESTADO:
             <select id='change' name='change' class='span2' style='margin-bottom:0px'>
-              <option value"TODOS">TODOS</option>
-              <option value"INGRESO">INGRESO</option>
-              <option value"EGRESO">EGRESO</option>
+              <option value="TODOS">TODOS</option>
+              <option value="INGRESO">INGRESO</option>
+              <option value="EGRESO">EGRESO</option>
             </select>
           </td>
           <td width='20%' style='padding:5px'><input type="button" name="buscar" value='BUSCAR' id="buscar" class='btn btn-success'></td>
@@ -86,22 +86,27 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <td>TIPO MOV:</td>
         <td>
           <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
-            <option id='TRANSPORTES'>TRANSPORTES</option>
-            <option id='FLETES'>FLETES</option>
-            <option id='SERV. BASICOS'>SERV. BASICOS</option>
-            <option id='MAQUINARIAS Y EQUIPOS'>MAQUINARIAS Y EQUIPOS</option>
             <option id='PERSONAL'>PERSONAL</option>
-            <option id='PRESTAMOS'>PRESTAMOS</option>
-            <option id='SALDOS EN CONTRA'>SALDOS EN CONTRA</option>
+            <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
+            <option id='SERVICIOS'>SERVICIOS</option>
+            <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
             <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
+            <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+            <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+            <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
+            <option id='VIATICOS'>VIATICOS</option>
+            <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+            <option id='LIMPIEZA'>LIMPIEZA</option>
+            <option id='COLABORACION'>COLABORACION</option>
+            <option id='OTROS'>OTROS</option>
           </select>
         </td>
       </tr>
       <tr>
         <td>MONTO:</td>
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
-        <td class='transporte' style='display:none'>TRANSPORTE:</td>
-        <td class='transporte' style='display:none'><input type='text' id='transporte' class='span2'></td>
+        <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>
+        <td class='transporte ingreso' style='display:none'><input type='text' id='transporte' class='span2'></td>
       </tr>
       <tr>
         <td>DETALLE:</td>
@@ -115,11 +120,11 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <tr align='center' bgcolor="black" style="color:white;font-weight:bold;">
           <th width='5%'>N°</th>
           <th width='10%'>FECHA</th>
-          <th width='15%'>ORIGEN</th>
-          <th width='10%'>TIPO</th>
+          <th width='8%'>TIPO</th>
           <th width='10%'>TIPO MOV.</th>
-          <th width='10%'>TOTAL</th>
-          <th width='25%'>DETALLE</th>
+          <th width='5%'>TOTAL</th>
+          <th width='39%'>DETALLE</th>
+          <th width='8%'>USUARIO</th>
           <th width='15%'>ENCARGADO</th>
         </tr>
       </thead>
@@ -130,11 +135,11 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <tr style="display:none">
             <th width='5%'>N°</th>
             <th width='10%'>FECHA</th>
-            <th width='15%'>ORIGEN</th>
-            <th width='10%'>TIPO</th>
+            <th width='8%'>TIPO</th>
             <th width='10%'>TIPO MOV.</th>
-            <th width='10%'>TOTAL</th>
-            <th width='25%'>DETALLE</th>
+            <th width='5%'>TOTAL</th>
+            <th width='39%'>DETALLE</th>
+            <th width='8%'>USUARIO</th>
             <th width='15%'>ENCARGADO</th>
             <th style='display:none'></th>
           </tr>

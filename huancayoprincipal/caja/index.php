@@ -226,7 +226,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
           <td align="right" width='10%'>
             Documento:
           </td>
-          <td width='15%'>
+          <td width='12%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
               <option value="FACTURA PAUL">FACTURA PAUL</option>
@@ -236,9 +236,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>
               <option value="COTIZACION">COTIZACION</option>
+              <option value="NOTA DE CREDITO">NOTA DE CREDITO</option>
             </select>
           </td>
-          <td width='20%'>
+          <td width='17%'>
             Cond Pago:
             <select class='span2' id="forma-pago" name="forma-pago" style='margin-bottom: 0px;'>
               <option value="CONTADO" style="display:none">CONTADO</option>
@@ -247,10 +248,19 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
               <option value="NO AFECTA" selected="selected">NO AFECTA</option>
             </select>
           </td>
-          <td width='15%'>  
+          <!--<td width='20%'>  
+            <span style="display:none" class="notacredito">Tipo Nota Credito:
+            <select class='span2' id="tipo-notacredito" name="tipo-notacredito" style='margin-bottom: 0px;'>
+              <option value="DESCUENTOANULACION" selected="selected" >ANULACION DE LA OPERACION</option>
+              <option value="DESCUENTOPRECIO">DESCUENTO POR PRECIO</option>
+              <option value="DESCUENTOCANTIDAD">DESCUENTO POR CANTIDAD</option>
+            </select>
+            </span>
+          </td> -->
+          <td width='10%'>  
             <span style="display:none" class="pago">F. Pago:<input type="text" name="fechapago" id="fechapago" style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></span>
           </td>
-          <td width='15%'>
+          <td width='10%'>
             <span style="display:none" class="pago">A/C:<input class='span1' type="text" name="acuenta" value="0" id="acuenta" style="text-align:right"></span>
           </td>
           <td width='25%'></td>
@@ -293,14 +303,19 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>TIPO MOV:</td>
                   <td>
                     <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
-                      <option id='TRANSPORTES'>TRANSPORTES</option>
-                      <option id='FLETES'>FLETES</option>
-                      <option id='SERV. BASICOS'>SERV. BASICOS</option>
-                      <option id='MAQUINARIAS Y EQUIPOS'>MAQUINARIAS Y EQUIPOS</option>
                       <option id='PERSONAL'>PERSONAL</option>
-                      <option id='PRESTAMOS'>PRESTAMOS</option>
-                      <option id='SALDOS EN CONTRA'>SALDOS EN CONTRA</option>
+                      <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
+                      <option id='SERVICIOS'>SERVICIOS</option>
+                      <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
+                      <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+                      <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
+                      <option id='VIATICOS'>VIATICOS</option>
+                      <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                      <option id='LIMPIEZA'>LIMPIEZA</option>
+                      <option id='COLABORACION'>COLABORACION</option>
+                      <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
                 </tr>
@@ -406,7 +421,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
             <th width="5%">STOCK</th>
             <th width="7%">P. PROV</th>
             <th width="7%">P. PROMO</th>
-            <th width="7%">P. ESPEC</th>
+            <th width="7%">P. FRANQ</th>
           </tr>
         </thead>
         <tbody id="tb1">

@@ -30,6 +30,9 @@
     </script>
     <table width='98%' align='center'>
       <thead>
+
+        <?php if($_SESSION['cargo']!='FRANQUICIA'){ ?>
+
         <tr align='center' bgcolor="black" style="color:white;font-weight:bold;">
           <th width='2%'>N°</th>
           <th width='20%'>PROVEEDOR</th>
@@ -57,11 +60,45 @@
           <th width='10%'>UNITARIO</th>
           <th width='10%'>TOTAL</th>
         </tr>
+
+        <?php } else {?>
+
+          <tr align='center' bgcolor="black" style="color:white;font-weight:bold;">
+          <th width='2%'>N°</th>
+          <th width='10%'>FECHA</th>
+          <th width='10%'>COMPROBANTE</th>
+          <th width='10%'>SERIE</th>
+          <th width='5%'>CANT</th>
+          <th width='43%'>PRODUCTO</th>
+          <th width='10%'>UNITARIO</th>
+          <th width='10%'>TOTAL</th>
+        </tr>
+      </thead>
+    </table>
+    <div style="overflow:auto;height:85%;align:center">
+    <table width='98%' id="venta" style="border-collapse: collapse;" align='center'>
+      <thead style='background-color:#2E9AFE'>
+        <tr style="display:none">
+          <th width='2%'>N°</th>
+          <th width='10%'>FECHA</th>
+          <th width='10%'>COMPROBANTE</th>
+          <th width='10%'>SERIE</th>
+          <th width='5%'>CANTIDAD</th>
+          <th width='43%'>PRODUCTO</th>
+          <th width='10%'>UNITARIO</th>
+          <th width='10%'>TOTAL</th>
+        </tr>
+
+      <?php } ?>
+
       </thead>
       <tbody id="verbody">
       <?php 
         while($row=mysqli_fetch_assoc($sql)){
         ?>
+        
+        <?php if($_SESSION['cargo']!='FRANQUICIA'){ ?>
+
         <tr style="font-size:12px;font-weight:bold">
           <td style="border: 1px solid black;text-align:right" width='2%'><?php echo $n; ?></td>
           <td style="border: 1px solid black;" width='20%'><?php echo $row['proveedor']; ?></td>
@@ -75,6 +112,25 @@
         </tr>
         <?php
         $n++;
+
+      } else{ ?>
+
+        <tr style="font-size:12px;font-weight:bold">
+          <td style="border: 1px solid black;text-align:right" width='2%'><?php echo $n; ?></td>
+          <td style="border: 1px solid black;text-align:center" width='10%'><?php echo date('d/m/Y', strtotime(str_replace('-','/',$row['fecha']))); ?></td>
+          <td style="border: 1px solid black;text-align:center" width='10%'><?php echo $row['documento']; ?></td>
+          <td style="border: 1px solid black;text-align:center" width='10%'><?php echo $row['serie']."-".$row['numero']; ?></td>
+          <td style="border: 1px solid black;text-align:right" width='5%'><?php echo $row['cantidad']; ?></td>
+          <td style="border: 1px solid black;" width='43%'><?php echo $row['producto']; ?></td>
+          <td style="border: 1px solid black;text-align:right" width='10%'><?php echo $row['unitario']; ?></td>
+          <td style="border: 1px solid black;text-align:right" width='10%'><?php echo $row['importe']; ?></td>
+        </tr>
+        <?php
+        $n++;
+
+
+       } 
+
       }
     ?>
       </tbody>

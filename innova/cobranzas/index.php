@@ -176,17 +176,6 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
           <td width='20%'><input type='text' id='pendiente' class='span2' style='border:1px solid red;text-align:right'></td>
           <td width='15%' align='right'>A/CUENTA: </td>
           <td width='20%'><input type='text' id='monto' class='span2' style='text-align:right'></td>
-          <td width='15%' align='right'>ENCAR:</td>
-          <td width='20%'>
-            <?php 
-              $q=mysqli_query($con,"SELECT * FROM usuario WHERE activo='SI' AND cargo!='CLIENTE'");
-                      ?>
-            <select id="vendedor" class='span2' style='margin-bottom:0px'>
-              <?php while ($row=mysqli_fetch_assoc($q)){?>
-              <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
-              <?php } ?>
-            </select>
-          </td>
         </tr>
       </table>
     </div>

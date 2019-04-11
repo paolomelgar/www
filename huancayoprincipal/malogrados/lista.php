@@ -4,11 +4,11 @@ require_once('../connection.php');
   $fin = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['final'])));
   $query="('$ini' <= fecha AND fecha <= '$fin')";
   if($_POST['estado']=='TODOS'){
-    if($_SESSION['cargo']=='ADMIN'){
+    // if($_SESSION['cargo']=='ADMIN'){
       $query.=" AND estado!='BUENO'";
-    }else{
-      $query.=" AND estado!='BUENO' AND estado!='CORRECCION STOCK'";
-    }
+    // }else{
+    // $query.=" AND estado!='BUENO' AND estado!='CORRECCION STOCK'";
+    //}
   }
   else{
     $query.=" AND estado='".$_POST['estado']."'";

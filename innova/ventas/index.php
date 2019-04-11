@@ -282,7 +282,7 @@ if($_SESSION['valida']=='innova'){
             <th width="6%">X/CAJA</th>
             <th width="5%">STOCK</th>
             <th width="7%">P. UNIDAD</th>
-            <th width="7%">P.MAYOR</th>
+            <th width="7%">P. MAYOR</th>
             <th width="7%">P. ESPEC</th>
           </tr>
         </thead>

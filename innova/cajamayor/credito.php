@@ -2,7 +2,7 @@
   require_once('../connection.php');
   if(isset($_POST) && !empty($_POST)){
     $fecha = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])));
-    $sql=mysqli_query($con,"SELECT * FROM adelantos WHERE fecha='$fecha' AND sesion='ADMIN'");
+    $sql=mysqli_query($con,"SELECT * FROM adelantos WHERE fecha='$fecha' AND sesion!='CAJERO'");
     $i=0;
     $dat=array();
     while($row=mysqli_fetch_assoc($sql)){

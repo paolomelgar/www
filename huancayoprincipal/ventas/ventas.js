@@ -142,7 +142,7 @@ $(function(){
     $("#resultruc").css({"top":""+top+"px", "left":""+left+"px"});
   });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  var stock,compra,promotor,unit,y=7;
+  var stock,compra,promotor,unit,franquicia,y=7;
   function producto(consulta,e,result){
     if(e.which!=13 && e.which<37 || e.which>40){
       clearTimeout(typingTimer);
@@ -186,9 +186,15 @@ $(function(){
             compra=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(4)').text());
             var caja=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(5)').text());
             stock=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(6)').text());
-            promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq('+y+')').text()).toFixed(2);
-            unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq('+y+')').text()).toFixed(2);
+            if($('#cargo').val()!='FRANQUICIA'){
+              promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq('+y+')').text()).toFixed(2);
+              unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq('+y+')').text()).toFixed(2);
+            }else{
+              promotor=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(9)').text());
+              unit=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(9)').text());
+            }
             var ubic=$('#tb1>tr:eq('+x+')').find('td:eq(10)').text();
+            franquicia=parseFloat($('#tb1>tr:eq('+x+')').find('td:eq(9)').text());
             $('#row'+result+' tr').each(function () {
               if(producto == $(this).find('td:eq(1)').text()){
                 swal("","Este producto ya esta en la lista","error");
@@ -209,6 +215,7 @@ $(function(){
               $('#stock'+result).text("");
               $('#compra'+result).val("");
               $('#promotor'+result).val("");
+              $('#franquicia'+result).val("");
               $("#result"+result).hide();
               $("#busqueda"+result).focus();
             }
@@ -224,6 +231,7 @@ $(function(){
               $('#stock'+result).text(stock);
               $('#compra'+result).val(compra);
               $('#promotor'+result).val(promotor);
+              $('#franquicia'+result).val(franquicia);
               $("#result"+result).hide();
               $("#cantidad"+result).focus();
             }
@@ -316,6 +324,11 @@ $(function(){
     unit=parseFloat($('#precio_u').val());
     $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
     $(this).blur(function(){
+
+
+
+      if ($("#cargo").val()!='FRANQUICIA') { 
+
       if(unit>=promotor){
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
@@ -328,6 +341,14 @@ $(function(){
         $('#precio_u').val(compra);
         $('#precio_u').addClass('mayorstock');
       }
+
+      }else{ 
+        $('#precio_u').val(franquicia);
+        $('#precio_u').removeClass('mayorstock');
+      }
+
+
+
       $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
     });
     if(e.which == 13) {
@@ -337,7 +358,10 @@ $(function(){
   $('#importe').keyup(function(e){
     $("#precio_u").val(parseFloat($("#importe").val()/$("#cantidad").val()).toFixed(2));
     var unit=parseFloat($('#precio_u').val());
-    if(unit>=promotor){
+    
+
+    if ($("#cargo").val()!='FRANQUICIA') { 
+      if(unit>=promotor){
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }
@@ -349,6 +373,12 @@ $(function(){
         $('#precio_u').val(compra);
         $('#precio_u').addClass('mayorstock');
       }
+    }else{
+      $('#precio_u').val(franquicia);
+      $('#precio_u').removeClass('mayorstock');
+    }
+
+      
     if(e.which == 13) {
       if(unit<compra){
         $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
@@ -450,20 +480,24 @@ $(function(){
     $('#subtotal').val(parseFloat(suma()).toFixed(2));
     $('#total').val(parseFloat(parseFloat($('#subtotal').val())-parseFloat($('#subtotal_devol').val())).toFixed(2));
   });
-  $('#row').on('keyup','.editme2',function(){
-    if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(6)').text())){
-      $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).text()));
-    }
-    else{
-      $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).parent().find('td:eq(6)').text()));
-    }
-    if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(7)').text())){
-      $(this).removeClass('mayorstock');
+  $('#row').on('keyup','.editme2',function(e){
+    if($('#cargo').val()!='FRANQUICIA'){
+      if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(6)').text())){
+        $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).text()));
+      }
+      else{
+        $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).parent().find('td:eq(6)').text()));
+      }
+      if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(7)').text())){
+        $(this).removeClass('mayorstock');
+      }else{
+        $(this).addClass('mayorstock');
+      }
+      $('#subtotal').val(parseFloat(suma()).toFixed(2));
+      $('#total').val(parseFloat(parseFloat($('#subtotal').val())-parseFloat($('#subtotal_devol').val())).toFixed(2));
     }else{
-      $(this).addClass('mayorstock');
+      e.preventDefault();
     }
-    $('#subtotal').val(parseFloat(suma()).toFixed(2));
-    $('#total').val(parseFloat(parseFloat($('#subtotal').val())-parseFloat($('#subtotal_devol').val())).toFixed(2));
   });
   $('#row').on('blur','.editme2',function () {
     $(this).text(parseFloat(parseFloat($(this).next().text())/parseFloat($(this).prev().text())).toFixed(2));

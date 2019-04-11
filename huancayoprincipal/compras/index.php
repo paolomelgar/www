@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='CAJERO'){
+if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' || $_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='FRANQUICIA'){
 ?>
 <html>
 <head>
@@ -179,6 +179,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
   </style>
 </head>
 <body>
+  <input type='hidden' value='<?php echo $_SESSION['cargo']?>' id='cargo'>
   <div class='error' style='display:none'>Guardado Correctamente</div>
   <form id="form" name="form" action="" method="post" autocomplete="off">
     <input type='text' id='vendedor' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
@@ -207,10 +208,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
               <option value="FACTURA PAUL">FACTURA PAUL</option>
-              <option value="FACTURA BOOM">FACTURA BOOM</option>
-              <?php if($_SESSION['cargo']=='ADMIN'){ ?>
-              <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
-              <?php } ?>
+              <option value="FACTURA BOOM">FACTURA BOOM</option>              
+              <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>              
             </select>
             <input type='text' id='serie' name='serie' style='text-align:right;display:none;width:27px'>
             <input type='text' id='numero' name='numero' class='span1' style='text-align:right;display:none'>
@@ -431,7 +430,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <tr>
             <td>PORCENTAJE:<input type='text' id='porcentaje' class='span1'></td>
             <td>ENTREGADO <select id='entregado' name="entregado" style='border: solid 2px red;' class='span1'>
-              <?php if($_SESSION['cargo']=='ADMIN'){ ?>
+              <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' || $_SESSION['cargo']=='LOGISTICA'){ ?>
               <option value="SI">SI</option>
               <?php } ?>
               <option value="NO">NO</option>

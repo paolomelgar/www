@@ -82,7 +82,7 @@ session_start();
 			<?php }else{ ?>
 			<button id="eliminar" class="btn btn-success" disabled="disabled" title="Seleccione una fila para Eliminar" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
 			<button id="editar" class="btn btn-success" disabled="disabled" title="Seleccione una fila para Editar" style="float: right; margin: 0 7px 20px 0;">Editar</button>
-			<button id="agregar" class="btn btn-success" disabled="disabled" title="Agregar Datos" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
+			<button id="agregar" class="btn btn-success" title="Agregar Datos" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
 			<?php } ?>
 		</div>
 		<table class="table table-bordered">

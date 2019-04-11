@@ -80,6 +80,15 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 							<td align='right'><input type='text' name='credito' id='credito' style='text-align:right' class='span2' readonly='readonly'></td>
 							<td><input name='radio' type='radio' id='2'></td>
 						</tr>
+
+
+						<tr>
+							<td>VISA:</td>
+							<td align='right'><input type='text' name='visa' id='visa' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td><input name='radio' type='radio' id='5'></td>
+						</tr>
+
+
 						<tr>
 							<td>INGRESOS:</td>
 							<td align='right'><input type='text' name='ingreso' id='ingreso' style='text-align:right' class='span2' readonly='readonly'></td>
@@ -195,6 +204,30 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 				       </tfoot>
 				    </table>
 				</div>
+
+
+				<div id='result5' style='display:none;overflow-y:overlay;overflow-x:hidden;height:100%;' class='result'>
+				    <table width="100%" align="center" id='filter5'>
+				       <thead>
+				        <tr bgcolor="#428bca" style="color:#FFF; text-align:center;font-size:13px;font-weight:bold">
+				          <th width="15%">SERIE</th>
+				          <th width="25%">ENCARGADO</th>
+				          <th width="45%">CLIENTE</th>
+				          <th width="15%">MONTO</th>
+				        </tr>
+				       </thead>
+				       <tbody id="verbody5">
+				       </tbody>
+				       <tfoot>
+				          <tr style="font-weight:bold;">
+				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td align="right" width='10%' id='total5' style='border:1px solid #B1B1B1'></td>
+				          </tr>
+				       </tfoot>
+				    </table>
+				</div>				
+
+
 			</td>
 		</tr>
 		<tr>

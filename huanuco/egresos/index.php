@@ -75,9 +75,9 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' ){
           <td width='15%' style='padding:5px'>FECHA FIN:<input type="text" name="final" id="final" style="cursor:pointer;text-align:right;width:80px;"></td>
           <td width='20%' style='padding:5px'>ESTADO:
             <select id='change' name='change' class='span2' style='margin-bottom:0px'>
-              <option value"TODOS">TODOS</option>
-              <option value"INGRESO">INGRESO</option>
-              <option value"EGRESO">EGRESO</option>
+              <option value="TODOS">TODOS</option>
+              <option value="INGRESO">INGRESO</option>
+              <option value="EGRESO">EGRESO</option>
             </select>
           </td>
           <td width='20%' style='padding:5px'><input type="button" name="buscar" value='BUSCAR' id="buscar" class='btn btn-success'></td>
