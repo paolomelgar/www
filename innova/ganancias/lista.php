@@ -16,9 +16,14 @@
   if(isset($_POST['vendedor']) && !empty($_POST['vendedor'])){
     $query.=" AND vendedor='".$_POST['vendedor']."'";
   }
+  if(isset($_POST['proveedorsistema']) && !empty($_POST['proveedorsistema'])){
+    $query.=" AND proveedorsistema='".$_POST['proveedorsistema']."'";
+  }
+
+
   $query.=" AND entregado='SI'";
 
-  if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="innovaelectric"){
+  if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="jauja"){
   $i=0;
   $dat=array();
   $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM boletaelectronica WHERE $query UNION SELECT * FROM boleta WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");

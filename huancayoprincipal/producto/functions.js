@@ -184,7 +184,7 @@ $(function(){
 			var dato1=$(".selected").children( "td:eq(4)" ).text();
 			var dato2=$(".selected").children( "td:eq(5)" ).text();
 			var dato3=$(".selected").children( "td:eq(6)" ).text();
-			var dato4=$(".selected").children( "td:eq(23)" ).text();
+			var dato4=$(".selected").children( "td:eq(20)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar Producto',
 				open:function(){

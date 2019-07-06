@@ -304,7 +304,7 @@ var typingTimer;
     return z;
   }
   $('#row').on('contextmenu','.fila',function(e){
-    if($('#cargo').text()=='ADMIN'){
+    if($('#cargo').text()=='ADMIN' || $('#cargo').text()=='ENCARGADOTIENDA'){
       $("#row tr").removeClass('selected1');
       $(this).addClass('selected1');
       e.preventDefault();

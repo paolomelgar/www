@@ -329,7 +329,7 @@ $(function(){
 
       if ($("#cargo").val()!='FRANQUICIA') { 
 
-      if(unit>=promotor){
+      if(unit>=promotor && unit>=compra){
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
       }
@@ -361,7 +361,7 @@ $(function(){
     
 
     if ($("#cargo").val()!='FRANQUICIA') { 
-      if(unit>=promotor){
+      if(unit>=promotor && unit>=compra){
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }

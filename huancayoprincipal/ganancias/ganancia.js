@@ -183,11 +183,15 @@ $(function(){
     source:"marca.php",
     minLength:1
   }); 
+  $("#proveedorsistema").autocomplete({
+    source:"proveedorsistema.php",
+    minLength:1
+  }); 
   $('#excel').click(function(){
     $.ajax({
       type: "POST",
       url: "excel.php",
-      data: 'inicio='+$('#inicio').val()+'&final='+$('#final').val(),
+      data: 'inicio='+$('#inicio').val()+'&final='+$('#final').val()+'&proveedorsistema='+$('#proveedorsistema').val(),
       dataType:'html',
       beforeSend:function(){
         swal({

@@ -64,7 +64,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 <img src='excel.png' style='position:absolute;width:35px;right:30px;top:2px;cursor:pointer' id='excel'>
 <form id="form" action="" method="post">
 	<table width='100%' style='border-collapse:collapse'>
-		<tr><td colspan='7' align='center' style='padding:0'><h3 style='margin-top:0px;margin-bottom:0px;' class='btn-warning'>GANANCIAS</h3></td></tr>
+		<tr>
+			<td style='text-align:right;'>PROVEEDOR:</td>
+			<td><input type='text' id='proveedorsistema' name='proveedorsistema' style="margin-bottom:0px" class='span3'></td>			
+			<td colspan='7' align='center' style='padding:0'><h3 style='margin-top:0px;margin-bottom:0px;' class='btn-warning'>GANANCIAS</h3></td></tr>
 		<tr bgcolor='#FADE9C'>
 			<td style='text-align:right;'>CLIENTE:</td>
 			<td><input type='text' id='cliente' name='cliente' style="margin-bottom:0px" class='span3'></td>

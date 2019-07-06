@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR') {
+if($_SESSION['valida']=='neofer') {
 ?>
 <html>
 <head>

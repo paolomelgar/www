@@ -110,7 +110,13 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         <option value='NADA'></option>
         <option value='CONT'>CONT</option>
       </select>
-      <?php if($_SESSION['cargo']=='ADMIN'){ ?>
+      <?php if($_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ'){ ?>
+      <button id="eliminar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
+      <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
+      <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
+      <?php } else{ ?>
+
+      <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA'){ ?>
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
@@ -118,7 +124,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
-      <?php } ?>
+      <?php }} ?>
     </div>
     <table class="table table-bordered">
       <thead>

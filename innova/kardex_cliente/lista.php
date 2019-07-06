@@ -6,7 +6,16 @@
     if($_POST['cliente']==''){$query.="";}
     else{$query.=" AND cliente='".$_POST['cliente']."'";}
     if($_POST['change']=='REAL'){
-      $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT * FROM proforma WHERE $query UNION SELECT * FROM boleta WHERE $query AND entregado='SI' ORDER BY fecha,hora");
+      if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="jauja"){
+        $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query AND entregado='SI' UNION SELECT * FROM proforma WHERE $query AND entregado='SI' UNION SELECT * FROM boletaelectronica WHERE $query AND entregado='SI' UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query AND entregado='SI' ORDER BY fecha,hora,idnota");
+
+
+      }else 
+      {
+        $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query AND entregado='SI' UNION SELECT * FROM proforma WHERE $query AND entregado='SI' UNION SELECT * FROM boleta WHERE $query AND entregado='SI' UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query AND entregado='SI' ORDER BY fecha,hora,idnota");
+
+        
+      }
     }
     else{
       $sql=mysqli_query($con,"SELECT * FROM factura WHERE $query UNION SELECT * FROM boleta WHERE $query ORDER BY fecha,hora");

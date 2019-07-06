@@ -10,7 +10,7 @@ $producto = substr($producto, 0, -4);
 $num=($_POST['numero']-1)*$_POST['pagina'];
 
 if($_POST['cont']=="MITAD"){
-    $producto.=" AND stock_real<=porcentaje/2";
+    $producto.=" AND stock_real<=porcentaje/2 AND porcentaje>0";
 }
 if($_POST['prov']!=""){
     $producto.=" AND proveedor LIKE '%".$_POST['prov']."%'";

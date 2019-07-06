@@ -13,7 +13,7 @@ require_once('../connection.php');
     $del = mysqli_query($con,"SELECT idproducto,cantidad,entregado FROM compras WHERE value='".$_POST['value']."'"); 
     while($row = mysqli_fetch_assoc($del)){
       if($row['entregado']=='SI'){
-        if($_POST['doc']=='FACTURA PAUL'){
+        if($_POST['doc']=='FACTURA INNOVA'){
             $ins=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$row['cantidad']."),stock_con=(stock_con-".$row['cantidad'].") WHERE id='".$row['idproducto']."'");
         }else if($_POST['doc']=='FACTURA BOOM'){
             $ins=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real-".$row['cantidad']."),stock_con1=(stock_con1-".$row['cantidad'].") WHERE id='".$row['idproducto']."'");
@@ -22,7 +22,7 @@ require_once('../connection.php');
         }
       }
       else{
-        if($_POST['doc']=='FACTURA PAUL'){
+        if($_POST['doc']=='FACTURA INNOVA'){
             $ins=mysqli_query($con,"UPDATE producto SET stock_con=(stock_con-".$row['cantidad'].") WHERE id='".$row['idproducto']."'");
         }else if($_POST['doc']=='FACTURA BOOM'){
             $ins=mysqli_query($con,"UPDATE producto SET stock_con1=(stock_con1-".$row['cantidad'].") WHERE id='".$row['idproducto']."'");

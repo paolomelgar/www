@@ -314,7 +314,7 @@ var stock,compra,promotor,unit;
     unit=parseFloat($('#precio_u').val());
     $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
     $(this).blur(function(){
-      if(unit>=promotor){
+      if(unit>=promotor && unit>=compra){
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
       }
@@ -335,7 +335,7 @@ var stock,compra,promotor,unit;
   $('#importe').keyup(function(e){
     $("#precio_u").val(parseFloat($("#importe").val()/$("#cantidad").val()).toFixed(2));
     var unit=parseFloat($('#precio_u').val());
-    if(unit>=promotor){
+    if(unit>=promotor && unit>=compra){
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }
@@ -461,44 +461,12 @@ var stock,compra,promotor,unit;
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}@media print {html,body {width: 320mm;height: 150mm;margin-top:47px;margin-left:0px}}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          case 'FACTURA PAUL':
-            $('#dx').append("<table width='100%' style='margin-top:145px;font:0.8em arial;'><tr><td width='6%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='10%'>"+data[1][12].slice(3,5)+"</td><td width='78%'>"+data[1][12].slice(6,10)+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:9px;font:0.8em arial;'><tr><td width='70%'>"+data[1][1]+"</td><td width='30%'>"+data[1][0]+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:12px;font:0.7em arial;'><tr><td width='80%'>"+data[1][2]+"</td><td width='20%' style='font-weight:bold'>Cond. Pago: "+data[1][9]+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
-            );
-            for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em arial'><tr height='22px'><td width='6%' align='right'>"+data[0][i][1]+"</td><td <td width='3%'></td><td width='61%'>"+data[0][i][0]+"</td><td width='12%' align='right'>"+data[0][i][2]+"</td><td width='18%' align='right'>"+data[0][i][3]+"</td></tr></table>");
-            }
-            while(v1<33-parseInt(data[0].length)){
-              $('#dx').append("<table width='100%' style='margin-top:-5px'><tr height='22px'><td>&nbsp</td></tr></table>");
-              v1++;
-            }
-            var subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
-            var igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
-            $("#dx").append(
-              "<table width='100%' style='font:0.8em arial;margin-top:18px;'><tr><td width='6%'>&nbsp</td><td width='74%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:6px;font:0.8em arial;'><tr><td width='90%'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
-            $.ajax({
-              type: "POST",
-              url: "numerosaletras.php",
-              async: false,
-              data: 'b='+data[1][3],
-              success: function(data){
-                $('#let').append(data);
-              }
-            });
-            contenid = document.getElementById("dx");
-            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
-          break;
-          ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          case 'FACTURA ELECTRONICA PAUL':
-            $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:300px;height:80px;'></div>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>MELGAR POVEZ PAUL ALEXIS</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH N° 101 INT. B - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>10433690058</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
+          case 'FACTURA ELECTRONICA INNOVA':
+              $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH NRO. 101 DPTO. 201 CHILCA CERCADO JUNIN - HUANCAYO - CHILCA</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>20601765641</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F002-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
@@ -519,7 +487,7 @@ var stock,compra,promotor,unit;
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
-            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.ferreboom.com</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.innova.grupoferretero.com</td></tr></table></div>");
             jQuery('#qrcodeTable').qrcode({
               render  : "table",
               text  : "http://ferreboom.com:2000",
@@ -572,9 +540,10 @@ var stock,compra,promotor,unit;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA ELECTRONICA BOOM':
             $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:300px;height:80px;'></div>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20600996968</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>DISTRIBUIDORA DE HERRAMIENTAS Y ACCESORIOS FERREBOOM S.A.C.</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. YAPURA N° 163 URB. CHACRA COLORADA - LIMA - LIMA - BREÑA</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>20600996968</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>CEL: 948394809 - 975380302 - FIJO:(064)228334</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
@@ -598,6 +567,7 @@ var stock,compra,promotor,unit;
             $('#dx').append("<table width='80%' align='center'><tr><td align='center'><div id='qrcodeTable'></td></tr></table>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
             $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>Para consultar el documento ingrese en www.ferreboom.com</td></tr></table></div>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>BCP: CUENTA CORRIENTE 355-2284965-0-10</td></tr></table></div>");
             jQuery('#qrcodeTable').qrcode({
               render  : "table",
               text  : "http://ferreboom.com:2000",
@@ -638,6 +608,7 @@ var stock,compra,promotor,unit;
             }
             $('#dx').append("<table width='78%' style='margin-top:10px;font:0.8em arial;'><tr><td colspan='4' width='90%' align='right'>TOTAL</td><td align='right'>"+data[1][5]+"</td></tr></table>");
             $('#dx').append("<table width='78%' style='margin-top:20px;font:0.8em arial;'><tr><td width='5%'></td><td colspan='4' width='95%'>OBS: "+data[1][7]+"</td></tr></table>");
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='left'>CEL: 948394809 - 975380302  BCP: CUENTA CORRIENTE 355-2284965-0-10</td></tr></table></div>");
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
@@ -979,9 +950,27 @@ var stock,compra,promotor,unit;
         $('#observarpedido').append(data);
       }
     });
-    if($(this).parent().find('td:eq(5)').text()=='CONTADO'){
+    if($(this).parent().find('td:eq(5)').text()=='NO AFECTA'){
+      if($(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA BOOM'){
+          if ($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+          }else{
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+          }
+      }else{
+          if ($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+          }else{
+            $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+          }
+        }
+    }else if($(this).parent().find('td:eq(5)').text()=='CONTADO'){
       if($(this).parent().find('td:eq(2)').text().slice(0,10)!=fech){
-        if($(this).parent().find('td:eq(3)').text()=='FACTURA PAUL' || $(this).parent().find('td:eq(3)').text()=='FACTURA BOOM'){
+        if($(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA BOOM'){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
           $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
         }else{
@@ -995,18 +984,22 @@ var stock,compra,promotor,unit;
         }else{
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
         }
-        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
       }
     }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
       $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
       $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
     }else{
       if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
-        $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
+        $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");                                                           
       }else{
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
       }
-      $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+      if($('#cargo').val()=='ADMIN'){
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
+      }else{
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
+    }
     }
   });
   $('#observarpedido').dialog({
@@ -1015,22 +1008,22 @@ var stock,compra,promotor,unit;
     autoOpen:false,
     height: 480,
     width: 450,
+    fontSize:10,
     show: {effect: "slide",duration: 100},
     hide: {effect: "slide",duration: 100},
     buttons: [
       {
-          text: "IMPRIMIR",
-          icons: { primary: "ui-icon-print" },
+          text: " IMPRIMIR",
           click: function() { 
             imprimir(serie1,comprobante);
           }
       },
       {
-          text: "ELIMINAR",
+          text: "NOTA DE CREDITO",
           icons: { primary: "ui-icon-trash" },
           click: function() { 
             swal({
-              title: "Esta Seguro de Eliminar!",
+              title: "Esta Seguro de Hacer Nota de Credito!",
               text: "",
               type: "warning",
               showCancelButton: true,
@@ -1043,7 +1036,7 @@ var stock,compra,promotor,unit;
                 $("#observarpedido").dialog("close");
                 $.ajax({
                   type: "POST",
-                  url: "eliminarcomprobantes.php",
+                  url: "notadecredito.php",
                   data: 'serie='+serie1+'&com='+comprobante,
                   success: function(data){
                     serieventa=0;
@@ -1051,6 +1044,46 @@ var stock,compra,promotor,unit;
                   }
                 });
               } 
+            });
+          }
+      },
+      {
+          text: " ELIMINAR",
+          click: function() { 
+            $("#dialoganular").dialog({
+              title:"MOTIVO PARA ELIMINAR",
+              width:"40%",
+              modal:true,
+              buttons: { 
+                "ELIMINAR" : function(){ 
+                  swal({
+                    title: "Esta Seguro de Eliminar!",
+                    text: "",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar",
+                    cancelButtonText: "Cancelar"
+                  },
+                  function(isConfirm){
+                    if (isConfirm) {
+                      $("#observarpedido").dialog("close");
+                      $.ajax({
+                        type: "POST",
+                        url: "eliminarcomprobantes.php",
+                        data: 'serie='+serie1+'&com='+comprobante,
+                        success: function(data){
+                          serieventa=0;
+                          $('#buscar').click();
+                        }
+                      });
+                    } 
+                  });
+                },
+              },
+              open: function() {
+                $('.radio').val("");
+              }
             });
           }
       },
@@ -1277,6 +1310,8 @@ var stock,compra,promotor,unit;
     }
     else if($('#id').val()>0 && $('#busqueda').val()!=""){
       swal("Hay un producto en busqueda","Debes Borrar o agregar","error");
+    }else if($('#row1 tr').length>0 && $('#row tr').length>0){
+      swal("Devoluciones no","error");
     }
     else{
       var str = $('#form').serializeArray();
@@ -1359,7 +1394,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA PAUL'){
+                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA INNOVA'){
                   var serieee=data;
                   $.ajax({
                     type: "POST",
@@ -1414,7 +1449,7 @@ var stock,compra,promotor,unit;
                 });
               },
               success: function(data){
-                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA PAUL'){
+                if($('#documento').val()=='FACTURA ELECTRONICA BOOM' || $('#documento').val()=='FACTURA ELECTRONICA INNOVA'){
                   var serieee=data;
                   $.ajax({
                     type: "POST",
@@ -1445,35 +1480,8 @@ var stock,compra,promotor,unit;
           $(this).empty();
           var v=0;
           switch($('#documento').val()){
-            case 'FACTURA PAUL':
-              $(this).append("<div id='xd' align='center'><table width='100%' style='margin-top:-2px;font:0.9em arial;'><tr><td width='12%'>&nbsp</td><td width='10%'>"+$('#fecha').val().slice(0,2)+"</td><td width='20%'>"+$('#fecha').val().slice(3,5)+"</td><td width='58%'>"+$('#fecha').val().slice(9,10)+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:7px;font:0.9em arial;'><tr><td width='10%'>&nbsp</td><td width='60%'>"+$('#razon_social').val()+"</td><td width='15%'>&nbsp</td><td width='20%' style='font-size:17px;font-weight:bold'>"+$('#ruc').val()+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:10px;font:0.9em arial;'><tr><td width='10%'>&nbsp</td><td width='70%'>"+$('#direccion').val()+"</td><td width='20%' style='font-size:15px;font-weight:bold'>Cond. Pago: "+$('#forma-pago').val()+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-bottom:6px;margin-top:15px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
-              );
-              $('#row tr').each(function(){
-                $('#xd').append("<table width='100%' style='margin-top:-8px;font:0.9em arial;font-weight:bold'><tr height='22px'><td width='15%' align='right'>"+$(this).find('td:eq(2)').text()+"&nbsp&nbsp&nbsp&nbsp&nbsp</td><td width='55%'>&nbsp&nbsp&nbsp&nbsp&nbsp"+$(this).find('td:eq(1)').text()+"</td><td width='15%' align='right'>"+$(this).find('td:eq(3)').text()+"</td><td width='15%' align='right'>"+$(this).find('td:eq(4)').text()+"</td></tr></table>");
-              });
-              while(v<42-parseInt($('#row tr').length)){
-                $('#xd').append("<table width='100%' style='margin-top:-8px'><tr height='22px'><td>&nbsp</td></tr></table>");
-                v++;
-              }
-              var subigv=parseFloat($('#subtotal').val()/1.18).toFixed(2);
-              igv=parseFloat($('#subtotal').val()-subigv).toFixed(2);
-              $("#xd").append("<table width='100%' style='font:0.9em arial;font-weight:bold;margin-top:-2px;'><tr><td width='10%'>&nbsp</td><td width='70%' id='letra'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.9em arial;font-weight:bold'><tr><td width='90%'></td><td align='right' width='10%'>"+igv+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.9em arial;font-weight:bold'><tr><td width='59%'></td><td width='90%'></td><td align='right' width='10%'>"+parseFloat($('#subtotal').val()).toFixed(2)+"</td></tr></table></div>");
-              $.ajax({
-                type: "POST",
-                url: "numerosaletras.php",
-                data: 'b='+$('#subtotal').val(),
-                success: function(data){
-                  $('#letra').append(data);
-                }
-              });
-            break;
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            case 'FACTURA BOOM':
+            
+             case 'FACTURA BOOM':
               $(this).append("<div id='xd' align='center'><table width='100%' style='margin-top:-2px;font:0.9em arial;'><tr><td width='12%'>&nbsp</td><td width='10%'>"+$('#fecha').val().slice(0,2)+"</td><td width='20%'>"+$('#fecha').val().slice(3,5)+"</td><td width='58%'>"+$('#fecha').val().slice(9,10)+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:7px;font:0.9em arial;'><tr><td width='10%'>&nbsp</td><td width='60%'>"+$('#razon_social').val()+"</td><td width='15%'>&nbsp</td><td width='20%' style='font-size:17px;font-weight:bold'>"+$('#ruc').val()+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:10px;font:0.9em arial;'><tr><td width='10%'>&nbsp</td><td width='70%'>"+$('#direccion').val()+"</td><td width='20%' style='font-size:15px;font-weight:bold'>Cond. Pago: "+$('#forma-pago').val()+"</td></tr></table>\n"+
@@ -1574,7 +1582,7 @@ var stock,compra,promotor,unit;
       $('.notacredito').hide();
       $('.pago').show();
     }
-    else if($('#documento').val()=='FACTURA PAUL' || $('#documento').val()=='FACTURA BOOM'){
+    else if($('#documento').val()=='FACTURA INNOVA' || $('#documento').val()=='FACTURA BOOM'){
       $('#devol').prop('disabled', true);
       $('#forma-pago option[value=CONTADO]').show();
       $('#forma-pago option[value=CREDITO]').show();
@@ -1648,6 +1656,43 @@ var stock,compra,promotor,unit;
       success:function(data){
         socket.emit('notificacion',"");
         $('#mostrarpendientes').click();
+      }
+    });
+  });
+  $('#verpendientes').on('click','.imprimir1',function(){
+    var pen=$(this).parent().parent().find('td:eq(1)').text();
+    $.ajax({
+      type:"POST",
+      url:"imprimir1.php",
+      dataType: "json",
+      data:"del="+pen,
+      success:function(data){
+        $('#dx').empty();
+        var contenid;
+        var x1 = screen.width/2 - 1200/2;
+        var y1 = screen.height/2 - 700/2;
+        var w=window.open('','',"width=1200,height=600,left="+x1+",top="+y1);
+        data[0].sort(function(a, b) {
+                return a[3] - b[3];
+            });
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;'><tr><td width='100%' align='center'><b>ESTO NO ES UNA NOTA DE PEDIDO</b></td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>RUC:</td><td width='55%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='25%'>"+data[1][9]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>CLIENTE:</td><td width='55%'>"+data[1][1]+"</td><td width='10%'>Vendedor:</td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='10%'>DIRECCION:</td><td width=100%' style='font-family:Agency FB'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-bottom:5px;margin-top:0px;font:0.7em Verdana;font-weight:bold;border-collapse:collapse'><tr style='border:1px solid black'><td width='10%'></td><td width='5%' align='center'>CAN</td><td width='72%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.8em Verdana;'><tr><td width='5%' align='center'><input style='width:10px;height:10px;border:1px solid black'></td><td width='5%' align='center'><input style='width:10px;height:10px;border:1px solid black'></td><td width='5%' align='right'>"+data[0][i][1]+"</td><td width='1%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td></tr></table>");
+            }
+            $('#dx').append("<table width='80%' align='center' style='margin-top:-8px;font:0.9em Verdana;'><tr height='17px'><td align='right'>Total: "+data[1][5]+"</td></tr></table>");
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+            w.focus();
+        w.print();
+        setTimeout(function(){
+          w.close();
+          $('#mostrarpendientes').click();
+        }, 200);
       }
     });
   });

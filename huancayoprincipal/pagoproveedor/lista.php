@@ -25,8 +25,8 @@ while($row=mysqli_fetch_assoc($sql)){
   $dif=intval((strtotime(date("Y-m-d"))-strtotime($row['fechafactura']))/60/60/24);
   if($row['documento']=='FACTURA BOOM'){
     $dat[$i][0]="BOOM ".$row['serie']."-".$row['numero'];
-  }else if($row['documento']=='FACTURA PAUL'){
-    $dat[$i][0]="PAUL ".$row['serie']."-".$row['numero'];
+  }else if($row['documento']=='FACTURA INNOVA'){
+    $dat[$i][0]="INNOVA ".$row['serie']."-".$row['numero'];
   }else{
     $dat[$i][0]="NOTA ".$row['serie']."-".$row['numero'];
   }

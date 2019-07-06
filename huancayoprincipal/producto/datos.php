@@ -45,9 +45,6 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_mayor']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_1']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_2']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_3']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_4']; ?></td>
-        <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_5']; ?></td>
         <?php }else{ ?>
         <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td style="text-align:right"><?php echo $row['stock_con1']; ?></td>        
@@ -57,9 +54,6 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_mayor']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_1']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_2']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_3']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_4']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_5']; ?></td>
         <?php } ?>
         <td style="text-align:right"><?php echo $row['activo']; ?></td>
 
@@ -76,9 +70,6 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_mayor']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_1']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_2']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_3']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_4']; ?></td>
-        <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_5']; ?></td>
         <td style="text-align:right"><?php echo $row['activo']; ?></td>
         <?php } ?>
 

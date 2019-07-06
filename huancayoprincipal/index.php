@@ -438,6 +438,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="calendariocliente/" target="contenedor">CRONOGRAMA COBROS</a></li>
                   <li><a href="ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
                   <li><a href="malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
+                  <li><a href="eliminados/" target="contenedor">REPORTE ELIMINADOS</a></li>
                 </ul>
               </li>
             </ul>
@@ -501,6 +502,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="calendariocliente/" target="contenedor">CRONOGRAMA COBROS</a></li>
                   <li><a href="ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
                   <li><a href="malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
+                  <li><a href="eliminados/" target="contenedor">REPORTE ELIMINADOS</a></li>
                 </ul>
               </li>
             </ul>
@@ -622,7 +624,8 @@ if($_SESSION['valida']=='huancayoprincipal'){
             <ul>
               <li><a href="" >VENTAS</a>
                   <ul>
-                  <li><a href="caja/" target="_blank">CAJA TIENDA</a></li>                  
+                  <li><a href="caja/" target="_blank">CAJA TIENDA</a></li>
+                  <li><a href="ventas/" target="_blank">VENTA TIENDA</a></li>
                   <li><a href="ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
                   <li><a href="malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
                 </ul>

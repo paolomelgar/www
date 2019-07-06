@@ -130,6 +130,11 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <option value='UNIDAD'>UNIDAD</option>
         <option value='OFERTA'>OFERTA</option>
       </select>
+      <?php if($_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ'){ ?>
+      <button id="eliminar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
+      <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
+      <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
+      <?php } else{ ?>
       <?php if($_SESSION['cargo']=='ADMIN'){ ?>
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
@@ -142,7 +147,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       <button id="eliminar" class="btn btn-success disabled"  disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
-      <?php } ?>      
+      <?php }} ?>      
       <!--<button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>-->
     </div>
 
@@ -154,24 +159,21 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
               <th style="text-align: center;width:3%"></th>
               <th style="text-align: center;width:4%">CODIGO</th>
               <th style="text-align: center;width:20%">PRODUCTO</th>
-              <th style="text-align: center;width:7%">MARCA</th>
-              <th style="text-align: center;width:8%">FAMILIA</th>
+              <th style="text-align: center;width:8%">MARCA</th>
+              <th style="text-align: center;width:6%">FAMILIA</th>
               <th style="text-align: center;width:8%">PROVEEDOR</th>
               <th style="text-align: center;width:4%">UBICACION</th>
-              <th style="text-align: center;width:4%">CAJA</th>
+              <th style="text-align: center;width:3%">CAJA</th>
               <th style="text-align: center;width:4%">MASTER</th>
               <th style="text-align: center;width:4%">S.REAL</th>
-              <th style="text-align: center;width:4%">S.PAUL</th>
+              <th style="text-align: center;width:4%">S.INNOVA</th>
               <th style="text-align: center;width:4%">S.BOOM</th>
-              <th style="text-align: center;width:4%">P.COMPRA</th>
+              <th style="text-align: center;width:5%">P.COMPRA</th>
               <th style="text-align: center;width:4%;background-color:#FE3F33">P.FRAN</th>
               <th style="text-align: center;width:4%;background-color:#F7EC0F">P.MAY</th>
               <th style="text-align: center;width:4%;background-color:#F7EC0F">P.PROV</th>
               <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.MAY</th>
               <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.PUB1</th>
-              <th style="text-align: center;width:4%;background-color:#f63">P.T.PUB2</th>
-              <th style="text-align: center;width:4%;background-color:#21AA4D">P.T.MAY2</th>
-              <th style="text-align: center;width:4%;background-color:#21AA4D">P.T.PUB3</th>
               <th style="text-align: center;width:3%">ACTIVO</th>
           </tr>
       </thead>
@@ -189,7 +191,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                 <option>100</option>
               </select> 
             </div>
-            <?php if($_SESSION['nombre']=='PAUL MELGAR' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAOLA MELGAR'){ ?>
+            <?php if($_SESSION['nombre']=='PAUL MELGAR' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAOLA MELGAR' || $_SESSION['nombre']=='DAVID PRESENTACION'){ ?>
             <div style='float:left;margin-top:5px;margin-left:100px;font-size:25px;font-weight:bold;color:blue'>
               <?php 
                 $sql=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");
@@ -217,22 +219,19 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
     <table class="table table-bordered">
       <thead>
           <tr style='background-color:#428bca;color:white'>
-              <th style="text-align: center;width:3%"></th>
+              <th style="text-align: center;width:4%"></th>
               <th style="text-align: center;width:4%">CODIGO</th>
-              <th style="text-align: center;width:19%">PRODUCTO</th>
-              <th style="text-align: center;width:8%">MARCA</th>
+              <th style="text-align: center;width:25%">PRODUCTO</th>
+              <th style="text-align: center;width:12%">MARCA</th>
               <th style="text-align: center;width:8%">FAMILIA</th>
               <th style="text-align: center;width:5%">CAJA</th>
               <th style="text-align: center;width:5%">MASTER</th>
-              <th style="text-align: center;width:5%">S.REAL</th>
+              <th style="text-align: center;width:7%">S.REAL</th>
               <th style="text-align: center;width:5%;background-color:#FE3F33">P.FRAN</th>
-              <th style="text-align: center;width:5%;background-color:#F7EC0F">P.MAY</th>
-              <th style="text-align: center;width:5%;background-color:#F7EC0F">P.PROV</th>
+              <th style="text-align: center;width:6%;background-color:#F7EC0F">P.MAY</th>
+              <th style="text-align: center;width:6%;background-color:#F7EC0F">P.PROV</th>
               <th style="text-align: center;width:5%;background-color:#0FC6F7">P.T.MAY</th>
               <th style="text-align: center;width:5%;background-color:#0FC6F7">P.T.PUB1</th>
-              <th style="text-align: center;width:5%;background-color:#f63">P.T.PUB2</th>
-              <th style="text-align: center;width:5%;background-color:#21AA4D">P.T.MAY2</th>
-              <th style="text-align: center;width:5%;background-color:#21AA4D">P.T.PUB3</th>
               <th style="text-align: center;width:3%">ACTIVO</th>
           </tr>
       </thead>

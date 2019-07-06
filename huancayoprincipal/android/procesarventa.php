@@ -24,7 +24,7 @@ date_default_timezone_set("America/Lima");
         $res1 = mysqli_query($con,"SELECT ruc,cliente,direccion,credito FROM cliente WHERE id_cliente='".$_REQUEST['cliente']."'"); 
     }
     $row5=mysqli_fetch_assoc($res1);
-    $query= mysqli_query($con,"INSERT INTO total_pedido (nropedido,fecha,hora,seriepedido,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito) 
+    $query= mysqli_query($con,"INSERT INTO total_pedido (nropedido,fecha,hora,seriepedido,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,imprimir) 
                 VALUES ('".$num."',
                         NOW(),
                         NOW(),
@@ -38,7 +38,8 @@ date_default_timezone_set("America/Lima");
                         '".$_REQUEST['total']."',
                         '".$_REQUEST['vendedor']."',
                         '".$_REQUEST['observacion']."',
-                        '".$row5['credito']."'
+                        '".$row5['credito']."',
+                        '0'
                         )");
     for ($i=$_REQUEST['size']-1; $i>=0 ; $i--) {
         $resss = mysqli_query($con,"SELECT producto,marca,p_compra,p_promotor FROM producto WHERE id='".$_REQUEST['id'.$i]."'"); 

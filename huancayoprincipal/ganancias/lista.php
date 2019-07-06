@@ -16,7 +16,13 @@
   if(isset($_POST['vendedor']) && !empty($_POST['vendedor'])){
     $query.=" AND vendedor='".$_POST['vendedor']."'";
   }
+  if(isset($_POST['proveedorsistema']) && !empty($_POST['proveedorsistema'])){
+    $query.=" AND proveedorsistema='".$_POST['proveedorsistema']."'";
+  }
+
+
   $query.=" AND entregado='SI'";
+  
   $i=0;
   $dat=array();
   $sql=mysqli_query($con,"SELECT * FROM notapedido WHERE $query UNION SELECT iddevolucion,seriedevolucion,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado FROM devoluciones WHERE $query ORDER BY fecha,hora,idnota");
@@ -29,9 +35,9 @@
     $dat[$i][5]=$row['producto'];
     $dat[$i][6]=number_format($row['cantidad'],0,",","");
     $dat[$i][7]=$row['compra'];
-    $dat[$i][8]=number_format($row['unitario'],2);
-    $dat[$i][9]=number_format($row['unitario']-$row['compra'],2);
-    $dat[$i][10]=number_format($row['cantidad']*($row['unitario']-$row['compra']),2);
+    $dat[$i][8]=number_format($row['unitario'],2,".","");
+    $dat[$i][9]=number_format($row['unitario']-$row['compra'],2,".","");
+    $dat[$i][10]=number_format($row['cantidad']*($row['unitario']-$row['compra']),2,".","");
     $dat[$i][11]=$row['vendedor'];
     $i++;
   }

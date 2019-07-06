@@ -14,7 +14,7 @@
     }
   if(isset($_POST) && !empty($_POST)){
 	switch ($_POST['str'][0]['value']) {
-    case 'FACTURA PAUL':
+    case 'FACTURA INNOVA':
         if ($_POST['editar']==0) {
             $res = mysqli_query($con,"SELECT MAX(value) FROM total_compras"); 
             $row = mysqli_fetch_row($res);
@@ -53,7 +53,7 @@
                     VALUES ('".$_POST['str'][1]['value']."',
                             '".$_POST['str'][2]['value']."',
                             '".$num."',
-                            'FACTURA PAUL',
+                            'FACTURA INNOVA',
                             '".$_POST['producto'][$i]."',
                             '".$_POST['cantidad'][$i]."',
                             '".$_POST['unitario'][$i]."',
@@ -86,7 +86,7 @@
                             '".$num."',
                             '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."',
                             NOW(),
-                            'FACTURA PAUL',
+                            'FACTURA INNOVA',
                             '".$_POST['str'][6]['value']."',
                             '".$_POST['str'][9]['value']."',
                             '".$_POST['str'][10]['value']."',

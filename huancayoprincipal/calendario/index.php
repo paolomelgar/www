@@ -62,6 +62,9 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                     <option>2018</option>
                     <option>2019</option>
                     <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+
                 </select>
             <th><input id='next' type='button' value='>>' class="btn span1"></th>
         </tr>

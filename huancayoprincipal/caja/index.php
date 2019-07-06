@@ -189,10 +189,15 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
   input{
     margin-bottom: 0px !important;
   }
+  .ui-button-text {
+    font-size: 11px;
+    padding: 1px 1px 1px 1px; /* Or whatever makes it small enough. */
+}
   </style>
 </head>
 <body>
   <form id="form" name="form" action="" method="post" autocomplete="off">
+    <input type='hidden' value='<?php echo $_SESSION['cargo']?>' id='cargo'>
     <input type='text' name='vendedor' id='vendedor' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
     <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;' class='btn-primary'>CAJA</h3>
     <a style="position:absolute;left:800px;top:3px;cursor:pointer;" id="mostrarpendientes">
@@ -229,14 +234,12 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
           <td width='12%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <option value="FACTURA PAUL">FACTURA PAUL</option>
-              <option value="FACTURA BOOM">FACTURA BOOM</option>
-              <option value="FACTURA ELECTRONICA PAUL">FACTURA ELECTRONICA PAUL</option>
               <option value="FACTURA ELECTRONICA BOOM">FACTURA ELECTRONICA BOOM</option>
+              <option value="FACTURA ELECTRONICA INNOVA">FACTURA ELECTRONICA INNOVA</option>
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>
               <option value="COTIZACION">COTIZACION</option>
-              <option value="NOTA DE CREDITO">NOTA DE CREDITO</option>
+              <option value="NOTA DE CREDITO BOOM">NOTA DE CREDITO BOOM</option>
             </select>
           </td>
           <td width='17%'>
@@ -248,15 +251,6 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
               <option value="NO AFECTA" selected="selected">NO AFECTA</option>
             </select>
           </td>
-          <!--<td width='20%'>  
-            <span style="display:none" class="notacredito">Tipo Nota Credito:
-            <select class='span2' id="tipo-notacredito" name="tipo-notacredito" style='margin-bottom: 0px;'>
-              <option value="DESCUENTOANULACION" selected="selected" >ANULACION DE LA OPERACION</option>
-              <option value="DESCUENTOPRECIO">DESCUENTO POR PRECIO</option>
-              <option value="DESCUENTOCANTIDAD">DESCUENTO POR CANTIDAD</option>
-            </select>
-            </span>
-          </td> -->
           <td width='10%'>  
             <span style="display:none" class="pago">F. Pago:<input type="text" name="fechapago" id="fechapago" style="cursor:pointer;font-weight:bold;text-align:right;width:80px;"></span>
           </td>
@@ -329,6 +323,15 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>DETALLE:</td>
                   <td colspan='3'><textarea id='detalle' class='span5'></textarea></td>
                 </tr>
+              </table>
+            </div>
+            <div id="dialoganular" style="display:none">
+              <table width="100%" align="center">
+                <tr><td><input type="radio" name="age" value="1">Se duplicó con el comprobante</td><td><input type='text' id='ser' class='radio'></td></tr>
+                <tr><td><input type="radio" name="age" value="2">El cliente no se encontro en su local</td><td><input type='text' id='dia' class='radio'></td></tr>
+                <tr><td><input type="radio" name="age" value="3">El cliente no acepto el pedido</td><td><input type='text' id='no' class='radio'></td></tr>
+                <tr><td><input type="radio" name="age" value="3">El pedido se proceso por error</td><td><input type='text' id='err' class='radio'></td></tr>
+                <tr><td><input type="radio" name="age" value="4">Otros:</td><td><input type='text' id='otros' class='radio'></td></tr>
               </table>
             </div>
             <div id="dialogver" style="display:none" class='btn-info'>
@@ -477,8 +480,13 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
             COMENTARIOS:<textarea name="comentarios" id="comentario" style="text-transform:uppercase;" class='span8'></textarea>
           </td>
           <td width='15%'>EFECTIV:<input type='text' id='efectivo' style='text-align:right;font-weight:bold' class='span1'><br>VUELTO: <input type='text' id='vuelto' style='text-align:right;font-weight:bold' class='span1'></td>
+          <?php if($_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='ASISTENTE' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ'){ ?>
           <td width="15%"><input type="button" id="guardarform" value="ENVIAR" style="cursor:pointer;" class='btn btn-success'/></td>
             <div id="procesarenvio" style="display:none">
+            <?php }else{ ?>
+            <td width="15%"><input type="button" id="guardarform" disabled="disabled" value="ENVIAR" style="cursor:pointer;" class='btn btn-success'/></td>
+            <div id="procesarenvio" style="display:none">
+          <?php } ?>
           </div>
         </tr>
       </table>

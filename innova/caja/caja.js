@@ -344,7 +344,7 @@ var stock,compra,promotor,unit,y=7;
     unit=parseFloat($('#precio_u').val());
     $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
     $(this).blur(function(){
-      if(unit>=promotor){
+      if(unit>=promotor && unit>=compra){
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
       }
@@ -365,7 +365,7 @@ var stock,compra,promotor,unit,y=7;
   $('#importe').keyup(function(e){
     $("#precio_u").val(parseFloat($("#importe").val()/$("#cantidad").val()).toFixed(2));
     var unit=parseFloat($('#precio_u').val());
-    if(unit>=promotor){
+    if(unit>=promotor && unit>=compra){
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }
@@ -503,7 +503,7 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
               if($('#mysql').val()=='innovaelectric'){
                 $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
-                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 260 - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH NRO. 101 DPTO. 201 CHILCA CERCADO JUNIN - HUANCAYO - CHILCA</td></tr></table>\n"+
                 "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20601765641</td></tr></table>");
               }else if($('#mysql').val()=='innovaprincipal'){
                 $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>INVERSIONES E IMPORTACIONES FERRE BOOM S.R.L.</td></tr></table>\n"+
@@ -517,6 +517,7 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>BOLETA ELECTRONICA: B001-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>UND</td><td width='12%' align='center'>IMP</td></tr></table>\n"
               );
               for (var i=0;i<data[0].length;i++) {
@@ -535,6 +536,7 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append("<table width='100%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>BOLETA ELECTRONICA: B001-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='100%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='100%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='10%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
               "<table width='100%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
               );
               for (var i=0;i<data[0].length;i++) {
@@ -617,7 +619,7 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
               if($('#mysql').val()=='innovaelectric'){
                 $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
-                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROLONGACION HUANUCO N° 260 - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH NRO. 101 DPTO. 201 CHILCA CERCADO JUNIN - HUANCAYO - CHILCA</td></tr></table>\n"+
                 "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>RUC: 20601765641</td></tr></table>");
               }else if($('#mysql').val()=='innovaprincipal'){
                 $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>INVERSIONES E IMPORTACIONES FERRE BOOM S.R.L.</td></tr></table>\n"+
@@ -705,6 +707,7 @@ var stock,compra,promotor,unit,y=7;
             break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'PROFORMA':
+          if($('#mysql').val()!='innovaprincipal'){
             data[0].sort(function(a, b) {
                 return a[8] - b[8];
             });
@@ -723,6 +726,37 @@ var stock,compra,promotor,unit,y=7;
             $('#dx').append("<table width='48%' style='font:0.8em Verdana;margin-top:10px'><tr><td width='90%' align='right'>&nbsp</td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table></div>");
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          }
+          else{
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
+                $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><tr></tr><td width='100%' align='center'>PROFORMA</td></tr></table>\n"+
+                  "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROL. HUANUCO 258-A - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
+                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>CELULAR: 976525333 - 999050145 CORREO: innova.t1.huancayo@gmail.com</td></tr></table>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>UND</td><td width='12%' align='center'>IMP</td></tr></table>\n"
+              );
+              for (var i=0;i<data[0].length;i++) {
+                $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+              }
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+              
+              $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+           
+          }
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'NOTA DE PEDIDO':
@@ -751,12 +785,22 @@ var stock,compra,promotor,unit,y=7;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'GUIA DE REMISION':
+            if($('#mysql').val()=='innovaelectric'){            
             $('#dx').append("<table width='100%' style='margin-top:152px;font:0.8em arial;'><tr><td width='10%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='12%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='42%'></td></tr></table>\n"+
-              "<table width='100%' style='margin-top:11px;font:0.8em arial;'><tr><td width='2%'>&nbsp</td><td width='50%'>PROL. HUANUCO N° 260 - HUANCAYO - HUANCAYO - HUANCAYO</td><td width='1%'>&nbsp</td><td width='47%'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='100%' style='margin-top:11px;font:0.8em arial;'><tr><td width='2%'>&nbsp</td><td width='50%'>JR. ANCASH NRO. 101 DPTO. 201 CHILCA CERCADO JUNIN - HUANCAYO - CHILCA</td><td width='1%'>&nbsp</td><td width='47%'>"+data[1][2]+"</td></tr></table>\n"+
               "<table width='100%' style='margin-top:28px;font:0.8em arial;'><tr><td width='18%'>&nbsp</td><td width='30%'>"+data[1][1]+"</td><td width='52%'>&nbsp</td></tr></table>\n"+
               "<table width='100%' style='margin-top:-5px;font:0.8em arial;'><tr><td width='38%'>&nbsp</td><td width='12%'>"+data[1][0]+"</td><td width='50%'>&nbsp</td></tr></table>\n"+
               "<table width='100%' style='margin-bottom:15px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
             );
+            }
+            else {            
+            $('#dx').append("<table width='100%' style='margin-top:152px;font:0.8em arial;'><tr><td width='10%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='12%'>&nbsp</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='42%'></td></tr></table>\n"+
+              "<table width='100%' style='margin-top:11px;font:0.8em arial;'><tr><td width='2%'>&nbsp</td><td width='50%'>PROL. HUANUCO N° 258 - HUANCAYO - HUANCAYO - HUANCAYO</td><td width='1%'>&nbsp</td><td width='47%'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='100%' style='margin-top:28px;font:0.8em arial;'><tr><td width='18%'>&nbsp</td><td width='30%'>"+data[1][1]+"</td><td width='52%'>&nbsp</td></tr></table>\n"+
+              "<table width='100%' style='margin-top:-5px;font:0.8em arial;'><tr><td width='38%'>&nbsp</td><td width='12%'>"+data[1][0]+"</td><td width='50%'>&nbsp</td></tr></table>\n"+
+              "<table width='100%' style='margin-bottom:15px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
+            );
+            }
             for (var i=0;i<data[0].length;i++) {
               $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em arial'><tr height='18px'><td width='2%' align='right'>&nbsp</td><td width='60%'>&nbsp&nbsp&nbsp"+data[0][i][0]+"&nbsp&nbsp</td><td width='10%' align='right'>&nbsp&nbsp&nbsp&nbsp"+data[0][i][1]+"</td><td width='15%' align='right'>&nbspUND</td><td width='18%'></td></tr></table>");
             }
@@ -1090,7 +1134,7 @@ var stock,compra,promotor,unit,y=7;
         $('#observarpedido').append(data);
       }
     });
-    if($('#cargo').val()=='ADMIN'){
+    if($('#cargo').val()=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA'){
       if($(this).parent().find('td:eq(5)').text()=='CONTADO'){
         if($(this).parent().find('td:eq(2)').text().slice(0,10)!=fech){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");

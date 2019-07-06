@@ -56,7 +56,7 @@ require_once('../connection.php');
                 		)");
         }
     }
-    $query= mysqli_query($con,"INSERT INTO total_pedido (nropedido,fecha,hora,seriepedido,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito) 
+    $query= mysqli_query($con,"INSERT INTO total_pedido (nropedido,fecha,hora,seriepedido,ruc,cliente,direccion,entregado,subtotal,devolucion,total,vendedor,comentario,credito,imprimir) 
                 VALUES ('".$num."',
                         NOW(),
                         NOW(),
@@ -70,7 +70,8 @@ require_once('../connection.php');
                         '".$_POST['str'][6]['value']."',
                         '".$_POST['str'][0]['value']."',
                         '".$_POST['str'][7]['value']."',
-                        '".$_POST['credito'] ."'
+                        '".$_POST['credito']."',
+                        '0'
                         )");
     if(isset($_POST['producto1']) && !empty($_POST['producto1'])){
         for ($i=0; $i<sizeof($_POST['producto1']) ; $i++) {

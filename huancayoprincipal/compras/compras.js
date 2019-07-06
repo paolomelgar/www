@@ -1003,7 +1003,7 @@ $('#form select[name="forma-pago"]').val('');
       $('.pago').show();
       $('#form select[name="forma-pago"]').val('CREDITO');
     }
-    else if($('#documento').val()=='FACTURA PAUL' || $('#documento').val()=='FACTURA BOOM'){
+    else if($('#documento').val()=='FACTURA INNOVA' || $('#documento').val()=='FACTURA BOOM'){
       $('#forma-pago option[value=CREDITO]').show();
       $('#serie').show();
       $('#numero').show();

@@ -320,7 +320,7 @@ $(function(){
     unit=parseFloat($('#precio_u').val());
     $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
     $(this).blur(function(){
-      if(unit>=promotor){
+      if(unit>=promotor && unit>=compra){
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
       }
@@ -341,7 +341,7 @@ $(function(){
   $('#importe').keyup(function(e){
     $("#precio_u").val(parseFloat($("#importe").val()/$("#cantidad").val()).toFixed(2));
     var unit=parseFloat($('#precio_u').val());
-    if(unit>=promotor){
+    if(unit>=promotor && unit>=compra){
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }

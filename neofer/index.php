@@ -251,32 +251,10 @@ if($_SESSION['valida']=='neofer'){
 						</ul>
 						<?php
 					break;
-					case 'PROMOTOR':
-						?>
-						<ul>
-							<li><a href="maps/" target="contenedor">MAPS CLIENTES</a></li>
-						</ul>
-						<ul>
-							<li><a href="catalogo1" target="contenedor">CATALOGO</a></li>
-						</ul>
-						<ul>
-							<li><a href="ventas/" target="contenedor">VENTAS</a></li>
-						</ul>
-						<ul>
-							<li><a href="cobranzas/" target="contenedor">DEUDA CLIENTES</a></li>
-						</ul>
-						<ul>
-							<li><a href="kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
-						</ul>
-						<ul>
-							<li><a href="salir.php" >SALIR</a></li>
-						</ul>
-						<?php
-					break;
 					case 'VENDEDOR':
 						?>
 						<ul>
-							<li><a href="maps/" target="contenedor">MAPS CLIENTES</a></li>
+							<li><a href="cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 						</ul>
 						<ul>
 							<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">SUNAT RUC</a></li>

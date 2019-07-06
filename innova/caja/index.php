@@ -307,6 +307,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
                       <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+                      <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
                       <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
                       <option id='LIMPIEZA'>LIMPIEZA</option>
                       <option id='COLABORACION'>COLABORACION</option>

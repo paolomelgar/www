@@ -1521,38 +1521,42 @@ $('#tienda').click(function(){
   });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $('#documento').change(function(){
-    $('#documento').removeClass('mayorstock');
-    if($('#documento').val()=='NOTA DE PEDIDO'){
-      $('#devol').prop('disabled', false);
-      $('#forma-pago option[value=CONTADO]').show();
-      $('#forma-pago option[value=CREDITO]').show();
-      $('#forma-pago option[value="NO AFECTA"]').hide();
-      $('#form select[name="forma-pago"]').val('CONTADO');
-      $('#form select[name="entregar"]').val('SI');
-      $('#entregar option[value="NO"]').hide();
-      $('#entregar option[value="SI"]').show();
-    }else if($('#documento').val()=='BOLETA DE VENTA' || $('#documento').val()=='FACTURA'){
-      $('#devol').prop('disabled', true);
-      $('#forma-pago option[value=CREDITO]').hide();
-      $('#forma-pago option[value=CONTADO]').show();
-      $('#forma-pago option[value="NO AFECTA"]').hide();
-      $('#form select[name="forma-pago"]').val('CONTADO');
-      $('#form select[name="entregar"]').val('SI');
-      $('#entregar option[value="NO"]').show();
-      $('#entregar option[value="SI"]').show();
-      $('.pago').hide();
-      $('#acuenta').val(0);
+    if(serieventa==0){
+      $('#documento').removeClass('mayorstock');
+      if($('#documento').val()=='NOTA DE PEDIDO'){
+        $('#devol').prop('disabled', false);
+        $('#forma-pago option[value=CONTADO]').show();
+        $('#forma-pago option[value=CREDITO]').show();
+        $('#forma-pago option[value="NO AFECTA"]').hide();
+        $('#form select[name="forma-pago"]').val('CONTADO');
+        $('#form select[name="entregar"]').val('SI');
+        $('#entregar option[value="NO"]').hide();
+        $('#entregar option[value="SI"]').show();
+      }else if($('#documento').val()=='BOLETA DE VENTA' || $('#documento').val()=='FACTURA'){
+        $('#devol').prop('disabled', true);
+        $('#forma-pago option[value=CREDITO]').hide();
+        $('#forma-pago option[value=CONTADO]').show();
+        $('#forma-pago option[value="NO AFECTA"]').hide();
+        $('#form select[name="forma-pago"]').val('CONTADO');
+        $('#form select[name="entregar"]').val('SI');
+        $('#entregar option[value="NO"]').show();
+        $('#entregar option[value="SI"]').show();
+        $('.pago').hide();
+        $('#acuenta').val(0);
+      }else{
+        $('#devol').prop('disabled', true);
+        $('#forma-pago option[value=CONTADO]').hide();
+        $('#forma-pago option[value=CREDITO]').hide();
+        $('#forma-pago option[value="NO AFECTA"]').show();
+        $('#form select[name="forma-pago"]').val('NO AFECTA');
+        $('#form select[name="entregar"]').val('NO');
+        $('#entregar option[value="NO"]').show();
+        $('#entregar option[value="SI"]').hide();
+        $('.pago').hide();
+        $('#acuenta').val(0);
+      }
     }else{
-      $('#devol').prop('disabled', true);
-      $('#forma-pago option[value=CONTADO]').hide();
-      $('#forma-pago option[value=CREDITO]').hide();
-      $('#forma-pago option[value="NO AFECTA"]').show();
-      $('#form select[name="forma-pago"]').val('NO AFECTA');
-      $('#form select[name="entregar"]').val('NO');
-      $('#entregar option[value="NO"]').show();
-      $('#entregar option[value="SI"]').hide();
-      $('.pago').hide();
-      $('#acuenta').val(0);
+      $('#documento').val(comprobante);
     }
   });
   $('#forma-pago').change(function(){

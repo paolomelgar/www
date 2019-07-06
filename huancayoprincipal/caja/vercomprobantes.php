@@ -16,7 +16,7 @@
 	    		$sql=mysqli_query($con,"SELECT * FROM facturaboom WHERE seriefactura='$q' ORDER BY idfactura");
 	    		$da='';
 			break;
-			case 'FACTURA ELECTRONICA PAUL':
+			case 'FACTURA ELECTRONICA INNOVA':
 	    		$sql=mysqli_query($con,"SELECT * FROM facturaelectronicapaul WHERE seriefactura='$q' ORDER BY idfactura");
 	    		$da='';
 			break;
