@@ -19,6 +19,7 @@
       $dat[$i][5]=$row['credito'];
       $dat[$i][6]=$row['entregado'];
       $dat[$i][7]=$row['total'];
+      $dat[$i][8]=$row['vendedor'];
       $i++;
     }
     echo json_encode($dat);

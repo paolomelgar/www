@@ -76,7 +76,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text().slice(3));        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(8)").text().slice(3));        
       });
       $('#sumatotal').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -780,6 +780,9 @@ var stock,compra,promotor,unit,y=7;
             }
             $('#dx').append("<table width='78%' style='margin-top:10px;font:0.8em arial;'><tr><td colspan='4' width='90%' align='right'>TOTAL</td><td align='right'>"+data[1][5]+"</td></tr></table>");
             $('#dx').append("<table width='78%' style='margin-top:20px;font:0.8em arial;'><tr><td width='5%'></td><td colspan='4' width='95%'>OBS: "+data[1][7]+"</td></tr></table>");
+            if($('#mysql').val()=='ayacucho'){
+            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='left'>CEL: 925828845 BANCO DE LA NACION: CLAUDIO CHOCCE PAQUIYAURI - 04422141648</td></tr></table></div>");
+            }
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
           break;
@@ -813,13 +816,23 @@ var stock,compra,promotor,unit,y=7;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'COTIZACION':
-            $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:70%;height:150px;'></div>\n"+
-              "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
-              "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+data[1][6]+"</td></tr></table>\n"+
-              "<table width='100%' style='margin-bottom:5px;margin-top:-5px'><tr bgcolor='black' style='color:white;font-weight:bold;font-size:12px;'><td width='5%' align='center'>CAN</td><td width='60%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td><td width='10%' align='center'>IMPORTE</td></tr></table>\n"
+            if($('#mysql').val()=='ayacucho'){
+              $('#dx').append(
+                "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+data[1][6]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-bottom:5px;margin-top:-5px'><tr bgcolor='black' style='color:white;font-weight:bold;font-size:12px;'><td width='5%' align='center'>CAN</td><td width='60%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td><td width='10%' align='center'>IMPORTE</td></tr></table>\n"
             );
+            }else{
+              $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:70%;height:150px;'></div>\n"+
+                "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+data[1][6]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-bottom:5px;margin-top:-5px'><tr bgcolor='black' style='color:white;font-weight:bold;font-size:12px;'><td width='5%' align='center'>CAN</td><td width='60%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td><td width='10%' align='center'>IMPORTE</td></tr></table>\n"
+            );
+            }
             for (var i=0;i<data[0].length;i++) {
               $('#dx').append("<table width='100%' style='margin-top:-9px'><tr><td width='2%' align='center'></td><td width='5%' align='right'>"+data[0][i][1]+"&nbsp</td><td width='60%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='10%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
@@ -1089,9 +1102,9 @@ var stock,compra,promotor,unit,y=7;
         $("#verbody").empty();
         for (var i = 0; i <= data.length-1; i++) {
           if(data[i][6]=='ANULADO'){
-            $("#verbody").append("<tr><td align='center' width='5%' style='color:blue;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Anulado</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td><td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td><td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td><td width='30%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td><td align='right' width='10%' style='padding-right:10px;border:1px solid #B1B1B1'>S/ "+data[i][7]+"</td></tr>");
+            $("#verbody").append("<tr><td align='center' width='5%' style='color:blue;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Anulado</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td><td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][8]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td><td width='27%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td><td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td><td align='right' width='10%' style='padding-right:10px;border:1px solid #B1B1B1'>S/ "+data[i][7]+"</td></tr>");
           }else{
-            $("#verbody").append("<tr><td align='center' width='5%' style='color:red;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Ver</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td><td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td><td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td><td width='30%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td><td align='right' width='10%' style='padding-right:10px;border:1px solid #B1B1B1'>S/ "+data[i][7]+"</td></tr>");
+            $("#verbody").append("<tr><td align='center' width='5%' style='color:red;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Ver</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td><td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][8]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td><td width='27%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td><td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td><td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td><td align='right' width='10%' style='padding-right:10px;border:1px solid #B1B1B1'>S/ "+data[i][7]+"</td></tr>");
           }
         }
         $('#verbody> tr:odd').addClass('par');
@@ -1120,7 +1133,7 @@ var stock,compra,promotor,unit,y=7;
   $('#dialogver').on('click','.visualizar',function(){
     $('#observarpedido').dialog("open");
     serie1=$(this).parent().find('td:eq(1)').text();
-    comprobante=$(this).parent().find('td:eq(3)').text();
+    comprobante=$(this).parent().find('td:eq(4)').text();
     $.ajax({
       type: "POST",
       url: "verlistaproductos.php",
@@ -1134,7 +1147,7 @@ var stock,compra,promotor,unit,y=7;
         $('#observarpedido').append(data);
       }
     });
-    if($('#cargo').val()=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA'){
+    if($('#cargo').val()=='ADMIN' || $('#cargo').val()=='ENCARGADOTIENDA'){
       if($(this).parent().find('td:eq(5)').text()=='CONTADO'){
         if($(this).parent().find('td:eq(2)').text().slice(0,10)!=fech){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");

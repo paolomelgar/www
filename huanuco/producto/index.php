@@ -162,7 +162,9 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
               <?php 
                 $sql=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");
                 $row=mysqli_fetch_row($sql);
-                echo "S/ ".$row[0];
+                $sql1=mysqli_query($con,"SELECT SUM(p_compra*copiar) FROM producto");
+                $row1=mysqli_fetch_row($sql1);
+                echo "S/ ".$row[0]."  /  ".$row1[0];
               ?>
             </div>
             <?php } ?>

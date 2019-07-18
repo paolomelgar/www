@@ -7,7 +7,7 @@
     if(isset($_POST['cliente']) && !empty($_POST['cliente'])){
       $query.=" AND cliente='".$_POST['cliente']."'";
     }    
-    $sql=mysqli_query($con,"SELECT * FROM total_ventas WHERE $query ORDER BY fecha,hora,documento,serieventas");
+    $sql=mysqli_query($con,"SELECT * FROM total_ventas WHERE $query ORDER BY fecha DESC,hora DESC,documento DESC,serieventas DESC");
     $i=0;
     $dat=array();
     while($row=mysqli_fetch_assoc($sql)){

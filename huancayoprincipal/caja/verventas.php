@@ -7,7 +7,7 @@
     if(isset($_POST['cliente']) && !empty($_POST['cliente'])){
       $query.=" AND cliente='".$_POST['cliente']."'";
     }
-    $sql=mysqli_query($con,"SELECT * FROM total_ventas WHERE $query ORDER BY fecha,hora,documento,serieventas");
+    $sql=mysqli_query($con,"SELECT * FROM total_ventas WHERE $query ORDER BY fecha DESC,hora DESC,documento DESC,serieventas DESC");
     $i=0;
     $dat=array();
     while($row=mysqli_fetch_assoc($sql)){
@@ -19,6 +19,7 @@
       $dat[$i][5]=$row['credito'];
       $dat[$i][6]=$row['entregado'];
       $dat[$i][7]=$row['total'];
+      $dat[$i][8]=$row['vendedor'];
       $i++;
     }
     echo json_encode($dat);

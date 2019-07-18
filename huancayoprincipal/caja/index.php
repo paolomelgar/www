@@ -348,14 +348,15 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                 <table width="98%" align="center">
                   <thead>
                     <tr bgcolor="black" style="color:#FFF; text-align:center;font-weight:bold">
-                      <th width="5%"></th>
-                      <th width="8%">SERIE</th>
-                      <th width="12%">FECHA</th>
-                      <th width="15%">DOCUMENTO</th>
-                      <th width="30%">CLIENTE</th>
-                      <th width="10%">PAGO</th>
-                      <th width="10%">ENTREG</th>
-                      <th width="10%">TOTAL</th>
+                        <th width="5%"></th>
+                        <th width="8%">SERIE</th>
+                        <th width="12%">VENDEDOR</th>
+                        <th width="10%">FECHA</th>
+                        <th width="10%">DOCUMENTO</th>
+                        <th width="27%">CLIENTE</th>
+                        <th width="10%">PAGO</th>
+                        <th width="8%">ENTREG</th>
+                        <th width="10%">TOTAL</th>
                     </tr>
                   </thead>
                 </table>
@@ -365,11 +366,12 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                       <tr style='display:none;'>
                         <th width="5%">VER</th>
                         <th width="8%">SERIE</th>
-                        <th width="12%">FECHA</th>
-                        <th width="15%">DOCUMENTO</th>
-                        <th width="30%">CLIENTE</th>
+                        <th width="12%">VENDEDOR</th>
+                        <th width="10%">FECHA</th>
+                        <th width="10%">DOCUMENTO</th>
+                        <th width="27%">CLIENTE</th>
                         <th width="10%">PAGO</th>
-                        <th width="10%">ENTREG</th>
+                        <th width="8%">ENTREG</th>
                         <th width="10%">TOTAL</th>
                       </tr>
                     </thead>

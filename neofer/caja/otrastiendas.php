@@ -20,7 +20,7 @@ $con =  mysqli_connect('localhost','root','','huanuco');
     while($row=mysqli_fetch_assoc($result)){
         ?>  
       <tr class="tr" style='font-weight: bold;color:black' bgcolor='#F63'>
-        <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanucotienda/fotos/producto/a'.$row['id'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
+        <td style='padding:0px;' title='s'><?php echo '<img src="https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a'.$row['codigo'].'.jpg?timestamp=23124" width="100%" height="100%">'; ?></td>
         <td style='display:none;'><?php echo $row['id']; ?></td>
         <td><?php echo $row['producto']; ?></td>
         <td><?php echo $row['marca']; ?></td>
