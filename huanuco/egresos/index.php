@@ -99,19 +99,27 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' ){
         <td>TIPO MOV:</td>
         <td>
           <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
-            <option id='FLETE'>FLETE</option>
-            <option id='DELIVERY'>DELIVERY</option>
-            <option id='PERSONAL'>PERSONAL</option>
-            <option id='SERVICIOS'>SERVICIOS</option>
-            <option id='OTROS'>OTROS</option>
+                  <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
+                  <option id='PERSONAL'>PERSONAL</option>
+                  <option id='SERVICIOS'>SERVICIOS</option>
+                  <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
+                  <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
+                  <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                  <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+                  <option id='IMPUESTOS'>IMPUESTOS</option>
+                  <option id='VIATICOS'>VIATICOS</option>
+                  <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                  <option id='LIMPIEZA'>LIMPIEZA</option>
+                  <option id='COLABORACION'>COLABORACION</option>
+                  <option id='OTROS'>OTROS</option>
           </select>
         </td>
       </tr>
       <tr>
         <td>MONTO:</td>
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
-        <td class='transporte' style='display:none'>TRANSPORTE:</td>
-        <td class='transporte' style='display:none'><input type='text' id='transporte' class='span2'></td>
+        <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>
+        <td class='transporte ingreso' style='display:none'><input type='text' id='transporte' class='span2'></td>
       </tr>
       <tr>
         <td>DETALLE:</td>

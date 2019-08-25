@@ -573,6 +573,13 @@ if($_SESSION['valida']=='huancayoprincipal'){
               </li>
             </ul>
             <ul>
+              <li><a href="" >COMPRAS</a>
+                  <ul>
+                  <li><a href="compras/" target="_blank">COMPRAS</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
               <li><a href="" >VENTAS</a>
                   <ul>
                   <li><a href="caja/" target="_blank">CAJA TIENDA</a></li>
@@ -587,6 +594,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
                   <li><a href="cajamayor/" target="contenedor">CAJA MAYOR</a></li>
                   <li><a href="cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
+                  <li><a href="pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
                   <li><a href="egresos/" target="contenedor">INGRESO/EGRESO</a></li>                  
                 </ul>
               </li>
@@ -653,7 +661,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
               <li><a href="ventas/" target="_blank">VENTA TIENDA</a></li>
             </ul>
             <ul>
-              <li><a href="salir.php" >SALIR</a></li>
+              <li><a href="sistema/salir.php" >SALIR</a></li>
             </ul>
             <?php
           break;

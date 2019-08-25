@@ -63,7 +63,7 @@ $(function(){
       $('.pago').hide();
     }
   });
-
+   $('#forma').val("EFECTIVO").change();
   function buscar(){
     var str = $('#form').serializeArray();
     $.ajax({

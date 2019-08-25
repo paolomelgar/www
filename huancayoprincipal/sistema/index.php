@@ -483,6 +483,7 @@ if($_SESSION['valida']=='true'){
 						<ul>
 							<li><a href="" >COMPRAS</a>
 							  	<ul>
+									<li><a href="../compras/" target="_blank">COMPRAS</a></li>
 									<li><a href="../calendario/" target="contenedor">CRONOGRAMA PAGOS</a></li>
 								</ul>
 							</li>
@@ -500,16 +501,8 @@ if($_SESSION['valida']=='true'){
 							  	<ul>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
+									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
-									<li><a href="../balancemensual/" target="contenedor">BALANCE MENSUAL</a></li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li><a href="" >ESTADISTICAS</a>
-							  	<ul>
-									<li><a href="../kardex_cliente/" target="contenedor">REPORTE CLIENTES</a></li>
-									<li><a href="../kardex_proveedor/" target="contenedor">REPORTE PROVEEDORES</a></li>
 								</ul>
 							</li>
 						</ul>

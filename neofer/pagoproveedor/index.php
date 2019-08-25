@@ -141,8 +141,8 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' ){
           <td width='10%' align='right'>Tipo-COBRO:</td>
           <td width='20%'>
             <select id='forma' class='span2' style='margin-bottom:0px'>
-              <option value='DEPOSITO'>DEPOSITO</option>
               <option value='EFECTIVO'>EFECTIVO</option>
+              <option value='DEPOSITO'>DEPOSITO</option>
             </select>
           </td>
           <td width='15%' class='pago' align='right'>BANCO:</td>

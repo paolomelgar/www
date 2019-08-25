@@ -295,11 +295,18 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>
                     <select id='tipomov' class='span2'>
                       <option style='display:none'></option>
-                      <option id='FLETE'>FLETE</option>
-                      <option id='DELIVERY'>DELIVERY</option>
+                      <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
                       <option id='PERSONAL'>PERSONAL</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
+                      <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
+                      <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
+                      <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
                       <option id='IMPUESTOS'>IMPUESTOS</option>
+                      <option id='VIATICOS'>VIATICOS</option>
+                      <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                      <option id='LIMPIEZA'>LIMPIEZA</option>
+                      <option id='COLABORACION'>COLABORACION</option>
                       <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
