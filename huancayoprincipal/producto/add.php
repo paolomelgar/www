@@ -27,11 +27,11 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
     	case 'edit':
             if($_FILES['imagen']['tmp_name']!=''){
         		$sql1= mysqli_query($con,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."', foto=NOW() WHERE codigo='".$_POST['codigo']."'");
-                $sql2= mysqli_query($con2,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."', foto=NOW() WHERE codigo='".$_POST['codigo']."'");
+                //$sql2= mysqli_query($con2,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."', foto=NOW() WHERE codigo='".$_POST['codigo']."'");
             }
             else{
                 $sql1= mysqli_query($con,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."' WHERE codigo='".$_POST['codigo']."'");
-                $sql2= mysqli_query($con2,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."' WHERE codigo='".$_POST['codigo']."'");
+                // $sql2= mysqli_query($con2,"UPDATE producto SET producto='".$_POST['producto']."', marca='".$_POST['marca']."', familia='".$_POST['familia']."', activo='".$_POST['activo1']."' WHERE codigo='".$_POST['codigo']."'");
             }
             move_uploaded_file($_FILES['imagen']['tmp_name'], realpath("../fotos/producto ")."/a".$_POST['codigo'].".jpg");
     		

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 require_once('../connection.php');
-if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA'){
+if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' || $_SESSION['cargo']=='VENDEDOR'){
 ?>
 <html lang="es">
 <head>
@@ -120,12 +120,17 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
+      <?php }else if ($_SESSION['cargo']=='VENDEDOR'){ ?>
+      <button id="eliminar" class="btn btn-success disabled" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
+      <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
+      <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php }else{ ?>
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php }} ?>
     </div>
+    <?php if($_SESSION['cargo']!='VENDEDOR'){ ?>
     <table class="table table-bordered">
       <thead>
           <tr style='background-color:#428bca;color:white'>
@@ -183,6 +188,62 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         <tr>
       </tfoot>
     </table>
+    <?php }else{?>
+        <table class="table table-bordered">
+      <thead>
+          <tr style='background-color:#428bca;color:white'>
+              <th style="text-align: center;width:2.7%;max-width:36px">IMG</th>
+              <th style="text-align: center;width:6%">CODIGO</th>
+              <th style="text-align: center;width:31.3%">PRODUCTO</th>
+              <th style="text-align: center;width:12%">MARCA</th>
+              <th style="text-align: center;width:10%">CATEGORIA</th>
+              <th style="text-align: center;width:5%">UBIC 2</th>
+              <th style="text-align: center;width:5%">X/CAJA</th>
+              <th style="text-align: center;width:6%">S.REAL</th>
+              <th style="text-align: center;width:6%">P.UNIDAD</th>
+              <th style="text-align: center;width:6%">P.MAYOR</th>
+              <th style="text-align: center;width:6%">P.ESP</th>
+              <th style="text-align: center;width:4%">ACTIVO</th>
+          </tr>
+      </thead>
+      <tbody id="resultado">  
+         
+      </tbody>
+      <tfoot id='foot'>
+        <tr>
+          <td colspan='100'>
+            <div style='float:left;margin-bottom:-10px'>
+              <select id='pagina' style='width:70px'>
+                <option>12</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+              </select> 
+            </div>
+            <?php if($_SESSION['cargo']=='ADMIN'){ ?>
+            <div style='float:left;margin-top:5px;margin-left:100px;font-size:25px;font-weight:bold;color:blue'>
+              <?php 
+                $sql=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");
+                $row=mysqli_fetch_row($sql);
+                echo "S/ ".$row[0];
+              ?>
+            </div>
+            <?php } ?>
+            <div>
+              <div id='primero' style='position:absolute;margin-left:500px;'><input type='button' value='|<' class="btn btn-primary"></div>
+              <div id='anterior' style='position:absolute;margin-left:550px;'><input type='button' value='<' class="btn btn-primary"></div>
+              <div style='position:absolute;margin-left:600px;'>Página  <input id='numero' type='text' value='1' class="btn span1" style='cursor:text'> de <span id='cant'></span></div>
+              <div id='siguiente' style='position:absolute;margin-left:770px;'><input type='button' value='>' class="btn btn-primary"></div>
+              <div id='ultimo' style='position:absolute;margin-left:820px;'><input type='button' value='>|' class="btn btn-primary"></div>
+            </div>
+            <div style="float:right;color:red;font-weight:bold;margin-top:5px;font-size:20px" id='cantidad'></div>
+            <div style="float:right;margin-top:5px;">Total de Productos Registrados:   </div>
+          </td>
+        <tr>
+      </tfoot>
+    </table>
+
+      <?php } ?>
   </div>
 </body>
 </html>

@@ -516,7 +516,7 @@ var stock,compra,promotor,unit,y=7;
               }
               $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>BOLETA ELECTRONICA: B001-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
-              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>UND</td><td width='12%' align='center'>IMP</td></tr></table>\n"
               );
@@ -633,7 +633,7 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F001-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
-              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
               );
@@ -733,7 +733,7 @@ var stock,compra,promotor,unit,y=7;
                   "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROL. HUANUCO 258-A - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
                 "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>CELULAR: 976525333 - 999050145 CORREO: innova.t1.huancayo@gmail.com</td></tr></table>");
               $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
-              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>UND</td><td width='12%' align='center'>IMP</td></tr></table>\n"
               );
@@ -820,8 +820,8 @@ var stock,compra,promotor,unit,y=7;
               $('#dx').append(
                 "<table width='100%'><tr><td align='center' colspan='4'><span align='center'><b>COTIZACION</b></span></tr></table>\n"+
                 "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>RUC:</td><td width='65%'>"+data[1][0]+"</td><td width='10%'>Fecha:</td><td width='15%'>"+data[1][12]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td><td width='10%'>Vendedor:</td><td width='15%'>"+data[1][6]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>CLIENTE:</td><td width='90%'>"+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-8px'><tr><td width='10%'>DIRECCION:</td><td width='65%'>"+data[1][2]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-bottom:5px;margin-top:-5px'><tr bgcolor='black' style='color:white;font-weight:bold;font-size:12px;'><td width='5%' align='center'>CAN</td><td width='60%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNITARIO</td><td width='10%' align='center'>IMPORTE</td></tr></table>\n"
             );
             }else{

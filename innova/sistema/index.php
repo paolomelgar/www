@@ -368,6 +368,9 @@ if($_SESSION['valida']=='innova'){
 							<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">SUNAT RUC</a></li>
 						</ul>
 						<ul>
+							<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
+						</ul>
+						<ul>
 							<li><a href="../ventas/" target="_blank">VENTAS</a></li>
 						</ul>
 						<ul>
