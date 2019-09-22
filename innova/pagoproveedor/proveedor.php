@@ -7,7 +7,7 @@ require_once('../connection.php');
       $producto .= "concat(proveedor,ruc) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
     }
     $producto = substr($producto, 0, -4);
-    $query = "SELECT * FROM proveedor WHERE $producto ORDER BY proveedor LIMIT 10";
+    $query = "SELECT * FROM proveedor WHERE $producto AND activo!='ANULADO' ORDER BY proveedor LIMIT 10";
     $result=mysqli_query($con,$query);
     ?>
     <table width="70%" border="0" style="border-collapse: collapse;">

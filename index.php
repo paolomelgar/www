@@ -102,7 +102,7 @@ session_start();
                 <option value='huancayo'>Huancayo</option>
                 <option value='huancayoprincipal'>Huancayo Principal</option>
                 <option value='tarapaca'>Tarapaca</option>
-                <option value='huanucotienda'>Huanuco Tienda</option>
+                <option value='pharmagroup'>Pharma Group</option>
                 <option value='neofer'>Neofer</option>
               </select>
             </div>

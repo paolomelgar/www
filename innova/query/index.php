@@ -43,7 +43,67 @@
 					$.ajax({
 				      type: "POST",
 				      url: "query.php",
-				      data: 'query=SELECT * FROM producto WHERE stock_real<0',
+				      data: "query=SELECT * FROM producto WHERE stock_real<0",
+				      cache: false,
+				      success: function(data){
+				        $('#result').append(data);
+				        $( "th" ).resizable({ grid: [1, 10000] });
+				        $('#result').scrollTo(0,1000000000);
+				      }
+				    });
+				}
+			});
+			$('#sel').change(function(){
+				if($(this).val()=='totalproductos'){
+					$.ajax({
+				      type: "POST",
+				      url: "query.php",
+				      data: "query=SELECT * FROM producto WHERE activo='SI'",
+				      cache: false,
+				      success: function(data){
+				        $('#result').append(data);
+				        $( "th" ).resizable({ grid: [1, 10000] });
+				        $('#result').scrollTo(0,1000000000);
+				      }
+				    });
+				}
+			});
+			$('#sel').change(function(){
+				if($(this).val()=='sinproveedor'){
+					$.ajax({
+				      type: "POST",
+				      url: "query.php",
+				      data: "query=SELECT * FROM producto WHERE proveedor='' AND activo='SI'",
+				      cache: false,
+				      success: function(data){
+				        $('#result').append(data);
+				        $( "th" ).resizable({ grid: [1, 10000] });
+				        $('#result').scrollTo(0,1000000000);
+				      }
+				    });
+				}
+			});
+			$('#sel').change(function(){
+				if($(this).val()=='sinubicalmacen'){
+					$.ajax({
+				      type: "POST",
+				      url: "query.php",
+				      data: "query=SELECT * FROM producto WHERE ubicacion='' AND activo='SI'",
+				      cache: false,
+				      success: function(data){
+				        $('#result').append(data);
+				        $( "th" ).resizable({ grid: [1, 10000] });
+				        $('#result').scrollTo(0,1000000000);
+				      }
+				    });
+				}
+			});
+			$('#sel').change(function(){
+				if($(this).val()=='sinubicmuestra'){
+					$.ajax({
+				      type: "POST",
+				      url: "query.php",
+				      data: "query=SELECT * FROM producto WHERE ubicacion2='' AND activo='SI'",
 				      cache: false,
 				      success: function(data){
 				        $('#result').append(data);
@@ -65,6 +125,10 @@ QUERY:<input type='text' class='span5' id='query' style='margin-top:4px'>
 <select id='sel'>
 	<option value='0'>----------</option>
 	<option value='negativos'>STOCK NEGATIVO</option>
+	<option value='sinproveedor'>PRODUCTOS SIN PROVEEDOR</option>
+	<option value='sinubicalmacen'>PRODUCTOS SIN UBICACION ALMACEN</option>
+	<option value='sinubicmuestra'>PRODUCTOS SIN UBICACION MUESTRA</option>
+	<option value='totalproductos'>LISTA TOTAL PRODUCTOS</option>
 </select>
 <input type='button' id='clear' value='Clear' class="btn btn-danger" style='margin-right:50px;float:right;margin-top:4px'><br>
 <div style='float:left'>RESUL:</div><div id='result' style='height:500px;float:left;margin-left:2px;overflow:auto;width:90%;padding: 9px 14px;margin-bottom: 14px;background-color: #ffffff;border: 1px solid #ccc;border-radius:4px;'></div>

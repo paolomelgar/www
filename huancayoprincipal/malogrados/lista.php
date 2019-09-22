@@ -14,7 +14,7 @@ require_once('../connection.php');
     $query.=" AND estado='".$_POST['estado']."'";
   }
 
-  $sql=mysqli_query($con,"SELECT * FROM devoluciones WHERE $query ORDER BY fecha");
+  $sql=mysqli_query($con,"SELECT * FROM devoluciones WHERE $query ORDER BY fecha,hora");
   $i=0;
   $dat=array();
   while($row=mysqli_fetch_assoc($sql)){

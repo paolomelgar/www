@@ -117,7 +117,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php }else{ ?>
       <button id="eliminar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
-      <button id="editar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0;">Editar</button>
+      <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" disabled="disabled" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
       <?php } ?>
       <!--<button id="catalogo" class="btn btn-warning" style="float: right; margin: 0 7px 20px 0;">Catalogo</button>-->
