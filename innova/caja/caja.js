@@ -707,27 +707,8 @@ var stock,compra,promotor,unit,y=7;
             break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'PROFORMA':
-          if($('#mysql').val()!='innovaprincipal'){
-            data[0].sort(function(a, b) {
-                return a[8] - b[8];
-            });
-            $('#dx').append("<table width='50%' style='margin-top:125px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
-              "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][1]+"</td></tr></table>\n"+
-              "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][2]+"</td></tr></table>\n"+
-              "<table width='50%' style='margin-bottom:0px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
-            );
-            for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='48%' style='margin-top:-8px;font:0.6em Verdana;'><tr height='32px'><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='64%' style='line-height:12px'>"+data[0][i][0]+"</td><td width='8%' align='right'>"+data[0][i][2]+"</td><td width='22%' align='right'>"+data[0][i][3]+"</td></tr></table>");
-            }
-            while(v1<12-parseInt(data[0].length)){
-              $('#dx').append("<table width='50%' style='margin-top:-8px'><tr height='32px'><td>&nbsp</td></tr></table>");
-              v1++;
-            }
-            $('#dx').append("<table width='48%' style='font:0.8em Verdana;margin-top:10px'><tr><td width='90%' align='right'>&nbsp</td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table></div>");
-            contenid = document.getElementById("dx");
-            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
-          }
-          else{
+          if($('#mysql').val()=='innovaprincipal'){
+
             $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
                 $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><tr></tr><td width='100%' align='center'>PROFORMA</td></tr></table>\n"+
                   "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>PROL. HUANUCO 258-A - JUNIN - HUANCAYO - HUANCAYO</td></tr></table>\n"+
@@ -756,6 +737,61 @@ var stock,compra,promotor,unit,y=7;
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
            
+          }
+
+          else if($('#mysql').val()=='jauja'){
+
+            $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>");
+                $('#dx').append("<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><tr></tr><td width='100%' align='center'>PROFORMA</td></tr></table>\n"+
+                  "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>AV. RICARDO PALMA Nº 251 JUNIN - JAUJA - JAUJA</td></tr></table>\n"+
+                "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>CELULAR: 964939202 - 995184216 CORREO: innova.jauja@gmail.com</td></tr></table>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>UND</td><td width='12%' align='center'>IMP</td></tr></table>\n"
+              );
+              for (var i=0;i<data[0].length;i++) {
+                $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+              }
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][3]+"</td></tr></table></div>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>SON: <span id=let></span></td></tr></table></div>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+              
+              $.ajax({
+              type: "POST",
+              url: "numerosaletras.php",
+              async: false,
+              data: 'b='+data[1][3],
+              success: function(data){
+                $('#let').append(data);
+              }
+            });
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+           
+          }
+
+          else{
+
+            data[0].sort(function(a, b) {
+                return a[8] - b[8];
+            });
+            $('#dx').append("<table width='50%' style='margin-top:125px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][12]+"</td></tr></table>\n"+
+              "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='7%'>&nbsp</td><td width='93%'>"+data[1][1]+"</td></tr></table>\n"+
+              "<table width='50%' style='margin-top:-3px;font:0.8em Verdana;'><tr><td width='10%'>&nbsp</td><td width='90%'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='50%' style='margin-bottom:0px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
+            );
+            for (var i=0;i<data[0].length;i++) {
+              $('#dx').append("<table width='48%' style='margin-top:-8px;font:0.6em Verdana;'><tr height='32px'><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='64%' style='line-height:12px'>"+data[0][i][0]+"</td><td width='8%' align='right'>"+data[0][i][2]+"</td><td width='22%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+            }
+            while(v1<12-parseInt(data[0].length)){
+              $('#dx').append("<table width='50%' style='margin-top:-8px'><tr height='32px'><td>&nbsp</td></tr></table>");
+              v1++;
+            }
+            $('#dx').append("<table width='48%' style='font:0.8em Verdana;margin-top:10px'><tr><td width='90%' align='right'>&nbsp</td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table></div>");
+            contenid = document.getElementById("dx");
+            w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+          
           }
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
