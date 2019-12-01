@@ -17,15 +17,19 @@
         $consulta=mysqli_query($con,"UPDATE total_pedido SET entregado='SI' WHERE seriepedido='".$_POST['seriepedido']."'");
     }
     $aa="";
-    $bb="001";
+    $bb="";
     if($_SESSION['mysql']=="innovaelectric"){
       $aa="20601765641";
+      $bb="001";
     }else if($_SESSION['mysql']=="innovaprincipal"){
       $aa="20487211410";
+      $bb="001";
     }else if($_SESSION['mysql']=="prolongacionhuanuco"){
       $aa="10433690058";
+      $bb="002";
     }else if($_SESSION['mysql']=="jauja"){
-      $aa="20603695055"; 
+      $aa="20603695055";
+      $bb="001"; 
   }
 if(isset($_POST) && !empty($_POST)){
 	switch ($_POST['str'][1]['value']) {

@@ -10,15 +10,16 @@ require_once('../connection.php');
 		$monto=round($monto,1);
 	}
     $insert=mysqli_query($con,"UPDATE cajamayor SET proveedor=(proveedor+$monto) WHERE fecha='$hoy'");
-	$que=mysqli_query($con,"INSERT INTO adelantoscompras (value,adelanto,cambio,fecha,forma,banco,nro,proveedor) 
+	$que=mysqli_query($con,"INSERT INTO adelantoscompras (value,adelanto,cambio,fecha,forma,banco,nro,proveedor,encargadocompra) 
 	                VALUES ('".$_POST['value']."',
 	                        '".$_POST['monto']."',
 	                        '".$_POST['cambio']."',
 	                        NOW(),
 	                        '".$_POST['forma']."',
 	                        '".$_POST['banco']."',
-                          '".$_POST['nro']."',
-	                        '".$_POST['proveedor']."'
+                          	'".$_POST['nro']."',
+	                        '".$_POST['proveedor']."',
+	                        '".$_SESSION['nombre']."'
 	                    )");
 	$res=mysqli_query($con,"SELECT pendiente,acuenta FROM total_compras WHERE value='".$_POST['value']."'");
 	$row = mysqli_fetch_row($res);

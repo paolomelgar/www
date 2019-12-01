@@ -250,7 +250,6 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
             <select class='span2' id="forma-pago" name="forma-pago" style='margin-bottom: 0px;'>
               <option value="CONTADO" style="display:none">CONTADO</option>
               <option value="CREDITO" style="display:none">CREDITO</option>
-              <option value="VISA" style="display:none">VISA</option>
               <option value="NO AFECTA" selected="selected">NO AFECTA</option>
             </select>
           </td>
@@ -320,6 +319,12 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
                   <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>
                   <td class='transporte ingreso' style='display:none'><input type='text' id='transporte' class='span2'></td>
+                  <td>MEDIO DE PAGO:</td>
+                  <td>
+                    <select id='mediopago' class='span2' style='margin-bottom: 0px;'>
+                      <option id='EFECTIVO'>EFECTIVO</option>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td>DETALLE:</td>

@@ -21,6 +21,7 @@
     $dat[$i][5]=number_format($row['cantidad']*$row['compra'],2);
     $dat[$i][6]=$row['estado'];
     $dat[$i][7]=$row['iddevolucion'];
+    $dat[$i][8]=$row['usuario'];
     $i++;
   }
   echo json_encode($dat);

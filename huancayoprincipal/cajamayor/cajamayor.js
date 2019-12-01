@@ -217,10 +217,11 @@ $(function(){
         $("#verbody4").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
                   "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
-                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>";
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n"+
+                  "<td width='40%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>";
                   if(data[i][5]>0){
                     n+="<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]*data[i][5]).toFixed(2)+"</td>";
                   }else{

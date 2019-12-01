@@ -3,10 +3,11 @@ require_once('../connection.php');
     if(isset($_POST) && !empty($_POST)){
       $sql=mysqli_query($con,"SELECT * FROM compras WHERE idproducto='".$_POST['id']."' AND entregado='SI' ORDER BY id DESC LIMIT 6");
 ?>
-<table width="100%" align="center" style="font-size:12px;" id='listanterior'>
+<table width="110%" align="center" style="font-size:12px;" id='listanterior'>
       <thead>
         <tr style="background-color:yellow;text-align:center">
           <th width="12%">COMPROBANTE</th>
+          <th width="10%">USUARIO</th>
           <th width="8%">FECHA</th>
           <th width="14%">PROVEEDOR</th>
           <th width="6%">CANTIDAD</th>
@@ -23,6 +24,7 @@ require_once('../connection.php');
           ?>
           <tr bgcolor="#FBEFEF">
           <td align="center"><?php echo $row['documento']; ?></td>
+          <td align="center"><?php echo $row['usuario']; ?></td>
           <td walign="center"><?php echo date('d/m/Y', strtotime(str_replace('-', '/', $row['fecha']))); ?></td>
           <td><?php echo substr($row['proveedor'],0,20); ?></td>
           <td align="center"><?php echo $row['cantidad']; ?></td>

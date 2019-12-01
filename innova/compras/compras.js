@@ -632,9 +632,10 @@ $(function(){
                     n += "<td align='center' width='5%' style='color:red;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Ver</td>\n";
                     }   
                     n += "<td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                    "<td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td>\n"+
-                    "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
-                    "<td width='30%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                    "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][10]+"</td>\n"+
+                    "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td>\n"+
+                    "<td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
+                    "<td width='27%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
                     "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td>\n"+
                     "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n";
                     if(data[i][9]=='SOLES'){
@@ -664,7 +665,7 @@ $(function(){
   var value;
   $('#dialogver').on('click','.visualizar',function(){
     $( '#observarpedido' ).dialog( "open" );
-    value=$(this).parent().find('td:eq(8)').text();
+    value=$(this).parent().find('td:eq(9)').text();
     doc=$(this).parent().find('td:eq(3)').text();
     if($('#cargo').val()!='CAJERO'){
       if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
@@ -799,6 +800,7 @@ $(function(){
             }
             $('#subtotal').val(data[1][5]);
             $('#flete').val(data[1][6]);
+            $('#vendedor').val(data[1][18]);
             $('#total').val(data[1][7]);
             $('#comentario').val(data[1][14]);
             $('#serie').val(data[1][10]);

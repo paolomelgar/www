@@ -139,24 +139,34 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         </tr>
         <tr>
           <td width='10%' align='right'>Tipo-COBRO:</td>
-          <td width='20%'>
+          <td width='10%'>
             <select id='forma' class='span2' style='margin-bottom:0px'>
-              <option value='DEPOSITO'>DEPOSITO</option>
-              <option value='EFECTIVO'>EFECTIVO</option>
+              <option value='DEPOSITO'>DEP/EFEC</option>
             </select>
           </td>
-          <td width='15%' class='pago' align='right'>BANCO:</td>
-          <td width='20%' class='pago' ><input type='text' id='banco' class='span2' style="text-transform:uppercase;border:1px solid red;text-align:right"></td>
-          <td width='15%' class='pago' align='right'>Nro OP:</td>
-          <td width='20%' class='pago' ><input type='text' id='nro' class='span2' style='border:1px solid red;text-align:right'></td>
+          <td width='10%' style='padding:5px'>FECHA PAGO:</td><td><input type="text" name="fechapago" id="fechapago" style="cursor:pointer;text-align:right;width:80px;"></td>
+          <td width='10%' class='pago' align='right'>BANCO:</td>
+          <td width='10%' class='pago' ><input type='text' id='banco' class='span2' style="text-transform:uppercase;border:1px solid red;text-align:right"></td>
+          <td width='10%' class='pago' align='right'>Nro OP:</td>
+          <td width='10%' class='pago' ><input type='text' id='nro' class='span2' style='border:1px solid red;text-align:right'></td>
         </tr>
         <tr>
           <td width='10%' align='right'>PENDIENTE:</td>
-          <td width='20%'><input type='text' id='pendiente' class='span2' style='border:1px solid red;text-align:right'></td>
-          <td width='15%' align='right'>A/CUENTA: </td>
-          <td width='20%'><input type='text' id='monto' class='span2' style='text-align:right'></td>
-          <td width='15%' align='right'><div class='cambio'>TIPO CAMBIO:</div></td>
-          <td width='20%'><input type='text' id='tipocambio' class='span2 cambio' style='border:1px solid red;text-align:right'></td>
+          <td width='10%'><input type='text' id='pendiente' class='span2' style='border:1px solid red;text-align:right'></td>
+          
+          <td width='10%' align='right'>MEDIO PAGO:</td>
+          <td width='10%'>
+            <select id='mediopago' class='span2' style='margin-bottom:0px'>
+              <option value='EFECTIVO'>EFECTIVO</option>
+              <option value='TARJETA'>TARJETA</option>
+            </select>
+          </td>
+
+          
+          <td width='10%' align='right'>A/CUENTA: </td>
+          <td width='10%'><input type='text' id='monto' class='span2' style='text-align:right'></td>
+          <td width='10%' align='right'><div class='cambio'>TIPO CAMBIO:</div></td>
+          <td width='10%'><input type='text' id='tipocambio' class='span2 cambio' style='border:1px solid red;text-align:right'></td>
         </tr>
       </table>
     </div>
@@ -170,11 +180,19 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           <td id='cambio1'>T.CAMBIO: <input type='text' id='cambio2' style='width:100px;text-align:right;border:1px solid red'></td>
         </tr>
       </table>
-      <div id='letras1'></div>
+      <div><div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA LETRA
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspN UNICO
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO PAGO
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA PAGO</div><div id='letras1'></div></div>
     </div>
     <div id='dialogletra' style='display:none'>
       <span><input type='button' value='AGREGAR' id='addletra' class='btn btn-success'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input align='right' style='text-align:right' type='text' id='mon' class='span2'></span>
-      <span style='margin-top:8px'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA PAGO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspN&deg UNICO</span>
+      <span style='margin-top:8px'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO
+                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA LETRA
+                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspN&deg UNICO
+                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA PAGO
+                                   </span>
     </div>
     <div style="float:left;width:60%" align='center'>
       <table width='99%'>

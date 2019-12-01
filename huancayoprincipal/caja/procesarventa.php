@@ -119,7 +119,7 @@ if(isset($_POST) && !empty($_POST)){
             $mm=$row[0]+1;
             $num="000000".$mm;
             $num=substr($num,-7);
-            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".DET", "w");
+            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
                 $sql= mysqli_query($con,"INSERT INTO facturaelectronicapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
@@ -170,10 +170,10 @@ if(isset($_POST) && !empty($_POST)){
                                 )");
             $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
             $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
-            $archivo = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".CAB", "w");
+            $archivo = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".CAB", "w");
             fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".trim(addslashes($_POST['str'][7]['value']))."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
             fclose($archivo);
-            $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".TRI", "w");
+            $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".TRI", "w");
             fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");
             fclose($archivo2);
         }
@@ -187,7 +187,7 @@ if(isset($_POST) && !empty($_POST)){
             $del1 = mysqli_query($con,"DELETE FROM facturaelectronicapaul WHERE seriefactura='".$_POST['serieventa']."'");
             $del2 = mysqli_query($con,"DELETE FROM total_ventas WHERE serieventas='".$_POST['serieventa']."' AND documento='FACTURA ELECTRONICA INNOVA'");
             $num=$_POST['serieventa'];
-            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".DET", "w");
+            $archivo1 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".DET", "w");
             for ($i=0; $i<sizeof($_POST['producto']) ; $i++) {
                 $sql= mysqli_query($con,"INSERT INTO facturaelectronicapaul (seriefactura,documento,id,compra,producto,cantidad,unitario,importe,especial,ruc,cliente,direccion,fecha,hora,vendedor,entregado) 
                     VALUES ('".$num."',
@@ -238,10 +238,10 @@ if(isset($_POST) && !empty($_POST)){
                                 )");
             $a=number_format($_POST['str'][12]['value']/1.18,2,'.','');
             $b=number_format($_POST['str'][12]['value']-$a,2,'.','');
-            $archivo = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".CAB", "w");
+            $archivo = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".CAB", "w");
             fwrite($archivo, "0101|".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['str'][5]['value'])))."|".date("h:i:s")."|-|000|6|".$_POST['str'][6]['value']."|".trim(addslashes($_POST['str'][7]['value']))."|PEN|".$b."|".$a."|".$_POST['str'][12]['value']."|0.00|0.00|0.00|".$_POST['str'][12]['value']."|2.1|2|");
             fclose($archivo);
-            $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F002-".$num.".TRI", "w");
+            $archivo2 = fopen("C:/Users/FERREBOOM/Dropbox/20601765641/20601765641-01-F003-".$num.".TRI", "w");
             fwrite($archivo2, "1000|IGV|VAT|".$a."|".$b."|");
             fclose($archivo2);
         }

@@ -30,6 +30,9 @@ if(isset($_POST) && !empty($_POST)){
 		$sql=mysqli_query($con,"UPDATE producto SET p_especial='".$_POST['val']."' WHERE id='".$_POST['id']."'");
 		break;
 		case '16':
+		$sql=mysqli_query($con,"UPDATE producto SET p_fran='".$_POST['val']."' WHERE id='".$_POST['id']."'");
+		break;
+		case '17':
 		$sql=mysqli_query($con,"UPDATE producto SET p_compra='".$_POST['val']."' WHERE id='".$_POST['id']."'");
 		break;
 	}

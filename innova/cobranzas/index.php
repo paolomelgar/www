@@ -160,22 +160,22 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
         </tr>
         <tr>
           <td width='10%' align='right'>Tipo-COBRO:</td>
-          <td width='20%'>
+          <td width='10%'>
             <select id='forma' class='span2' style='margin-bottom:0px'>
-              <option value='EFECTIVO'>EFECTIVO</option>
               <option value='DEPOSITO'>DEPOSITO</option>
             </select>
           </td>
-          <td width='15%' class='pago' align='right'>BANCO:</td>
-          <td width='20%' class='pago' ><input type='text' id='banco' class='span2' style="text-transform:uppercase;border:1px solid red;text-align:right"></td>
-          <td width='15%' class='pago' align='right'>Nro OP:</td>
-          <td width='20%' class='pago' ><input type='text' id='nro' class='span2' style='border:1px solid red;text-align:right'></td>
+          <td width='10%' style='padding:5px'>FECHA PAGO:</td><td><input type="text" name="fechapagooo" id="fechapagooo" style="cursor:pointer;text-align:right;width:80px;"></td>
+          <td width='10%' class='pago' align='right'>BANCO:</td>
+          <td width='10%' class='pago' ><input type='text' id='banco' class='span2' style="text-transform:uppercase;border:1px solid red;text-align:right"></td>
+          <td width='10%' class='pago' align='right'>Nro OP:</td>
+          <td width='10%' class='pago' ><input type='text' id='nro' class='span2' style='border:1px solid red;text-align:right'></td>
         </tr>
         <tr>
           <td width='10%' align='right'>PENDIENTE:</td>
-          <td width='20%'><input type='text' id='pendiente' class='span2' style='border:1px solid red;text-align:right'></td>
-          <td width='15%' align='right'>A/CUENTA: </td>
-          <td width='20%'><input type='text' id='monto' class='span2' style='text-align:right'></td>
+          <td width='10%'><input type='text' id='pendiente' class='span2' style='border:1px solid red;text-align:right'></td>
+          <td width='10%' align='right'>A/CUENTA: </td>
+          <td width='10%'><input type='text' id='monto' class='span2' style='text-align:right'></td>
         </tr>
       </table>
     </div>

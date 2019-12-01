@@ -464,9 +464,9 @@ var stock,compra,promotor,unit;
           case 'FACTURA ELECTRONICA INNOVA':
               $('#dx').append("<div align='center'><img id='theImg' src='../logo_innova.png' style='width:300px;height:80px;'></div>\n"+
               "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:1px;'><tr><td width='100%' align='center'>GRUPO FERRETERO INNOVA S.R.L.</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH NRO. 101 DPTO. 201 CHILCA CERCADO JUNIN - HUANCAYO - CHILCA</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>AV. MARISCAL CASTILLA 1704 JUNIN - HUANCAYO - EL TAMBO</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>20601765641</td></tr></table>\n"+
-              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F002-"+data[1][13]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>FACTURA ELECTRONICA: F003-"+data[1][13]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>RUC: "+data[1][0]+"</td></tr></table>\n"+
               "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td></tr></table>\n"+
@@ -1697,8 +1697,11 @@ var stock,compra,promotor,unit;
     });
   });
   $('#verpendientes').on('click','.recibirpendiente',function(){
-    var pendi=$(this).parent().parent().find('td:eq(1)').text();
-    $.ajax({
+    if(serieventa>0){
+      swal("","Cierra el pedido que pusiste EDITAR","error");
+    }else{
+      var pendi=$(this).parent().parent().find('td:eq(1)').text();
+      $.ajax({
       type:"POST",
       url:"procesarpedido.php",
       dataType:"json",
@@ -1764,6 +1767,7 @@ var stock,compra,promotor,unit;
       }
     });
     $("#pendientes").hide();
+  }
   });
   $('#salirpendientes').click(function(){
     $('#pendientes').hide();

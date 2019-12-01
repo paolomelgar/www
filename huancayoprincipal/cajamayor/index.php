@@ -173,10 +173,11 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 				    <table width="100%" align="center" id='filter4'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">TIPO</th>
+				          <th width="10%">TIPO</th>
 				          <th width="10%">BANCO</th>
 				          <th width="15%">No</th>
-				          <th width="50%">PROVEEDOR</th>
+				          <th width="15%">ENCARGADO</th>
+				          <th width="40%">PROVEEDOR</th>
 				          <th width="10%">MONTO</th>
 				        </tr>
 				       </thead>

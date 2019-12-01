@@ -495,7 +495,8 @@ var stock,compra,promotor,unit;
               }
               var subigv1;
               var igv1;
-              subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
+              //subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
+              subigv1=parseFloat(data[1][3]).toFixed(2);
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
               $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;'><tr><td width='4%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:6px;font:0.8em Verdana'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
@@ -526,7 +527,8 @@ var stock,compra,promotor,unit;
               }
               var subigv1;
               var igv1;
-              subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
+              //subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
+              subigv1=parseFloat(data[1][3]).toFixed(2);
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
               $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:5px;'><tr><td width='2%'></td><td width='78%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:5px;font:0.8em Verdana'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+

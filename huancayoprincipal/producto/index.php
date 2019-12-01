@@ -156,7 +156,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
   	<table class="table table-bordered">
       <thead>
           <tr style='background-color:#428bca;color:white'>
-              <th style="text-align: center;width:3%"></th>
+              <th style="text-align: center;width:1.5%"></th>
               <th style="text-align: center;width:4%">CODIGO</th>
               <th style="text-align: center;width:20%">PRODUCTO</th>
               <th style="text-align: center;width:8%">MARCA</th>
@@ -219,7 +219,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
     <table class="table table-bordered">
       <thead>
           <tr style='background-color:#428bca;color:white'>
-              <th style="text-align: center;width:4%"></th>
+              <th style="text-align: center;width:1.5%"></th>
               <th style="text-align: center;width:4%">CODIGO</th>
               <th style="text-align: center;width:25%">PRODUCTO</th>
               <th style="text-align: center;width:12%">MARCA</th>

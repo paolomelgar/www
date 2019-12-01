@@ -16,7 +16,14 @@ $(function(){
     changeYear: true,
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);
-
+  $('#fechapago').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
   $('#venta').tableFilter({
         filteredRows: function(filterStates) {
           var sumatotal  = 0;
@@ -197,6 +204,11 @@ $(function(){
       modal: true,
       buttons: { 
         "Confirmar Pago" : function(){
+          if($('#banco').val()==''){
+            swal("","FALTA RELLENAR BANCO","error");
+          }else if($('#nro').val()==''){
+            swal("","FALTA RELLENAR NUMERO UNICO","error");
+          }else{
           $.ajax({
             type: "POST",
             url: "monto.php",
@@ -207,6 +219,8 @@ $(function(){
                    cambio:$('#tipocambio').val(),
                    forma:$('#forma').val(),
                    proveedor:$('#name').val(),
+                   mediopago:$('#mediopago').val(),
+                   fechapago:$('#fechapago').val()
                   },
             success: function(data){
               buscar();
@@ -216,7 +230,7 @@ $(function(){
           $('#pagarletra').hide();
           $('#pagar').hide();
           $('#letras').hide();
-        }
+        }}
       },
       open:function(){
         $('#monto').focus();
@@ -241,19 +255,23 @@ $(function(){
       $("#dialogpagoletra").dialog({
         title:"PAGO LETRAS",
         position: ['',140],
-        width: "38%",
+        width: "50%",
         modal:true,
         buttons: { 
           "Si" : function(){
             var monto=new Array();
             var fecha=new Array();
             var real=new Array();
+            var fechapagoo=new Array();
+            var unicoo=new Array();
             var cambio=$('#cambio2').val();
             var i=0;
             $('#dialogpagoletra div').each(function(){
               monto[i]=$(this).find('.monto').val();
               fecha[i]=$(this).find('.fech').val();
               real[i]=$(this).find('.real').val();
+              fechapagoo[i]=$(this).find('.fechapagoo').val();
+              unicoo[i]=$(this).find('.unicoo').val();
               i++;
             });
             $.ajax({
@@ -264,7 +282,9 @@ $(function(){
                     real:real,
                     cambio:cambio,
                     proveedor:name,
-                    value:value},
+                    value:value,
+                    fechapagoo:fechapagoo,
+                    unicoo:unicoo},
               cache: false,
               success: function(data){
                 buscar();
@@ -289,9 +309,17 @@ $(function(){
               for (var i=0;i<data.length;i++) {
                 $('#letras1').append(
                   "<div style='margin-top:10px' align='center'>\n" +
-                  "<input type='text' class='monto' value='"+data[i][0]+"' style='text-align:right;width:120px' readonly='readonly'>&nbsp<input type='text' class='fech' value='"+data[i][1]+"' style='width:120px;text-align:center' readonly='readonly'>&nbsp<input  style='text-align:right;width:120px' type='text' class='real'><input type='hidden' class='idd' value='"+data[i][3]+"'>\n" +
+                  "<input type='text' class='monto' value='"+data[i][0]+"' style='text-align:right;width:120px' readonly='readonly'>&nbsp<input type='text' class='fech' value='"+data[i][1]+"' style='text-align:right;width:120px' readonly='readonly'>&nbsp<input type='text' class='unicoo' value='"+data[i][4]+"' style='width:120px;text-align:center' readonly='readonly'>&nbsp<input  style='text-align:right;width:120px' type='text' class='real'>&nbsp<input  style='text-align:right;width:120px' type='text' class='fechapagoo'><input type='hidden' class='idd' value='"+data[i][3]+"' style='width:120px;text-align:center' readonly='readonly'>\n" +
                   "</div>\n"
                 );
+                $('.fechapagoo').datepicker({
+                  firstDay:1,
+                  dateFormat:'dd/mm/yy',
+                  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+                  changeMonth: true,
+                  changeYear: true,
+                  dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+                });
               }
             }
           });

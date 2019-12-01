@@ -16,7 +16,14 @@ $(function(){
     changeYear: true,
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);
-
+  $('#fechapagooo').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
   $('#venta').tableFilter({
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
@@ -158,6 +165,11 @@ $(function(){
       modal: true,
       buttons: { 
         "Cobrar" : function(){
+          if($('#banco').val()==''){
+            swal("","FALTA RELLENAR BANCO","error");
+          }else if($('#nro').val()==''){
+            swal("","FALTA RELLENAR NUMERO UNICO","error");
+          }else{
           $.ajax({
             type: "POST",
             url: "monto.php",
@@ -168,14 +180,15 @@ $(function(){
                   monto:$('#monto').val(),
                   // vendedor:$('#vendedor').val(),
                   forma:$('#forma').val(),
-                  cliente:$('#name').val()
+                  cliente:$('#name').val(),
+                  fechapagooo:$('#fechapagooo').val()
             },
             success: function(data){
               buscar();
             }
           });
           $( this ).dialog( "close" ); 
-        }
+        }}
       },
       open:function(){
         $('#monto').focus();

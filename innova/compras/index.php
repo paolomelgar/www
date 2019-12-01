@@ -15,6 +15,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
 <script type="text/javascript" src="../sweet-alert.min.js"></script> 
 <script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
+<script src="../socket.io.js"></script>
 <script src="../Chart.min.js"></script>
 <script type="text/javascript" src="compras.js"></script>
 <style>
@@ -186,7 +187,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
   <input type='hidden' value='<?php echo $_SESSION['mysql']?>' id='mysql'>
   <div class='error' style='display:none'>Guardado Correctamente</div>
   <form id="form" name="form" action="" method="post" autocomplete="off">
-    <input type='text' id='vendedor' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
+    <input type='text' id='vendedor' name='vendedor1' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
     <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;' class='btn-success'>COMPRAS</h3>
     <div id='dialogsunat' class='btn btn-info'></div>
     <div id="resultruc" style='position:absolute;display:none;width:70%'>
@@ -276,9 +277,10 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
                     <tr bgcolor="black" style="color:#FFF; text-align:center;font-weight:bold">
                       <th width="5%"></th>
                       <th width="8%">SERIE</th>
-                      <th width="12%">FECHA</th>
-                      <th width="15%">DOCUMENTO</th>
-                      <th width="30%">PROVEEDOR</th>
+                      <th width="8%">USUARIO</th>
+                      <th width="10%">FECHA</th>
+                      <th width="12%">DOCUMENTO</th>
+                      <th width="27%">PROVEEDOR</th>
                       <th width="10%">PAGO</th>
                       <th width="10%">ENTREG</th>
                       <th width="10%">TOTAL</th>
@@ -292,9 +294,10 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
                       <tr style='display:none;'>
                         <th width="5%">VER</th>
                         <th width="8%">SERIE</th>
-                        <th width="12%">FECHA</th>
-                        <th width="15%">DOCUMENTO</th>
-                        <th width="30%">PROVEEDOR</th>
+                        <th width="8%">USUARIO</th>
+                        <th width="10%">FECHA</th>
+                        <th width="12%">DOCUMENTO</th>
+                        <th width="27%">PROVEEDOR</th>
                         <th width="10%">PAGO</th>
                         <th width="10%">ENTREG</th>
                         <th width="10%">TOTAL</th>

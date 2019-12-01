@@ -10,6 +10,10 @@
       $dat[$i][1]=$row['encargado'];
       $dat[$i][2]=$row['cliente'];
       $dat[$i][3]=$row['adelanto'];
+      $dat[$i][4]=$row['banco'];
+      $dat[$i][5]=$row['nro'];
+      $dat[$i][6]=$row['fechapagooo'];
+      $dat[$i][7]=$row['forma'];
       $i++;
     }
     echo json_encode($dat);

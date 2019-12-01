@@ -82,12 +82,13 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 						</tr>
 
 
-						<tr>
+						<!-- <tr>
 							<td>VISA:</td>
 							<td align='right'><input type='text' name='visa' id='visa' style='text-align:right' class='span2' readonly='readonly'></td>
 							<td><input name='radio' type='radio' id='5'></td>
 						</tr>
-
+					-->
+	
 
 						<tr>
 							<td>INGRESOS:</td>

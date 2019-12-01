@@ -34,6 +34,7 @@ require_once('../connection.php');
 	    	$dat[15]=$row1['billete'];
 	    	$dat[16]=$row1['cambio'];
 	    	$dat[17]=$row1['entregado'];
+	    	$dat[18]=$row1['usuario'];
 	    $date=array();
 	    $date[0]=$data;
 	    $date[1]=$dat;

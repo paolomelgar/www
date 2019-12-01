@@ -105,7 +105,7 @@ session_start();
                 <option value='innovahuanuco'>Innova Huanuco</option>
                 <option value='innovaprincipal'>Innova Principal</option>
                 <option value='jauja'>Jauja</option>
-                <option value='lymgroup'>L & M Group</option>
+                <!-- <option value='lymgroup'>L & M Group</option> -->
                 <option value='tingomaria'>Tingo Maria</option>
                 <option value='tarapac'>Tarapaca</option>
                 <option value='prolongacionhuanuco'>Prolongacion Huanuco</option>

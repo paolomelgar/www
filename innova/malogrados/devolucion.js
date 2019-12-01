@@ -74,7 +74,16 @@ $(function(){
       success: function(data){
         $("#verbody").empty();
         for (var i = 0; i <= data.length-1; i++) {
-          $("#verbody").append("<tr class='fila'><td align='right' width='3%' style='border:1px solid #B1B1B1'>"+(i+1)+"</td><td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td><td width='40%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td><td align='right' width='6%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td><td width='8%' align='right' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td><td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td><td style='display:none'>"+data[i][7]+"</td></tr>");
+          $("#verbody").append("<tr class='fila'><td align='right' width='2%' style='border:1px solid #B1B1B1'>"+(i+1)+
+            "</td><td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][1]+
+            "</td><td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+
+            "</td><td width='39%' style='border:1px solid #B1B1B1'>"+data[i][2]+
+            "</td><td align='right' width='5%' style='border:1px solid #B1B1B1'>"+data[i][3]+
+            "</td><td width='6%' align='right' style='border:1px solid #B1B1B1'>"+data[i][4]+
+            "</td><td align='right' width='6%' style='border:1px solid #B1B1B1'>"+data[i][5]+
+            "</td><td align='center' width='13%' style='border:1px solid #B1B1B1'>"+data[i][6]+
+            "</td><td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][8]+
+            "</td><td style='display:none'>"+data[i][7]+"</td></tr>");
         }
         $('#verbody> tr:odd').addClass('par');
         $('#verbody> tr:even').addClass('impar');
@@ -309,10 +318,13 @@ var typingTimer;
       $(this).addClass('selected1');
       e.preventDefault();
       if($('.selected1').find('td:eq(1)').text()!=$('#prueba').val()){
-        swal("","No se puede eliminar egreso de fecha anterior","error");
-      }else{
+        swal("","NO SE PUEDE ELIMINAR DE UNA FECHA ANTERIOR","error");
+      }else if($('.selected1').find('td:eq(7)').text()=='ANULADO'){
+        swal("","ESTE PRODUCTO YA SE ELIMINÓ","error");
+      }
+      else{
         swal({
-          title: "Esta Seguro de Eliminar!",
+          title: "Esta Seguro de Eliminar?",
           text: "",
           type: "warning",
           showCancelButton: true,
@@ -327,7 +339,7 @@ var typingTimer;
               url: "eliminar.php",
               data: {prod:$('.selected1').find('td:eq(3)').text(),
                      cant:$('.selected1').find('td:eq(4)').text(),
-                     id:$('.selected1').find('td:eq(8)').text()},
+                     id:$('.selected1').find('td:eq(9)').text()},
               success: function(data){
               }
             });

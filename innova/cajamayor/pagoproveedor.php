@@ -13,6 +13,9 @@
       $dat[$i][3]=$row['proveedor'];
       $dat[$i][4]=$row['adelanto'];
       $dat[$i][5]=$row['cambio'];
+      $dat[$i][6]=$row['encargadocompra'];
+      $dat[$i][7]=$row['fechapago'];
+      $dat[$i][8]=$row['mediopago'];
       $i++;
     }
     while($row=mysqli_fetch_assoc($sql1)){
@@ -22,6 +25,9 @@
       $dat[$i][3]=$row['proveedor'];
       $dat[$i][4]=$row['adelanto'];
       $dat[$i][5]=$row['cambio'];
+      $dat[$i][6]=$row['encargadocompra'];
+      $dat[$i][7]=$row['fechapagoo'];
+      $dat[$i][8]="LETRA";
       $i++;
     }
     echo json_encode($dat);

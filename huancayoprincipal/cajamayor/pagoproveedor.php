@@ -13,6 +13,7 @@
       $dat[$i][3]=$row['proveedor'];
       $dat[$i][4]=$row['adelanto'];
       $dat[$i][5]=$row['cambio'];
+      $dat[$i][6]=$row['encargadocompra'];
       $i++;
     }
     while($row=mysqli_fetch_assoc($sql1)){
@@ -22,6 +23,7 @@
       $dat[$i][3]=$row['proveedor'];
       $dat[$i][4]=$row['adelanto'];
       $dat[$i][5]=$row['cambio'];
+      $dat[$i][6]=$row['encargadocompra'];
       $i++;
     }
     echo json_encode($dat);

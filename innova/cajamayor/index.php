@@ -112,17 +112,21 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter1'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:#FFF; text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">SERIE</th>
-				          <th width="25%">ENCARGADO</th>
-				          <th width="45%">CLIENTE</th>
-				          <th width="15%">MONTO</th>
+				          <th width="8%">TIPO</th>
+				          <th width="8%">SERIE</th>
+				          <th width="6%">BANCO</th>
+				          <th width="6%">N OPE.</th>
+				          <th width="10%">FECHA PAGO</th>
+				          <th width="14%">ENCARGADO</th>
+				          <th width="36%">CLIENTE</th>
+				          <th width="12%">MONTO</th>
 				        </tr>
 				       </thead>
 					   <tbody id="verbody1">
 				       </tbody>
 				       <tfoot>
 				        <tr style="font-weight:bold">
-				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="7" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='10%' id='total1' style='border:1px solid #B1B1B1'></td>
 				        </tr>
 				       </tfoot>
@@ -132,17 +136,18 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter2'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">ENCARGADO</th>
-				          <th width="20%">TIPO</th>
-				          <th width="50%">DETALLE</th>
-				          <th width="15%">MONTO</th>
+				          <th width="15%">CARGO</th>
+				          <th width="15%">USUARIO</th>
+				          <th width="15%">TIPO</th>
+				          <th width="45%">DETALLE</th>
+				          <th width="10%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody2">
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='15%' id='total2' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>
@@ -173,18 +178,21 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter4'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">TIPO</th>
-				          <th width="10%">BANCO</th>
-				          <th width="15%">No</th>
-				          <th width="50%">PROVEEDOR</th>
-				          <th width="10%">MONTO</th>
+				          <th width="8%">TIPO</th>
+				          <th width="8%">MEDIO PAGO</th>
+				          <th width="8%">BANCO</th>
+				          <th width="8%">N OPE.</th>
+				          <th width="10%">FECHA PAGO</th>
+				          <th width="10%">ENCARGADO</th>
+				          <th width="36%">PROVEEDOR</th>
+				          <th width="12%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody4">
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="7" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='10%' id='total4' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>
@@ -194,17 +202,18 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter5'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">ENCARGADO</th>
-				          <th width="20%">TIPO</th>
-				          <th width="50%">DETALLE</th>
-				          <th width="15%">MONTO</th>
+				          <th width="15%">CARGO</th>
+				          <th width="15%">USUARIO</th>
+				          <th width="15%">TIPO</th>
+				          <th width="45%">DETALLE</th>
+				          <th width="10%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody5">
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='15%' id='total5' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>

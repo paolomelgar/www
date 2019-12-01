@@ -4,12 +4,12 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
     switch ($_POST['accion']) {
         case 'add':
             if($_FILES['imagen']['tmp_name']!=''){
-                $sql1= mysqli_query($con,"INSERT INTO producto (producto, marca, familia, cant_caja, activo, stock_real, stock_con, p_unidad, p_promotor, p_especial, p_compra, foto, fecha) 
-                    VALUES ('".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','0','0','0',NOW(),NOW())");
+                $sql1= mysqli_query($con,"INSERT INTO producto (producto, marca, familia, cant_caja, activo, stock_real, stock_con, p_unidad, p_promotor, p_especial, p_compra, foto, fecha,p_fran,antiguedad) 
+                    VALUES ('".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','0','0','0',NOW(),NOW(),'0',NOW())");
             }
             else{
-                $sql1= mysqli_query($con,"INSERT INTO producto (producto, marca, familia, cant_caja, activo, stock_real, stock_con, p_unidad, p_promotor, p_especial, p_compra, foto, fecha) 
-                    VALUES ('".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','0','0','0','NO',NOW())");
+                $sql1= mysqli_query($con,"INSERT INTO producto (producto, marca, familia, cant_caja, activo, stock_real, stock_con, p_unidad, p_promotor, p_especial, p_compra, foto, fecha,p_fran,antiguedad) 
+                    VALUES ('".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','0','0','0','NO',NOW(),'0',NOW())");
             }
             $q=mysqli_query($con,"SELECT MAX(id) FROM producto");
             $ro=mysqli_fetch_row($q);

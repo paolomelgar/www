@@ -174,7 +174,9 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
     </div>
     <div id='dialogletra' style='display:none'>
       <span><input type='button' value='AGREGAR' id='addletra' class='btn btn-success'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input align='right' style='text-align:right' type='text' id='mon' class='span2'></span>
-      <span style='margin-top:8px'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA PAGO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspN&deg UNICO</span>
+      <span style='margin-top:8px'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMONTO
+                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFECHA PAGO
+                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspN&deg UNICO</span>
     </div>
     <div style="float:left;width:60%" align='center'>
       <table width='99%'>

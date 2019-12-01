@@ -13,7 +13,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody1 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text());        
       });
       $('#total1').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -23,7 +23,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody2 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
       });
       $('#total2').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -43,7 +43,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody4 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text());        
       });
       $('#total4').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -53,7 +53,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody5 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
       });
       $('#total5').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -113,10 +113,14 @@ $(function(){
         $("#verbody1").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td width='45%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
-                  "<td align='right' width='20%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][7]+"</td>\n"+
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='6%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='6%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n"+
+                  "<td align='center' width='14%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td width='36%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
+                  "<td align='right' width='12%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
                   "</tr>";
           $('#verbody1').append(n);
           $('#filter1').tableFilterRefresh();
@@ -147,9 +151,10 @@ $(function(){
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
                   "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
-                  "<td align='right' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td width='45%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
+                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
                   "</tr>";
           $('#verbody2').append(n);
         }
@@ -217,14 +222,17 @@ $(function(){
         $("#verbody4").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
-                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>";
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][8]+"</td>\n"+
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][7]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n"+
+                  "<td width='36%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>";
                   if(data[i][5]>0){
-                    n+="<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]*data[i][5]).toFixed(2)+"</td>";
+                    n+="<td align='right' width='12%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]*data[i][5]).toFixed(2)+"</td>";
                   }else{
-                    n+="<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]).toFixed(2)+"</td>";
+                    n+="<td align='right' width='12%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]).toFixed(2)+"</td>";
                   }
                   n+="</tr>";
           $('#verbody4').append(n);
@@ -256,9 +264,10 @@ $(function(){
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
                   "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
-                  "<td align='right' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td width='45%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
+                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
                   "</tr>";
           $('#verbody5').append(n);
         }

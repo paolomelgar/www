@@ -242,7 +242,7 @@ $(function(){
       $("#dialogpagoletra").dialog({
         title:"PAGO LETRAS",
         position: ['',140],
-        width: "38%",
+        width: "50%",
         modal:true,
         buttons: { 
           "Si" : function(){
