@@ -38,7 +38,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' ){
     padding: 1px;
   }
   .fila:hover{
-    background: #FF3;
+    background: #99FDFF;
     cursor:pointer;
   }
   ::-webkit-scrollbar{

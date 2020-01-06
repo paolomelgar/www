@@ -34,7 +34,7 @@ session_start();
 	      width:145px;
 	    }
 	    .tr:hover{
-	      background-color: #FF3;
+	      background-color: #99FDFF;
 	    }
 	    #dialog img {
 		  max-width: none;

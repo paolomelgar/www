@@ -14,7 +14,9 @@
       $e1=mysqli_fetch_row($e);
       $f1=mysqli_fetch_row($f);
       $resul=mysqli_query($con,"SELECT * FROM dinerodiario WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."'");
+      $resul2=mysqli_query($con,"SELECT * FROM dineromayor WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."'");
       $row1 = mysqli_fetch_row($resul);
+      $row2 = mysqli_fetch_row($resul2);
       $ar=array();
       $ar[0]=number_format($row1[2]+0, 2, '.', '');
       $ar[1]=number_format($a1[0]+0, 2, '.', '');
@@ -22,6 +24,9 @@
       $ar[3]=number_format($c1[0]+0, 2, '.', '');
       $ar[4]=number_format($d1[0]+$e1[0]+0, 2, '.', '');
       $ar[5]=number_format($f1[0]+0, 2, '.', '');
+      $ar[6]=$row1[2];
+      $ar[7]=$row1[3];
+      $ar[8]=$row2[2];
     	echo json_encode($ar);
     }
 ?>

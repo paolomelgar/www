@@ -3,7 +3,6 @@ set_time_limit(1200);
 require_once('../connection.php');
 $ini = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['inicio'])));
 $fin = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['final'])));
-
 $output="<table border='1'><tr style='font-weight:bold;background-color:#428bca;color:white'><td>PRODUCTO</td><td>MARCA</td><td>X/CAJA</td><td>STOCK MIN</td><td>STOCK REAL</td><td>PEDIDO SUGERIDO</td><td>PEDIDO FINAL</td><td>REQUERIMIENTO</td><td>P. COMPRA</td><td>TOTAL</td><td>PROVEEDOR</td><td>P. UNIDAD</td><td>P. MAYOR</td><td>P. ESPECIAL</td><td>UBICACION 1</td><td>UBICACION 2</td><td>CODIGO</td></tr>";
 
 if($_POST['proveedorsistema']!=''){
@@ -12,7 +11,7 @@ $sql=mysqli_query($con,"SELECT * FROM producto WHERE activo='SI' AND proveedor='
 $sql=mysqli_query($con,"SELECT * FROM producto WHERE activo='SI'");
 }
 
-if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="jauja"){
+if($_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="jauja" || $_SESSION['mysql']=="dorispovez" ){
 while($row=mysqli_fetch_assoc($sql)){
     $query="id='".$row['id']."' AND entregado='SI' AND ('$ini' <= fecha AND fecha <= '$fin')";
     $sql1=mysqli_query($con,"SELECT SUM(cantidad),sum(compra),sum(importe) FROM

@@ -10,6 +10,8 @@
       $dat[$i][1]=$row['tipo'];
       $dat[$i][2]=$row['detalle'];
       $dat[$i][3]=$row['monto'];
+      $dat[$i][4]=$row['usuario'];
+      $dat[$i][5]=$row['mediopago'];
       $i++;
     }
     echo json_encode($dat);

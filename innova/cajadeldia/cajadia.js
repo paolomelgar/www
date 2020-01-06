@@ -13,7 +13,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody1 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(5)").text());        
       });
       $('#total1').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -33,7 +33,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody3 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
       });
       $('#total3').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -43,7 +43,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody4 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(3)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
       });
       $('#total4').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -84,8 +84,11 @@ $(function(){
         $('#ingreso').val(data[2]);
         $('#egreso').val(data[3]);
         $('#real').val(data[4]);
+        $('#visaizipay').val(data[7]);
         $('#diferencia').val(data[5]);
         $('#total').val(parseFloat(parseFloat(data[0])+parseFloat(data[1])+parseFloat(data[2])-parseFloat(data[3])).toFixed(2));
+        $('#ticketss').val(data[6]);
+        $('#ticketpromedio').val(parseFloat(parseFloat(data[0])/parseFloat(data[6])));
       }
     });
   }
@@ -117,8 +120,9 @@ $(function(){
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
                   "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
+                  "<td align='center' width='7%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td align='center' width='13%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n"+
+                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
                   "<td width='35%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n";
                   if(data[i][5]=='ANULADO'){
                     n +=  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>0.00</td>\n"+
@@ -136,7 +140,7 @@ $(function(){
         $('#filter1').tableFilterRefresh();
         $('.visualizar').click(function(){
           var serie=$(this).parent().find('td:eq(0)').text();
-          var doc=$(this).parent().find('td:eq(2)').text();
+          var doc=$(this).parent().find('td:eq(3)').text();
           $.ajax({
             type: "POST",
             url: "productos.php",
@@ -207,8 +211,9 @@ $(function(){
         $("#verbody3").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
                   "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
                   "</tr>";
@@ -239,8 +244,9 @@ $(function(){
         $("#verbody4").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='20%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
                   "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
                   "</tr>";
@@ -253,42 +259,12 @@ $(function(){
   });
 
 
-  $('#5').click(function(){
-    $.ajax({
-      type: "POST",
-      dataType:"json",
-      url: "visa.php",
-      data: 'fecha='+$('#fecha').val(),
-      beforeSend:function(){
-        swal({
-          title: "Buscando..",
-          text: "",
-          imageUrl: "../loading.gif",
-          showConfirmButton: false
-        });
-      },
-      success: function(data){
-        $(".result").hide();
-        $("#result5").show();
-        $("#verbody5").empty();
-        for (var i = 0; i <= data.length-1; i++) {
-          var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
-                  "<td width='50%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
-                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
-                  "</tr>";
-          $('#verbody5').append(n);
-        }
-        $('#filter5').tableFilterRefresh();
-        swal.close();
-      }
-    });
-  });
-
 
   $('#real').keyup(function(){
     $('#diferencia').val(parseFloat(parseFloat($(this).val())-parseFloat($('#total').val())).toFixed(2));
+  });
+  $('#visaizipay').keyup(function(){
+    $('#diferencia').val(parseFloat(parseFloat($(this).val())-parseFloat($('#total').val())+parseFloat($('#real').val())).toFixed(2));
   });
   $('#cerrar').click(function(){
     swal({
@@ -306,7 +282,7 @@ $(function(){
         $.ajax({
           type: "POST",
           url: "cerrarcaja.php",
-          data: 'total='+$('#total').val()+'&real='+$('#real').val()+'&diferencia='+$('#diferencia').val(),
+          data: 'total='+$('#total').val()+'&real='+$('#real').val()+'&diferencia='+$('#diferencia').val()+'&visaizipay='+$('#visaizipay').val(),
           success: function(data){
           }
         });

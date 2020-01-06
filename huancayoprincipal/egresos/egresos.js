@@ -36,10 +36,10 @@ $(function(){
       var sumaegreso  = 0;
       $('#verbody tr').filter(":visible").each(function(){
         if($(this).find("td:eq(3)").text()=='INGRESO'){
-          sumaingreso = parseFloat(sumaingreso) + parseFloat($(this).find("td:eq(4)").text());
+          sumaingreso = parseFloat(sumaingreso) + parseFloat($(this).find("td:eq(5)").text());
         }
         else{
-          sumaegreso = parseFloat(sumaegreso) + parseFloat($(this).find("td:eq(4)").text());        
+          sumaegreso = parseFloat(sumaegreso) + parseFloat($(this).find("td:eq(5)").text());        
         }
       });
       var total=parseFloat(sumaingreso)-parseFloat(sumaegreso);
@@ -67,14 +67,15 @@ $(function(){
         $("#verbody").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'\n>"+
-            "<td width='5%' align='right'>"+(i+1)+"</td>\n"+
+            "<td width='3%' align='right'>"+(i+1)+"</td>\n"+
             "<td width='8%' align='center'>"+data[i][0]+"</td>\n"+
             "<td width='8%' align='center'>"+data[i][1]+"</td>\n"+
+            "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
             "<td width='10%' align='center'>"+data[i][2]+"</td>\n"+
             "<td width='5%' align='right'>"+data[i][3]+"</td>\n"+
             "<td width='39%'>"+data[i][4]+"</td>\n"+
             "<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
-            "<td width='15%' align='center'>"+data[i][6]+"</td>\n"+
+            "<td width='11%' align='center'>"+data[i][6]+"</td>\n"+
             "<td style='display:none'>"+data[i][7]+"</td>\n"+
             "</tr>";
           $('#verbody').append(n);
@@ -97,7 +98,7 @@ $(function(){
           $.ajax({
             type:"POST",
             url:"../caja/ingresos.php",
-            data:"oper="+$('#operacion').val()+"&tipo="+$('#tipomov').val()+"&monto="+$('#monto').val()+"&detalle="+$('#detalle').val()+"&transporte="+$('#transporte').val()+"&encar="+$('#vendedor').val(),
+            data:"oper="+$('#operacion').val()+"&tipo="+$('#tipomov').val()+"&mediopago="+$('#mediopago').val()+"&monto="+$('#monto').val()+"&detalle="+$('#detalle').val()+"&transporte="+$('#transporte').val()+"&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
               buscar();
@@ -130,8 +131,11 @@ $(function(){
     $(this).addClass('selected1');
     e.preventDefault();
     if($('.selected1').find('td:eq(1)').text()!=$('#prueba').val()){
-        swal("","No se puede eliminar egreso de fecha anterior","error");
-    }else{
+        swal("","NO SE PUEDE ELIMINAR EGRESO DE FECHA ANTERIOR","error");
+    }else if($('.selected1').find('td:eq(2)').text()=='ANULADO'){
+        swal("","ESTE EGRESO YA SE ELIMINÓ","error");
+    }
+    else{
       swal({
         title: "Esta Seguro de Eliminar!",
         text: "",
@@ -146,7 +150,11 @@ $(function(){
           $.ajax({
             type: "POST",
             url: "eliminar.php",
-            data: 'monto='+$('.selected1').find('td:eq(4)').text()+'&sesion='+$('.selected1').find('td:eq(7)').text()+'&tipo='+$('.selected1').find('td:eq(2)').text()+'&id='+$('.selected1').find('td:eq(8)').text()+'&fecha='+$('.selected1').find('td:eq(1)').text(),
+            data: 'monto='+$('.selected1').find('td:eq(4)').text()+
+                  '&sesion='+$('.selected1').find('td:eq(7)').text()+
+                  '&tipo='+$('.selected1').find('td:eq(2)').text()+
+                  '&id='+$('.selected1').find('td:eq(9)').text()+
+                  '&fecha='+$('.selected1').find('td:eq(1)').text(),
             success: function(data){
             }
           });

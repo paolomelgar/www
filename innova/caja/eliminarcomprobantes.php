@@ -2,15 +2,21 @@
   require_once('../connection.php');
   $hoy=date("Y-m-d");
   $aa="";
-  $bb="001";
   if($_SESSION['mysql']=="innovaelectric"){
     $aa="20601765641";
+    $bb="001";
   }else if($_SESSION['mysql']=="innovaprincipal"){
     $aa="20487211410";
+    $bb="001";
   }else if($_SESSION['mysql']=="prolongacionhuanuco"){
     $aa="10433690058";
+    $bb="001";
   }else if($_SESSION['mysql']=="jauja"){
-    $aa="20603695055"; 
+    $aa="20603695055";
+    $bb="001";
+  }else if($_SESSION['mysql']=="dorispovez"){
+    $aa="20601765641"; 
+    $bb="004";
   }
   if(isset($_POST) && !empty($_POST)){
     $sql2=mysqli_query($con,"SELECT total,entregado,credito FROM total_ventas WHERE serieventas='".$_POST['serie']."' AND documento='".$_POST['com']."'");

@@ -207,7 +207,6 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <td width='30%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <option value="FACTURA INNOVA">FACTURA INNOVA</option>
               <option value="FACTURA BOOM">FACTURA BOOM</option>              
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>              
             </select>

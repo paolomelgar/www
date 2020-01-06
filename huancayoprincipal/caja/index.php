@@ -235,7 +235,6 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
               <option value="FACTURA ELECTRONICA BOOM">FACTURA ELECTRONICA BOOM</option>
-              <option value="FACTURA ELECTRONICA INNOVA">FACTURA ELECTRONICA INNOVA</option>
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>
               <option value="COTIZACION">COTIZACION</option>
@@ -318,6 +317,12 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
                   <td class='transporte' style='display:none'>TRANSPORTE:</td>
                   <td class='transporte' style='display:none'><input type='text' id='transporte' class='span2'></td>
+                  <td>MEDIO DE PAGO:</td>
+                  <td>
+                    <select id='mediopago' class='span2' style='margin-bottom: 0px;'>
+                      <option id='EFECTIVO'>EFECTIVO</option>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td>DETALLE:</td>
@@ -482,7 +487,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
             COMENTARIOS:<textarea name="comentarios" id="comentario" style="text-transform:uppercase;" class='span8'></textarea>
           </td>
           <td width='15%'>EFECTIV:<input type='text' id='efectivo' style='text-align:right;font-weight:bold' class='span1'><br>VUELTO: <input type='text' id='vuelto' style='text-align:right;font-weight:bold' class='span1'></td>
-          <?php if($_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='ASISTENTE' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ'){ ?>
+          <?php if($_SESSION['cargo']=='LOGISTICA' || $_SESSION['cargo']=='ASISTENTE' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='WILMER MARQUEZ'){ ?>
           <td width="15%"><input type="button" id="guardarform" value="ENVIAR" style="cursor:pointer;" class='btn btn-success'/></td>
             <div id="procesarenvio" style="display:none">
             <?php }else{ ?>

@@ -162,6 +162,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
           <td width='10%' align='right'>Tipo-COBRO:</td>
           <td width='10%'>
             <select id='forma' class='span2' style='margin-bottom:0px'>
+              <option value='EFECTIVO'>EFECTIVO</option>
               <option value='DEPOSITO'>DEPOSITO</option>
             </select>
           </td>

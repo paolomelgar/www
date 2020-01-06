@@ -130,7 +130,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <option value='UNIDAD'>UNIDAD</option>
         <option value='OFERTA'>OFERTA</option>
       </select>
-      <?php if($_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ'){ ?>
+      <?php if($_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAUL MELGAR'){ ?>
       <button id="eliminar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Eliminar</button>
       <button id="editar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0;">Editar</button>
       <button id="agregar" class="btn btn-success" style="float: right; margin: 0 7px 20px 0; ">Agregar</button>
@@ -191,7 +191,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                 <option>100</option>
               </select> 
             </div>
-            <?php if($_SESSION['nombre']=='PAUL MELGAR' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAOLA MELGAR' || $_SESSION['nombre']=='DAVID PRESENTACION'){ ?>
+            <?php if($_SESSION['nombre']=='PAUL MELGAR' || $_SESSION['nombre']=='PAULO ANTONY MELGAR POVEZ' || $_SESSION['nombre']=='PAOLA MELGAR' || $_SESSION['nombre']=='DAVID PRESENTACION' || $_SESSION['nombre']=='WILMER MARQUEZ'){ ?>
             <div style='float:left;margin-top:5px;margin-left:100px;font-size:25px;font-weight:bold;color:blue'>
               <?php 
                 $sql=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");

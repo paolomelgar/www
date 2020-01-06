@@ -71,6 +71,10 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 							<td align='right'><input type='text' name='fecha' id='fecha' style='cursor:pointer;text-align:right' class='span2'></td>
 						</tr>
 						<tr>
+							<td>DIA ANTERIOR:</td>
+							<td align='right'><input type='text' name='diaanterior' id='diaanterior' style='cursor:pointer;text-align:right' class='span2' readonly='readonly'></td>
+						</tr>
+						<tr>
 							<td>CAJA TIENDA:</td>
 							<td align='right'><input type='text' name='caja' id='caja' style='cursor:pointer;text-align:right' class='span2' readonly='readonly'></td>
 						</tr>
@@ -103,6 +107,19 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 							<td>TOTAL DEL DIA:</td>
 							<td align='right'><input type='text' name='totaldia' id='totaldia' style='text-align:right' class='span2' readonly='readonly'></td>
 							<td></td>
+						<tr>
+						<tr style='background-color:#F63'>
+							<td>CAJA REAL:</td>
+							<td align='right'><input type='text' name='real' id='real' style='text-align:right' class='span2'></td>
+							<td></td>
+						</tr>
+						<tr style="background-color: #FF3">
+							<td>DIFERENCIA:</td>
+							<td align='right'><input type='text' name='diferencia' id='diferencia' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td></td>
+						</tr>
+							<td colspan='3' align='center'><input type='button' value='CERRAR CAJA' id='cerrar' class='btn btn-success'></td>
+						</tr>
 						</tr>
 					</table>
 				</div>
@@ -136,8 +153,9 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter2'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">CARGO</th>
-				          <th width="15%">USUARIO</th>
+				          <th width="10%">CARGO</th>
+				          <th width="10%">MEDIOPAGO</th>
+				          <th width="10%">USUARIO</th>
 				          <th width="15%">TIPO</th>
 				          <th width="45%">DETALLE</th>
 				          <th width="10%">MONTO</th>
@@ -168,7 +186,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="5" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='10%' id='total3' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>
@@ -202,8 +220,9 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				    <table width="100%" align="center" id='filter5'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">CARGO</th>
-				          <th width="15%">USUARIO</th>
+				          <th width="10%">CARGO</th>
+				          <th width="10%">MEDIOPAGO</th>
+				          <th width="10%">USUARIO</th>
 				          <th width="15%">TIPO</th>
 				          <th width="45%">DETALLE</th>
 				          <th width="10%">MONTO</th>
@@ -213,7 +232,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="5" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='15%' id='total5' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>

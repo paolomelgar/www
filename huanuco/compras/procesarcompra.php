@@ -68,10 +68,18 @@
                             )");
                 if($_POST['str'][11]['value']=='SI'){
                     if($_POST['str'][7]['value']=='SOLES'){
-                        $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i]."),activo='SI',antiguedad=NOW() WHERE id='".$_POST['id'][$i]."'");
+                        if ($_POST['editar']==0) {
+                            $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i]."),activo='SI',antiguedad=NOW() WHERE id='".$_POST['id'][$i]."'");
+                        }else{
+                            $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i].") WHERE id='".$_POST['id'][$i]."'");
+                        }
                     }
                     else{
-                        $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i]*$_POST['str'][8]['value']."),activo='SI',antiguedad=NOW() WHERE id='".$_POST['id'][$i]."'");
+                        if ($_POST['editar']==0) {
+                            $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i]*$_POST['str'][8]['value']."),activo='SI',antiguedad=NOW() WHERE id='".$_POST['id'][$i]."'");
+                        }else{
+                            $inse=mysqli_query($con,"UPDATE producto SET stock_real=(stock_real+".$_POST['cantidad'][$i]."),stock_con=(stock_con+".$_POST['cantidad'][$i]."),p_compra=(".$_POST['unitario'][$i]*$_POST['str'][8]['value'].") WHERE id='".$_POST['id'][$i]."'");
+                        }
                     }
                 }
                 else{

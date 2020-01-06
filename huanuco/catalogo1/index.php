@@ -11,7 +11,7 @@ class PDF extends FPDF
       	$this->SetDrawColor(0,80,180);
       	$this->Line(10,18,200,18);
       	$this->SetTextColor(0,80,180);
-      	$this->Cell(200,2,'LISTA DE PRODUCTOS',0,0,'C');
+      	$this->Cell(200,2,'CATALOGO DE PRODUCTOS',0,0,'C');
       	$this->Ln(12);
     }
    function Footer()
@@ -75,8 +75,7 @@ while($r=mysqli_fetch_assoc($query)){
 	while($row=mysqli_fetch_assoc($sql)){
 		$pdf->SetFont('Arial','B',8);
 		$pdf->SetTextColor(0,0,0);
-		$pdf->SetFillColor(255,255,0);
-		$ar[$i]=utf8_decode(substr($row['producto'],0,30));
+		$ar[$i]=utf8_decode(substr($row['producto'],0,40));
 		$marca[$i]=$row['marca'];
 		$prod[$i]="S/ ".$row['p_promotor'];
 		$stock[$i]=$row['stock_real'];
@@ -96,56 +95,57 @@ while($r=mysqli_fetch_assoc($query)){
 				$x = $pdf->GetX();
 				$y = $pdf->GetY();
 				$pdf->SetXY($x+4,$y+2);
-				$pdf->SetTextColor(0,0,0);
-				$pdf->MultiCell(37,3,$ar[$j],'','C',true);
+				$pdf->SetTextColor(60,60,60);
 				$pdf->SetXY($x+5,$y+2);
 				if(mysqli_num_rows($sq)>0){
-					$pdf->Cell(25,5,$pdf->Image('../fotos/marca/a'.$row1[0].'.jpg', $pdf->GetX()+35, $pdf->GetY(),25,5),'','','C');
+					$pdf->Cell(54,6,$pdf->Image('../fotos/marca/a'.$row1[0].'.jpg', $pdf->GetX()+10, $pdf->GetY(),35,6),'','','C');
 				}else{
-					$pdf->SetFont('Arial','B',13);
-					$pdf->SetXY($x+40,$y+2);
-					$pdf->Cell(25,5,$marca[$j],'','','C',true);
+					$pdf->SetFont('Arial','B',14);
+					$pdf->SetXY($x+9,$y+2);
+					$pdf->Cell(54,6,$marca[$j],'','','C',true);
 				}
-				$pdf->SetXY($x + 40, $y-55);
-				$pdf->SetFont('Arial','B',17);
-				$pdf->SetFillColor(255,255,0);
-				$pdf->Cell(26,10,$prod[$j],'','','C',true);
+				$pdf->SetXY($x+7, $y-55);
+				$pdf->SetFont('Arial','B',9);
+				$pdf->SetTextColor(80,80,80);
 				if($stock[$j]<=0){
-					$pdf->Cell(49,35,$pdf->Image('../ventasfuera/agotado.png', $pdf->GetX()-54, $pdf->GetY()+10,49,35),'','','C');
+					$pdf->Cell(49,35,$pdf->Image('../ventasfuera/agotado.png', $pdf->GetX()+4, $pdf->GetY()+10,49,35),'','','C');
 				}else{
 					if(strtotime(date("Y-m-d"))-strtotime($nuevo[$j])<30*24*60*60){
-						$pdf->Cell(54,54,$pdf->Image('../ventasfuera/nuevo.png', $pdf->GetX()-62, $pdf->GetY(),54,54),'','','C');
+						$pdf->Cell(54,54,$pdf->Image('../ventasfuera/nuevo.png', $pdf->GetX()+4, $pdf->GetY()+6,54,54),'','','C');
 					}
 				}
+				$pdf->SetXY($x+6, $y-54);
+				$pdf->MultiCell(56,4,$ar[$j],'','C',true);
+				
 				$pdf->SetXY($x+62, $y);
 			}
 			$pdf->Ln(10);
 			$i=0;
 		}
 		if($m%12==0){
-			$pdf->Line(17, 85, 210-15, 85);
-			$pdf->Line(17, 149, 210-17, 149);
-			$pdf->Line(17, 213, 210-17, 213);
+			$pdf->Line(12, 85, 210-12, 85);
+			$pdf->Line(12, 149, 210-12, 149);
+			$pdf->Line(12, 213, 210-12, 213);
 			$pdf->Line(76, 20, 76, 280);
 			$pdf->Line(138, 20, 138, 280);
 			if((mysqli_num_rows($sql)-$m)>12){
 				$pdf->AddPage();
 			}else if((mysqli_num_rows($sql)-$m)>9 && (mysqli_num_rows($sql)-$m)<=12){
 				$pdf->AddPage();
-				$pdf->Line(17, 85, 210-15, 85);
-				$pdf->Line(17, 149, 210-17, 149);
-				$pdf->Line(17, 213, 210-17, 213);
+				$pdf->Line(12, 85, 210-15, 85);
+				$pdf->Line(12, 149, 210-12, 149);
+				$pdf->Line(12, 213, 210-12, 213);
 				$pdf->Line(76, 20, 76, 280);
 				$pdf->Line(138, 20, 138, 280);
 			}else if((mysqli_num_rows($sql)-$m)>6 && (mysqli_num_rows($sql)-$m)<=9){
 				$pdf->AddPage();
-				$pdf->Line(17, 85, 210-15, 85);
-				$pdf->Line(17, 149, 210-17, 149);
+				$pdf->Line(12, 85, 210-12, 85);
+				$pdf->Line(12, 149, 210-12, 149);
 				$pdf->Line(76, 20, 76, 213);
 				$pdf->Line(138, 20, 138, 213);
 			}else if((mysqli_num_rows($sql)-$m)>3 && (mysqli_num_rows($sql)-$m)<=6){
 				$pdf->AddPage();
-				$pdf->Line(17, 85, 210-15, 85);
+				$pdf->Line(12, 85, 210-12, 85);
 				$pdf->Line(76, 20, 76, 150);
 				$pdf->Line(138, 20, 138, 150);
 			}else if((mysqli_num_rows($sql)-$m)>0 && (mysqli_num_rows($sql)-$m)<=3){
@@ -162,15 +162,16 @@ while($r=mysqli_fetch_assoc($query)){
 		$x = $pdf->GetX();
 		$y = $pdf->GetY();
 		$pdf->SetX($x+8);
-		$pdf->SetTextColor(0,0,0);
-		$pdf->MultiCell(54,4,$ar[$j],'','','C',true);
-		$pdf->SetXY($x + 40, $y-55);
-		$pdf->SetFont('Arial','B',17);
-		$pdf->SetFillColor(255,255,0);
-		$pdf->Cell(26,10,$prod[$j],'','','C',true);
+		$pdf->SetTextColor(60,60,60);
+		$pdf->SetFont('Arial','B',14);
+		$pdf->Cell(54,4,$marca[$j],'','','C',true);
+		$pdf->SetXY($x + 6, $y-54);
+		$pdf->SetFont('Arial','B',9);
+		$pdf->SetTextColor(80,80,80);
 		if($stock[$j]<=0){
 			$pdf->Cell(49,35,$pdf->Image('../ventasfuera/agotado.png', $pdf->GetX()-54, $pdf->GetY()+10,49,35),'','','C');
 		}
+		$pdf->MultiCell(56,4,$ar[$j],'','C',true);
 		$pdf->SetXY($x+62, $y);
 	}
 }

@@ -3,7 +3,7 @@ require_once('../connection.php');
 	$hoy=date("Y-m-d");
 	for ($i=0; $i<sizeof($_POST['serie']) ; $i++) {
 		$qq=mysqli_query($con,"UPDATE acuenta SET pendiente='NO' WHERE serie='".$_POST['serie'][$i]."'");
-        $que=mysqli_query($con,"INSERT INTO adelantos (serie,adelanto,encargado,fecha,forma,banco,nro,cliente,sesion) 
+        $que=mysqli_query($con,"INSERT INTO adelantos (serie,adelanto,encargado,fecha,forma,banco,nro,cliente,sesion,fechapagooo) 
 	                VALUES ('".$_POST['serie'][$i]."',
 	                        '".$_POST['monto'][$i]."',
 	                        '".$_POST['vendedor']."',
@@ -12,7 +12,8 @@ require_once('../connection.php');
 	                        '',
                             '',
 	                        '".$_POST['cliente'][$i]."',
-	                        '".$_SESSION['cargo']."'
+	                        '".$_SESSION['cargo']."',
+                            NOW()
 	                    )");
         if($_SESSION['cargo']=='CAJERO'){
 			$insert=mysqli_query($con,"UPDATE dinerodiario SET creditos=(creditos+".$_POST['monto'][$i].") WHERE fecha='$hoy'");

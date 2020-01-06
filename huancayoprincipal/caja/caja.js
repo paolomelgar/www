@@ -950,9 +950,9 @@ var stock,compra,promotor,unit;
         $('#observarpedido').append(data);
       }
     });
-    if($(this).parent().find('td:eq(5)').text()=='NO AFECTA'){
-      if($(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA BOOM'){
-          if ($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+    if($(this).parent().find('td:eq(6)').text()=='NO AFECTA'){
+      if($(this).parent().find('td:eq(4)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(4)').text()=='FACTURA ELECTRONICA BOOM'){
+          if ($(this).parent().find('td:eq(7)').text()=='ANULADO'){
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
           }else{
@@ -960,7 +960,7 @@ var stock,compra,promotor,unit;
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
           }
       }else{
-          if ($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+          if ($(this).parent().find('td:eq(7)').text()=='ANULADO'){
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
           }else{
@@ -968,9 +968,9 @@ var stock,compra,promotor,unit;
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
           }
         }
-    }else if($(this).parent().find('td:eq(5)').text()=='CONTADO'){
-      if($(this).parent().find('td:eq(2)').text().slice(0,10)!=fech){
-        if($(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(3)').text()=='FACTURA ELECTRONICA BOOM'){
+    }else if($(this).parent().find('td:eq(6)').text()=='CONTADO'){
+      if($(this).parent().find('td:eq(3)').text().slice(0,10)!=fech){
+        if($(this).parent().find('td:eq(4)').text()=='FACTURA ELECTRONICA INNOVA' || $(this).parent().find('td:eq(4)').text()=='FACTURA ELECTRONICA BOOM'){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
           $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
         }else{
@@ -979,18 +979,18 @@ var stock,compra,promotor,unit;
         }
       }
       else{
-        if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+        if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         }else{
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
         }
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
       }
-    }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
+    }else if($(this).parent().find('td:eq(6)').text()=='CANCELADO'){
       $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
       $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
     }else{
-      if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+      if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");                                                           
       }else{
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
@@ -1783,7 +1783,13 @@ var stock,compra,promotor,unit;
           $.ajax({
             type:"POST",
             url:"ingresos.php",
-            data:"oper="+$('#operacion').val()+"&tipo="+$('#tipomov').val()+"&monto="+$('#monto').val()+"&detalle="+$('#detalle').val()+"&transporte="+$('#transporte').val()+"&encar="+$('#vendedor').val(),
+            data:"oper="+$('#operacion').val()+"&tipo="+
+            $('#tipomov').val()+"&monto="+
+            $('#monto').val()+"&detalle="+
+            $('#detalle').val()+"&transporte="+
+            $('#transporte').val()+"&mediopago="+
+            $('#mediopago').val()+"&encar="+
+            $('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
             }

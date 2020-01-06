@@ -16,7 +16,14 @@ $(function(){
     changeYear: true,
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);
-
+  $('#fechapagooo').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
   $('#venta').tableFilter({
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
@@ -154,7 +161,7 @@ $(function(){
       title:"COBRO CREDITOS",
       position: ['',140],
       height: 230,
-      width: "70%",
+      width: "80%",
       modal: true,
       buttons: { 
         "Cobrar" : function(){
@@ -166,9 +173,10 @@ $(function(){
                   banco:$('#banco').val(),
                   nro:$('#nro').val(),
                   monto:$('#monto').val(),
-                 //  vendedor:$('#vendedor').val(),
+                  // vendedor:$('#vendedor').val(),
                   forma:$('#forma').val(),
-                  cliente:$('#name').val()
+                  cliente:$('#name').val(),
+                  fechapagooo:$('#fechapagooo').val()
             },
             success: function(data){
               buscar();

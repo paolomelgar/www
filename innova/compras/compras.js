@@ -93,11 +93,11 @@ $(function(){
       var sumatotal  = 0;
       var sumatotal1  = 0;
       $('#verbody tr').filter(":visible").each(function(){
-        if($(this).find("td:eq(7)").text().slice(0,1)=='S'){
-          sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text().slice(3));       
+        if($(this).find("td:eq(8)").text().slice(0,1)=='S'){
+          sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(8)").text().slice(3));       
         }
         else{
-          sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(7)").text().slice(2));        
+          sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(8)").text().slice(2));        
         }
       });
       $('#sumatotal').html("<b style='color:blue'>S/ "+sumatotal.toFixed(2)+"</b><br><b style='color:green'>$ "+sumatotal1.toFixed(2)+"</b>"); 
@@ -667,15 +667,16 @@ $(function(){
     $( '#observarpedido' ).dialog( "open" );
     value=$(this).parent().find('td:eq(9)').text();
     doc=$(this).parent().find('td:eq(3)').text();
-    if($('#cargo').val()!='CAJERO'){
-      if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+    if($('#cargo').val()=='ADMIN' || $('#cargo').val()=='ENCARGADOTIENDA'){
+      if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
-      }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
+      }else if($(this).parent().find('td:eq(6)').text()=='CANCELADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
       }else{
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
+        $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
       }
     }else{
       $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");

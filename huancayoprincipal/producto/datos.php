@@ -36,7 +36,7 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['caja_master']; ?></td>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
-        <?php if($_SESSION['cargo']=='ADMIN'){ ?>
+        <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA'){ ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con1']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:green;font-weight:bold"><?php echo $row['p_compra']; ?></td>

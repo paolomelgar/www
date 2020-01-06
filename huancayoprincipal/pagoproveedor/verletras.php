@@ -8,6 +8,7 @@ require_once('../connection.php');
     	$data[$i][1]=date('d/m/Y', strtotime(str_replace('-', '/', $row['fecha'])));
         $data[$i][2]=$row['estado'];
     	$data[$i][3]=$row['id'];
+        $data[$i][4]=$row['unico'];
     	$i++;
     }
     echo json_encode($data);

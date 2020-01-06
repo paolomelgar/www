@@ -97,7 +97,7 @@ $(function(){
             "<td width='10%' style='background-color:#f63;color:blue;font-size:14px' align='right'>"+data[i][4]+"</td>\n"+
             "<td width='10%' align='right'>"+data[i][5]+"</td>\n"+
             "<td width='10%' align='center'>"+data[i][6]+"</td>\n"+
-            "<td width='10%' align='center'>"+data[i][7]+"</td>\n"+
+            "<td width='10%' align='center'>"+data[i][8]+"</td>\n"+
             "<td width='10%' align='center'><div class='detail' style='cursor:pointer;color:red'>DETALLES</div></td>\n"+
           "</tr>";
           $('#verbody').append(n);
@@ -165,11 +165,6 @@ $(function(){
       modal: true,
       buttons: { 
         "Cobrar" : function(){
-          if($('#banco').val()==''){
-            swal("","FALTA RELLENAR BANCO","error");
-          }else if($('#nro').val()==''){
-            swal("","FALTA RELLENAR NUMERO UNICO","error");
-          }else{
           $.ajax({
             type: "POST",
             url: "monto.php",
@@ -187,8 +182,9 @@ $(function(){
               buscar();
             }
           });
+
           $( this ).dialog( "close" ); 
-        }}
+        }
       },
       open:function(){
         $('#monto').focus();
@@ -239,6 +235,14 @@ $(function(){
     });
   });
 
+  
+
+
+
+
+
+
+
   $('#mostrarpendientes').click(function(){
     $("#pendientes").dialog({
       title:"PENDIENTE",
@@ -277,6 +281,7 @@ $(function(){
             success: function(data){
               swal.close();
               $("#pendientes").dialog( "close" ); 
+              
               buscar();
             }
           });

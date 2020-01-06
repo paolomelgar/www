@@ -1,5 +1,6 @@
 <?php
 require_once('../connection.php');
+    
     $hoy=date("Y-m-d");
     if($_SESSION['cargo']=='CAJERO'){
     	$insert=mysqli_query($con,"UPDATE dinerodiario SET creditos=(creditos+".$_POST['monto'].") WHERE fecha='$hoy'");

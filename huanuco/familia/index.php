@@ -34,7 +34,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
 	      width:145px;
 	    }
 	    .tr:hover{
-	      background-color: #FF3;
+	      background-color: #99FDFF;
 	    }
 	</style>
 </head>

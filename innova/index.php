@@ -101,14 +101,11 @@ session_start();
                 <option value='dorispovez'>Doris Povez</option>
                 <option value='johannagutierrez'>Johanna Gutierrez</option>
                 <option value='laprincipal'>La Principal</option>
-                <option value='innovaelectric'>Innova Electric</option>
                 <option value='innovahuanuco'>Innova Huanuco</option>
                 <option value='innovaprincipal'>Innova Principal</option>
                 <option value='jauja'>Jauja</option>
-                <!-- <option value='lymgroup'>L & M Group</option> -->
                 <option value='tingomaria'>Tingo Maria</option>
                 <option value='tarapac'>Tarapaca</option>
-                <option value='prolongacionhuanuco'>Prolongacion Huanuco</option>
                 <option value='kalimax'>Kalimax</option>
                 <option value='ayacucho'>Ayacucho</option>
               </select>

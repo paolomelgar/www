@@ -21,6 +21,7 @@
     $dat[$i][5]=$row['usuario'];
     $dat[$i][6]=$row['sesion'];
     $dat[$i][7]=$row['id'];
+    $dat[$i][8]=$row['mediopago'];
     $i++;
 
     /* $dat[$i][1]=$row['origen'];

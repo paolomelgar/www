@@ -11,6 +11,9 @@ require_once('../connection.php');
     if($_REQUEST['cargo']=='VENDEDOR PROVINCIA'){
       $datos[$i]["p_promotor"]=$row["p_mayor"];
       $datos[$i]["p_especial"]=$row["p_mayor"];
+    }else if($_REQUEST['cargo']=='ADMIN' || $_REQUEST['cargo']=='ENCARGADO TIENDA'){
+      $datos[$i]["p_promotor"]=$row["p_promotor"];
+      $datos[$i]["p_especial"]=$row["p_compra"];
     }else{
       $datos[$i]["p_promotor"]=$row["p_promotor"];
       $datos[$i]["p_especial"]=$row["p_promotor"];

@@ -107,6 +107,13 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
         <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>
         <td class='transporte ingreso' style='display:none'><input type='text' id='transporte' class='span2'></td>
+        <td>MEDIO DE PAGO:</td>
+        <td>
+          <select id='mediopago' class='span2' style='margin-bottom: 0px;'>
+            <option id='EFECTIVO'>EFECTIVO</option>
+            <option id='TARJETA'>TARJETA</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td>DETALLE:</td>
@@ -118,14 +125,15 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
     <table width='100%' align='center' style='border-collapse:collapse;'>
       <thead>
         <tr align='center' bgcolor="black" style="color:white;font-weight:bold;">
-          <th width='5%'>N°</th>
-          <th width='10%'>FECHA</th>
+          <th width='3%'>N°</th>
+          <th width='8%'>FECHA</th>
           <th width='8%'>TIPO</th>
+          <th width='8%'>MEDIOPAGO</th>
           <th width='10%'>TIPO MOV.</th>
           <th width='5%'>TOTAL</th>
           <th width='39%'>DETALLE</th>
           <th width='8%'>USUARIO</th>
-          <th width='15%'>ENCARGADO</th>
+          <th width='11%'>ENCARGADO</th>
         </tr>
       </thead>
     </table>
@@ -133,14 +141,15 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       <table width='100%' id="venta" border='1' align='center'>
         <thead style='background-color:#2E9AFE'>
           <tr style="display:none">
-            <th width='5%'>N°</th>
-            <th width='10%'>FECHA</th>
+            <th width='3%'>N°</th>
+            <th width='8%'>FECHA</th>
             <th width='8%'>TIPO</th>
+            <th width='8%'>MEDIOPAGO</th>
             <th width='10%'>TIPO MOV.</th>
             <th width='5%'>TOTAL</th>
             <th width='39%'>DETALLE</th>
             <th width='8%'>USUARIO</th>
-            <th width='15%'>ENCARGADO</th>
+            <th width='11%'>ENCARGADO</th>
             <th style='display:none'></th>
           </tr>
         </thead>

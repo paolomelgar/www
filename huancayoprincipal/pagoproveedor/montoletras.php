@@ -10,7 +10,7 @@ require_once('../connection.php');
 		$monto=round($monto,1);
 	}
     $insert=mysqli_query($con,"UPDATE cajamayor SET proveedor=(proveedor+$monto) WHERE fecha='$hoy'");
-	$que=mysqli_query($con,"INSERT INTO adelantosletra (value,adelanto,cambio,fechapago,monto,fechaletra,proveedor,encargadocompra) 
+	$que=mysqli_query($con,"INSERT INTO adelantosletra (value,adelanto,cambio,fechapago,monto,fechaletra,proveedor,encargadocompra,fechapagoletra,unico,mediopago) 
 	                VALUES ('".$_POST['value']."',
 	                        '".$_POST['real'][0]."',
 	                        '".$_POST['cambio']."',
@@ -18,7 +18,10 @@ require_once('../connection.php');
 	                        '".$_POST['monto'][0]."',
 	                        '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'][0])))."',
 	                        '".$_POST['proveedor']."',
-	                        '".$_SESSION['nombre']."'
+	                        '".$_SESSION['nombre']."',
+	                        '".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fechapagoo'][0])))."',
+	                        '".$_POST['unicoo'][0]."',
+	                        '".$_POST['mediopago'][0]."'
 	                    )");
 	$res=mysqli_query($con,"SELECT pendiente,acuenta FROM total_compras WHERE value='".$_POST['value']."'");
 	$row = mysqli_fetch_row($res);

@@ -98,7 +98,8 @@ session_start();
               <img src='https://image.flaticon.com/icons/svg/54/54574.svg' width='30px'>
               <select name="local" id="local">
                 <option disabled selected value>Local</option>
-                <option value='huanuco'>Huanuco</option> 
+                <option value='huanuco'>Huanuco</option>
+                <option value='huanucotienda'>Huanuco TIENDA</option>
                 <!-- <option value='huancayo'>Huancayo</option> -->
                 <option value='huancayoprincipal'>Huancayo Principal</option>
                 <!-- <option value='tarapaca'>Tarapaca</option> -->

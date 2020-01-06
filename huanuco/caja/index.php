@@ -39,7 +39,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
   }
   .selected {
     cursor: pointer;
-    background: #FF3 !important;
+    background: #99FDFF !important;
   }
   .select {
     background: #F63 !important;

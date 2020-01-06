@@ -23,7 +23,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody2 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(5)").text());        
       });
       $('#total2').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -53,7 +53,7 @@ $(function(){
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
       $('#verbody5 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(4)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(5)").text());        
       });
       $('#total5').text("S/ "+sumatotal.toFixed(2)); 
     },
@@ -75,12 +75,15 @@ $(function(){
       },
       success: function(data){
         swal.close();
+        $('#diaanterior').val(data[8]);
         $('#caja').val(data[0]);
         $('#credito').val(data[1]);
         $('#ingreso').val(data[2]);
         $('#contado').val(data[3]);
         $('#proveedor').val(data[4]);
         $('#egreso').val(data[5]);
+        $('#real').val(data[6]);
+        $('#diferencia').val(data[7]);
         $('#totaldia').val(parseFloat(parseFloat(data[0])+parseFloat(data[1])+parseFloat(data[2])-parseFloat(data[3])-parseFloat(data[4])-parseFloat(data[5])).toFixed(2));
       }
     });
@@ -150,11 +153,12 @@ $(function(){
         $("#verbody2").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
                   "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td width='45%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
-                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
                   "</tr>";
           $('#verbody2').append(n);
         }
@@ -263,11 +267,12 @@ $(function(){
         $("#verbody5").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td>\n"+
+                  "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
                   "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td width='45%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+  
-                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+  
+                  "<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
                   "</tr>";
           $('#verbody5').append(n);
         }
@@ -277,4 +282,31 @@ $(function(){
     });
   });
 
+  $('#real').keyup(function(){
+    $('#diferencia').val(parseFloat(parseFloat($(this).val())-parseFloat($('#total').val())).toFixed(2));
+  });
+  $('#cerrar').click(function(){
+    swal({
+      title: "Esta Seguro de Cerrar Caja!",
+      text: "",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Aceptar",
+      cancelButtonText: "Cancelar",
+      closeOnConfirm: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        $.ajax({
+          type: "POST",
+          url: "cerrarcaja.php",
+          data: 'total='+$('#total').val()+'&real='+$('#real').val()+'&diferencia='+$('#diferencia').val(),
+          success: function(data){
+          }
+        });
+        swal("Correcto!!", "La caja fue cerrado Correctamente", "success");
+      }
+    });
+  });
 });

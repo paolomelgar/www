@@ -2,14 +2,21 @@
 	session_start();
 	$aa="";
     $bb="001";
-    if($_SESSION['mysql']=="innovaelectric"){
+    if($_SESSION['mysql']=="innovaelectricc"){
       $aa="20601765641";
+      $bb="001";
     }else if($_SESSION['mysql']=="innovaprincipal"){
       $aa="20487211410";
+      $bb="001";
     }else if($_SESSION['mysql']=="prolongacionhuanuco"){
       $aa="10433690058";
+      $bb="001";
     }else if($_SESSION['mysql']=="jauja"){
       $aa="20603695055";
+      $bb="001";
+    }else if($_SESSION['mysql']=="dorispovez"){
+      $aa="20601765641";
+      $bb="004";
     }
     if($aa!=""){
 	    if($_POST['doc']=='FACTURA ELECTRONICA'){

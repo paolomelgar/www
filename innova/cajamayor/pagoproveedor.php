@@ -20,14 +20,14 @@
     }
     while($row=mysqli_fetch_assoc($sql1)){
       $dat[$i][0]="LETRA";
-      $dat[$i][1]="";
-      $dat[$i][2]="";
+      $dat[$i][1]="N° UNICO";
+      $dat[$i][2]=$row['unico'];
       $dat[$i][3]=$row['proveedor'];
       $dat[$i][4]=$row['adelanto'];
       $dat[$i][5]=$row['cambio'];
       $dat[$i][6]=$row['encargadocompra'];
-      $dat[$i][7]=$row['fechapagoo'];
-      $dat[$i][8]="LETRA";
+      $dat[$i][7]=$row['fechapagoletra'];
+      $dat[$i][8]=$row['mediopago'];
       $i++;
     }
     echo json_encode($dat);

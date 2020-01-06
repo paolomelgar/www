@@ -80,16 +80,6 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 							<td align='right'><input type='text' name='credito' id='credito' style='text-align:right' class='span2' readonly='readonly'></td>
 							<td><input name='radio' type='radio' id='2'></td>
 						</tr>
-
-
-						<!-- <tr>
-							<td>VISA:</td>
-							<td align='right'><input type='text' name='visa' id='visa' style='text-align:right' class='span2' readonly='readonly'></td>
-							<td><input name='radio' type='radio' id='5'></td>
-						</tr>
-					-->
-	
-
 						<tr>
 							<td>INGRESOS:</td>
 							<td align='right'><input type='text' name='ingreso' id='ingreso' style='text-align:right' class='span2' readonly='readonly'></td>
@@ -106,8 +96,13 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 							<td></td>
 						</tr>
 						<tr style='background-color:#F63'>
-							<td>CAJA REAL:</td>
+							<td>EFECTIVO:</td>
 							<td align='right'><input type='text' name='real' id='real' style='text-align:right' class='span2'></td>
+							<td></td>
+						</tr>
+						<tr style='background-color:#F63'>
+							<td>VISA/IZIPAY:</td>
+							<td align='right'><input type='text' name='visaizipay' id='visaizipay' style='text-align:right' class='span2'></td>
 							<td></td>
 						</tr>
 						<tr style="background-color: #FF3">
@@ -118,6 +113,16 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 						<tr>
 							<td colspan='3' align='center'><input type='button' value='CERRAR CAJA' id='cerrar' class='btn btn-success'></td>
 						</tr>
+						<tr>
+							<td>#TICKETS:</td>
+							<td align='right'><input type='text' name='ticketss' id='ticketss' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>TICKET PROMEDIO:</td>
+							<td align='right'><input type='text' name='ticketpromedio' id='ticketpromedio' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td></td>
+						</tr>
 					</table>
 				</div>
 			</td>
@@ -127,8 +132,9 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:#FFF; text-align:center;font-size:13px;font-weight:bold">
 				          <th width="10%">SERIE</th>
-				          <th width="15%">HORA</th>
-				          <th width="20%">COMPROBANTE</th>
+				          <th width="7%">HORA</th>
+				          <th width="13%">VENDEDOR</th>
+				          <th width="15%">COMPROBANTE</th>
 				          <th width="35%">CLIENTE</th>
 				          <th width="10%">TOTAL</th>
 				          <th width="10%">VER</th>
@@ -138,7 +144,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 				       </tbody>
 				       <tfoot>
 				        <tr style="font-weight:bold">
-				          <td width='80%' style="text-align:right;border:1px solid #B1B1B1" colspan='4'>TOTAL</td>
+				          <td width='80%' style="text-align:right;border:1px solid #B1B1B1" colspan='5'>TOTAL</td>
 				          <td width='10%' style="text-align:right;border:1px solid #B1B1B1" id='total1'></td>
 				          <td width='10%' style="text-align:right;border:1px solid #B1B1B1"></td>
 				        </tr>
@@ -169,17 +175,18 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 				    <table width="100%" align="center" id='filter3'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">ENCARGADO</th>
+				          <th width="10%">ENCARGADO</th>
+				          <th width="10%">USUARIO</th>
 				          <th width="20%">TIPO</th>
 				          <th width="50%">DETALLE</th>
-				          <th width="15%">MONTO</th>
+				          <th width="10%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody3">
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='15%' id='total3' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>
@@ -189,17 +196,18 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR') {
 				    <table width="100%" align="center" id='filter4'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
-				          <th width="15%">ENCARGADO</th>
+				          <th width="10%">ENCARGADO</th>
+				          <th width="10%">USUARIO</th>
 				          <th width="20%">TIPO</th>
 				          <th width="50%">DETALLE</th>
-				          <th width="15%">MONTO</th>
+				          <th width="10%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody4">
 				       </tbody>
 				       <tfoot>
 				          <tr style="font-weight:bold;">
-				            <td colspan="3" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
+				            <td colspan="4" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
 				            <td align="right" width='15%' id='total4' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>

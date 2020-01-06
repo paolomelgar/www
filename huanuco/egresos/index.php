@@ -48,7 +48,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' ){
       margin-bottom: 0px !important;
     }
     .fila:hover{
-      background: #FF3;
+      background: #99FDFF;
       cursor:pointer;
     }
     #myModal{

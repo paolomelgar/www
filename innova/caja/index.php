@@ -232,7 +232,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
           <td width='15%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <?php if($_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="jauja"){ ?>
+              <?php if($_SESSION['mysql']=="innovaelectric" || $_SESSION['mysql']=="innovaprincipal" || $_SESSION['mysql']=="prolongacionhuanuco" || $_SESSION['mysql']=="dorispovez" || $_SESSION['mysql']=="jauja"){ ?>
               <option value="BOLETA ELECTRONICA">BOLETA ELECTRONICA</option>
               <option value="FACTURA ELECTRONICA">FACTURA ELECTRONICA</option>
             <?php }else{ ?>

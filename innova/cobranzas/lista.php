@@ -24,7 +24,7 @@ require_once('../connection.php');
       $dat[$i][4]=$row['pendiente'];
       $dat[$i][5]=$row['acuenta'];
       $dat[$i][6]=$row['fecha'];
-      $dat[$i][7]=$row['fechapago'];
+      $dat[$i][7]="0";
       $dat[$i][8]=$dif;
       $i++;
     }
