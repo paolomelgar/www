@@ -6,6 +6,6 @@
     }
     $hoy=date("Y-m-d");
     $insert=mysqli_query($con,"UPDATE cajamayor SET ingresos=(ingresos+".$_POST['total'].") WHERE fecha='$hoy'");
-    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion) 
-    				VALUES ('INGRESO','PRESTAMO','".$_POST['total']."','".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','ADMIN')");
+    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+            VALUES ('INGRESO','PRESTAMO','".$_POST['total']."','".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','EFECTIVO')");
   }

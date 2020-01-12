@@ -180,13 +180,14 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:white;text-align:center;font-size:13px;font-weight:bold">
 				          <th width="8%">TIPO</th>
-				          <th width="8%">MEDIO PAGO</th>
-				          <th width="8%">BANCO</th>
+				          <th width="6%">MEDIO PAGO</th>
+				          <th width="6%">BANCO</th>
 				          <th width="8%">N OPE.</th>
 				          <th width="10%">FECHA PAGO</th>
 				          <th width="10%">ENCARGADO</th>
 				          <th width="36%">PROVEEDOR</th>
-				          <th width="12%">MONTO</th>
+				          <th width="8%">INTERES</th>
+				          <th width="8%">MONTO</th>
 				        </tr>
 				       </thead>
 				       <tbody id="verbody4">
@@ -194,7 +195,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 				       <tfoot>
 				          <tr style="font-weight:bold;">
 				            <td colspan="7" align='right' style='border:1px solid #B1B1B1'>TOTAL</td>
-				            <td align="right" width='10%' id='total4' style='border:1px solid #B1B1B1'></td>
+				            <td align="right" width='8%' id='total4' style='border:1px solid #B1B1B1'></td>
+				            <td align="right" width='10%' id='total10' style='border:1px solid #B1B1B1'></td>
 				          </tr>
 				       </tfoot>
 				    </table>

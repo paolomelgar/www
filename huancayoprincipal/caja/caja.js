@@ -591,26 +591,32 @@ var stock,compra,promotor,unit;
             data[0].sort(function(a, b) {
                 return a[8] - b[8];
             });
-            $('#dx').append("<table width='78%' style='margin-top:135px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][12]+"</td><td width='10%'>Serie: </td><td width='25%' style='font-size:1.2em;font-weight:bold'>"+data[1][13]+"</td></tr></table>\n"+
-              "<table width='78%' style='margin-top:0px;font:0.8em arial;'><tr><td width='5%'>&nbsp</td><td width='60%'>"+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
-              "<table width='78%' style='margin-top:3px;font:0.7em arial;'><tr><td width='5%'>&nbsp</td><td width='95%'>"+data[1][2].slice(0,84)+"</td></tr></table>\n"+
-              "<table width='78%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
-            );
-            for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='78%' style='margin-top:-5px;font:0.8em arial;'><tr><td width='4%' align='right'>"+data[0][i][1]+"</td><td width='2%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
-            }
-            if(parseFloat(data[1][4])!=0){
-              $('#dx').append("<table width='78%' style='margin-top:-2px;margin-bottom:5px;font:0.7em arial;'><tr><td width='20%' align='right'>DEVOLUCIONES:</td><td colspan='3' width='70%' align='right'>SUBTOTAL</td><td align='right'>"+data[1][3]+"</td></tr></table><hr style='margin-top:-8px'>");
-              for (var i=0;i<data[2].length;i++) {
-                $('#dx').append("<table width='78%' style='margin-top:-5px;font:0.8em arial;'><tr><td width='4%' align='right'>"+data[2][i][1]+"</td><td width='2%'></td><td width='72%'>"+data[2][i][0]+"</td><td width='10%' align='right'>"+data[2][i][2]+"</td><td width='12%' align='right'>"+data[2][i][3]+"</td></tr></table>");
+              $('#dx').append("<div align='center'><img id='theImg' src='../logo_ferreboom.jpg' style='width:300px;height:80px;'></div>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><tr></tr><td width='100%' align='center'>NOTA DE PEDIDO</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>JR. ANCASH 101 - CHILCA - HUANCAYO - JUNIN</td><td width='10%'>SERIE: </td><td width='25%' style='font-size:0.9em;font-weight:bold'>"+data[1][13]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='font:0.7em Verdana;margin-top:-7px;'><tr><td width='100%' align='center'>CEL: 948394809 - 975380302 BCP: CUENTA CORRIENTE 355-2284965-0-10</td></tr></table>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-5px;'><tr><td width='10%'>FECHA: "+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>CLIENTE: "+data[1][1]+"</td><td width='10%'>Vendedor: </td><td width='25%'>"+data[1][6]+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:-5px;font:0.8em Verdana;'><tr><td width='100%'>DIRECCION: "+data[1][2].slice(0,84)+"</td></tr></table>\n"+
+              "<table width='80%' align='center' style='margin-top:0px;font:0.7em Verdana;margin-bottom:3px'><tr style='background-color:black;color:white;'><td width='3%' align='center'>CAN</td><td width='75%' align='center'>PRODUCTO</td><td width='10%' align='center'>P.UNIT</td><td width='12%' align='center'>IMPORTE</td></tr></table>\n"
+              );
+              for (var i=0;i<data[0].length;i++) {
+                $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em Verdana'><tr><td width='3%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[0][i][0]+"</td><td width='10%' align='right'>"+data[0][i][2]+"</td><td width='12%' align='right'>"+data[0][i][3]+"</td></tr></table>");
               }
-              $('#dx').append("<table width='78%' style='margin-top:-5px;font:0.8em arial;'><tr><td colspan='4' width='90%' align='right'>DEVOLUCION</td><td align='right'>"+data[1][4]+"</td></tr></table>");
-            }
-            $('#dx').append("<table width='78%' style='margin-top:10px;font:0.8em arial;'><tr><td colspan='4' width='90%' align='right'>TOTAL</td><td align='right'>"+data[1][5]+"</td></tr></table>");
-            $('#dx').append("<table width='78%' style='margin-top:20px;font:0.8em arial;'><tr><td width='5%'></td><td colspan='4' width='95%'>OBS: "+data[1][7]+"</td></tr></table>");
-            $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='left'>CEL: 948394809 - 975380302  BCP: CUENTA CORRIENTE 355-2284965-0-10</td></tr></table></div>");
+              if(parseFloat(data[1][4])!=0){
+                $('#dx').append("<table width='80%' align='center' style='margin-top:-2px;margin-bottom:5px;font:0.7em arial;'><tr><td width='20%' align='right'>DEVOLUCIONES:</td><td colspan='3' width='70%' align='right'>SUBTOTAL</td><td align='right'>"+data[1][3]+"</td></tr></table><hr style='margin-top:-8px'>");
+                for (var i=0;i<data[2].length;i++) {
+                  $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em arial;'><tr><td width='3%' align='right'>"+data[2][i][1]+"</td><td width='3%'></td><td width='72%'>"+data[2][i][0]+"</td><td width='10%' align='right'>"+data[2][i][2]+"</td><td width='12%' align='right'>"+data[2][i][3]+"</td></tr></table>");
+                }
+                $('#dx').append("<table width='80%' align='center' style='margin-top:-6px;font:0.7em arial;'><tr><td colspan='4' width='90%' align='right'>DEVOLUCION</td><td align='right'>"+data[1][4]+"</td></tr></table>");
+              }
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td align='right' width='100%'>TOTAL: S/ "+data[1][5]+"</td></tr></table></div>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%'>OBS: "+data[1][7]+"</td></tr></table>");
+              $('#dx').append("<table width='80%' align='center' style='font:0.8em Verdana;margin-top:-6px;'><tr><td width='100%' align='center'>GRACIAS POR SU PREFERENCIA</td></tr></table></div>");
+              
             contenid = document.getElementById("dx");
             w.document.write("<html><head><style type='text/css'>@page{size:A4 portrait;}</style></head><body>"+contenid.innerHTML+"</body></html>");
+           
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'GUIA DE REMISION':

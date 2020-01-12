@@ -3,10 +3,14 @@ session_start();
 require_once('../connection.php');
 $search = explode(" ", $_POST['b']);
 $producto = "";
-foreach($search AS $s){
-    $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
+if(substr($_POST['b'],0,3)=='C/ '){
+    $producto .= "codigo=".substr($_POST['b'],3)."";
+}else{
+    foreach($search AS $s){
+        $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";
+    }
+    $producto = substr($producto, 0, -4);
 }
-$producto = substr($producto, 0, -4);
 $num=($_POST['numero']-1)*$_POST['pagina'];
 
 if($_POST['cont']=="CONT"){

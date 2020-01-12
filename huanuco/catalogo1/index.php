@@ -98,12 +98,15 @@ while($r=mysqli_fetch_assoc($query)){
 				$pdf->SetTextColor(60,60,60);
 				$pdf->SetXY($x+5,$y+2);
 				if(mysqli_num_rows($sq)>0){
-					$pdf->Cell(54,6,$pdf->Image('../fotos/marca/a'.$row1[0].'.jpg', $pdf->GetX()+10, $pdf->GetY(),35,6),'','','C');
+					$pdf->Cell(40,6,$pdf->Image('../fotos/marca/a'.$row1[0].'.jpg', $pdf->GetX()+2, $pdf->GetY(),36,6),'','','C');
 				}else{
 					$pdf->SetFont('Arial','B',14);
-					$pdf->SetXY($x+9,$y+2);
-					$pdf->Cell(54,6,$marca[$j],'','','C',true);
+					$pdf->SetXY($x+5,$y+2);
+					$pdf->Cell(40,6,$marca[$j],'','','C',true);
 				}
+				$pdf->SetTextColor(255,0,0);
+				$pdf->SetFont('Arial','B',13);
+				$pdf->Cell(20,6,$prod[$j],'','','R',true);
 				$pdf->SetXY($x+7, $y-55);
 				$pdf->SetFont('Arial','B',9);
 				$pdf->SetTextColor(80,80,80);

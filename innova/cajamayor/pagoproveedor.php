@@ -16,6 +16,7 @@
       $dat[$i][6]=$row['encargadocompra'];
       $dat[$i][7]=$row['fechapago'];
       $dat[$i][8]=$row['mediopago'];
+      $dat[$i][10]=3;
       $i++;
     }
     while($row=mysqli_fetch_assoc($sql1)){
@@ -28,6 +29,8 @@
       $dat[$i][6]=$row['encargadocompra'];
       $dat[$i][7]=$row['fechapagoletra'];
       $dat[$i][8]=$row['mediopago'];
+      $dat[$i][9]=$row['monto'];
+      $dat[$i][10]=4;
       $i++;
     }
     echo json_encode($dat);

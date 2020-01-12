@@ -127,8 +127,18 @@ $(function(){
 	                cache: false,
 	                contentType: false,
 			        processData: false,
+			        beforeSend:function(){
+		                swal({
+		                  title: "Espere por favor",
+		                  text: "",
+		                  imageUrl: "../loading.gif",
+		                  showConfirmButton: false,
+		                  allowOutsideClick:false
+		                });
+		            },
 	                success: function(data){
-	                   total();
+	                	swal.close();
+	                    total();
 	                }
 	            });
 	            $( this ).dialog( "close" ); 

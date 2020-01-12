@@ -92,12 +92,14 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
             <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
             <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
             <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+            <option id='MARKETING'>MARKETING</option>
             <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
             <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
             <option id='VIATICOS'>VIATICOS</option>
             <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
             <option id='LIMPIEZA'>LIMPIEZA</option>
             <option id='COLABORACION'>COLABORACION</option>
+            <option id='CONSTRUCCION ALMACEN'>CONSTRUCCION ALMACEN</option>
             <option id='OTROS'>OTROS</option>
           </select>
         </td>

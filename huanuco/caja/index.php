@@ -317,7 +317,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
-                      <option id='PAULO'>PAULO MELGAR</option>
+                      <option id='PAOLO'>PAOLO MELGAR</option>
                       <option id='DAVID'>DAVID PEREZ</option>
                       <option id='ABEL'>ABEL MALPARTIDA</option>
                       <option id='LINCOL'>LINCOL JULCA</option>

@@ -42,10 +42,13 @@ $(function(){
   $('#filter4').tableFilter({
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
+      var sumatotal1  = 0;
       $('#verbody4 tr').filter(":visible").each(function(){
-        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text());        
+        sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text());
+        sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(8)").text());
       });
-      $('#total4').text("S/ "+sumatotal.toFixed(2)); 
+      $('#total4').text("S/ "+sumatotal.toFixed(2));
+      $('#total10').text("S/ "+sumatotal1.toFixed(2));
     },
     enableCookies: false
   });
@@ -224,12 +227,21 @@ $(function(){
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'>\n"+
                   "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][8]+"</td>\n"+
-                  "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
+                  "<td align='center' width='6%' style='border:1px solid #B1B1B1'>"+data[i][8]+"</td>\n"+
+                  "<td align='center' width='6%' style='border:1px solid #B1B1B1'>"+data[i][1]+"</td>\n"+
                   "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][2]+"</td>\n"+
                   "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][7]+"</td>\n"+
                   "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n"+
                   "<td width='36%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>";
+                  if(data[i][10]>3){
+                    if(data[i][5]>0){
+                      n+="<td align='right' width='6%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]*data[i][5]-data[i][9]*data[i][5]).toFixed(2)+"</td>";
+                    }else{
+                      n+="<td align='right' width='6%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]-data[i][9]).toFixed(2)+"</td>";
+                    }
+                  }else{
+                    n+="<td align='right' width='6%' style='border:1px solid #B1B1B1'>"+parseFloat(0.00).toFixed(2)+"</td>";
+                  }
                   if(data[i][5]>0){
                     n+="<td align='right' width='10%' style='border:1px solid #B1B1B1'>"+parseFloat(data[i][4]*data[i][5]).toFixed(2)+"</td>";
                   }else{

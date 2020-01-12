@@ -314,6 +314,28 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                     </select>
                   </td>
                 </tr>
+                <tr class='personal' style='display:none'>
+                  <td>COLABORADOR:</td>
+                  <td>
+                    <select id='personal' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='PAULO'>PAULO MELGAR</option>
+                      <option id='YAJAYRA'>YAJAYRA QUEVEDO</option>
+                      <option id='SAYURI'>SAYURI ARMAS</option>
+                      <option id='MARCO'>MARCO PEÑA</option>
+                      <option id='DADDY'>DADDY SERVA</option>
+                      <option id='ROCIO'>ROCIO TITO</option>
+                      <option id='MIGUEL'>MIGUEL ARIZACA</option>
+                      <option id='RAUL'>RAUL GALARZA</option>
+                      <option id='PEDRO'>PEDRO ROJAS</option>
+                      <option id='ANGEL'>ANGEL SOLANO</option>
+                      <option id='JACINTO'>JACINTO RODRIGUEZ</option>
+                      <option id='PAOLA'>PAOLA MELGAR</option>
+                      <option id='PAUL'>PAUL MELGAR</option>
+                      <option id='JOSE MIGUEL'>MIGUEL MURIA</option>
+                    </select>
+                  </td>
+                </tr>
                 <tr>
                   <td>MONTO:</td>
                   <td><input type='text' id='monto' style='text-align:right' class='span2'></td>

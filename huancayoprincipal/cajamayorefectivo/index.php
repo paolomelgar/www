@@ -71,6 +71,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 							<td align='right'><input type='text' name='fecha' id='fecha' style='cursor:pointer;text-align:right' class='span2'></td>
 						</tr>
 						<tr>
+							<td>DIA ANTERIOR:</td>
+							<td align='right'><input type='text' name='diaanterior' id='diaanterior' style='cursor:pointer;text-align:right' class='span2' readonly='readonly'></td>
+						</tr>
+						<tr>
 							<td>CAJA TIENDA:</td>
 							<td align='right'><input type='text' name='caja' id='caja' style='cursor:pointer;text-align:right' class='span2' readonly='readonly'></td>
 						</tr>
@@ -101,8 +105,21 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 						</tr>
 						<tr style="background-color: #FF3">
 							<td>TOTAL DEL DIA:</td>
-							<td align='right'><input type='text' name='totaldia' id='totaldia' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td align='right'><input type='text' name='total' id='total' style='text-align:right' class='span2' readonly='readonly'></td>
 							<td></td>
+						<tr>
+						<tr style='background-color:#F63'>
+							<td>CAJA REAL:</td>
+							<td align='right'><input type='text' name='real' id='real' style='text-align:right' class='span2'></td>
+							<td></td>
+						</tr>
+						<tr style="background-color: #FF3">
+							<td>DIFERENCIA:</td>
+							<td align='right'><input type='text' name='diferencia' id='diferencia' style='text-align:right' class='span2' readonly='readonly'></td>
+							<td></td>
+						</tr>
+							<td colspan='3' align='center'><input type='button' value='CERRAR CAJA' id='cerrar' class='btn btn-success'></td>
+						</tr>
 						</tr>
 					</table>
 				</div>

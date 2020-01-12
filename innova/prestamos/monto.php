@@ -11,6 +11,6 @@ $que=mysqli_query($con,"INSERT INTO pagoprestamos (serie,monto,fecha,banco,dni)
                         '".$_POST['documento']."'
                     )");
 $sql=mysqli_query($con,"UPDATE prestamos SET pendiente='NO' WHERE id='".$_POST['id']."'");
-$insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion) 
-				VALUES ('EGRESO','PRESTAMO','".$_POST['monto']."','".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','ADMIN')");
+$insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+    				VALUES ('EGRESO','PRESTAMO','".$_POST['monto']."','".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','EFECTIVO')");
 ?>

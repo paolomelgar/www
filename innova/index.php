@@ -100,6 +100,7 @@ session_start();
                 <option disabled selected value>Local</option>
                 <option value='dorispovez'>Doris Povez</option>
                 <option value='johannagutierrez'>Johanna Gutierrez</option>
+                <option value='prolongacionhuanuco'>Prol huanuco</option>
                 <option value='laprincipal'>La Principal</option>
                 <option value='innovahuanuco'>Innova Huanuco</option>
                 <option value='innovaprincipal'>Innova Principal</option>

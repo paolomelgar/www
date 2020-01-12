@@ -209,6 +209,8 @@ if($_SESSION['valida']=='innova'){
 							  	<ul>
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
+									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
+                  					<li><a href="../cajamayortarjeta/" target="contenedor">CAJA MAYOR TARJETA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
@@ -270,6 +272,8 @@ if($_SESSION['valida']=='innova'){
 							  	<ul>
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
+									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
+                  					<li><a href="../cajamayortarjeta/" target="contenedor">CAJA MAYOR TARJETA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
@@ -314,6 +318,8 @@ if($_SESSION['valida']=='innova'){
 							  	<ul>
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
+									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
+                  					<li><a href="../cajamayortarjeta/" target="contenedor">CAJA MAYOR TARJETA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>							
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
@@ -351,6 +357,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cajadeldia/" target="contenedor">CAJA DEL DIA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
+									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
 								</ul>
 							</li>				
 						</ul>
