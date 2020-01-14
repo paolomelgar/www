@@ -314,6 +314,39 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                     </select>
                   </td>
                 </tr>
+                <tr class='personal' style='display:none'>
+                  <td>COLABORADOR:</td>
+                  <td>
+                    <select id='personal' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='PAULO'>PAULO MELGAR</option>
+                      <option id='DAVID'>DAVID PRESENTACION</option>
+                      <option id='YENSON'>YENSON </option>
+                      <option id='COLMENARES'>FERNANDO COLMENARES</option>
+                      <option id='EDGAR'>EDGAR MELGAR</option>
+                      <option id='FERNANDO'>FERNANDO MELGAR</option>
+                      <option id='ANDRES'>ANDRES ALANIA</option>
+                      <option id='JEANPIER'>JEANPIER VASQUEZ</option>
+                      <option id='JORGEN'>JORGEN VERACIERTA</option>
+                      <option id='DUNAE'>DUNAE TORRES</option>
+                      <option id='SERGIO'>SERGIO BOZA</option>
+                      <option id='SCOOT'>SCOOT OSORES</option>
+                      <option id='EDWIN'>EDWIN ANTONIO</option>
+                      <option id='JOVITA'>JOVITA SOTO</option>
+                      <option id='JASMIN'>JASMIN CARDENAS</option>
+                      <option id='KANDY'>KANDY QUINCHO</option>
+                      <option id='WILMER'>WILMER MARQUEZ</option>
+                      <option id='PAOLA'>PAOLA MELGAR</option>
+                      <option id='JULIO'>JULIO SANCHEZ</option>
+                      <option id='JON'>JON SANCHEZ</option>
+                      <option id='REYDER'>REYDER COCA</option>
+                      <option id='BRUNO'>BRUNO CARDENAS</option>
+                      <option id='YOEL'>YOEL ESPINOZA</option>
+                      <option id='WILMER'>WILMER MARQUEZ</option>
+                      <option id='PAUL'>PAUL MELGAR</option>
+                    </select>
+                  </td>
+                </tr>
                 <tr>
                   <td>MONTO:</td>
                   <td><input type='text' id='monto' style='text-align:right' class='span2'></td>

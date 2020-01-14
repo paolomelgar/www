@@ -62,10 +62,34 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         text-align: center;
         font-size: 30px;
       }
+    .error {
+      width:300px;
+      height:20px;
+      height:auto;
+      position:absolute;
+      left:50%;
+      margin-left:-100px;
+      bottom:10px;
+      background-color: black;
+      color: #F0F0F0;
+      font-family: Calibri;
+      font-size: 20px;
+      padding:10px;
+      text-align:center;
+      border-radius: 2px;
+      z-index:1000;
+      -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      pointer-events:none;
+      opacity:0.5;
+  }
   </style>
 </head>
 <body>
+  <div class='error' style='display:none'>Guardado Correctamente</div>
   <form id="form" name="form" action="" method="post" autocomplete="off">
+    <input type='hidden' value='<?php echo $_SESSION['nombre']?>' id='nombre'>
     <div id="informacion">
       <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;' class='btn-info'>REGISTRO DE INGRESOS Y EGRESOS</h3>
       <table width="100%">
@@ -114,6 +138,29 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           </select>
         </td>
       </tr>
+      <tr class='personal' style='display:none'>
+                  <td>COLABORADOR:</td>
+                  <td>
+                    <select id='personal' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='PAULO'>PAULO MELGAR</option>
+                      <option id='DADDY'>DADDY SERVA</option>
+                      <option id='ROCIO'>ROCIO TITO</option>
+                      <option id='PAOLA'>PAOLA MELGAR</option>
+                      <option id='SAYURI'>SAYURI ARMAS</option>
+                      <option id='MIGUEL'>MIGUEL ARIZACA</option>
+                      <option id='RAUL'>RAUL GALARZA</option>
+                      <option id='ANGEL'>ANGEL SOLANO</option>
+                      <option id='YAJAYRA'>YAJAYRA QUEVEDO</option>
+                      <option id='MARCO'>MARCO PEÑA</option>
+                      <option id='PEDRO'>PEDRO ROJAS</option>
+                      <option id='JACINTO'>JACINTO RODRIGUEZ</option>
+                      <option id='JOSE MIGUEL'>MIGUEL MURIA</option>
+                      <option id='PAUL'>PAUL MELGAR</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
       <tr>
         <td>MONTO:</td>
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>

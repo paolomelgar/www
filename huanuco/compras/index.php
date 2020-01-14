@@ -222,6 +222,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']=='ADMIN' || $_SESSION['c
           <td width='20%'>
             Cond Pago:
             <select class='span2' id="forma-pago" name="forma-pago" style='margin-bottom: 0px;'>
+              <option value="CONTADO" style="display:none">CONTADO</option>
               <option value="CREDITO" style="display:none">CREDITO</option>
             </select>
           </td>

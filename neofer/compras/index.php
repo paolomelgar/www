@@ -37,7 +37,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
   }
   .selected {
     cursor: pointer;
-    background: #FF3 !important;
+    background: #99FDFF !important;
   }
   .select {
     background: #F63 !important;

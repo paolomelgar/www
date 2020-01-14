@@ -662,7 +662,7 @@ var stock,compra,promotor,unit;
               location.reload();
             }
           }, 200);
-        }, 200);
+        }, 800);
         
       }
     });
@@ -1789,13 +1789,14 @@ var stock,compra,promotor,unit;
           $.ajax({
             type:"POST",
             url:"ingresos.php",
-            data:"oper="+$('#operacion').val()+"&tipo="+
-            $('#tipomov').val()+"&monto="+
-            $('#monto').val()+"&detalle="+
-            $('#detalle').val()+"&transporte="+
-            $('#transporte').val()+"&mediopago="+
-            $('#mediopago').val()+"&encar="+
-            $('#vendedor').val(),
+            data:"oper="+$('#operacion').val()+
+            "&tipo="+$('#tipomov').val()+
+            "&monto="+$('#monto').val()+
+            "&detalle="+$('#detalle').val()+
+            "&transporte="+$('#transporte').val()+
+            "&mediopago="+$('#mediopago').val()+
+            "&personal="+$('#personal').val()+
+            "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
             }
@@ -1806,15 +1807,27 @@ var stock,compra,promotor,unit;
       open: function() {
         $('#monto').val("");
         $('#detalle').val("");
-        $('select[id="tipomov"]').val("");
+        $('#personal').val("");
+        $('#operacion').val("");
+        $('#tipomov').val("");
         $('select[id="operacion"]').val("EGRESO");
         $('#transporte').val("");
         $('.transporte').hide();
+        $('.detalle').hide();
+        $('.personal').hide();
         $('#tipomov').change(function(){
-          if($('select[id="tipomov"]').val()=='FLETES'){
+          if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
+            $('.detalle').hide();
+            $('.personal').hide();
+          }else if($('select[id="tipomov"]').val()=='PERSONAL'){
+            $('.detalle').hide();
+            $('.personal').show();
+            $('.transporte').hide();
           }else{
             $('.transporte').hide();
+            $('.personal').hide();
+            $('.detalle').show();
           }
         });
         $(this).parents('.ui-dialog-buttonpane button:hass(Si)').focus();

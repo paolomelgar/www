@@ -1716,7 +1716,13 @@ var stock,compra,promotor,unit;
           $.ajax({
             type:"POST",
             url:"ingresos.php",
-            data:"oper="+$('#operacion').val()+"&tipo="+$('#tipomov').val()+"&monto="+$('#monto').val()+"&concepto="+$('#concepto').val()+"&personal="+$('#personal').val()+"&servicios="+$('#servicios').val()+"&impuestos="+$('#impuestos').val(),
+            data:"oper="+$('#operacion').val()+
+            "&tipo="+$('#tipomov').val()+
+            "&monto="+$('#monto').val()+
+            "&concepto="+$('#concepto').val()+
+            "&personal="+$('#personal').val()+
+            "&servicios="+$('#servicios').val()+
+            "&impuestos="+$('#impuestos').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
             }

@@ -509,6 +509,9 @@ $(function(){
     $("#4").keyup(function(){
       $('#12').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
     });
+    $("#5").keyup(function(){
+      $('#13').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
+    });
     $.ajax({
       type: "POST",
       url: "verprecios.php",

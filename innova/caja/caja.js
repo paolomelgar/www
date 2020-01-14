@@ -2117,14 +2117,14 @@ var stock,compra,promotor,unit,y=7;
           $.ajax({
             type:"POST",
             url:"ingresos.php",
-            data:"oper="+$('#operacion').val()+"&tipo="+
-            $('#tipomov').val()+"&monto="+
-            $('#monto').val()+"&detalle="+
-            $('#detalle').val()+"&transporte="+
-            $('#transporte').val()+"&mediopago="+
-            $('#mediopago').val()+"&personal="+
-            $('#personal').val()+"&encar="+
-            $('#vendedor').val(),
+            data:"oper="+$('#operacion').val()+
+            "&tipo="+$('#tipomov').val()+
+            "&monto="+$('#monto').val()+
+            "&detalle="+$('#detalle').val()+
+            "&transporte="+$('#transporte').val()+
+            "&mediopago="+$('#mediopago').val()+
+            "&personal="+$('#personal').val()+
+            "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
             }

@@ -40,7 +40,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       text-transform:uppercase;
     }
     .tr:hover{
-      background-color: #FF3;
+      background-color: #99FDFF;
     }
     a#add:link{text-decoration:none;font-weight:bold;color:red;font-size: 18px;}
     a#add:visited{text-decoration:none;font-weight:bold;color:red;font-size: 18px;}

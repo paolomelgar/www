@@ -50,10 +50,34 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       background: #FF3;
       cursor:pointer;
     }
+    .error {
+      width:300px;
+      height:20px;
+      height:auto;
+      position:absolute;
+      left:50%;
+      margin-left:-100px;
+      bottom:10px;
+      background-color: black;
+      color: #F0F0F0;
+      font-family: Calibri;
+      font-size: 20px;
+      padding:10px;
+      text-align:center;
+      border-radius: 2px;
+      z-index:1000;
+      -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      pointer-events:none;
+      opacity:0.5;
+  }
   </style>
 </head>
 <body>
+  <div class='error' style='display:none'>Guardado Correctamente</div>
   <form id="form" name="form" action="" method="post" autocomplete="off">
+    <input type='hidden' value='<?php echo $_SESSION['nombre']?>' id='nombre'>
     <div id="informacion">
       <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;' class='btn-info'>REGISTRO DE INGRESOS Y EGRESOS</h3>
       <table width="100%">
@@ -104,6 +128,40 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           </select>
         </td>
       </tr>
+      <tr class='personal' style='display:none'>
+                  <td>COLABORADOR:</td>
+                  <td>
+                    <select id='personal' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='PAULO'>PAULO MELGAR</option>
+                      <option id='DAVID'>DAVID PRESENTACION</option>
+                      <option id='YENSON'>YENSON </option>
+                      <option id='COLMENARES'>FERNANDO COLMENARES</option>
+                      <option id='EDGAR'>EDGAR MELGAR</option>
+                      <option id='FERNANDO'>FERNANDO MELGAR</option>
+                      <option id='ANDRES'>ANDRES ALANIA</option>
+                      <option id='JEANPIER'>JEANPIER VASQUEZ</option>
+                      <option id='JORGEN'>JORGEN VERACIERTA</option>
+                      <option id='DUNAE'>DUNAE TORRES</option>
+                      <option id='SERGIO'>SERGIO BOZA</option>
+                      <option id='SCOOT'>SCOOT OSORES</option>
+                      <option id='EDWIN'>EDWIN ANTONIO</option>
+                      <option id='JOVITA'>JOVITA SOTO</option>
+                      <option id='JASMIN'>JASMIN CARDENAS</option>
+                      <option id='KANDY'>KANDY QUINCHO</option>
+                      <option id='WILMER'>WILMER MARQUEZ</option>
+                      <option id='PAOLA'>PAOLA MELGAR</option>
+                      <option id='JULIO'>JULIO SANCHEZ</option>
+                      <option id='JON'>JON SANCHEZ</option>
+                      <option id='REYDER'>REYDER COCA</option>
+                      <option id='BRUNO'>BRUNO CARDENAS</option>
+                      <option id='YOEL'>YOEL ESPINOZA</option>
+                      <option id='WILMER'>WILMER MARQUEZ</option>
+                      <option id='PAUL'>PAUL MELGAR</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
       <tr>
         <td>MONTO:</td>
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>

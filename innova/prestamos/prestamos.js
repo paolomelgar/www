@@ -137,10 +137,11 @@ $(function(){
     });
   });
   $("#row").on('click','.cobrar',function(){
-    var serie=$(this).parent().parent().find('td:eq(7)').text();
+    var serie=$(this).parent().parent().find('td:eq(9)').text();
     var banco=$(this).parent().parent().find('td:eq(1)').text();
     var documento=$(this).parent().parent().find('td:eq(2)').text();
     var monto=$(this).parent().parent().find('td:eq(3)').text();
+    var interes=$(this).parent().parent().find('td:eq(4)').text();
     swal({
       title: "Esta Seguro de Realizar el Pago!",
       text: "",
@@ -155,7 +156,7 @@ $(function(){
         $.ajax({
           type: "POST",
           url: "monto.php",
-          data: 'id='+serie+'&banco='+banco+'&documento='+documento+'&monto='+monto,
+          data: 'id='+serie+'&banco='+banco+'&documento='+documento+'&monto='+monto+'&interes='+interes,
           success: function(data){
             $.ajax({
               type: "POST",

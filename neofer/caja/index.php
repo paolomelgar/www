@@ -39,7 +39,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
   }
   .selected {
     cursor: pointer;
-    background: #FF3 !important;
+    background: #99FDFF !important;
   }
   .select {
     background: #F63 !important;
@@ -308,7 +308,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
                       <option id='MARILIA'>MARILIA</option>
-                      <option id='ESLI'>ESLI</option>
+                      <option id='VERONICA'>VERONICA</option>
                     </select>
                   </td>
                 </tr>

@@ -299,14 +299,8 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='PERSONAL'>PERSONAL</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
                       <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
-                      <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
-                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
                       <option id='IMPUESTOS'>IMPUESTOS</option>
-                      <option id='VIATICOS'>VIATICOS</option>
-                      <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
-                      <option id='LIMPIEZA'>LIMPIEZA</option>
-                      <option id='COLABORACION'>COLABORACION</option>
                       <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
@@ -319,10 +313,8 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option style='display:none'></option>
                       <option id='PAOLO'>PAOLO MELGAR</option>
                       <option id='DAVID'>DAVID PEREZ</option>
-                      <option id='ABEL'>ABEL MALPARTIDA</option>
-                      <option id='LINCOL'>LINCOL JULCA</option>
-                      <option id='JERSON'>JERSON CHUQUIYAURI</option>
                       <option id='PEDRO'>PEDRO MELGAR</option>
+                      <option id='DANIEL'>DANIEL MERA</option>
                     </select>
                   </td>
                 </tr>

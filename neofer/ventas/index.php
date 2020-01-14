@@ -38,7 +38,7 @@ if($_SESSION['valida']=='neofer'){
   }
   .selected {
     cursor: pointer;
-    background: #FF3 !important;
+    background: #99FDFF !important;
   }
   .select {
     background: #F63 !important;

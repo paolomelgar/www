@@ -82,7 +82,7 @@ while($r=mysqli_fetch_assoc($query)){
 		$nuevo[$i]=$row['fecha'];
 		$r=$pdf->GetX();
 		$pdf->SetX($r+8);
-		$pdf->Cell(54,54,$pdf->Image('../fotos/producto/a'.$row['codigo'].'.jpg', $pdf->GetX()+2, $pdf->GetY()+2,54,54),'','','C');
+		$pdf->Cell(54,54,$pdf->Image('../fotos/producto/a'.$row['codigo'].'.jpg', $pdf->GetX()+4, $pdf->GetY()+6,50,50),'','','C');
 		$i++;
 		$m++;
 		if($i>2){
@@ -167,7 +167,11 @@ while($r=mysqli_fetch_assoc($query)){
 		$pdf->SetX($x+8);
 		$pdf->SetTextColor(60,60,60);
 		$pdf->SetFont('Arial','B',14);
-		$pdf->Cell(54,4,$marca[$j],'','','C',true);
+		$pdf->SetXY($x+5,$y+2);
+		$pdf->Cell(40,6,$marca[$j],'','','C',true);
+		$pdf->SetTextColor(255,0,0);
+				$pdf->SetFont('Arial','B',13);
+				$pdf->Cell(20,6,$prod[$j],'','','R',true);
 		$pdf->SetXY($x + 6, $y-54);
 		$pdf->SetFont('Arial','B',9);
 		$pdf->SetTextColor(80,80,80);
