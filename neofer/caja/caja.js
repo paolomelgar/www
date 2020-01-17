@@ -1416,7 +1416,7 @@ $('#tienda').click(function(){
             break;
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 'FACTURA':
-              igv=parseFloat($('#subtotal').val()*18/118).toFixed(2);
+              igv=parseFloat(0).toFixed(2);
               var subigv=parseFloat($('#subtotal').val()-igv).toFixed(2);
               $(this).append("<div id='xd' align='center'><table width='100%' style='margin-top:0px;font:0.9em Verdana;'><tr><td width='8%'>&nbsp</td><td width='92%'>"+$('#fecha').val()+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:0px;font:0.9em Verdana;'><tr><td width='8%'>&nbsp</td><td width='67%'>"+$('#razon_social').val()+"</td><td width='15%'>&nbsp</td><td width='10%'>"+$('#ruc').val()+"</td></tr></table>\n"+

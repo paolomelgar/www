@@ -8,7 +8,9 @@ $(function(){
     monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);;
-
+  $('#res').on('click','.text',function () {
+      document.execCommand('selectAll', false, null);
+  });
   $('#filter1').tableFilter({
     filteredRows: function(filterStates) {
       var sumatotal  = 0;
@@ -264,4 +266,16 @@ $(function(){
       }
     });
   });
+  function suma(){
+    var z=0;
+    $('#res tr').each(function () {
+      z+=parseFloat($(this).find('td:eq(2)').text()); 
+    });
+    return z;
+  }
+  $('#res').on('keyup','td[contenteditable=true]',function(){
+    $(this).parent().find('td:eq(2)').text(parseFloat(parseFloat($(this).parent().find('td:eq(0)').text())*parseFloat($(this).text())).toFixed(2));
+    $('#subtotal').text(parseFloat(suma()).toFixed(2));
+    $('#totalcaja').text(parseFloat(parseFloat(suma()).toFixed(2)-400).toFixed(2));
+});
 });

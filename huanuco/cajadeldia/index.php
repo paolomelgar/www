@@ -198,7 +198,33 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR') {
 			</td>
 		</tr>
 		<tr>
-			<td width='30%' valign='top'><div id='productos' style='overflow:auto;height:100%;'></div></td>
+			<td width='30%' valign='top'>
+				<div id='productos' style='overflow:auto;height:100%;'>
+					<table border='1' width='100%'>
+						<thead>
+							<tr bgcolor="#428bca" style='font-weight: bold'><td align='center' width='32%'>MONTO</td><td align='center' width='32%'>CANTIDAD</td><td align='center' width='36%'>TOTAL</td></tr>
+						</thead>
+						<tbody id='res'>
+							<tr><td align='center' style='color:black'>0.10</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>0.20</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>0.50</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>1.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>2.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>5.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>10.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>20.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>50.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>100.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+							<tr><td align='center' style='color:black'>200.00</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'>0</td><td align='center' style='color:blue;font-weight:bold'>0.00</td></tr>
+						</tbody>
+						<tfoot>
+							<tr><td colspan='2' align='right'>TOTAL DINERO</td><td align='center' style='color:green;font-weight:bold' id='subtotal'>0.00</td></tr>
+							<tr><td colspan='2' align='right'>MONTO A DEJAR</td><td align='center' style='color:black;font-weight:bold' id='cajachica'>400.00</td></tr>
+							<tr><td colspan='2' align='right'>TOTAL A ENTREGAR</td><td align='center' style='color:green;font-weight:bold' id='totalcaja'>-400.00</td></tr>
+						</tfoot>
+					</table>
+				</div>
+			</td>
 		</tr>
 	</table>
 </body>

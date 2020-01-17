@@ -1807,7 +1807,7 @@ var stock,compra,promotor,unit,y=7;
                   $('#xd').append("<table width='100%' style='margin-top:-8px'><tr height='22px'><td>&nbsp</td></tr></table>");
                   v++;
                 }
-                var subigv=parseFloat($('#subtotal').val()/1.18).toFixed(2);
+                var subigv=parseFloat($('#subtotal').val()).toFixed(2);
                 igv=parseFloat($('#subtotal').val()-subigv).toFixed(2);
                 $("#xd").append("<table width='100%' style='font:0.9em Verdana;font-weight:bold;margin-top:0px'><tr><td width='10%'></td><td width='70%' id='letra'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv+"</td></tr></table>\n"+
                   "<table width='100%' style='margin-top:6px;font:0.9em Verdana;font-weight:bold'><tr><td width='90%'></td><td align='right' width='10%'>"+igv+"</td></tr></table>\n"+
