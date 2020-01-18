@@ -1,6 +1,6 @@
 <?php
   require_once('../connection.php');
-      $sql=mysqli_query($con,"SELECT * FROM total_pedido WHERE entregado='NO' ORDER BY hora DESC,fecha,nropedido");
+      $sql=mysqli_query($con,"SELECT * FROM total_pedido WHERE entregado='NO' ORDER BY hora,fecha");
 ?>
     <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
       <thead>

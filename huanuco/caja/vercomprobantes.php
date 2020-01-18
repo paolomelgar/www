@@ -51,6 +51,7 @@
 		    	$data[$i][6]=$row['especial'];
 		    	$data[$i][7]=$s[0];
 		    	$data[$i][8]=$s[1];
+		    	$data[$i][9]=substr($s[1],0,-2);
 		    	$i++;
 		    }
 		}

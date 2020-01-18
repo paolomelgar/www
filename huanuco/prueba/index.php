@@ -57,17 +57,19 @@
 		        data:"ver="+pendi,
 		        success:function(data){
 		        	data[0].sort(function(a, b) {
-		                return a[4] - b[4];
+		                return a[7] - b[7];
 		            });
 		        	var i=0;
 		        	$('#verpendientes').empty();
 		            	var next= "<table width='100%'>\n" +
+		                      "<tr><td align='center' style='color:blue;font-size:15px'>" + data[0][i][5] +"</td></tr>\n" +
 		                      "<tr><td style='padding:0px;' align='center'><img src='../fotos/producto/a"+data[0][i][2]+".jpg?timestamp=23124' width='300px' height='300px'></td></tr>\n"+
-		                      "<tr><td align='center' style='color:gray;font-size:25px'>" + data[0][i][0] +"</td></tr>\n" +
-		                      "<tr><td align='center' style='color:red;font-size:40px'>" + data[0][i][1] +"</td></tr>\n" +
+		                      "<tr><td align='center' style='color:gray;font-size:22px'>" + data[0][i][0] +"</td></tr>\n" +
+		                      "<tr><td align='center' style='color:red;font-size:35px'>" + data[0][i][1] +"</td></tr>\n" +
 		                      "<tr><td align='center' style='font-size:22px'>UBICACION: " + data[0][i][4] +"</td></tr>\n" +
 		                      "<tr><td align='center'>STOCK: "+data[0][i][3]+"</td></tr>\n" +
-		                      "<tr><td align='center' height='150px'><button class='next btn btn-success'>NEXT</button></td></tr>\n" +
+		                      "<tr><td align='center'>CANT CAJA: "+data[0][i][6]+"</td></tr>\n" +
+		                      "<tr><td align='center' height='120px'><button class='next btn btn-success'>NEXT</button></td></tr>\n" +
 		                      "<tr><td align='center'>"+(i+1)+"/"+data[0].length+"</td></tr>\n" +
 		                      "</table>";
 		                      $('#verpendientes').append(next);
@@ -76,12 +78,14 @@
 		            	if(i<data[0].length){
 			            	$('#verpendientes').empty();
 			            	var next= "<table width='100%'>\n" +
+			            		  "<tr><td align='center' style='color:blue;font-size:15px'>" + data[0][i][5] +"</td></tr>\n" +
 			                      "<tr><td style='padding:0px;' align='center'><img src='../fotos/producto/a"+data[0][i][2]+".jpg?timestamp=23124' width='300px' height='300px'></td></tr>\n"+
-			                      "<tr><td align='center' style='color:gray;font-size:25px'>" + data[0][i][0] +"</td></tr>\n" +
-			                      "<tr><td align='center' style='color:red;font-size:40px'>" + data[0][i][1] +"</td></tr>\n" +
+			                      "<tr><td align='center' style='color:gray;font-size:22px'>" + data[0][i][0] +"</td></tr>\n" +
+			                      "<tr><td align='center' style='color:red;font-size:35px'>" + data[0][i][1] +"</td></tr>\n" +
 			                      "<tr><td align='center' style='font-size:22px'>UBICACION: " + data[0][i][4] +"</td></tr>\n" +
 			                      "<tr><td align='center'>STOCK: "+data[0][i][3]+"</td></tr>\n" +
-			                      "<tr><td align='center' height='150px'><button class='next btn btn-success'>NEXT</button></td></tr>\n" +
+			                      "<tr><td align='center'>CANT CAJA: "+data[0][i][6]+"</td></tr>\n" +
+			                      "<tr><td align='center' height='120px'><button class='next btn btn-success'>NEXT</button></td></tr>\n" +
 			                      "<tr><td align='center'>"+(i+1)+"/"+data[0].length+"</td></tr>\n" +
 			                      "</table>";
 			            $('#verpendientes').append(next);

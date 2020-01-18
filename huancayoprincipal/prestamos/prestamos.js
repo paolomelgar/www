@@ -156,7 +156,7 @@ $(function(){
         $.ajax({
           type: "POST",
           url: "monto.php",
-          data: 'id='+serie+'&banco='+banco+'&documento='+documento+'&monto='+monto+'&interes='+interes,
+          data: '&id='+serie+'&banco='+banco+'&documento='+documento+'&monto='+monto+'&interes='+interes,
           success: function(data){
             
           }
