@@ -7,6 +7,18 @@
     }else if($_POST['personal']!=''){
     $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
                 VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."','SUELDO: ".$_POST['personal']." ".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");
+    }else if($_POST['servicios']!=''){
+    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+                VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."',' ".$_POST['servicios']." ".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");
+    }else if($_POST['transportesalida']!=''){
+    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+                VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."',' ".$_POST['transportesalida']." ".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");
+    }else if($_POST['construccion']!=''){
+    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+                VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."',' ".$_POST['construccion']." ".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");
+    }else if($_POST['tributarios']!=''){
+    $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
+                VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."',' ".$_POST['tributarios']." ".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");
     }else{
         $insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
                     VALUES ('".$_POST['oper']."','".$_POST['tipo']."','".$_POST['monto']."','".$_POST['detalle']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','".$_POST['mediopago']."')");

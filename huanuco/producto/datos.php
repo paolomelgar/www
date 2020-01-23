@@ -3,8 +3,10 @@ session_start();
 require_once('../connection.php');
 $search = explode(" ", $_POST['b']);
 $producto = "";
-if(substr($_POST['b'],0,3)=='C/ '){
+if(substr($_POST['b'],0,3)=='/C '){
     $producto .= "codigo=".substr($_POST['b'],3)."";
+}else if(substr($_POST['b'],0,3)=='/F '){
+    $producto .= "familia LIKE '%".substr($_POST['b'],3)."%'";
 }else{
     foreach($search AS $s){
         $producto .= "concat(producto,' ',marca) LIKE '%".mysqli_real_escape_string($con,$s)."%' AND ";

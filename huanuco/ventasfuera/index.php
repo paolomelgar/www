@@ -337,7 +337,7 @@ if($_SESSION['valida']=='huanuco'){
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
 		          				d += "<tr><td colspan='2' style='font-weight:bold;font-size:13px;height:30px;color:#4061a7;text-align:center'>"+data[i][0]+"</td></tr>\n"+
-		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='text' class='ii' id='"+data[i][4]+"'></td></tr>\n"+
+		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='text' class='ii' id='"+data[i][4]+"'><input type='hidden' class='codig' value='"+data[i][10]+"'></td></tr>\n"+
 		          					 "<tr><td colspan='2' align='center' style='color:red;font-weight:bold;font-size:22px;padding:0px'>AGOTADO</td></tr></table>\n"+
 		          				 "</td>";
 	          		}else{
@@ -351,7 +351,7 @@ if($_SESSION['valida']=='huanuco'){
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
 		          				d += "<tr><td colspan='2' class='prod' style='font-weight:bold;font-size:13px;height:30px;color:#4061a7;text-align:center'>"+data[i][0]+"</td></tr>\n"+
-		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='hidden' class='marca' value='"+data[i][8]+"'><input type='text' class='ii' id='"+data[i][4]+"'><input type='hidden' class='especial' value='"+data[i][2]+"'><input type='hidden' class='caja' value='"+data[i][5]+"'></td></tr>\n"+
+		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='hidden' class='marca' value='"+data[i][8]+"'><input type='text' class='ii' id='"+data[i][4]+"'><input type='hidden' class='especial' value='"+data[i][2]+"'><input type='hidden' class='caja' value='"+data[i][5]+"'><input type='hidden' class='codig' value='"+data[i][10]+"'></td></tr>\n"+
 		          				 	 "<tr><td width='100px' align='center'><input type='hidden' value='"+data[i][3]+"' class='stock'>Cant:<input type='text' class='cant' size='3' style='border:2px solid red;border-radius:3px;text-align:center;font-weight:bold'></td><td width='100px'><div class='buscar'>AGREGAR</div></td></tr></table>\n"+
 		          				 "</td>";
 	          			}else{
@@ -370,7 +370,7 @@ if($_SESSION['valida']=='huanuco'){
 		          				d += "<tr><td width='100px' align='center' style='font-weight:bold'>"+data[i][7]+"</td><td width='100px' style='font-weight:bold;font-size:25px;color:#f63;' class='precio' align='center'>S/ "+data[i][1]+"</td></tr>\n";
 		          			}
 		          				d += "<tr><td colspan='2' class='prod' style='font-weight:bold;font-size:13px;height:30px;color:#4061a7;text-align:center'>"+data[i][0]+"</td></tr>\n"+
-		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='hidden' class='marca' value='"+data[i][8]+"'><input type='text' class='ii' id='"+data[i][4]+"'></td></tr>\n"+
+		          					 "<tr style='display:none'><td><input type='hidden' class='idmarca' value='"+data[i][7]+"'><input type='hidden' class='marca' value='"+data[i][8]+"'><input type='text' class='ii' id='"+data[i][4]+"'><input type='hidden' class='codig' value='"+data[i][10]+"'></td></tr>\n"+
 		          					 "<tr><td width='100px' align='center'><input type='hidden' value='"+data[i][3]+"' class='stock'>Cant:<input type='text' class='cant' size='3' style='border:2px solid red;border-radius:3px;text-align:center;font-weight:bold'></td><td width='100px'><div class='buscar'>AGREGAR</div></td></tr></table>\n"+
 		          				 "</td>";
 	          			}
@@ -642,6 +642,7 @@ if($_SESSION['valida']=='huanuco'){
             }
 		});
 		$('#table').on('click','.img',function(){
+			alert($(this).parent().parent().find('.ii').html());
 			var a;
 			if(parseInt($(this).parent().parent().find('.idmarca').val())>0){
 				a="<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/marca/a"+$(this).parent().parent().find('.idmarca').val()+".jpg' height='50' width='250'>";
@@ -650,7 +651,7 @@ if($_SESSION['valida']=='huanuco'){
 			}
             swal({
               title: a,
-              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$(this).parent().parent().find('.ii').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:40px;color:blue;font-weight:bold'>"+$(this).parent().parent().find('.precio').text()+"</div>",   
+              text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+$(this).parent().parent().find('.codig').attr('id')+".jpg' height='300' width='300'><br><div style='font-size:40px;color:blue;font-weight:bold'>"+$(this).parent().parent().find('.precio').text()+"</div>",   
               html: true,
               animation: "slide-from-top",
 			  confirmButtonColor: "#DD6B55"

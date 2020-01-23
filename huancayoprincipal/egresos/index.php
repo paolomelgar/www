@@ -108,34 +108,43 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           </select>
         </td>
         <td>TIPO MOV:</td>
-        <td>
-          <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
-            <option id='PERSONAL'>PERSONAL</option>
-            <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
-            <option id='SERVICIOS'>SERVICIOS</option>
-            <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
-            <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
-            <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
-            <option id='MARKETING'>MARKETING</option>
-            <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
-            <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
-            <option id='VIATICOS'>VIATICOS</option>
-            <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
-            <option id='LIMPIEZA'>LIMPIEZA</option>
-            <option id='COLABORACION'>COLABORACION</option>
-            <option id='CONSTRUCCION ALMACEN'>CONSTRUCCION ALMACEN</option>
-            <option id='OTROS'>OTROS</option>
-          </select>
-        </td>
-      </tr>
-      <tr class='personal' style='display:none'>
+                  <td>
+                    <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
+                      <option id='PERSONAL'>PERSONAL</option>
+                      <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
+                      <option id='SERVICIOS'>SERVICIOS</option>
+                      <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
+                      <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
+                      <option id='CONSTRUCCION'>CONSTRUCCION</option>
+                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
+                      <option id='VIAT VENTAS LOCAL'>VIAT VENTAS LOCAL</option>
+                      <option id='VIAT REPARTO LOCAL'>VIAT REPARTO LOCAL</option>
+                      <option id='VIAT VENTAS PROVINCIA'>VIAT VENTAS PROVINCIA</option>
+                      <option id='VIAT REPARTO PROVIN'>VIAT REPARTO PROVIN</option>
+                      <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
+                      <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                      <option id='UTILES ESCRITORIO'>UTILES ESCRITORIO</option>
+                      <option id='MARKETING'>MARKETING</option>
+                      <option id='FRANQUICIAS'>FRANQUICIAS</option>
+                      <option id='INTERES'>INTERES</option>
+                      <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                      <option id='DESCUENTOS CLIENTES'>DESCUENTOS CLIENTES</option>
+                      <option id='SOFTWARE'>SOFTWARE</option>
+                      <option id='HERRAMIENTAS TRABAJO'>HERRAMIENTAS TRABAJO</option>
+                      <option id='LIMPIEZA'>LIMPIEZA</option>
+                      <option id='COLABORACION'>COLABORACION</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='personal' style='display:none'>
                   <td>COLABORADOR:</td>
                   <td>
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
                       <option id='PAULO'>PAULO MELGAR</option>
                       <option id='DAVID'>DAVID PRESENTACION</option>
-                      <option id='YENSON'>YENSON </option>
+                      <option id='YENSON'>YENSON MARQUEZ</option>
                       <option id='COLMENARES'>FERNANDO COLMENARES</option>
                       <option id='EDGAR'>EDGAR MELGAR</option>
                       <option id='FERNANDO'>FERNANDO MELGAR</option>
@@ -143,6 +152,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                       <option id='JEANPIER'>JEANPIER VASQUEZ</option>
                       <option id='JORGEN'>JORGEN VERACIERTA</option>
                       <option id='DUNAE'>DUNAE TORRES</option>
+                      <option id='DANIEL'>DANIEL CARABALLO</option>
+                      <option id='NEIL'>NEIL POCA</option>
                       <option id='SERGIO'>SERGIO BOZA</option>
                       <option id='SCOOT'>SCOOT OSORES</option>
                       <option id='EDWIN'>EDWIN ANTONIO</option>
@@ -152,17 +163,90 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                       <option id='WILMER'>WILMER MARQUEZ</option>
                       <option id='PAOLA'>PAOLA MELGAR</option>
                       <option id='JULIO'>JULIO SANCHEZ</option>
+                      <option id='CESAR'>CESAR CASAS</option>
                       <option id='JON'>JON SANCHEZ</option>
                       <option id='REYDER'>REYDER COCA</option>
                       <option id='BRUNO'>BRUNO CARDENAS</option>
                       <option id='YOEL'>YOEL ESPINOZA</option>
                       <option id='WILMER'>WILMER MARQUEZ</option>
-                      <option id='PAUL'>PAUL MELGAR</option>
+                      <option id='PAUL'>PAUL ALEXIS MELGAR</option>
                       <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
                 </tr>
-      <tr>
+                <tr class='servicios' style='display:none'>
+                  <td>SERVICIOS:</td>
+                  <td>
+                    <select id='servicios' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='SERVICIO LUZ'>SERVICIO LUZ</option>
+                      <option id='SERVICIO AGUA'>SERVICIO AGUA</option>
+                      <option id='SERVICIO INTERNET'>SERVICIO INTERNET</option>
+                      <option id='CELULARES MOVISTAR'>CELULARES MOVISTAR</option>
+                      <option id='CELULARES ENTEL'>CELULARES ENTEL</option>
+                      <option id='ALQUILER ALMACEN'>ALQUILER ALMACEN</option>
+                      <option id='ALQUILER ALMACEN CAJAS'>ALQUILER ALMACEN CAJAS</option>
+                      <option id='ALQUILER ALMACEN EL TAMBO'>ALQUILER ALMACEN EL TAMBO</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='tributarios' style='display:none'>
+                  <td>SERVICIOS:</td>
+                  <td>
+                    <select id='tributarios' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='AFP PRIMA'>AFP PRIMA</option>
+                      <option id='AFP INTEGRA'>AFP INTEGRA</option>
+                      <option id='AFP PROFUTURO'>AFP PROFUTURO</option>
+                      <option id='PAGO ONP'>PAGO ONP</option>
+                      <option id='PAGO ESSALUD'>PAGO ESSALUD</option>
+                      <option id='PAGO RENTA'>PAGO RENTA</option>
+                      <option id='PAGO IGV'>PAGO IGV</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='transportesalida' style='display:none'>
+                  <td>CONCEPTO:</td>
+                  <td>
+                    <select id='transportesalida' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='GAS SUZUKI AZUL W4A-785'>GAS SUZUKI AZUL W4A-785</option>
+                      <option id='GASOLINA SUZUKI AZUL W4A-785'>GASOLINA SUZUKI AZUL W4A-785</option>
+                      <option id='REPARACION SUZUKI AZUL W4A-785'>REPARACION SUZUKI AZUL W4A-785</option>
+                      <option id='COCHERA SUZUKI AZUL W4A-785'>COCHERA SUZUKI AZUL W4A-785</option>
+                      <option id='GAS SUZUKI NEGRO W5Y-775'>GAS SUZUKI NEGRO W5Y-775</option>
+                      <option id='GASOLINA SUZUKI NEGRO W5Y-775'>GASOLINA SUZUKI NEGRO W5Y-775</option>
+                      <option id='REPARACION SUZUKI NEGRO W5Y-775'>REPARACION SUZUKI NEGRO W5Y-775</option>
+                      <option id='COCHERA SUZUKI NEGRO W5Y-775'>COCHERA SUZUKI NEGRO W5Y-775</option>
+                      <option id='PETROLEO FURGON FERREBOOM W5X-715'>PETROLEO FURGON FERREBOOM W5X-715</option>
+                      <option id='REPARACION FURGON FERREBOOM W5X-715'>REPARACION FURGON FERREBOOM W5X-715</option>
+                      <option id='COCHERA FURGON FERREBOOM W5X-715'>COCHERA FURGON FERREBOOM W5X-715</option>
+                      <option id='PETROLEO FURGON INNOVA W5R-894'>PETROLEO FURGON INNOVA W5R-894</option>
+                      <option id='REPARACION FURGON INNOVA W5R-894'>REPARACION FURGON INNOVA W5R-894</option>
+                      <option id='COCHERA FURGON FERREBOOM W5R-894'>COCHERA FURGON FERREBOOM W5R-894</option>
+                      <option id='ENVIO ENCOMIENDA'>ENVIO ENCOMIENDA</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='construccion' style='display:none'>
+                  <td>CONCEPTO:</td>
+                  <td>
+                    <select id='construccion' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='ADELANTO MAESTRO HECTOR'>ADELANTO MAESTRO HECTOR</option>
+                      <option id='MATERIALES'>MATERIALES</option>
+                      <option id='ADELANTO FRANCHESCO'>ADELANTO FRANCHESCO</option>
+                      <option id='ADELANTO TIO ARTURO'>ADELANTO TIO ARTURO</option>
+                      <option id='ADELANTO VIGILANTE ALMACEN'>ADELANTO VIGILANTE ALMACEN</option>
+                      <option id='TRAMITES'>TRAMITES</option>
+                      <option id='CAJA CHICA'>CAJA CHICA</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
         <td>MONTO:</td>
         <td><input type='text' id='monto' style='text-align:right' class='span2'></td>
         <td class='transporte ingreso' style='display:none'>TRANSPORTE:</td>

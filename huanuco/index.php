@@ -156,7 +156,7 @@ if($_SESSION['valida']=='huanuco'){
 									<li><a href="familia/" target="contenedor">CATEGORIAS</a></li>
 									<li><a href="query/" target="contenedor">CONSULTAS</a></li>
 									<li><a href="camara/admin.php" target="contenedor">CAMARA VIGILANCIA</a></li>
-									<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
+									<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaMovil.jsp" target="_blank">RUC</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -221,7 +221,7 @@ if($_SESSION['valida']=='huanuco'){
 							</li>
 						</ul>
 						<ul>
-							<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">SUNAT RUC</a></li>
+							<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaMovil.jsp" target="_blank">SUNAT RUC</a></li>
 						</ul>
 						<ul>
 							<li><a href="#" >VENTAS</a>
@@ -281,7 +281,7 @@ if($_SESSION['valida']=='huanuco'){
 							<li><a href="maps/" target="contenedor">MAPS CLIENTES</a></li>
 						</ul>
 						<ul>
-							<li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">SUNAT RUC</a></li>
+							<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaMovil.jsp" target="_blank">SUNAT RUC</a></li>
 						</ul>
 						<ul>
 							<li><a href="ventas/" target="_blank">VENTAS</a></li>

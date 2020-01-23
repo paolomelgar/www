@@ -126,6 +126,10 @@ $(function(){
             "&detalle="+$('#detalle').val()+
             "&transporte="+$('#transporte').val()+
             "&personal="+$('#personal').val()+
+            "&servicios="+$('#servicios').val()+
+            "&transportesalida="+$('#transportesalida').val()+
+            "&construccion="+$('#construccion').val()+
+            "&tributarios="+$('#tributarios').val()+
             "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
@@ -139,25 +143,77 @@ $(function(){
         $('#monto').val("");
         $('#detalle').val("");
         $('#personal').val("");
+        $('#servicios').val("");
+        $('#transportesalida').val("");
         $('#operacion').val("");
         $('#tipomov').val("");
-        $('select[id="operacion"]').val("EGRESO");
         $('#transporte').val("");
+        $('#construccion').val("");
+        $('#tributarios').val("");
+        $('select[id="operacion"]').val("EGRESO");
         $('.transporte').hide();
         $('.detalle').hide();
         $('.personal').hide();
+        $('.servicios').hide();
+        $('.construccion').hide();
+        $('.transportesalida').hide();
+        $('.tributarios').hide();
         $('#tipomov').change(function(){
           if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
             $('.detalle').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.construccion').hide();
+            $('.transportesalida').hide();
+            $('.tributarios').hide();
           }else if($('select[id="tipomov"]').val()=='PERSONAL'){
             $('.detalle').hide();
             $('.personal').show();
             $('.transporte').hide();
+            $('.servicios').hide();
+            $('.construccion').hide();
+            $('.transportesalida').hide();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='SERVICIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').show();
+            $('.construccion').hide();
+            $('.transportesalida').hide();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='TRANSPORTE SALIDA'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').hide();
+            $('.construccion').hide();
+            $('.transportesalida').show();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='CONSTRUCCION'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').hide();
+            $('.construccion').show();
+            $('.transportesalida').hide();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='GASTOS TRIBUTARIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').hide();
+            $('.construccion').hide();
+            $('.transportesalida').hide();
+            $('.tributarios').show();
           }else{
             $('.transporte').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.construccion').hide();
+            $('.transportesalida').hide();
+            $('.tributarios').hide();
             $('.detalle').show();
           }
         });
