@@ -52,10 +52,9 @@ require_once('../connection.php');
 			<tr><td>CLIENTE:</td><td><input type="text" name="cliente" id="cliente" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>DIRECCION:</td><td><input type="text" name="direccion" id="direccion" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td>TIPO:</td><td><select id="tipo" name="tipo" class="span3">
-				<option value="FERIA">FERIA</option>
 				<option value="FERRETERIA">FERRETERIA</option>
 			</select></td></tr>
-			<tr><td>PROMOTOR:</td><td><select id="representante" name="representante" class="span3">
+			<tr><td>VENDEDOR:</td><td><select id="representante" name="representante" class="span3">
 				<option value=""></option>
 				<?php 
                 $sql=mysqli_query($con,"SELECT * FROM usuario WHERE cargo='VENDEDOR' AND activo='SI'");
@@ -63,8 +62,8 @@ require_once('../connection.php');
                   <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
                 <?php } ?>
 			</select></td></tr>
-			<tr><td>TELEFONO:</td><td><input type="text" name="telefono" id="telefono" class="span3" maxlength="100"/></td></tr>
-			<tr><td>NOM TIENDA:</td><td><input type="text" name="mail" id="mail" class="span3"/></td></tr>
+			<tr><td>CELULAR:</td><td><input type="text" name="telefono" id="telefono" class="span3" maxlength="100"/></td></tr>
+			<tr><td>NOMBRE COMERCIAL:</td><td><input type="text" name="mail" id="mail" class="span3"/></td></tr>
 			<tr><td>LIMITE CREDITO:</td><td><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td>ACTIVO:</td><td><select id="activo1" name="activo1" class="span3">
 				<option value="SI">SI</option>
@@ -115,12 +114,13 @@ require_once('../connection.php');
 				<th style="text-align: center;width:3%">MAPA</th>
 				<th style="text-align: center;width:10%">RUC</th>
 				<th style="text-align: center;width:20%">CLIENTE</th>
-				<th style="text-align: center;width:20%">DIRECCION</th>
+				<th style="text-align: center;width:15%">DIRECCION</th>
 				<th style="text-align: center;width:7%">TIPO</th>
 				<th style="text-align: center;width:5%">CREDITO</th>
-				<th style="text-align: center;width:10%">REPRESENTANTE</th>
-				<th style="text-align: center;width:10%">TELEFONO</th>
-				<th style="text-align: center;width:10%">NOM TIENDA</th>
+				<th style="text-align: center;width:5%">CLASE</th>
+				<th style="text-align: center;width:10%">VENDEDOR</th>
+				<th style="text-align: center;width:10%">CELULAR</th>
+				<th style="text-align: center;width:10%">NOMBRE COMERCIAL</th>
 				<th style="text-align: center;width:5%">ACTIVO</th>
 			</tr>
 		</thead>

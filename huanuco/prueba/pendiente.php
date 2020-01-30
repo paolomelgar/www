@@ -2,7 +2,7 @@
   require_once('../connection.php');
       $sql=mysqli_query($con,"SELECT * FROM total_pedido WHERE entregado='NO' ORDER BY hora,fecha");
 ?>
-    <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
+    <table width="98%" cellpadding="0" cellspacing="0" border="1" align="center">
       <thead>
         <tr bgcolor="#1c94c4" style="color:#FFF;height:30px; text-align:center;font-size:13px;font-weight:bold">
           <th width="20%">VENDEDOR</th>
@@ -13,7 +13,7 @@
       </thead>
     </table>
   <div style="overflow:auto;height:350px;align:center">
-    <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
+    <table width="98%" cellpadding="0" cellspacing="0" border="1" align="center">
       <tbody id="listpendientes">
         <?php
         while($row=mysqli_fetch_assoc($sql)){

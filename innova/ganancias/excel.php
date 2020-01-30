@@ -27,9 +27,9 @@ while($row=mysqli_fetch_assoc($sql)){
     $r1=mysqli_fetch_row($sql1);
     if($r1[1]>0){
         // $x=($r1[2]-$r1[1])*100/$r1[1];
-        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>".$r1[0]."</td><td>".$row['stock_real']."</td><td> </td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
+        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>".$r1[0]."</td><td>".$row['stock_real']."</td><td>".($r1[0]-$row['stock_real'])."</td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
     }else{
-        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>0</td><td>".$row['stock_real']."</td><td> </td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
+        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>0</td><td>".$row['stock_real']."</td><td>".($r1[0]-$row['stock_real'])."</td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
     }
 }
 }
@@ -49,9 +49,9 @@ else{
     $r1=mysqli_fetch_row($sql1);
     if($r1[1]>0){
         // $x=($r1[2]-$r1[1])*100/$r1[1];
-        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>".$r1[0]."</td><td>".$row['stock_real']."</td><td> </td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
+        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>".$r1[0]."</td><td>".$row['stock_real']."</td><td>".($r1[0]-$row['stock_real'])."</td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
     }else{
-        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>0</td><td>".$row['stock_real']."</td><td> </td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
+        $output.="<tr><td>".$row['producto']."</td><td>".$row['marca']."</td><td>".$row['cant_caja']."</td><td>0</td><td>".$row['stock_real']."</td><td>".($r1[0]-$row['stock_real'])."</td><td> </td><td> </td><td>".$row['p_compra']."</td><td> </td><td>".$row['proveedor']."</td><td>".$row['p_unidad']."</td><td>".$row['p_promotor']."</td><td>".$row['p_especial']."</td><td>".$row['ubicacion']."</td><td>".$row['ubicacion2']."</td><td>".$row['codigo']."</td></tr>";
     }
 }
 }

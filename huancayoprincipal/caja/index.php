@@ -305,7 +305,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
                       <option id='VIAT VENTAS LOCAL'>VIAT VENTAS LOCAL</option>
                       <option id='VIAT REPARTO LOCAL'>VIAT REPARTO LOCAL</option>
-                      <option id='VIAT VENTAS PROVINCIA'>VIAT VENTAS PROVINCIA</option>
+                      <option id='VIAT VENTAS PROVIN'>VIAT VENTAS PROVIN</option>
                       <option id='VIAT REPARTO PROVIN'>VIAT REPARTO PROVIN</option>
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
@@ -313,6 +313,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='MARKETING'>MARKETING</option>
                       <option id='FRANQUICIAS'>FRANQUICIAS</option>
                       <option id='INTERES'>INTERES</option>
+                      <option id='CAPACITACION'>CAPACITACION</option>
                       <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
                       <option id='DESCUENTOS CLIENTES'>DESCUENTOS CLIENTES</option>
                       <option id='SOFTWARE'>SOFTWARE</option>

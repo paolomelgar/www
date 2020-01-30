@@ -329,12 +329,12 @@ var stock,compra,promotor,unit;
         $('#precio_u').val(unit);
         $('#precio_u').removeClass('mayorstock');
       }
-      else if (unit<promotor && unit>=compra) {
+      else if (unit<promotor && unit>=compra*1.05) {
         $('#precio_u').val(unit);
         $('#precio_u').addClass('mayorstock');
       }
       else{
-        $('#precio_u').val(compra);
+        $('#precio_u').val(parseFloat(compra*1.05).toFixed(2));
         $('#precio_u').addClass('mayorstock');
       }
       $("#importe").val(parseFloat($("#precio_u").val()*$("#cantidad").val()).toFixed(2));
@@ -356,12 +356,12 @@ var stock,compra,promotor,unit;
         $('#precio_u').removeClass('mayorstock');
         $('#precio_u').val(unit);
       }
-      else if (unit<promotor && unit>=compra) {
+      else if (unit<promotor && unit>=compra*1.05) {
         $('#precio_u').addClass('mayorstock');
         $('#precio_u').val(unit);
       }
       else{
-        $('#precio_u').val(compra);
+        $('#precio_u').val(parseFloat(compra*1.05).toFixed(2));
         $('#precio_u').addClass('mayorstock');
       }
     if(e.which == 13) {
@@ -677,11 +677,11 @@ var stock,compra,promotor,unit;
     $('#total').val(parseFloat(parseFloat($('#subtotal').val())-parseFloat($('#subtotal_devol').val())).toFixed(2));
   });
   $('#row').on('input','.editme2',function(){
-    if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(6)').text())){
+    if(parseFloat($(this).text())>=parseFloat(parseFloat($(this).parent().find('td:eq(6)').text())*1.05).toFixed(2)){
       $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).text()));
     }
     else{
-      $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat($(this).parent().find('td:eq(6)').text()));
+      $(this).parent().find('td:eq(4)').text(parseFloat($(this).parent().find('td:eq(2)').text())*parseFloat(parseFloat($(this).parent().find('td:eq(6)').text())*1.05).toFixed(2));
     }
     if(parseFloat($(this).text())>=parseFloat($(this).parent().find('td:eq(7)').text())){
       $(this).removeClass('mayorstock');

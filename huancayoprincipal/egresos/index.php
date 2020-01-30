@@ -14,7 +14,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
   <script type="text/javascript" src="../bootstrap.min.js"></script>
   <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
   <script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
-  <script type="text/javascript" src="../sweet-alert.min.js"></script>  
+  <script type="text/javascript" src="../sweet-alert.min.js"></script>
+  <script src="../Chart.min.js"></script>
   <script type="text/javascript" src="egresos.js"></script>
   <style type="text/css">
     .par{
@@ -50,6 +51,17 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       background: #FF3;
       cursor:pointer;
     }
+    #myModal{
+      width: 1000px;
+      height: 550px;
+      margin-left:-500px;
+    }
+    .modal-header, h4, .close {
+        background-color: #49afcd;
+        color:white !important;
+        text-align: center;
+        font-size: 30px;
+      }
     .error {
       width:300px;
       height:20px;
@@ -93,6 +105,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
             </select>
           </td>
           <td width='20%' style='padding:5px'><input type="button" name="buscar" value='BUSCAR' id="buscar" class='btn btn-success'></td>
+          <td width='5%'><img src='../estadistica.png' width='30px' data-toggle="modal" data-target="#myModal" id='estadistica' style='cursor:pointer'></td>
         </tr>
       </table>
     </div>
@@ -108,8 +121,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           </select>
         </td>
         <td>TIPO MOV:</td>
-                  <td>
-                    <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
+        <td>
+          <select id='tipomov' class='span2' style='margin-bottom: 0px;'>
                       <option id='PERSONAL'>PERSONAL</option>
                       <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
@@ -119,7 +132,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                       <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
                       <option id='VIAT VENTAS LOCAL'>VIAT VENTAS LOCAL</option>
                       <option id='VIAT REPARTO LOCAL'>VIAT REPARTO LOCAL</option>
-                      <option id='VIAT VENTAS PROVINCIA'>VIAT VENTAS PROVINCIA</option>
+                      <option id='VIAT VENTAS PROVIN'>VIAT VENTAS PROVIN</option>
                       <option id='VIAT REPARTO PROVIN'>VIAT REPARTO PROVIN</option>
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
@@ -127,6 +140,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                       <option id='MARKETING'>MARKETING</option>
                       <option id='FRANQUICIAS'>FRANQUICIAS</option>
                       <option id='INTERES'>INTERES</option>
+                      <option id='CAPACITACION'>CAPACITACION</option>
                       <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
                       <option id='DESCUENTOS CLIENTES'>DESCUENTOS CLIENTES</option>
                       <option id='SOFTWARE'>SOFTWARE</option>
@@ -192,7 +206,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                   </td>
                 </tr>
                 <tr class='tributarios' style='display:none'>
-                  <td>SERVICIOS:</td>
+                  <td>CONCEPTO:</td>
                   <td>
                     <select id='tributarios' class='span2'>
                       <option style='display:none'></option>
@@ -303,11 +317,68 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
     </div>
     <table width='100%' align='center' border='1' style='font-size:16px;font-weight:bold'>
       <tr>
-        <td width='50%'align='right'>TOTALES</td>
+        <td width='45%'align='right'>TOTALES</td>
         <td width='10%' id='total' align='right'></td>
-        <td width='40%'></td>
+        <td width='45%'></td>
       </tr>
     </table>
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Estadisticas</h4>
+        </div>
+        <div class="modal-body">   
+          <table width='100%' height='100%'>
+        <tr>
+          <td>
+            <select id='forma' class='span2' style='margin-bottom:0px'>
+              <option value='balance'>BALANCE</option>
+            </select>
+          </td>
+          <td>
+            <select id='month' class='span2' style='margin-bottom:0px'>
+              <option value='00'>ENERO</option>
+              <option value='01'>FEBRERO</option>
+              <option value='02'>MARZO</option>
+              <option value='03'>ABRIL</option>
+              <option value='04'>MAYO</option>
+              <option value='05'>JUNIO</option>
+              <option value='06'>JULIO</option>
+              <option value='07'>AGOSTO</option>
+              <option value='08'>SETIEMBRE</option>
+              <option value='09'>OCTUBRE</option>
+              <option value='10'>NOVIEMBRE</option>
+              <option value='11'>DICIEMBRE</option>
+            </select>
+          </td>
+          <td>
+            <select id='year' class='span1' style='margin-bottom:0px'>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+            </select>
+          </td>
+          <td align='right'><input type='button' id='busc' value='Buscar' style='cursor:pointer' class='btn btn-success'></td>
+        </tr>
+        <tr>
+          <td colspan='4' style='height:350px;'>
+            <div id='canvas' width='100%' height='350px'></div>
+          </td>
+        </tr>
+      </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+      </div>
+      
+    </div>
   </div>
 </body>
 </html>

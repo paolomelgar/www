@@ -30,6 +30,11 @@ $(function(){
     $(this).val( $(this).val().toUpperCase() );
     this.setSelectionRange(start, end);
   });
+  var m=date.getMonth();
+  var y=date.getFullYear();
+  m=("00" + m).slice (-2);
+  $('select[id="month"]').val(m);
+  $('select[id="year"]').val(y);
   $('#venta').tableFilter({
     filteredRows: function(filterStates) {
       var sumaingreso  = 0;
@@ -47,6 +52,7 @@ $(function(){
     },
     enableCookies: false
   });
+  $('#myModal').modal('show');
   function buscar(){
     var str = $('#form').serializeArray();
     $.ajax({
@@ -67,20 +73,21 @@ $(function(){
         $("#verbody").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'\n>"+
-            "<td width='3%' align='right'>"+(i+1)+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][0]+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][1]+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][8]+"</td>";
+            "<td width='3%' align='right'>"+(i+1)+"</td>";
             if($('#nombre').val()=='PAULO ANTONY MELGAR POVEZ' || $('#nombre').val()=='JEANIRA PEREZ'){
-              n+="<td width='10%' align='center' contenteditable='true'>"+data[i][2]+"</td>";
+              n+="<td width='10%' align='center' contenteditable='true'>"+data[i][0]+"</td>\n"+
+              "<td width='10%' align='center' contenteditable='true'>"+data[i][1]+"</td>\n"+
+              "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
+              "<td width='10%' align='center' contenteditable='true'>"+data[i][2]+"</td>\n"+
+              "<td width='5%' align='right' contenteditable='true'>"+data[i][3]+"</td>\n"+
+              "<td width='39%' contenteditable='true'>"+data[i][4]+"</td>";
             }else{
-              n+="<td width='10%' align='center'>"+data[i][2]+"</td>";
-            }
-            n+="<td width='5%' align='right'>"+data[i][3]+"</td>";
-            if($('#nombre').val()=='PAULO ANTONY MELGAR POVEZ' || $('#nombre').val()=='JEANIRA PEREZ'){
-              n+="<td width='39%' contenteditable='true'>"+data[i][4]+"</td>";
-            }else{
-              n+="<td width='39%'>"+data[i][4]+"</td>";
+              n+="<td width='10%' align='center'>"+data[i][0]+"</td>\n"+
+              "<td width='10%' align='center'>"+data[i][1]+"</td>\n"+
+              "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
+              "<td width='10%' align='center'>"+data[i][2]+"</td>\n"+
+              "<td width='5%' align='right'>"+data[i][3]+"</td>\n"+
+              "<td width='39%'>"+data[i][4]+"</td>";
             }
             n+="<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
             "<td width='11%' align='center'>"+data[i][6]+"</td>\n"+
@@ -109,6 +116,27 @@ $(function(){
   $('#buscar').click(function(){
     buscar();
   });
+  $('#busc').click(function(){
+    $.ajax({
+      type: "POST",
+      url: "estadistica.php",
+      data: '&m='+$('select[id="month"]').val()+'&y='+$('select[id="year"]').val()+'&t='+$('#forma').val(),
+      beforeSend:function(){
+        swal({
+          title: "Consultando Estadistica..",
+          text: "Esto puede tardar unos Segundos",
+          imageUrl: "../loading.gif",
+          showConfirmButton: false
+        });
+      },
+      success: function(data){
+        swal.close();
+        $("#canvas").empty();
+        $("#canvas").append(data);
+      }
+    });
+  });
+  $('#busc').click();
   $('#egreso').click(function(){
     $("#dialogingresos").dialog({
       title:"REGISTRO DE INGRESOS/EGRESOS",

@@ -314,8 +314,7 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='PAOLO'>PAOLO MELGAR</option>
                       <option id='DAVID'>DAVID PEREZ</option>
                       <option id='PEDRO'>PEDRO MELGAR</option>
-                      <option id='DANIEL'>DANIEL MERA</option>
-                      <option id='ESLI'>ESLI</option>
+                      <option id='ESLI'>ESLI MALLQUI</option>
                     </select>
                   </td>
                 </tr>
@@ -339,12 +338,11 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='impuestos' class='span2'>
                       <option style='display:none'></option>
                       <option id='RENTA'>RENTA</option>
-                      <option id='IGV'>IGV</option>
                       <option id='ESSALUD'>ESSALUD</option>
                     </select>
                   </td>
                 </tr>
-                <tr><td>MONTO:</td><td><input type='number' id='monto' style='margin-bottom:10px !important' class='span2'></td></tr>
+                <tr><td>MONTO:</td><td><input type='text' id='monto' style='margin-bottom:10px !important' class='span2'></td></tr>
               </table>
             </div>
             <div id="dialogver" style="display:none" class='btn-info'>

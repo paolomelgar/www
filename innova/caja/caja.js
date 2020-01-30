@@ -2119,11 +2119,13 @@ var stock,compra,promotor,unit,y=7;
             url:"ingresos.php",
             data:"oper="+$('#operacion').val()+
             "&tipo="+$('#tipomov').val()+
+            "&mediopago="+$('#mediopago').val()+
             "&monto="+$('#monto').val()+
             "&detalle="+$('#detalle').val()+
             "&transporte="+$('#transporte').val()+
-            "&mediopago="+$('#mediopago').val()+
             "&personal="+$('#personal').val()+
+            "&servicios="+$('#servicios').val()+
+            "&tributarios="+$('#tributarios').val()+
             "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
@@ -2136,25 +2138,47 @@ var stock,compra,promotor,unit,y=7;
         $('#monto').val("");
         $('#detalle').val("");
         $('#personal').val("");
+        $('#servicios').val("");
         $('#operacion').val("");
         $('#tipomov').val("");
-        $('select[id="operacion"]').val("EGRESO");
         $('#transporte').val("");
+        $('#tributarios').val("");
+        $('select[id="operacion"]').val("EGRESO");
         $('.transporte').hide();
         $('.detalle').hide();
         $('.personal').hide();
+        $('.servicios').hide();
+        $('.tributarios').hide();
         $('#tipomov').change(function(){
           if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
             $('.detalle').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
           }else if($('select[id="tipomov"]').val()=='PERSONAL'){
             $('.detalle').hide();
             $('.personal').show();
             $('.transporte').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='SERVICIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').show();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='GASTOS TRIBUTARIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').hide();
+            $('.tributarios').show();
           }else{
             $('.transporte').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
             $('.detalle').show();
           }
         });

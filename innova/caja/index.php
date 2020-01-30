@@ -303,11 +303,20 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='TRANSPORTE INGRESO'>TRANSPORTE INGRESO</option>
                       <option id='SERVICIOS'>SERVICIOS</option>
                       <option id='TRANSPORTE SALIDA'>TRANSPORTE SALIDA</option>
+                      <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
+                      <option id='CONSTRUCCION'>CONSTRUCCION</option>
+                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
-                      <option id='GASTOS FINANCIEROS'>GASTOS FINANCIEROS</option>
-                      <option id='GASTOS TRIBUTARIOS'>GASTOS TRIBUTARIOS</option>
+                      <option id='UTILES ESCRITORIO'>UTILES ESCRITORIO</option>
+                      <option id='MARKETING'>MARKETING</option>
+                      <option id='FRANQUICIAS'>FRANQUICIAS</option>
+                      <option id='INTERES'>INTERES</option>
+                      <option id='CAPACITACION'>CAPACITACION</option>
                       <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
+                      <option id='DESCUENTOS CLIENTES'>DESCUENTOS CLIENTES</option>
+                      <option id='SOFTWARE'>SOFTWARE</option>
+                      <option id='HERRAMIENTAS TRABAJO'>HERRAMIENTAS TRABAJO</option>
                       <option id='LIMPIEZA'>LIMPIEZA</option>
                       <option id='COLABORACION'>COLABORACION</option>
                       <option id='OTROS'>OTROS</option>
@@ -320,19 +329,52 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
                       <option id='PAULO'>PAULO MELGAR</option>
-                      <option id='YAJAYRA'>YAJAYRA QUEVEDO</option>
-                      <option id='SAYURI'>SAYURI ARMAS</option>
-                      <option id='MARCO'>MARCO PEÑA</option>
                       <option id='DADDY'>DADDY SERVA</option>
                       <option id='ROCIO'>ROCIO TITO</option>
+                      <option id='PAOLA'>PAOLA MELGAR</option>
+                      <option id='SAYURI'>SAYURI ARMAS</option>
                       <option id='MIGUEL'>MIGUEL ARIZACA</option>
                       <option id='RAUL'>RAUL GALARZA</option>
-                      <option id='PEDRO'>PEDRO ROJAS</option>
                       <option id='ANGEL'>ANGEL SOLANO</option>
+                      <option id='YAJAYRA'>YAJAYRA QUEVEDO</option>
+                      <option id='MARCO'>MARCO PEÑA</option>
+                      <option id='PEDRO'>PEDRO ROJAS</option>
                       <option id='JACINTO'>JACINTO RODRIGUEZ</option>
-                      <option id='PAOLA'>PAOLA MELGAR</option>
-                      <option id='PAUL'>PAUL MELGAR</option>
                       <option id='JOSE MIGUEL'>MIGUEL MURIA</option>
+                      <option id='PAUL'>PAUL ALEXIS MELGAR</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='servicios' style='display:none'>
+                  <td>SERVICIOS:</td>
+                  <td>
+                    <select id='servicios' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='SERVICIO LUZ'>SERVICIO LUZ</option>
+                      <option id='SERVICIO AGUA'>SERVICIO AGUA</option>
+                      <option id='SERVICIO INTERNET'>SERVICIO INTERNET</option>
+                      <option id='SERVICIO VIGILANCIA'>SERVICIO VIGILANCIA</option>
+                      <option id='ALQUILER INNOVA PRINCIPAL'>ALQUILER INNOVA PRINCIPAL</option>
+                      <option id='ALQUILER INNOVA ELECTRIC'>ALQUILER INNOVA ELECTRIC</option>
+                      <option id='ALQUILER ALMACEN PACHITEA'>ALQUILER ALMACEN PACHITEA</option>
+                      <option id='OTROS'>OTROS</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class='tributarios' style='display:none'>
+                  <td>CONCEPTO:</td>
+                  <td>
+                    <select id='tributarios' class='span2'>
+                      <option style='display:none'></option>
+                      <option id='AFP PRIMA'>AFP PRIMA</option>
+                      <option id='AFP INTEGRA'>AFP INTEGRA</option>
+                      <option id='AFP PROFUTURO'>AFP PROFUTURO</option>
+                      <option id='PAGO ONP'>PAGO ONP</option>
+                      <option id='PAGO ESSALUD'>PAGO ESSALUD</option>
+                      <option id='PAGO RENTA'>PAGO RENTA</option>
+                      <option id='PAGO IGV'>PAGO IGV</option>
+                      <option id='OTROS'>OTROS</option>
                     </select>
                   </td>
                 </tr>

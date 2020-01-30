@@ -73,20 +73,21 @@ $(function(){
         $("#verbody").empty();
         for (var i = 0; i <= data.length-1; i++) {
           var n="<tr class='fila'\n>"+
-            "<td width='3%' align='right'>"+(i+1)+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][0]+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][1]+"</td>\n"+
-            "<td width='8%' align='center'>"+data[i][8]+"</td>";
+            "<td width='3%' align='right'>"+(i+1)+"</td>";
             if($('#nombre').val()=='PAULO ANTONY MELGAR POVEZ' || $('#nombre').val()=='JEANIRA PEREZ'){
-              n+="<td width='10%' align='center' contenteditable='true'>"+data[i][2]+"</td>";
+              n+="<td width='10%' align='center' contenteditable='true'>"+data[i][0]+"</td>\n"+
+              "<td width='10%' align='center' contenteditable='true'>"+data[i][1]+"</td>\n"+
+              "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
+              "<td width='10%' align='center' contenteditable='true'>"+data[i][2]+"</td>\n"+
+              "<td width='5%' align='right' contenteditable='true'>"+data[i][3]+"</td>\n"+
+              "<td width='39%' contenteditable='true'>"+data[i][4]+"</td>";
             }else{
-              n+="<td width='10%' align='center'>"+data[i][2]+"</td>";
-            }
-            n+="<td width='5%' align='right'>"+data[i][3]+"</td>";
-            if($('#nombre').val()=='PAULO ANTONY MELGAR POVEZ' || $('#nombre').val()=='JEANIRA PEREZ'){
-              n+="<td width='39%' contenteditable='true'>"+data[i][4]+"</td>";
-            }else{
-              n+="<td width='39%'>"+data[i][4]+"</td>";
+              n+="<td width='10%' align='center'>"+data[i][0]+"</td>\n"+
+              "<td width='10%' align='center'>"+data[i][1]+"</td>\n"+
+              "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
+              "<td width='10%' align='center'>"+data[i][2]+"</td>\n"+
+              "<td width='5%' align='right'>"+data[i][3]+"</td>\n"+
+              "<td width='39%'>"+data[i][4]+"</td>";
             }
             n+="<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
             "<td width='11%' align='center'>"+data[i][6]+"</td>\n"+
@@ -103,7 +104,7 @@ $(function(){
                 data: "val="+$(this).text()+"&pos="+$(this).index()+"&id="+$(this).parent().find('td:eq(9)').text(),
                 beforeSend:function(){
                 },
-                success: function(data){   
+                success: function(data){
                     $('.error').fadeIn(400).delay(2000).fadeOut(400);
                 }
             });
@@ -115,18 +116,11 @@ $(function(){
   $('#buscar').click(function(){
     buscar();
   });
-  var myPie;
-  var m=0;
   $('#busc').click(function(){
-    if(m>0){
-      myPie.destroy();
-    } 
-    m++; 
     $.ajax({
       type: "POST",
       url: "estadistica.php",
-      dataType: "json",
-      data: 'm='+$('select[id="month"]').val()+'&y='+$('select[id="year"]').val()+'&t='+$('#forma').val(),
+      data: '&m='+$('select[id="month"]').val()+'&y='+$('select[id="year"]').val()+'&t='+$('#forma').val(),
       beforeSend:function(){
         swal({
           title: "Consultando Estadistica..",
@@ -137,52 +131,8 @@ $(function(){
       },
       success: function(data){
         swal.close();
-        if(data[2]=='vendedor'){
-          for (var i = 0;i < data[0].length ;i++) {
-            var color;
-            if (i==0) { color="#FE6868"; }
-            else if(i==1){ color="#689FFE"; }
-            else if(i==2){ color="#7DFE92"; }
-            else if(i==3){ color="#F8FF74"; }
-            else if(i==4){ color="#D268FC"; }
-            else if(i==5){ color="#77FDF6"; }
-            else if(i==6){ color="#FFB66D"; }
-            else if(i==7){ color="#959391"; }
-            else if(i==8){ color="#FFFFFF"; }
-            else if(i==9){ color="#FF8FE8"; }
-            data[0][i]={
-                  value : parseFloat(data[0][i]+0).toFixed(2),
-                  color : color,
-                  label : data[1][i] ,
-                  labelColor : 'white',
-                  labelFontSize : '14'
-              };
-          }
-          var pieData=data[0];
-          myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {                        
-          animationSteps: 40,
-          animationEasing: 'easeInOutQuart'   });
-        }else {
-          var dat = {
-            labels: data[1],
-            datasets: [{
-              fillColor: "rgba(151,187,205,0.2)",
-              strokeColor: "rgba(151,187,205,1)",
-              pointColor: "rgba(151,187,205,1)",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(151,187,205,1)",
-              pointLabelFontSize: 5,
-              data: data[0]
-            }  ]  }
-          var options = { 
-            scaleFontSize: 15,
-            scaleFontColor: "#000"
-          };
-          var cht = document.getElementById('canvas');
-          var ctx = cht.getContext('2d');
-          myPie = new Chart(ctx).Line(dat,options);
-        }
+        $("#canvas").empty();
+        $("#canvas").append(data);
       }
     });
   });
@@ -204,6 +154,8 @@ $(function(){
             "&detalle="+$('#detalle').val()+
             "&transporte="+$('#transporte').val()+
             "&personal="+$('#personal').val()+
+            "&servicios="+$('#servicios').val()+
+            "&tributarios="+$('#tributarios').val()+
             "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
@@ -217,25 +169,47 @@ $(function(){
         $('#monto').val("");
         $('#detalle').val("");
         $('#personal').val("");
+        $('#servicios').val("");
         $('#operacion').val("");
         $('#tipomov').val("");
-        $('select[id="operacion"]').val("EGRESO");
         $('#transporte').val("");
+        $('#tributarios').val("");
+        $('select[id="operacion"]').val("EGRESO");
         $('.transporte').hide();
         $('.detalle').hide();
         $('.personal').hide();
+        $('.servicios').hide();
+        $('.tributarios').hide();
         $('#tipomov').change(function(){
           if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
             $('.detalle').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
           }else if($('select[id="tipomov"]').val()=='PERSONAL'){
             $('.detalle').hide();
             $('.personal').show();
             $('.transporte').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='SERVICIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').show();
+            $('.tributarios').hide();
+          }else if($('select[id="tipomov"]').val()=='GASTOS TRIBUTARIOS'){
+            $('.detalle').hide();
+            $('.personal').hide();
+            $('.transporte').hide();
+            $('.servicios').hide();
+            $('.tributarios').show();
           }else{
             $('.transporte').hide();
             $('.personal').hide();
+            $('.servicios').hide();
+            $('.tributarios').hide();
             $('.detalle').show();
           }
         });

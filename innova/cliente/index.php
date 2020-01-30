@@ -95,7 +95,7 @@ session_start();
 					<th style="text-align: center;width:8%">TIPO</th>
 					<th style="text-align: center;width:5%">CREDITO</th>
 					<th style="text-align: center;width:10%">NOMBRE COMERCIAL</th>
-					<th style="text-align: center;width:10%">TELEFONO</th>
+					<th style="text-align: center;width:10%">CELULAR</th>
 					<th style="text-align: center;width:10%">E-MAIL</th>
 					<th style="text-align: center;width:5%">ACTIVO</th>
 				</tr>

@@ -22,8 +22,8 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
 
         case 'edit':
             $sql1= mysqli_query($con,"UPDATE cliente SET ruc='".$_POST['ruc']."', cliente='".$_POST['cliente']."', direccion='".$_POST['direccion']."', 
-                            tipo='".$_POST['tipo']."', representante='".$_POST['representante']."', telefono='".$_POST['telefono']."', 
-                            mail='".$_POST['mail']."', credito='".$_POST['credito']."', activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
+                tipo='".$_POST['tipo']."', representante='".$_POST['representante']."', telefono='".$_POST['telefono']."', 
+                mail='".$_POST['mail']."', credito='".$_POST['credito']."', activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
         break;
 
         case 'del':

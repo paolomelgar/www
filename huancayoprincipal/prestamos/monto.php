@@ -13,7 +13,7 @@ require_once('../connection.php');
 	$subtotal=$_POST['monto']-$_POST['interes'];
 	$sql=mysqli_query($con,"UPDATE prestamos SET pendiente='NO' WHERE id='".$_POST['id']."'");
 	$insert1=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
-    				VALUES ('EGRESO','PRESTAMO',$subtotal,'".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','EFECTIVO')");
+    				VALUES ('INGRESO','PRESTAMO',-$subtotal,'".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','EFECTIVO')");
 	$insert2=mysqli_query($con,"INSERT INTO ingresos (ingreso,tipo,monto,detalle,fecha,origen,sesion,usuario,mediopago) 
     				VALUES ('EGRESO','INTERES PRESTAMO','".$_POST['interes']."','INTERES: ".$_POST['banco']." - ".$_POST['documento']."',NOW(),'FERREBOOM','".$_SESSION['cargo']."','".$_SESSION['nombre']."','EFECTIVO')");
 ?>
