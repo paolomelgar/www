@@ -19,7 +19,6 @@ if(substr($_POST['b'],0,3)=='/P '){
     $producto = substr($producto, 0, -4);
 }
 $num=($_POST['numero']-1)*$_POST['pagina'];
-
 if($_POST['cont']=="CONT"){
     $producto.=" AND stock_con>0";
 }
@@ -28,8 +27,8 @@ if($_POST['prov']!=""){
 }
 $query = "SELECT * FROM producto WHERE $producto AND activo='".$_POST['activo']."' ORDER BY producto,marca LIMIT $num,".$_POST['pagina'];
 $result=mysqli_query($con,$query);
-while($row=mysqli_fetch_assoc($result)){  
-        $diff=date_diff(date_create(date('Y-m-d')),date_create($row['antiguedad']));?>  
+while($row=mysqli_fetch_assoc($result)){
+        $diff=date_diff(date_create(date('Y-m-d')),date_create($row['antiguedad']));?>
         <tr class="tr" <?php if($diff->format("%a")>=365){echo "bgcolor='#FF8B8B'";}else if($diff->format("%a")<365 && $diff->format("%a")>=182){echo "bgcolor='#FBFE33'";}else{echo "";} ?>>
         <td style='display:none'><?php echo mysqli_num_rows(mysqli_query($con,"SELECT * FROM producto WHERE $producto AND activo='".$_POST['activo']."'"))?></td>
         <td style="display:none"><?php echo $row['id']; ?></td>
@@ -45,10 +44,14 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' ){ ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
-        <?php if($_SESSION['mysql']=="ayacucho" || $_SESSION['mysql']=="johannagutierrez"){ ?>
+        <?php if($_SESSION['mysql']=="innovaprincipal"){ ?>
             <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+            <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
+            <td contenteditable="true" class="text" style="text-align:right;color:brown;font-weight:bold"><?php echo $row['stock_inventario']; ?></td>
         <?php }else{ ?>
             <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+            <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
+            <td style="text-align:right;color:brown;font-weight:bold"><?php echo $row['stock_inventario']; ?></td>
         <?php } ?> 
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
@@ -62,6 +65,7 @@ while($row=mysqli_fetch_assoc($result)){
         <?php }else{ ?>
         <td style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
         <td style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
@@ -80,6 +84,7 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <td style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_especial']; ?></td>

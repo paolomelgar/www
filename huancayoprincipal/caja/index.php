@@ -238,7 +238,6 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
               <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
               <option value="GUIA DE REMISION">GUIA DE REMISION</option>
               <option value="COTIZACION">COTIZACION</option>
-              <option value="NOTA DE CREDITO BOOM">NOTA DE CREDITO BOOM</option>
             </select>
           </td>
           <td width='17%'>
@@ -309,11 +308,12 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='VIAT REPARTO PROVIN'>VIAT REPARTO PROVIN</option>
                       <option id='GASTOS ADMINISTRATIVOS'>GASTOS ADMINISTRATIVOS</option>
                       <option id='GASTOS TIENDA'>GASTOS TIENDA</option>
+                      <option id='REMODELACION'>REMODELACION</option>
+                      <option id='CAPACITACION'>CAPACITACION</option>
                       <option id='UTILES ESCRITORIO'>UTILES ESCRITORIO</option>
                       <option id='MARKETING'>MARKETING</option>
                       <option id='FRANQUICIAS'>FRANQUICIAS</option>
                       <option id='INTERES'>INTERES</option>
-                      <option id='CAPACITACION'>CAPACITACION</option>
                       <option id='COMPARTIR PERSONAL'>COMPARTIR PERSONAL</option>
                       <option id='DESCUENTOS CLIENTES'>DESCUENTOS CLIENTES</option>
                       <option id='SOFTWARE'>SOFTWARE</option>
@@ -412,7 +412,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']!='VENDEDOR' ){
                       <option id='COCHERA FURGON FERREBOOM W5X-715'>COCHERA FURGON FERREBOOM W5X-715</option>
                       <option id='PETROLEO FURGON INNOVA W5R-894'>PETROLEO FURGON INNOVA W5R-894</option>
                       <option id='REPARACION FURGON INNOVA W5R-894'>REPARACION FURGON INNOVA W5R-894</option>
-                      <option id='COCHERA FURGON FERREBOOM W5R-894'>COCHERA FURGON FERREBOOM W5R-894</option>
+                      <option id='COCHERA FURGON INNOVA W5R-894'>COCHERA FURGON INNOVA W5R-894</option>
                       <option id='ENVIO ENCOMIENDA'>ENVIO ENCOMIENDA</option>
                       <option id='OTROS'>OTROS</option>
                     </select>

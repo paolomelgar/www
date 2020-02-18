@@ -63,6 +63,8 @@ require_once('../connection.php');
                 <?php } ?>
 			</select></td></tr>
 			<tr><td>CELULAR:</td><td><input type="text" name="telefono" id="telefono" class="span3" maxlength="100"/></td></tr>
+			<tr><td>CORREO:</td><td><input type="text" name="correo" id="correo" class="span3" maxlength="100"/></td></tr>
+			<tr><td>ZONA:</td><td><input type="text" name="zona" id="zona" class="span3" maxlength="100"/></td></tr>
 			<tr><td>NOMBRE COMERCIAL:</td><td><input type="text" name="mail" id="mail" class="span3"/></td></tr>
 			<tr><td>LIMITE CREDITO:</td><td><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td>ACTIVO:</td><td><select id="activo1" name="activo1" class="span3">
@@ -118,10 +120,12 @@ require_once('../connection.php');
 				<th style="text-align: center;width:7%">TIPO</th>
 				<th style="text-align: center;width:5%">CREDITO</th>
 				<th style="text-align: center;width:5%">CLASE</th>
-				<th style="text-align: center;width:10%">VENDEDOR</th>
-				<th style="text-align: center;width:10%">CELULAR</th>
+				<th style="text-align: center;width:5%">ZONA</th>
+				<th style="text-align: center;width:5%">CORREO</th>
+				<th style="text-align: center;width:7%">VENDEDOR</th>
+				<th style="text-align: center;width:5%">CELULAR</th>
 				<th style="text-align: center;width:10%">NOMBRE COMERCIAL</th>
-				<th style="text-align: center;width:5%">ACTIVO</th>
+				<th style="text-align: center;width:3%">ACTIVO</th>
 			</tr>
 		</thead>
 		<tbody id="resultado">  

@@ -16,14 +16,15 @@ $num=($_POST['numero']-1)*$_POST['pagina'];
 if(isset($_POST['accion']) && !empty($_POST['accion'])){
     switch ($_POST['accion']) {
         case 'add':
-            $sql1= mysqli_query($con,"INSERT INTO cliente (ruc,cliente,direccion,tipo,representante,telefono,mail,credito,activo,latitud,longitud) 
-            VALUES ('".$_POST['ruc']."','".$_POST['cliente']."','".$_POST['direccion']."','".$_POST['tipo']."','".$_POST['representante']."','".$_POST['telefono']."','".$_POST['mail']."','".$_POST['credito']."','".$_POST['activo1']."','','')");
+            $sql1= mysqli_query($con,"INSERT INTO cliente (ruc,cliente,direccion,tipo,representante,telefono,mail,credito,activo,latitud,longitud,clase,zona,nombre) 
+            VALUES ('".$_POST['ruc']."','".$_POST['cliente']."','".$_POST['direccion']."','".$_POST['tipo']."','".$_POST['representante']."','".$_POST['telefono']."','".$_POST['mail']."','".$_POST['credito']."','".$_POST['activo1']."','','','','".$_POST['zona']."','".$_POST['nombre']."')");
         break;
 
         case 'edit':
             $sql1= mysqli_query($con,"UPDATE cliente SET ruc='".$_POST['ruc']."', cliente='".$_POST['cliente']."', direccion='".$_POST['direccion']."', 
                 tipo='".$_POST['tipo']."', representante='".$_POST['representante']."', telefono='".$_POST['telefono']."', 
-                mail='".$_POST['mail']."', credito='".$_POST['credito']."', activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
+                mail='".$_POST['mail']."', credito='".$_POST['credito']."', zona='".$_POST['zona']."', nombre='".$_POST['nombre']."', 
+                activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
         break;
 
         case 'del':
@@ -54,6 +55,9 @@ while($row=mysqli_fetch_assoc($result)){ ?>
         <td><?php echo $row['direccion']; ?></td>
         <td><?php echo $row['tipo']; ?></td>
         <td><?php echo $row['credito']; ?></td>
+        <td><?php echo $row['clase']; ?></td>
+        <td><?php echo $row['zona']; ?></td>
+        <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['representante']; ?></td>
         <td><?php echo $row['telefono']; ?></td>
         <td><?php echo $row['mail']; ?></td>

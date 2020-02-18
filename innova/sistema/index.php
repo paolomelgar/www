@@ -200,7 +200,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../ventas/" target="_blank">VENTA TIENDA</a></li>
 									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
 									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
-									<li><a href="../ticketpromedio/" target="contenedor">TICKET PROMEDIO</a></li>
+									<li><a href="../reportealmacen/" target="contenedor">REPORTE ALMACEN</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -263,7 +263,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../ventas/" target="_blank">VENTA TIENDA</a></li>
 									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
 									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
-									<li><a href="../ticketpromedio/" target="contenedor">TICKET PROMEDIO</a></li>
+									<li><a href="../reportealmacen/" target="contenedor">REPORTE ALMACEN</a></li>
 								</ul>
 							</li>
 						</ul>

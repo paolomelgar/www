@@ -112,7 +112,7 @@ if($_SESSION['valida']=='neofer') {
 				</div>
 			</td>
 			<td rowspan='2' width='70%' valign='top'>
-				<div id='result1' style='display:none;overflow-y:overlay;overflow-x:hidden;height:100%;' class='result'>
+				<div id='result1' style='display:none;overflow-y:overlay;overflow-x:hidden;height:700px;' class='result'>
 				    <table width="100%" align="center" id='filter1'>
 				       <thead>
 				        <tr bgcolor="#428bca" style="color:#FFF; text-align:center;font-size:13px;font-weight:bold">

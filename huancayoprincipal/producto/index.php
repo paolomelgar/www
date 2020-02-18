@@ -7,6 +7,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 <head>
 	<title>PRODUCTOS</title>
 	<meta charset="utf-8" />
+  <link rel="shortcut icon" href="../favicon.ico"/>
 	<link type="text/css" href="../bootstrap.min.css" rel="stylesheet" />
 	<link type="text/css" href="../jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
   <link type="text/css" href="../sweet-alert.css" rel="stylesheet" />
@@ -57,7 +58,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       left:50%;
       margin-left:-100px;
       bottom:10px;
-      background-color: #383838;
+      background-color: black;
       color: #F0F0F0;
       font-family: Calibri;
       font-size: 20px;
@@ -68,6 +69,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
       -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
       box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      pointer-events:none;
+      opacity:0.5;
     }
     .error1 {
       width:300px;
@@ -97,23 +100,23 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
   <div style='display:none' id="agregardatos">
   <form name="formagregar" id="formagregar">
     <table width='100%'>
-      <tr><td><input type="hidden" name="codigo"/></td></tr>
-      <tr><td>PRODUCTO:</td><td><input type="text" name="producto" class="span3" style="float:left;"/></td></tr>
-      <tr><td>MARCA:</td><td><input type="text" name="marca" id='marca' class="span3" style="float:left;"/><a id='add' href='#'>ADD</a></td></tr>
-      <tr><td>CATEGORIA:</td><td><select name="familia" class="span3">
+      <tr><td width='25%'><input type="hidden" name="codigo"/></td></tr>
+      <tr><td width='25%'>PRODUCTO:</td><td width='75%'><input type="text" name="producto" class="span3" style="float:left;"/></td></tr>
+      <tr><td width='25%'>MARCA:</td><td width='75%'><input type="text" name="marca" id='marca' class="span3" style="float:left;"/><a id='add' href='#'>ADD</a></td></tr>
+      <tr><td width='25%'>CATEGORIA:</td><td width='75%'><select name="familia" class="span3">
             <?php 
                 $sql=mysqli_query($con,"SELECT * FROM familia WHERE activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['familia']?>"><?php echo $row['familia']?></option>
                 <?php } ?> 
       </select></td></tr>
-      <tr><td>ACTIVO:</td><td><select name="activo1" class="span3">
+      <tr><td width='25%'>ACTIVO:</td><td width='75%'><select name="activo1" class="span3">
         <option value="SI">SI</option>
         <option value="NO">NO</option>
         <option value='UNIDAD'>UNIDAD</option>
         <option value="OFERTA">OFERTA</option>
       </select></td></tr>
-      <tr><td>IMAGEN:</td><td><input type="file" name="imagen" class="span3" accept="image/jpeg"/></td></tr>
+      <tr><td width='25%'>IMAGEN:</td><td width='75%'><input type="file" name="imagen" class="span3" accept="image/jpeg"/></td></tr>
     </table>
   </form>
   </div>
@@ -123,7 +126,8 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 	<div id="body">
 		<h3 style="text-align: center;color:#428bca;margin-top:-2px;font-weight:bold">REGISTRO DE PRODUCTOS</h3>
     <div id="boton">
-      PRODUCTO:<input type="text" id="busqueda" name="busqueda" class="span5" placeholder="Realize su Busqueda..." style="margin-right:10px" autocomplete="off"/>
+      PRODUCTO:<input type="text" id="busqueda" name="busqueda" class="span5" placeholder="Buscar..." style="margin-right:10px" autocomplete="off"/>
+      PROVEEDOR:<input type="text" id="prov" name="prov" class="span3" placeholder="Buscar..." style="margin-right:10px" autocomplete="off"/>
       ACTIVO:<select id='selactivo' class='span1'>
         <option value='SI'>SI</option>
         <option value='NO'>NO</option>
@@ -160,13 +164,13 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
               <th style="text-align: center;width:4%">CODIGO</th>
               <th style="text-align: center;width:20%">PRODUCTO</th>
               <th style="text-align: center;width:8%">MARCA</th>
-              <th style="text-align: center;width:6%">FAMILIA</th>
+              <th style="text-align: center;width:5%">FAMILIA</th>
               <th style="text-align: center;width:8%">PROVEEDOR</th>
               <th style="text-align: center;width:4%">UBICACION</th>
               <th style="text-align: center;width:3%">CAJA</th>
               <th style="text-align: center;width:4%">MASTER</th>
               <th style="text-align: center;width:4%">S.REAL</th>
-              <th style="text-align: center;width:4%">S.INNOVA</th>
+              <th style="text-align: center;width:2%">S.INNOVA</th>
               <th style="text-align: center;width:4%">S.BOOM</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
               <th style="text-align: center;width:4%;background-color:#FE3F33">P.FRAN</th>
@@ -174,6 +178,7 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
               <th style="text-align: center;width:4%;background-color:#F7EC0F">P.PROV</th>
               <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.MAY</th>
               <th style="text-align: center;width:4%;background-color:#0FC6F7">P.T.PUB1</th>
+              <th style="text-align: center;width:4%">U.COMPRA</th>
               <th style="text-align: center;width:3%">ACTIVO</th>
           </tr>
       </thead>

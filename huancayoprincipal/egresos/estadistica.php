@@ -83,11 +83,12 @@ switch ($_POST['t']) {
 		$quer23= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='VIAT REPARTO LOCAL' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
 		$quer24= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='VIAT REPARTO PROVIN' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
 		$quer25= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='INTERES PRESTAMO' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
-		$quer26= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='CAPACITACION' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
-		$quer27= mysqli_query($con,"SELECT SUM(pendiente) FROM total_ventas WHERE credito='CREDITO' AND entregado='SI'");
-		$quer28= mysqli_query($con,"SELECT SUM(pendiente) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='SOLES'");
-		$quer29= mysqli_query($con,"SELECT SUM(pendiente*cambio) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='DOLARES'");
-		$quer30= mysqli_query($con,"SELECT SUM(monto) FROM prestamos WHERE pendiente='SI'");
+		$quer26= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='REMODELACION' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
+		$quer27= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='CAPACITACION' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
+		$quer28= mysqli_query($con,"SELECT SUM(pendiente) FROM total_ventas WHERE credito='CREDITO' AND entregado='SI'");
+		$quer29= mysqli_query($con,"SELECT SUM(pendiente) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='SOLES'");
+		$quer30= mysqli_query($con,"SELECT SUM(pendiente*cambio) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='DOLARES'");
+		$quer31= mysqli_query($con,"SELECT SUM(monto) FROM prestamos WHERE pendiente='SI'");
 		$r1=mysqli_fetch_row($quer1);
 		$r2=mysqli_fetch_row($quer2);
 		$r3=mysqli_fetch_row($quer3);
@@ -114,6 +115,7 @@ switch ($_POST['t']) {
 		$r24=mysqli_fetch_row($quer24);
 		$r25=mysqli_fetch_row($quer25);
 		$r26=mysqli_fetch_row($quer26);
+		$r27=mysqli_fetch_row($quer27);
 		$ar=array();
       	$ar[0]=number_format($r1[0]+0, 2, '.', '');
       	$ar[1]=number_format($r2[0]+0, 2, '.', '');
@@ -141,7 +143,8 @@ switch ($_POST['t']) {
       	$ar[23]=number_format($r24[0]+0, 2, '.', '');
       	$ar[24]=number_format($r25[0]+0, 2, '.', '');
       	$ar[25]=number_format($r26[0]+0, 2, '.', '');
-      	$ar[26]=number_format($r1[0]+$r2[0]+$r3[0]+$r4[0]+$r5[0]+$r6[0]+$r7[0]+$r8[0]+$r9[0]+$r10[0]+$r11[0]+$r12[0]+$r13[0]+$r14[0]+$r15[0]+$r16[0]+$r17[0]+$r18[0]+$r19[0]+$r20[0]+$r21[0]+$r22[0]+$r23[0]+$r24[0]+$r25[0]+$r26[0]+0, 2, '.', '');
+      	$ar[26]=number_format($r27[0]+0, 2, '.', '');
+      	$ar[27]=number_format($r1[0]+$r2[0]+$r3[0]+$r4[0]+$r5[0]+$r6[0]+$r7[0]+$r8[0]+$r9[0]+$r10[0]+$r11[0]+$r12[0]+$r13[0]+$r14[0]+$r15[0]+$r16[0]+$r17[0]+$r18[0]+$r19[0]+$r20[0]+$r21[0]+$r22[0]+$r23[0]+$r24[0]+$r25[0]+$r26[0]+$r27[0]+0, 2, '.', '');
 		?>
 		<table>
 			<tr>
@@ -161,6 +164,8 @@ switch ($_POST['t']) {
 								<tr><td align='center' style='color:black'>GASTOS FINANCIEROS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[6]; ?></td></tr>
 								<tr><td align='center' style='color:black'>GASTOS ADMINISTRATIVOS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[7]; ?></td></tr>
 								<tr><td align='center' style='color:black'>GASTOS TIENDA</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[8]; ?></td></tr>
+								<tr><td align='center' style='color:black'>REMODELACION</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[25]; ?></td></tr>
+								<tr><td align='center' style='color:black'>CAPACITACION</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[26]; ?></td></tr>
 								<tr><td align='center' style='color:black'>VIAT VENTAS LOCAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[20]; ?></td></tr>
 								<tr><td align='center' style='color:black'>VIAT VENTAS PROVINCIA</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[21]; ?></td></tr>
 								<tr><td align='center' style='color:black'>VIAT REPARTO LOCAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[22]; ?></td></tr>
@@ -170,7 +175,6 @@ switch ($_POST['t']) {
 								<tr><td align='center' style='color:black'>FRANQUICIAS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[11]; ?></td></tr>
 								<tr><td align='center' style='color:black'>INTERES PRESTAMO</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[24]; ?></td></tr>
 								<tr><td align='center' style='color:black'>INTERES</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[12]; ?></td></tr>
-								<tr><td align='center' style='color:black'>CAPACITACION</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[25]; ?></td></tr>
 								<tr><td align='center' style='color:black'>COMPARTIR PERSONAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[13]; ?></td></tr>
 								<tr><td align='center' style='color:black'>DESCUENTOS CLIENTES</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[14]; ?></td></tr>
 								<tr><td align='center' style='color:black'>SOFTWARE</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[15]; ?></td></tr>
@@ -178,7 +182,7 @@ switch ($_POST['t']) {
 								<tr><td align='center' style='color:black'>LIMPIEZA</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[17]; ?></td></tr>
 								<tr><td align='center' style='color:black'>COLABORACION</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[18]; ?></td></tr>
 								<tr><td align='center' style='color:black'>OTROS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[19]; ?></td></tr>
-								<tr><td align='center' style='color:black'>TOTAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[26]; ?></td></tr>
+								<tr><td align='center' style='color:black'>TOTAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[27]; ?></td></tr>
 							</tbody>
 						</table>
 					</div>

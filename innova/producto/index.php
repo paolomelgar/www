@@ -32,6 +32,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
     td,th {
       white-space: nowrap;
       overflow: hidden;
+      
     }
     .text:focus {
       background-color: white;
@@ -43,8 +44,12 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
     .tr:hover{
       background-color: #FF3;
     }
-    a#add:link{text-decoration:none;font-weight:bold;color:red;font-size: 18px;}
-    a#add:visited{text-decoration:none;font-weight:bold;color:red;font-size: 18px;}
+    a#add:link{
+      text-decoration:none;font-weight:bold;color:red;font-size: 18px;
+    }
+    a#add:visited{
+      text-decoration:none;font-weight:bold;color:red;font-size: 18px;
+    }
     .error {
       width:300px;
       height:20px;
@@ -66,11 +71,32 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
       pointer-events:none;
       opacity:0.5;
-  }
+    }
+    .error1 {
+      width:300px;
+      height:50px;
+      height:auto;
+      position:absolute;
+      left:50%;
+      margin-left:-100px;
+      bottom:10px;
+      background-color: red;
+      color: #F0F0F0;
+      font-family: Calibri;
+      font-size: 20px;
+      padding:10px;
+      text-align:center;
+      border-radius: 2px;
+      z-index:1000;
+      -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    }
   </style>
 </head>
 <body>
   <div class='error' style='display:none'>Guardado Correctamente</div>
+  <div class='error1' style='display:none'>El Precio del Producto no puede Estar debajo del Precio de Compra</div>
   <div style='display:none' id="agregardatos">
   <form name="formagregar" id="formagregar">
     <table width='100%'>
@@ -137,20 +163,22 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
               <th style="text-align: center;width:1.5%;max-width:36px">IMG</th>
               <th style="text-align: center;width:3%">CODIGO</th>
               <th style="text-align: center;width:24%">PRODUCTO</th>
-              <th style="text-align: center;width:8%">MARCA</th>
+              <th style="text-align: center;width:6%">MARCA</th>
               <th style="text-align: center;width:5%">CATEGORIA</th>
-              <th style="text-align: center;width:8%">PROVEEDOR</th>
+              <th style="text-align: center;width:6%">PROVEEDOR</th>
               <th style="text-align: center;width:3%">UBIC 1</th>
               <th style="text-align: center;width:3%">UBIC 2</th>
               <th style="text-align: center;width:3%">X/CAJA</th>
-              <th style="text-align: center;width:5%">S.REAL</th>
-              <th style="text-align: center;width:4%">S.CONT</th>
+              <th style="text-align: center;width:4%">S.REAL</th>
+              <th style="text-align: center;width:4%">S.ALMACEN</th>
+              <th style="text-align: center;width:4%">S.INVENTARIO</th>
+              <th style="text-align: center;width:3%">S.CONT</th>
               <th style="text-align: center;width:5%">P.UNIDAD</th>
               <th style="text-align: center;width:5%">P.MAYOR</th>
               <th style="text-align: center;width:5%">P.ESP</th>
               <th style="text-align: center;width:5%">P.FRAN</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
-              <th style="text-align: center;width:6%">U.COMPRA</th>
+              <th style="text-align: center;width:4%">U.COMPRA</th>
               <th style="text-align: center;width:2.5%">ACTIVO</th>
           </tr>
       </thead>
@@ -200,11 +228,12 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
               <th style="text-align: center;width:12%">MARCA</th>
               <th style="text-align: center;width:10%">CATEGORIA</th>
               <th style="text-align: center;width:5%">UBIC 2</th>
-              <th style="text-align: center;width:5%">X/CAJA</th>
-              <th style="text-align: center;width:6%">S.REAL</th>
-              <th style="text-align: center;width:6%">P.UNIDAD</th>
-              <th style="text-align: center;width:6%">P.MAYOR</th>
-              <th style="text-align: center;width:6%">P.ESP</th>
+              <th style="text-align: center;width:4%">X/CAJA</th>
+              <th style="text-align: center;width:5%">S.REAL</th>
+              <th style="text-align: center;width:5%">S.ALMACEN</th>
+              <th style="text-align: center;width:5%">P.UNIDAD</th>
+              <th style="text-align: center;width:5%">P.MAYOR</th>
+              <th style="text-align: center;width:5%">P.ESP</th>
               <th style="text-align: center;width:4%">ACTIVO</th>
           </tr>
       </thead>

@@ -1,19 +1,14 @@
 <?php
-require_once('../connection.php');
+  require_once('../connection.php');
   $ini = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['inicio'])));
   $fin = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['final'])));
   $query="('$ini' <= fecha AND fecha <= '$fin')";
   if($_POST['estado']=='TODOS'){
-    // if($_SESSION['cargo']=='ADMIN'){
-      $query.=" AND estado!='BUENO'";
-    // }else{
-    // $query.=" AND estado!='BUENO' AND estado!='CORRECCION STOCK'";
-    //}
+    $query.=" AND estado!='BUENO'";
   }
   else{
     $query.=" AND estado='".$_POST['estado']."'";
   }
-
   $sql=mysqli_query($con,"SELECT * FROM devoluciones WHERE $query ORDER BY fecha,hora");
   $i=0;
   $dat=array();
@@ -26,6 +21,7 @@ require_once('../connection.php');
     $dat[$i][5]=number_format($row['cantidad']*$row['compra'],2);
     $dat[$i][6]=$row['estado'];
     $dat[$i][7]=$row['iddevolucion'];
+    $dat[$i][8]=$row['usuario'];
     $i++;
   }
   echo json_encode($dat);

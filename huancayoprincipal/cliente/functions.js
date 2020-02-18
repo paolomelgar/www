@@ -342,8 +342,8 @@ $(function(){
 	    this.setSelectionRange(start, end);
     });                                                                     
     $("#busqueda").focus();                                                                                                    
-    $("#busqueda").keyup(function(e){        
-    	$("#numero").val(1);                                                                                           
+    $("#busqueda").keyup(function(e){
+    	$("#numero").val(1);
         $.ajax({
             type: "POST",
             url: "mn.php",

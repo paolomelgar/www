@@ -15,13 +15,20 @@
 		    	$data[$i][5]=$row['cliente'];
 		    	$data[$i][6]=$s[3];
 		    	$data[$i][7]=substr($s[1],0,-2);
+		    	$data[$i][8]=substr($s[1],-1,1);
 		    	$i++;
 		    }
 		}
 		else{
 			$data='';
 		}
-	    
+	   function sortByOrder($a, $b) {
+    $c = $a[7] - $b[7];
+    $c .= strcmp($a[8],$b[8]);
+    return $c;
+}
+
+usort($data, 'sortByOrder');
 	    $date=array();
 	    $date[0]=$data;
 	    echo json_encode($date);

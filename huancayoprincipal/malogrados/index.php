@@ -152,14 +152,15 @@ if($_SESSION['valida']=='huancayoprincipal'){
     <table width='98%' align='center'>
       <thead>
         <tr align='center' bgcolor="black" style="color:white;font-weight:bold;font-size:15px">
-          <th width='3%'>N°</th>
-          <th width='12%'>FECHA</th>
+          <th width='2%'>N°</th>
+          <th width='8%'>FECHA</th>
           <th width='8%'>SERIE</th>
-          <th width='40%'>PRODUCTO</th>
-          <th width='6%'>CAN</th>
-          <th width='8%'>P.COMPRA</th>
-          <th width='8%'>IMPORTE</th>
-          <th width='15%'>ESTADO</th>
+          <th width='39%'>PRODUCTO</th>
+          <th width='5%'>CAN</th>
+          <th width='6%'>P.COMPRA</th>
+          <th width='6%'>IMPORTE</th>
+          <th width='13%'>ESTADO</th>
+          <th width='15%'>USUARIO</th>
         </tr>
       </thead>
     </table>
@@ -167,14 +168,15 @@ if($_SESSION['valida']=='huancayoprincipal'){
       <table width='98%' id="venta" align='center'>
         <thead style='background-color:#2E9AFE'>
           <tr style="display:none">
-            <th width='3%'>N°</th>
-            <th width='12%'>FECHA</th>
+            <th width='2%'>N°</th>
+            <th width='8%'>FECHA</th>
             <th width='8%'>SERIE</th>
-            <th width='40%'>PRODUCTO</th>
-            <th width='6%'>CANTIDAD</th>
-            <th width='8%'>P.COMPRA</th>
-            <th width='8%'>IMPORTE</th>
-            <th width='15%'>ESTADO</th>
+            <th width='39%'>PRODUCTO</th>
+            <th width='5%'>CAN</th>
+            <th width='6%'>P.COMPRA</th>
+            <th width='6%'>IMPORTE</th>
+            <th width='13%'>ESTADO</th>
+            <th width='15%'>USUARIO</th>
             <th style='display:none'></th>
           </tr>
         </thead>

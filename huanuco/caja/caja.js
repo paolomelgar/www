@@ -463,12 +463,12 @@ var stock,compra,promotor,unit;
         var w=window.open('','',"width=1200,height=600,left="+x1+",top="+y1);
         switch(comprobante){
           case 'BOLETA DE VENTA':
-            $('#dx').append("<table width='80%' style='margin-top:40px;margin-left:18px;font:0.9em Calibri;font-weight:bold'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
-              "<table width='80%' style='margin-top:-5px;margin-left:18px;font:0.9em Agency FB;font-weight:bold'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
-              "<table width='80%' style='margin-bottom:0px;margin-top:-5px;font-weight:bold'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
+            $('#dx').append("<table width='80%' style='margin-top:40px;margin-left:18px;font:0.9em Calibri'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' style='margin-top:-5px;margin-left:18px;font:0.9em Agency FB'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' style='margin-bottom:0px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
             );
             for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;margin-left:18px;font-weight:bold'><tr height='17px'><td width='8%' align='right'>"+data[0][i][1]+"&nbsp&nbsp&nbsp</td><td width='62%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;margin-left:18px;'><tr height='17px'><td width='8%' align='right'>"+data[0][i][1]+"&nbsp&nbsp&nbsp</td><td width='62%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
             while(v1<16-parseInt(data[0].length)){
               $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;'><tr height='17px'><td>&nbsp</td></tr></table>");
@@ -481,13 +481,13 @@ var stock,compra,promotor,unit;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'FACTURA':
             if(parseInt(data[0].length)<15){
-              $('#dx').append("<table width='100%' style='margin-top:148px;font:0.8em Verdana;font-weight:bold'><tr><td width='9%'>.</td><td width='91%'>"+data[1][12]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;font-weight:bold'><tr><td width='9%'>.</td><td width='76%'>"+data[1][1]+"</td><td width='15%'>"+data[1][0]+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;font-weight:bold'><tr><td width='9%'>.</td><td width='91%'>"+data[1][2]+"</td></tr></table>\n"+
+              $('#dx').append("<table width='100%' style='margin-top:148px;font:0.8em Verdana;'><tr><td width='9%'>.</td><td width='91%'>"+data[1][12]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='9%'>.</td><td width='76%'>"+data[1][1]+"</td><td width='15%'>"+data[1][0]+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:-1px;font:0.7em Verdana;'><tr><td width='9%'>.</td><td width='91%'>"+data[1][2]+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-bottom:2px;margin-top:0px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td><td width='10%' align='center'>&nbsp</td></tr></table>\n"
               );
               for (var i=0;i<data[0].length;i++) {
-                $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em Verdana;font-weight:bold'><tr height='18px'><td width='9%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='58%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+                $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em Verdana;'><tr height='18px'><td width='9%' align='right'>"+data[0][i][1]+"</td><td width='3%'></td><td width='58%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
               }
               while(v1<15-parseInt(data[0].length)){
                 $('#dx').append("<table width='100%' style='margin-top:-5px;font:0.7em Verdana;'><tr height='18px'><td>&nbsp</td></tr></table>");
@@ -498,9 +498,9 @@ var stock,compra,promotor,unit;
               //subigv1=parseFloat(data[1][3]/1.18).toFixed(2);
               subigv1=parseFloat(data[1][3]).toFixed(2);
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
-              $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;font-weight:bold'><tr><td width='4%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;font-weight:bold'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;font-weight:bold'><tr><td width='59%'>.</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
+              $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;'><tr><td width='4%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;'><tr><td width='59%'>.</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
               $.ajax({
                 type: "POST",
                 url: "numerosaletras.php",
@@ -548,12 +548,12 @@ var stock,compra,promotor,unit;
           break;
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           case 'PROFORMA':
-            $('#dx').append("<table width='80%' style='margin-top:42px;font:0.9em Calibri;font-weight:bold'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
-              "<table width='80%' style='margin-top:-5px;font:0.9em Agency FB;font-weight:bold'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
-              "<table width='80%' style='margin-bottom:0px;margin-top:-5px;font-weight:bold'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
+            $('#dx').append("<table width='80%' style='margin-top:42px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
+              "<table width='80%' style='margin-top:-5px;font:0.9em Agency FB;'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
+              "<table width='80%' style='margin-bottom:0px;margin-top:-5px;'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
             );
             for (var i=0;i<data[0].length;i++) {
-              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;font-weight:bold'><tr height='17px'><td width='8%' align='right'>"+data[0][i][1]+"&nbsp&nbsp&nbsp</td><td width='62%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
+              $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana'><tr height='17px'><td width='8%' align='right'>"+data[0][i][1]+"&nbsp&nbsp&nbsp</td><td width='62%'>"+data[0][i][0]+"</td><td width='15%' align='right'>"+data[0][i][2]+"</td><td width='15%' align='right'>"+data[0][i][3]+"</td></tr></table>");
             }
             while(v1<16-parseInt(data[0].length)){
               $('#dx').append("<table width='77%' style='margin-top:-8px;font:0.7em Verdana;'><tr height='17px'><td>&nbsp</td></tr></table>");

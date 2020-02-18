@@ -1304,7 +1304,7 @@ var stock,compra,promotor,unit,y=7;
         $('#observarpedido').append(data);
       }
     });
-    if($('#cargo').val()=='ADMIN' || $('#cargo').val()=='ENCARGADOTIENDA'){
+    if($('#cargo').val()=='ADMIN'){
       if($(this).parent().find('td:eq(6)').text()=='CONTADO'){
         if($(this).parent().find('td:eq(3)').text().slice(0,10)!=fech){
           $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
@@ -1313,7 +1313,7 @@ var stock,compra,promotor,unit,y=7;
         else{
           if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
-            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");  
+            $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
           }else{
             $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
             $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");

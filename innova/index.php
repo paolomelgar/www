@@ -99,17 +99,18 @@ session_start();
               <select name="local" id="local">
                 <option disabled selected value>Local</option>
                 <option value='dorispovez'>Doris Povez</option>
-                <option value='johannagutierrez'>Johanna Gutierrez</option>
                 <option value='prolongacionhuanuco'>Prol huanuco</option>
                 <option value='laprincipal'>La Principal</option>
                 <option value='innovahuanuco'>Innova Huanuco</option>
                 <option value='innovaprincipal'>Innova Principal</option>
+                <option value='innovaelectric'>Innova Electric</option>
                 <option value='jauja'>Jauja</option>
                 <option value='tingomaria'>Tingo Maria</option>
                 <option value='tarapac'>Tarapaca</option>
                 <option value='kalimax'>Kalimax</option>
                 <option value='ayacucho'>Ayacucho</option>
                 <option value='fitfood'>Fit Food</option>
+                <option value='progreso'>Progreso</option>
               </select>
             </div>
             <div style='margin-top:10px'><input class="btn btn-warning" name="button" id="button" value="Iniciar Sesion" type="button"></div>

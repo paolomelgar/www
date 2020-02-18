@@ -69,6 +69,7 @@ $(function(){
             	activo:$('#selactivo').val(),
             	numero:$('#numero').val(),
             	pagina:$('#pagina').val(),
+            	prov:$('#prov').val(),
             	cont:$('#contable').val()
             },
             beforeSend:function(){
@@ -184,7 +185,7 @@ $(function(){
 			var dato1=$(".selected").children( "td:eq(4)" ).text();
 			var dato2=$(".selected").children( "td:eq(5)" ).text();
 			var dato3=$(".selected").children( "td:eq(6)" ).text();
-			var dato4=$(".selected").children( "td:eq(20)" ).text();
+			var dato4=$(".selected").children( "td:eq(21)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar Producto',
 				open:function(){
@@ -235,6 +236,15 @@ $(function(){
 	var typingTimer;                     
     $("#busqueda").focus();                                                                                                    
     $("#busqueda").keyup(function(e){    
+    	clearTimeout(typingTimer);
+	    if ($('#busqueda').val) {
+	        typingTimer = setTimeout(function(){    
+		        $("#numero").val(1);                                                                           
+		        total();
+		    }, 500);   
+	    }
+    });
+    $("#prov").keyup(function(e){    
     	clearTimeout(typingTimer);
 	    if ($('#busqueda').val) {
 	        typingTimer = setTimeout(function(){    
