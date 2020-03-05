@@ -500,7 +500,7 @@ var stock,compra,promotor,unit;
               igv1=parseFloat(data[1][3]-subigv1).toFixed(2);
               $("#dx").append("<table width='100%' style='font:0.8em Verdana;margin-top:0px;'><tr><td width='4%'></td><td width='76%' id='let'></td><td width='10%'>&nbsp</td><td align='right' width='10%'>"+subigv1+"</td></tr></table>\n"+
                 "<table width='100%' style='margin-top:6px;font:0.8em Verdana;'><tr><td width='80%'>.</td><td width='10%' style='font-size:12px' align='center'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td align='right' width='10%'>"+igv1+"</td></tr></table>\n"+
-                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;'><tr><td width='59%'>.</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='6%'>&nbsp</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
+                "<table width='100%' style='margin-top:6px;font:0.8em Verdana;'><tr><td width='59%'>.</td><td width='6%'>"+data[1][12].slice(0,2)+"</td><td width='6%'>"+data[1][12].slice(3,5)+"</td><td width='6%'>"+data[1][12].slice(6,10)+"</td><td width='13%' style='font-size:12px'></td><td align='right' width='10%'>"+data[1][3]+"</td></tr></table>");
               $.ajax({
                 type: "POST",
                 url: "numerosaletras.php",

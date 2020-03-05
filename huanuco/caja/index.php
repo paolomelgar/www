@@ -311,10 +311,10 @@ if($_SESSION['valida']=='huanuco' && $_SESSION['cargo']!='VENDEDOR' ){
                   <td>
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
-                      <option id='PAOLO'>PAOLO MELGAR</option>
-                      <option id='DAVID'>DAVID PEREZ</option>
                       <option id='PEDRO'>PEDRO MELGAR</option>
+                      <option id='DAVID'>DAVID PEREZ</option>
                       <option id='ESLI'>ESLI MALLQUI</option>
+                      <option id='JULIAN'>JULIAN SOTO</option>
                     </select>
                   </td>
                 </tr>

@@ -119,7 +119,6 @@
             }
         }
     break;
-    
 	case 'NOTA DE PEDIDO':
 		if ($_POST['editar']==0) {
             $res = mysqli_query($con,"SELECT MAX(numero)+1 FROM total_compras WHERE serie='000'"); 
@@ -229,7 +228,7 @@
                 $inser=mysqli_query($con,"UPDATE cajamayor SET contados=(contados+round($am,1)) WHERE fecha='".$hoy."'");
             }
             else{
-                $am=$_POST['str'][15]['value']*$_POST['str'][8]['value'];
+                $am=$_POST['str'][15]['value']*$_POST['str'][9]['value'];
                 $inser=mysqli_query($con,"UPDATE cajamayor SET contados=(contados+round($am,1)) WHERE fecha='".$hoy."'");
             }
         }

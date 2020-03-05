@@ -44,15 +44,19 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' ){ ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
-        <?php if($_SESSION['mysql']=="innovaprincipal"){ ?>
-            <td contenteditable="true" class="text" style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <?php if($_SESSION['mysql']=="innovaprincipalL" || $_SESSION['mysql']=="dorispovez"){ ?>
+            <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
             <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
-            <td contenteditable="true" class="text" style="text-align:right;color:brown;font-weight:bold"><?php echo $row['stock_inventario']; ?></td>
+            <td contenteditable="true" class="text" style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra']; ?></td>
+            <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra2']; ?></td>
+            <td style="text-align:right;color:brown;font-weight:bold"><?php echo $row['stock_inventario']; ?></td>
         <?php }else{ ?>
             <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
             <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
+            <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra']; ?></td>
+            <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra2']; ?></td>
             <td style="text-align:right;color:brown;font-weight:bold"><?php echo $row['stock_inventario']; ?></td>
-        <?php } ?> 
+        <?php } ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['stock_con']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
         <td contenteditable="true" class="text" style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>
@@ -84,6 +88,8 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <td style="text-align:right"><?php echo $row['cant_caja']; ?></td>
         <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
+        <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra']; ?></td>
+        <td style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra2']; ?></td>
         <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_unidad']; ?></td>
         <td style="text-align:right;color:blue;font-weight:bold"><?php echo $row['p_promotor']; ?></td>

@@ -402,7 +402,7 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
             <td colspan='2'>
               <input type="text" id="busqueda" style="background-color: #F8FD8D;" class='span7'/>
             </td>
-            <td><a href="#" id='agregar' class='button'>Nuevo Producto</a></td>
+            <td></td>
             <td align='right'><input type="text" id="cantidad" style="text-align:right;background-color: #F8FD8D" class='span1'/></td>
             <td align='right'><input type="text" id="precio_u" style="text-align:right;background-color: #F8FD8D" class='span1'/></td>
             <td align='right'><input type="text" id="importe" style="text-align:right;background-color: #F8FD8D" class='span1'/><input type='hidden' id='id'></td>

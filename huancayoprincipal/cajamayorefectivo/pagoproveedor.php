@@ -2,8 +2,8 @@
   require_once('../connection.php');
   if(isset($_POST) && !empty($_POST)){
     $fecha = date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])));
-    $sql=mysqli_query($con,"SELECT * FROM adelantoscompras WHERE mediopago='EFECTIVO' AND fecha='$fecha'");
-    $sql1=mysqli_query($con,"SELECT * FROM adelantosletra WHERE mediopago='EFECTIVO' AND fechapago='$fecha'");
+    $sql=mysqli_query($con,"SELECT * FROM adelantoscompras WHERE mediopago='EFECTIVO' AND fecha='$fecha' ORDER BY fecha");
+    $sql1=mysqli_query($con,"SELECT * FROM adelantosletra WHERE mediopago='EFECTIVO' AND fechapago='$fecha' ORDER BY fechapago");
     $i=0;
     $dat=array();
     while($row=mysqli_fetch_assoc($sql)){

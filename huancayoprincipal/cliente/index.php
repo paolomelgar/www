@@ -57,15 +57,16 @@ require_once('../connection.php');
 			<tr><td>VENDEDOR:</td><td><select id="representante" name="representante" class="span3">
 				<option value=""></option>
 				<?php 
-                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE cargo='VENDEDOR' AND activo='SI'");
+                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
                 <?php } ?>
 			</select></td></tr>
-			<tr><td>CELULAR:</td><td><input type="text" name="telefono" id="telefono" class="span3" maxlength="100"/></td></tr>
+			<tr><td>CELULAR:</td><td><input type="text" name="celular" id="celular" class="span3" maxlength="100"/></td></tr>
 			<tr><td>CORREO:</td><td><input type="text" name="correo" id="correo" class="span3" maxlength="100"/></td></tr>
+			<tr><td>CLASE:</td><td><input type="text" name="clase" id="clase" class="span3" maxlength="100"/></td></tr>
 			<tr><td>ZONA:</td><td><input type="text" name="zona" id="zona" class="span3" maxlength="100"/></td></tr>
-			<tr><td>NOMBRE COMERCIAL:</td><td><input type="text" name="mail" id="mail" class="span3"/></td></tr>
+			<tr><td>NOMBRE COMERCIAL:</td><td><input type="text" name="nomcomercial" id="nomcomercial" class="span3"/></td></tr>
 			<tr><td>LIMITE CREDITO:</td><td><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td>ACTIVO:</td><td><select id="activo1" name="activo1" class="span3">
 				<option value="SI">SI</option>
@@ -85,10 +86,10 @@ require_once('../connection.php');
 			<option value='SI'>SI</option>
 			<option value='NO'>NO</option>
 		</select>
-		PROMOTOR:<select id="promotor" name="promotor" class="span2">
+		VENDEDOR:<select id="promotor" name="promotor" class="span2">
 				<option value=""></option>
 				<?php 
-                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE cargo='VENDEDOR' AND activo='SI'");
+                $sql=mysqli_query($con,"SELECT * FROM usuario WHERE activo='SI'");
                 while($row=mysqli_fetch_assoc($sql)){ ?>
                   <option value="<?php echo $row['nombre']?>"><?php echo $row['nombre']?></option>
                 <?php } ?>

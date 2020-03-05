@@ -21,6 +21,7 @@ require_once('../connection.php');
       $dat[$i][7]=$row['montototal'];
       $dat[$i][8]=$row['value'];
       $dat[$i][9]=$row['billete'];
+      $dat[$i][10]=$row['usuario'];
       $i++;
     }
     echo json_encode($dat);

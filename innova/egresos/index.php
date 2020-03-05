@@ -163,9 +163,9 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
                       <option id='RAUL'>RAUL GALARZA</option>
                       <option id='ANGEL'>ANGEL SOLANO</option>
                       <option id='YAJAYRA'>YAJAYRA QUEVEDO</option>
+                      <option id='ALBERTO'>ALBERTO VELIZ</option>
                       <option id='MARCO'>MARCO PEÑA</option>
                       <option id='PEDRO'>PEDRO ROJAS</option>
-                      <option id='ALBERTO'>ALBERTO VELIZ</option>
                       <option id='JACINTO'>JACINTO RODRIGUEZ</option>
                       <option id='JOSE MIGUEL'>MIGUEL MURIA</option>
                       <option id='PAUL'>PAUL ALEXIS MELGAR</option>

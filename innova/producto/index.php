@@ -171,15 +171,17 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
               <th style="text-align: center;width:3%">X/CAJA</th>
               <th style="text-align: center;width:4%">S.REAL</th>
               <th style="text-align: center;width:4%">S.ALMACEN</th>
-              <th style="text-align: center;width:4%">S.INVENTARIO</th>
+              <th style="text-align: center;width:3%">S.MUESTRAS</th>
+              <th style="text-align: center;width:3%">S.MUESTRAS2</th>
+              <th style="text-align: center;width:3%">S.INVENTARIO</th>
               <th style="text-align: center;width:3%">S.CONT</th>
               <th style="text-align: center;width:5%">P.UNIDAD</th>
               <th style="text-align: center;width:5%">P.MAYOR</th>
               <th style="text-align: center;width:5%">P.ESP</th>
-              <th style="text-align: center;width:5%">P.FRAN</th>
+              <th style="text-align: center;width:3%">P.FRAN</th>
               <th style="text-align: center;width:5%">P.COMPRA</th>
-              <th style="text-align: center;width:4%">U.COMPRA</th>
-              <th style="text-align: center;width:2.5%">ACTIVO</th>
+              <th style="text-align: center;width:3%">U.COMPRA</th>
+              <th style="text-align: center;width:1.5%">ACTIVO</th>
           </tr>
       </thead>
       <tbody id="resultado">  
@@ -224,17 +226,19 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
           <tr style='background-color:#428bca;color:white'>
               <th style="text-align: center;width:1.5%;max-width:36px">IMG</th>
               <th style="text-align: center;width:6%">CODIGO</th>
-              <th style="text-align: center;width:31.3%">PRODUCTO</th>
-              <th style="text-align: center;width:12%">MARCA</th>
-              <th style="text-align: center;width:10%">CATEGORIA</th>
+              <th style="text-align: center;width:29.5%">PRODUCTO</th>
+              <th style="text-align: center;width:10%">MARCA</th>
+              <th style="text-align: center;width:8%">CATEGORIA</th>
               <th style="text-align: center;width:5%">UBIC 2</th>
               <th style="text-align: center;width:4%">X/CAJA</th>
-              <th style="text-align: center;width:5%">S.REAL</th>
+              <th style="text-align: center;width:4%">S.REAL</th>
+              <th style="text-align: center;width:4%">S.MUESTRAS</th>
+              <th style="text-align: center;width:4%">S.MUESTRAS2</th>
               <th style="text-align: center;width:5%">S.ALMACEN</th>
               <th style="text-align: center;width:5%">P.UNIDAD</th>
               <th style="text-align: center;width:5%">P.MAYOR</th>
               <th style="text-align: center;width:5%">P.ESP</th>
-              <th style="text-align: center;width:4%">ACTIVO</th>
+              <th style="text-align: center;width:3%">ACTIVO</th>
           </tr>
       </thead>
       <tbody id="resultado">  

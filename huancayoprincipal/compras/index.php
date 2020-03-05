@@ -6,14 +6,16 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
 <html>
 <head>
   <title>COMPRAS</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="shortcut icon" href="../favicon.ico"/>
 <link type="text/css" href="../bootstrap.min.css" rel="stylesheet" />
 <link type="text/css" href="../jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
 <link type="text/css" href="../sweet-alert.css" rel="stylesheet" />
 <script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
 <script type="text/javascript" src="../sweet-alert.min.js"></script> 
-<script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
+<script type='text/javascript' src='../picnet.table.filter.min.js'></script>
+<script src="../socket.io.js"></script>
 <script src="../Chart.min.js"></script>
 <script type="text/javascript" src="compras.js"></script>
 <style>
@@ -175,14 +177,17 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
       -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
       -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
       box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+      pointer-events:none;
+      opacity:0.95;
   }
   </style>
 </head>
 <body>
   <input type='hidden' value='<?php echo $_SESSION['cargo']?>' id='cargo'>
+
   <div class='error' style='display:none'>Guardado Correctamente</div>
   <form id="form" name="form" action="" method="post" autocomplete="off">
-    <input type='text' id='vendedor' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
+    <input type='text' id='vendedor' name='vendedor1' value="<?php echo $_SESSION['nombre']?>" readonly='readonly' style='position:absolute;top:5px;right:2px;text-align:center' class='span2'>
     <h3 style='color:white;text-align:center;margin-top:0px;margin-bottom:0px;' class='btn-success'>COMPRAS</h3>
     <div id='dialogsunat' class='btn btn-info'></div>
     <div id="resultruc" style='position:absolute;display:none;width:70%'>
@@ -207,8 +212,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
           <td width='30%'>
             <select name="documento" id="documento" class='span2' style='margin-bottom: 0px;'>
               <option value="0">---------------</option>
-              <option value="FACTURA BOOM">FACTURA BOOM</option>              
-              <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>              
+              <option value="FACTURA BOOM">FACTURA BOOM</option>
+
+              <option value="NOTA DE PEDIDO">NOTA DE PEDIDO</option>
+              
             </select>
             <input type='text' id='serie' name='serie' style='text-align:right;display:none;width:27px'>
             <input type='text' id='numero' name='numero' class='span1' style='text-align:right;display:none'>
@@ -270,9 +277,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                     <tr bgcolor="black" style="color:#FFF; text-align:center;font-weight:bold">
                       <th width="5%"></th>
                       <th width="8%">SERIE</th>
-                      <th width="12%">FECHA</th>
-                      <th width="15%">DOCUMENTO</th>
-                      <th width="30%">PROVEEDOR</th>
+                      <th width="8%">USUARIO</th>
+                      <th width="10%">FECHA</th>
+                      <th width="12%">DOCUMENTO</th>
+                      <th width="27%">PROVEEDOR</th>
                       <th width="10%">PAGO</th>
                       <th width="10%">ENTREG</th>
                       <th width="10%">TOTAL</th>
@@ -286,9 +294,10 @@ if($_SESSION['valida']=='huancayoprincipal' && $_SESSION['cargo']=='ADMIN' || $_
                       <tr style='display:none;'>
                         <th width="5%">VER</th>
                         <th width="8%">SERIE</th>
-                        <th width="12%">FECHA</th>
-                        <th width="15%">DOCUMENTO</th>
-                        <th width="30%">PROVEEDOR</th>
+                        <th width="8%">USUARIO</th>
+                        <th width="10%">FECHA</th>
+                        <th width="12%">DOCUMENTO</th>
+                        <th width="27%">PROVEEDOR</th>
                         <th width="10%">PAGO</th>
                         <th width="10%">ENTREG</th>
                         <th width="10%">TOTAL</th>

@@ -459,7 +459,7 @@ var stock,compra,promotor,unit;
         var w=window.open('','',"width=1200,height=600,left="+x1+",top="+y1);
         switch(comprobante){
           case 'BOLETA DE VENTA':
-            $('#dx').append("<table width='80%' style='margin-top:41px;margin-left:18px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
+            $('#dx').append("<table width='80%' style='margin-top:34px;margin-left:18px;font:0.9em Calibri;'><tr><td width='7%'>&nbsp</td><td width='73%'>"+data[1][1]+"</td><td width='20%'>"+data[1][12]+"</td></tr></table>\n"+
               "<table width='80%' style='margin-top:-5px;margin-left:18px;font:0.9em Agency FB;'><tr><td width='7%'>&nbsp</td><td width='95%'>"+data[1][2]+"</td></tr></table>\n"+
               "<table width='80%' style='margin-bottom:-1px;margin-top:-5px'><tr><td width='5%' align='center'>&nbsp</td><td width='75%' align='center'></td><td width='10%' align='center'></td><td width='10%' align='center'></td></tr></table>\n"
             );

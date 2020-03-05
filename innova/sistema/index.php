@@ -201,6 +201,8 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
 									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
 									<li><a href="../reportealmacen/" target="contenedor">REPORTE ALMACEN</a></li>
+									<li><a href="../reportemuestras/" target="contenedor">REPORTE MUESTRAS</a></li>
+									<li><a href="../reportemuestras2/" target="contenedor">REPORTE MUESTRAS 2</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -264,6 +266,8 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../ganancias/" target="contenedor">GANANCIA POR VENTA</a></li>
 									<li><a href="../malogrados/" target="contenedor">REPORTE MALOGRADOS</a></li>
 									<li><a href="../reportealmacen/" target="contenedor">REPORTE ALMACEN</a></li>
+									<li><a href="../reportemuestras/" target="contenedor">REPORTE MUESTRAS</a></li>
+									<li><a href="../reportemuestras2/" target="contenedor">REPORTE MUESTRAS 2</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -348,6 +352,7 @@ if($_SESSION['valida']=='innova'){
 							<li><a href="#" >VENTAS</a>
 							  	<ul>
 									<li><a href="../caja/" target="_blank">CAJA</a></li>
+									<li><a href="../reportemuestras/" target="contenedor">REPORTE MUESTRAS</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -377,6 +382,12 @@ if($_SESSION['valida']=='innova'){
 						</ul>
 						<ul>
 							<li><a href="../ventas/" target="_blank">VENTAS</a></li>
+						</ul>
+						<ul>
+							<li><a href="../reportemuestras/" target="contenedor">REPORTE MUESTRAS</a></li>
+						</ul>
+						<ul>
+							<li><a href="../reportemuestras2/" target="contenedor">REPORTE MUESTRAS 2</a></li>
 						</ul>
 						<ul>
 							<li><a href="salir.php" >SALIR</a></li>

@@ -379,6 +379,24 @@ $(function(){
   $('#row').on('click','.editme3',function(){
     document.execCommand('selectAll', false, null);
   });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $('#row').on('keyup','.editme1',function(){
     $(this).parent().find('td:eq(4)').text(parseFloat(parseFloat($(this).parent().find('td:eq(3)').text())*parseFloat($(this).text())).toFixed(2));
     $('#subtotal').val(parseFloat(suma()).toFixed(2));
@@ -486,6 +504,21 @@ $(function(){
     $("#5").keyup(function(){
       $('#13').text(parseFloat(($(this).text()-compr)*100/compr).toFixed(2)+"%");
     });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $.ajax({
       type: "POST",
       url: "verprecios.php",
@@ -496,9 +529,19 @@ $(function(){
         $('#3').text(data[1]);
         $('#4').text(data[2]);
         $('#5').text(data[3]);
+        
+
+
+
+
         $('#11').text(parseFloat((data[1]-compr)*100/compr).toFixed(2)+"%");
         $('#12').text(parseFloat((data[2]-compr)*100/compr).toFixed(2)+"%");
         $('#13').text(parseFloat((data[3]-compr)*100/compr).toFixed(2)+"%");
+      
+
+
+
+
       }
     });
     $("#precios").dialog({
@@ -632,7 +675,7 @@ $(function(){
                     n += "<td align='center' width='5%' style='color:red;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Ver</td>\n";
                     }   
                     n += "<td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                    "<td align='center' width='8%' style='border:1px solid #B1B1B1'>"+data[i][10]+"</td>\n"+
+                    "<td align='center' width='9%' style='border:1px solid #B1B1B1'>"+data[i][10]+"</td>\n"+
                     "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td>\n"+
                     "<td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
                     "<td width='27%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+

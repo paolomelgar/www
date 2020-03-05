@@ -172,7 +172,7 @@ $(function () {
           $("#result").empty();
           if(data.length>0){
             for (var i = 0; i <= data.length-1; i++) {
-              $("#result").append("<div style='height:60px;border-bottom: 1px solid #ccc;' class='w3-row'><input type='hidden' value='"+data[i][2]+"' class='compra'><input type='hidden' value='"+data[i][7]+"' class='espe'><input type='hidden' value='"+data[i][0]+"' class='id'><div class='w3-col imag' style='width:59px' id='"+data[i][0]+"'><img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+data[i][0]+".jpg' width='59' height='59'></div><div class='w3-rest prod"+r+"' style='height:60px'><div style='height:30px;font-size:13px;font-weight:bold;color:#797979;line-height: 1.2;' class='pro'>"+data[i][1]+"</div><div class='w3-row' style='height:30px;font-size:9px'><div class='w3-col' style='width:20%;text-align:center'><div>STOCK</div><div style='font-weight:bold;color:red;font-size:14px' class='stock'>"+data[i][4]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>UNIDAD</div><div style='font-weight:bold;color:blue;font-size:14px' class='unidad'>"+data[i][5]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>MAYOR</div><div style='font-weight:bold;color:blue;font-size:14px' class='mayor'>"+data[i][6]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>ESPECIAL</div><div style='font-weight:bold;color:blue;font-size:14px' class='especial'>"+data[i][7]+"</div></div><div class='w3-col' style='width:20%;text-align:center'><div>X/CAJA</div><div style='font-weight:bold;color:#797979;font-size:14px'>"+data[i][3]+"</div></div></div></div></div>");
+              $("#result").append("<div style='height:60px;border-bottom: 1px solid #ccc;' class='w3-row'><input type='hidden' value='"+data[i][2]+"' class='compra'><input type='hidden' value='"+data[i][7]+"' class='espe'><input type='hidden' value='"+data[i][0]+"' class='id'><div class='w3-col imag' style='width:59px' id='"+data[i][8]+"'><img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+data[i][8]+".jpg' width='59' height='59' id='"+data[i][8]+"'></div><div class='w3-rest prod"+r+"' style='height:60px'><div style='height:30px;font-size:13px;font-weight:bold;color:#797979;line-height: 1.2;' class='pro'>"+data[i][1]+"</div><div class='w3-row' style='height:30px;font-size:9px'><div class='w3-col' style='width:20%;text-align:center'><div>STOCK</div><div style='font-weight:bold;color:red;font-size:14px' class='stock'>"+data[i][4]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>UNIDAD</div><div style='font-weight:bold;color:blue;font-size:14px' class='unidad'>"+data[i][5]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>MAYOR</div><div style='font-weight:bold;color:blue;font-size:14px' class='mayor'>"+data[i][6]+"</div></div><div class='w3-col u' style='width:20%;text-align:center'><div>ESPECIAL</div><div style='font-weight:bold;color:blue;font-size:14px' class='especial'>"+data[i][7]+"</div></div><div class='w3-col' style='width:20%;text-align:center'><div>X/CAJA</div><div style='font-weight:bold;color:#797979;font-size:14px'>"+data[i][3]+"</div></div></div></div></div>");
             }
           }else{
             $("#result").append("<div class='w3-text-red' style='text-align:center'><div>No Hay Resultados</div></div>");
@@ -197,11 +197,11 @@ $(function () {
       });
   }
   $('#result').on('click','.imag', function(){
-    var id=$(this).prev().val();
+    var id=$(this).attr("id");
     var pro=$(this).next().find('.pro').text();
     swal({
       title: "",
-      text: "<img src='https://raw.githubusercontent.com/paolomelgar/ferreboom/master/huanuco/producto/a"+id+".jpg' height='300' width='300'><br><div style='font-size:16px;color:blue;font-weight:bold'>"+pro+"</div>",   
+      text: "<img src='https://raw.githubusercontent.com/paolomelgar/www/master/huanuco/fotos/producto/a"+id+".jpg' height='300' width='300'><br><div style='font-size:16px;color:blue;font-weight:bold'>"+pro+"</div>",   
       html: true,
       animation: "slide-from-top",
       confirmButtonColor: "#2196F3",

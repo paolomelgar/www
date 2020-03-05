@@ -4,14 +4,14 @@ require_once('../connection.php');
 if(isset($_POST['accion']) && !empty($_POST['accion'])){
     switch ($_POST['accion']) {
         case 'add':
-            $sql1= mysqli_query($con,"INSERT INTO cliente (ruc,cliente,direccion,tipo,representante,telefono,mail,credito,activo,latitud,longitud) 
-            VALUES ('".$_POST['ruc']."','".$_POST['cliente']."','".$_POST['direccion']."','".$_POST['tipo']."','".$_POST['representante']."','".$_POST['telefono']."','".$_POST['mail']."','".$_POST['credito']."','".$_POST['activo1']."','','')");
+            $sql1= mysqli_query($con,"INSERT INTO cliente (ruc,cliente,direccion,tipo,representante,celular,correo,credito,activo,latitud,longitud,clase) 
+            VALUES ('".$_POST['ruc']."','".$_POST['cliente']."','".$_POST['direccion']."','".$_POST['tipo']."','".$_POST['representante']."','".$_POST['celular']."','".$_POST['correo']."','".$_POST['credito']."','".$_POST['activo1']."','','','".$_POST['clase']."')");
         break;
 
         case 'edit':
             $sql1= mysqli_query($con,"UPDATE cliente SET ruc='".$_POST['ruc']."', cliente='".$_POST['cliente']."', direccion='".$_POST['direccion']."', 
-                            tipo='".$_POST['tipo']."', representante='".$_POST['representante']."', telefono='".$_POST['telefono']."', 
-                            mail='".$_POST['mail']."', credito='".$_POST['credito']."', activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
+                            tipo='".$_POST['tipo']."', representante='".$_POST['representante']."', clase='".$_POST['clase']."', celular='".$_POST['celular']."', 
+                            correo='".$_POST['correo']."', credito='".$_POST['credito']."', activo='".$_POST['activo1']."' WHERE id_cliente='".$_POST['id']."'");
         break;
 
         case 'del':

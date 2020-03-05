@@ -10,7 +10,7 @@ require_once('../connection.php');
     }
     $producto = substr($producto, 0, -4);
   }
-  $query = "SELECT ruc,cliente,direccion,telefono,representante,credito,id_cliente,mail,latitud,longitud FROM cliente WHERE $producto AND tipo='FERRETERIA' AND activo!='ANULADO' ORDER BY cliente LIMIT 10";
+  $query = "SELECT ruc,cliente,direccion,celular,representante,credito,id_cliente,nomcomercial,latitud,longitud FROM cliente WHERE $producto AND tipo='FERRETERIA' AND activo!='ANULADO' ORDER BY cliente LIMIT 10";
   $sql=mysqli_query($con,$query);
    $datos=array();
    $i=0;
@@ -21,24 +21,24 @@ require_once('../connection.php');
       $datos[$i]["ruc"]=$row["ruc"];
       $datos[$i]["cliente"]=$row["cliente"];
       $datos[$i]["direccion"]=$row["direccion"];
-      $datos[$i]["telefono"]=$row["telefono"];
+      $datos[$i]["telefono"]=$row["celular"];
       $datos[$i]["representante"]=$row["representante"];
       $datos[$i]["credito"]=$row["credito"];
       $datos[$i]["id_cliente"]=$row["id_cliente"];
       $datos[$i]["pendiente"]=number_format($row["credito"]-$row1[0],2,".","");
-      $datos[$i]["mail"]=$row["mail"];
+      $datos[$i]["mail"]=$row["nomcomercial"];
       $datos[$i]["latitud"]=$row["latitud"];
       $datos[$i]["longitud"]=$row["longitud"];
     }else{
       $datos[$i]["ruc"]=$row["ruc"];
       $datos[$i]["cliente"]=$row["cliente"];
       $datos[$i]["direccion"]=$row["direccion"];
-      $datos[$i]["telefono"]=$row["telefono"];
+      $datos[$i]["telefono"]=$row["celular"];
       $datos[$i]["representante"]=$row["representante"];
       $datos[$i]["credito"]=$row["credito"];
       $datos[$i]["id_cliente"]=$row["id_cliente"];
       $datos[$i]["pendiente"]=$row["credito"];
-      $datos[$i]["mail"]=$row["mail"];
+      $datos[$i]["mail"]=$row["nomcomercial"];
       $datos[$i]["latitud"]=$row["latitud"];
       $datos[$i]["longitud"]=$row["longitud"];
     }

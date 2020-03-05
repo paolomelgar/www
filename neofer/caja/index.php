@@ -308,7 +308,7 @@ if($_SESSION['valida']=='neofer' && $_SESSION['cargo']!='VENDEDOR' ){
                     <select id='personal' class='span2'>
                       <option style='display:none'></option>
                       <option id='MARILIA'>MARILIA</option>
-                      <option id='VERONICA'>VERONICA</option>
+                      <option id='LINCOL'>LINCOL</option>
                     </select>
                   </td>
                 </tr>

@@ -50,12 +50,16 @@ session_start();
 			<tr><td width='25%'>CLIENTE:</td><td width='75%'><input type="text" name="cliente" id="cliente" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td width='25%'>DIRECCION:</td><td width='75%'><input type="text" name="direccion" id="direccion" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
 			<tr><td width='25%'>TIPO:</td><td width='75%'><select id="tipo" name="tipo" class="span3">
-				<option value="UNIDAD">UNIDAD</option>
 				<option value="FERRETERIA">FERRETERIA</option>
+				<option value="CONSTRUCTORA">CONSTRUCTORA</option>
+				<option value="PROMOTOR">PROMOTOR</option>
+				<option value="MAESTRO">MAESTRO</option>
+				<option value="UNIDAD">UNIDAD</option>
 			</select></td></tr>
 			<tr><td width='25%'>NOM COMERCIAL:</td><td width='75%'><input type="text" name="representante" id="representante" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
-			<tr><td width='25%'>TELEFONO:</td><td width='75%'><input type="text" name="telefono" id="telefono" class="span3" maxlength="10"/></td></tr>
-			<tr><td width='25%'>E-MAIL:</td><td width='75%'><input type="text" name="mail" id="mail" class="span3" style="text-transform:lowercase;float:left;"/></td></tr>
+			<tr><td width='25%'>CLASE:</td><td width='75%'><input type="text" name="clase" id="clase" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
+			<tr><td width='25%'>CELULAR:</td><td width='75%'><input type="text" name="celular" id="celular" class="span3" maxlength="10"/></td></tr>
+			<tr><td width='25%'>CORREO:</td><td width='75%'><input type="text" name="correo" id="correo" class="span3" style="text-transform:lowercase;float:left;"/></td></tr>
 			<tr><td width='25%'>LIMITE CREDITO:</td><td width='75%'><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td width='25%'>ACTIVO:</td><td width='75%'><select id="activo1" name="activo1" class="span3">
 				<option value="SI">SI</option>
@@ -95,8 +99,9 @@ session_start();
 					<th style="text-align: center;width:8%">TIPO</th>
 					<th style="text-align: center;width:5%">CREDITO</th>
 					<th style="text-align: center;width:10%">NOMBRE COMERCIAL</th>
-					<th style="text-align: center;width:10%">CELULAR</th>
-					<th style="text-align: center;width:10%">E-MAIL</th>
+					<th style="text-align: center;width:5%">CLASE</th>
+					<th style="text-align: center;width:5%">CELULAR</th>
+					<th style="text-align: center;width:10%">CORREO</th>
 					<th style="text-align: center;width:5%">ACTIVO</th>
 				</tr>
 			</thead>

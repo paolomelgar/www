@@ -93,11 +93,11 @@ $(document).ready(function(){
       var sumatotal  = 0;
       var sumatotal1  = 0;
       $('#verbody tr').filter(":visible").each(function(){
-        if($(this).find("td:eq(7)").text().slice(0,1)=='S'){
-          sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(7)").text().slice(3));       
+        if($(this).find("td:eq(8)").text().slice(0,1)=='S'){
+          sumatotal =  parseFloat(sumatotal) +  parseFloat($(this).find("td:eq(8)").text().slice(3));       
         }
         else{
-          sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(7)").text().slice(2));        
+          sumatotal1 =  parseFloat(sumatotal1) +  parseFloat($(this).find("td:eq(8)").text().slice(2));        
         }
       });
       $('#sumatotal').html("<b style='color:blue'>S/ "+sumatotal.toFixed(2)+"</b><br><b style='color:green'>$ "+sumatotal1.toFixed(2)+"</b>"); 
@@ -615,6 +615,40 @@ $(document).ready(function(){
     });
   });
   
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   var ver;
   $('#buscar').click(function(){
     var fechaini=$('#fechaini').val();
@@ -641,9 +675,10 @@ $(document).ready(function(){
                     n += "<td align='center' width='5%' style='color:red;font-weight:bold;cursor:pointer;border:1px solid #B1B1B1' class='visualizar'>Ver</td>\n";
                     }   
                     n += "<td align='right' width='8%' style='border:1px solid #B1B1B1'>"+data[i][0]+"</td>\n"+
-                    "<td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td>\n"+
-                    "<td align='center' width='15%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
-                    "<td width='30%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
+                    "<td align='center' width='9%' style='border:1px solid #B1B1B1'>"+data[i][10]+"</td>\n"+
+                    "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][1]+"<br>"+data[i][2]+"</td>\n"+
+                    "<td align='center' width='12%' style='border:1px solid #B1B1B1'>"+data[i][3]+"</td>\n"+
+                    "<td width='27%' style='border:1px solid #B1B1B1'>"+data[i][4]+"</td>\n"+
                     "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][5]+"</td>\n"+
                     "<td align='center' width='10%' style='border:1px solid #B1B1B1'>"+data[i][6]+"</td>\n";
                     if(data[i][9]=='SOLES'){
@@ -673,19 +708,18 @@ $(document).ready(function(){
   var value;
   $('#dialogver').on('click','.visualizar',function(){
     $( '#observarpedido' ).dialog( "open" );
-    value=$(this).parent().find('td:eq(8)').text();
+    value=$(this).parent().find('td:eq(9)').text();
     doc=$(this).parent().find('td:eq(3)').text();    
     if($('#cargo').val()!='ENCARGADOTIENDA'){
-      if($(this).parent().find('td:eq(6)').text()=='ANULADO'){
+      if($(this).parent().find('td:eq(7)').text()=='ANULADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
-      }else if($(this).parent().find('td:eq(5)').text()=='CANCELADO'){
+      }else if($(this).parent().find('td:eq(6)').text()=='CANCELADO'){
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("disable");
       }else{
         $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("enable");
         $(".ui-dialog-buttonpane button:contains('EDITAR')").button("enable");
-
       }
     }else{
       $(".ui-dialog-buttonpane button:contains('ELIMINAR')").button("disable");
@@ -810,6 +844,7 @@ $(document).ready(function(){
             }
             $('#subtotal').val(data[1][5]);
             $('#flete').val(data[1][6]);
+            $('#vendedor').val(data[1][18]);
             $('#total').val(data[1][7]);
             $('#comentario').val(data[1][14]);
             $('#serie').val(data[1][10]);

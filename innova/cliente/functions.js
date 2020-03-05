@@ -92,8 +92,8 @@ $(function(){
 		$(this).addClass('selected');
 	});
 	$('#resultado').on('click','.mapa',function(){
-		latit=$(this).parent().find('td:eq(12)').text();
-		longit=$(this).parent().find('td:eq(13)').text();
+		latit=$(this).parent().find('td:eq(13)').text();
+		longit=$(this).parent().find('td:eq(14)').text();
 		zoom=15;
 		var aa=$(this).parent().find('td:eq(1)').text();
 		initialize();
@@ -229,6 +229,7 @@ $(function(){
 			var dato7=$(".selected").children( "td:eq(9)" ).text();
 			var dato8=$(".selected").children( "td:eq(10)" ).text();
 			var dato9=$(".selected").children( "td:eq(11)" ).text();
+			var dato10=$(".selected").children( "td:eq(12)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar Cliente',
 				open:function(){
@@ -239,9 +240,10 @@ $(function(){
 					$('#formagregar select[id="tipo"]').val(dato4);
 					$('#formagregar input[id="credito"]').val(dato5);
 					$('#formagregar input[id="representante"]').val(dato6);
-					$('#formagregar input[id="telefono"]').val(dato7);
-					$('#formagregar input[id="mail"]').val(dato8);
-					$('#formagregar select[id="activo1"]').val(dato9);
+					$('#formagregar input[id="clase"]').val(dato7);
+					$('#formagregar input[id="celular"]').val(dato8);
+					$('#formagregar input[id="correo"]').val(dato9);
+					$('#formagregar select[id="activo1"]').val(dato10);
 					caso="edit";
 				}
 			});
@@ -285,7 +287,7 @@ $(function(){
 	    $(this).val( $(this).val().toUpperCase() );
 	    this.setSelectionRange(start, end);
     });   
-    $("input[id='mail']").keyup(function(){
+    $("input[id='correo']").keyup(function(){
     	var start = this.selectionStart,
 	        end = this.selectionEnd;
 	    $(this).val( $(this).val().toLowerCase() );

@@ -1,6 +1,17 @@
 <?php
   require_once('../connection.php');
     if(isset($_POST) && !empty($_POST)){
+      /*$f=array();
+      $g=array();
+      $i=0;
+      $h=mysqli_query($con,"SELECT DISTINCT(vendedor) FROM total_ventas WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND credito='CONTADO' AND entregado='SI'");
+        while($r=mysqli_fetch_assoc($h){
+          $quer = mysqli_query($con,"SELECT SUM(total) FROM total_ventas WHERE vendedor='".$r['vendedor']."' AND fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND credito='CONTADO' AND entregado='SI'");
+          $rr=mysqli_fetch_row($quer);
+          $f[$i]=$rr[0];
+          $g[$i]=$r['vendedor'];
+          $i++;
+        } */
       $a=mysqli_query($con,"SELECT sum(total) FROM total_ventas WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND credito='CONTADO' AND entregado='SI'");
       $e=mysqli_query($con,"SELECT count(*) FROM total_ventas WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND credito='CONTADO' AND entregado='SI'");
       $b=mysqli_query($con,"SELECT sum(adelanto) FROM adelantos WHERE fecha='".date('Y-m-d', strtotime(str_replace('/', '-', $_POST['fecha'])))."' AND sesion='CAJERO'");

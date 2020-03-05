@@ -25,8 +25,9 @@ require_once('../connection.php');
             <td><?php echo $row['tipo']; ?></td>
             <td><?php echo $row['credito']; ?></td>
             <td><?php echo $row['representante']; ?></td>
-            <td><?php echo $row['telefono']; ?></td>
-            <td><?php echo $row['mail']; ?></td>
+            <td><?php echo $row['clase']; ?></td>
+            <td><?php echo $row['celular']; ?></td>
+            <td><?php echo $row['correo']; ?></td>
             <td><?php echo $row['activo']; ?></td>
             <td style='display:none'><?php echo $row['latitud']; ?></td>
             <td style='display:none'><?php echo $row['longitud']; ?></td>
