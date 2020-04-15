@@ -222,6 +222,20 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         <td>DETALLE:</td>
         <td colspan='3'><textarea id='detalle' class='span5'></textarea></td>
       </tr>
+      <tr>
+        <td>COMPROBANTE:</td>
+        <td>
+          <select id='comprobante' class='span2' style='margin-bottom: 0px;'>
+            <option id='NOCOMROBANTE'>NO</option>
+            <option id='SICOMPROBANTE'>SI</option>
+          </select>
+        </td>
+      </tr>
+      <tr class='comprobantef' style='display:none'>
+        <td>N° FACTURA:</td>
+        <td><input type='text' id='numfactura' style='text-align:right' class='span2'></td>
+        <td width='15%' style='padding:5px'>FECHA:<input type="text" name="fechafactura" id="fechafactura" style="cursor:pointer;text-align:right;width:80px;"></td>
+      </tr>
     </table>
   </div>
   <div id="row" style='margin-top:-20px'>
@@ -229,12 +243,14 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
       <thead>
         <tr align='center' bgcolor="black" style="color:white;font-weight:bold;">
           <th width='3%'>N°</th>
-          <th width='8%'>FECHA</th>
-          <th width='8%'>TIPO</th>
+          <th width='5%'>FECHA</th>
+          <th width='5%'>TIPO</th>
           <th width='8%'>MEDIOPAGO</th>
           <th width='10%'>TIPO MOV.</th>
           <th width='5%'>TOTAL</th>
-          <th width='39%'>DETALLE</th>
+          <th width='35%'>DETALLE</th>
+          <th width='5%'>NUM FAC</th>
+          <th width='5%'>FECH FAC</th>
           <th width='8%'>USUARIO</th>
           <th width='11%'>ENCARGADO</th>
         </tr>
@@ -245,12 +261,14 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
         <thead style='background-color:#2E9AFE'>
           <tr style="display:none">
             <th width='3%'>N°</th>
-            <th width='8%'>FECHA</th>
-            <th width='8%'>TIPO</th>
+            <th width='5%'>FECHA</th>
+            <th width='5%'>TIPO</th>
             <th width='8%'>MEDIOPAGO</th>
             <th width='10%'>TIPO MOV.</th>
             <th width='5%'>TOTAL</th>
-            <th width='39%'>DETALLE</th>
+            <th width='35%'>DETALLE</th>
+            <th width='5%'>NUM FAC</th>
+            <th width='5%'>FECH FAC</th>
             <th width='8%'>USUARIO</th>
             <th width='11%'>ENCARGADO</th>
             <th style='display:none'></th>

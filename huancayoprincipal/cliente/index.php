@@ -64,9 +64,16 @@ require_once('../connection.php');
 			</select></td></tr>
 			<tr><td>CELULAR:</td><td><input type="text" name="celular" id="celular" class="span3" maxlength="100"/></td></tr>
 			<tr><td>CORREO:</td><td><input type="text" name="correo" id="correo" class="span3" maxlength="100"/></td></tr>
-			<tr><td>CLASE:</td><td><input type="text" name="clase" id="clase" class="span3" maxlength="100"/></td></tr>
+			<tr><td width='25%'>CLASE:</td><td width='75%'><select id="clase" name="clase" class="span3">
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+				<option value="D">D</option>
+			</select></td></tr>
 			<tr><td>ZONA:</td><td><input type="text" name="zona" id="zona" class="span3" maxlength="100"/></td></tr>
 			<tr><td>NOMBRE COMERCIAL:</td><td><input type="text" name="nomcomercial" id="nomcomercial" class="span3"/></td></tr>
+			<tr><td width='25%'>NOMBRE CLIENTE:</td><td width='75%'><input type="text" name="nombrecliente" id="nombrecliente" class="span3" style="text-transform:uppercase;float:left;"/></td></tr>
+			<tr><td width='10%' style='padding:5px'>CUMPLEAÑOS:</td><td><input type="text" name="fnacimiento" id="fnacimiento" style="cursor:pointer;text-align:right;width:80px;"/></td></tr>
 			<tr><td>LIMITE CREDITO:</td><td><input type="text" name="credito" id="credito" class="span3"/></td></tr>
 			<tr><td>ACTIVO:</td><td><select id="activo1" name="activo1" class="span3">
 				<option value="SI">SI</option>
@@ -126,6 +133,8 @@ require_once('../connection.php');
 				<th style="text-align: center;width:7%">VENDEDOR</th>
 				<th style="text-align: center;width:5%">CELULAR</th>
 				<th style="text-align: center;width:10%">NOMBRE COMERCIAL</th>
+				<th style="text-align: center;width:5%">NOMBRE CLIENTE</th>
+				<th style="text-align: center;width:5%">CUMPLEAÑOS</th>
 				<th style="text-align: center;width:3%">ACTIVO</th>
 			</tr>
 		</thead>

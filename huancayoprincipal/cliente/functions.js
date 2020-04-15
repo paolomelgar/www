@@ -1,3 +1,14 @@
+$(function(){
+	var date = new Date();
+  $('#fnacimiento').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
+  
 var longit;
 var latit;
 var zoom;
@@ -42,9 +53,9 @@ $(function(){
         success: function(data){                                                    
               $("#resultado").empty();
               $("#resultado").append(data);
-              $('#cantidad').text($('#resultado').find('td:eq(16)').text());
-              $('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
-              if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+              $('#cantidad').text($('#resultado').find('td:eq(18)').text());
+              $('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
+              if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
 		        }else{
@@ -60,8 +71,8 @@ $(function(){
 	      e.preventDefault();
 	});
 	$('#resultado').on('click','.mapa',function(){
-		latit=$(this).parent().find('td:eq(14)').text();
-		longit=$(this).parent().find('td:eq(15)').text();
+		latit=$(this).parent().find('td:eq(16)').text();
+		longit=$(this).parent().find('td:eq(17)').text();
 		zoom=15;
 		var aa=$(this).parent().find('td:eq(0)').text();
 		initialize();
@@ -205,8 +216,8 @@ $(function(){
 			                    success: function(data){                                                    
 			                          $("#resultado").empty();
 			                          $("#resultado").append(data);
-			                          $('#cantidad').text($('#resultado').find('td:eq(16)').text());
-			                      	  $('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+			                          $('#cantidad').text($('#resultado').find('td:eq(18)').text());
+			                      	  $('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 			                    }
 				            });
 				            $("#agregardatos").dialog( "close" ); 
@@ -239,6 +250,8 @@ $(function(){
 			var dato10=$(".selected").children( "td:eq(11)" ).text();
 			var dato11=$(".selected").children( "td:eq(12)" ).text();
 			var dato12=$(".selected").children( "td:eq(13)" ).text();
+			var dato13=$(".selected").children( "td:eq(14)" ).text();
+			var dato14=$(".selected").children( "td:eq(15)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar CLiente',
 				height: 520,
@@ -271,8 +284,8 @@ $(function(){
 	                    success: function(data){                                                    
 	                          $("#resultado").empty();
 	                          $("#resultado").append(data);
-	                          $('#cantidad').text($('#resultado').find('td:eq(16)').text());
-                          	  $('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+	                          $('#cantidad').text($('#resultado').find('td:eq(18)').text());
+                          	  $('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 	                    }
 	              	});
 		            $("#agregardatos").dialog( "close" ); 
@@ -290,7 +303,9 @@ $(function(){
 						$('#formagregar input[id="representante"]').val(dato9);
 						$('#formagregar input[id="celular"]').val(dato10);
 						$('#formagregar input[id="nomcomercial"]').val(dato11);
-						$('#formagregar select[id="activo1"]').val(dato12);
+						$('#formagregar input[id="nombrecliente"]').val(dato12);
+						$('#formagregar input[id="fnacimiento"]').val(dato13);
+						$('#formagregar select[id="activo1"]').val(dato14);
 					},
 				close:function(){
 						$('#formagregar input[type="text"]').val('');
@@ -328,8 +343,8 @@ $(function(){
 	                    success: function(data){
 	                      $("#resultado").empty();
 	                      $("#resultado").append(data);
-	                      $('#cantidad').text($('#resultado').find('td:eq(16)').text());
-	                      $('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+	                      $('#cantidad').text($('#resultado').find('td:eq(18)').text());
+	                      $('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 	                    }
 	                }); 
 	           		$( this ).dialog( "close" );
@@ -364,14 +379,14 @@ $(function(){
             success: function(data){   
                 $("#resultado").empty();
                 $("#resultado").append(data);
-                $('#cantidad').text($('#resultado').find('td:eq(16)').text());
-                $('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+                $('#cantidad').text($('#resultado').find('td:eq(18)').text());
+                $('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
                 $('#primero').hide();
 				$('#anterior').hide();
-				if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+				if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
-		        }else if(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())<1){
+		        }else if(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())<1){
 		        	$("#resultado").append("<tr><td colspan='13' style='color:red;text-align:center;font-weight:bold'>NO HAY RESULTADOS QUE MOSTRAR</td></tr>");
 		        	$('#siguiente').hide();
 					$('#ultimo').hide();
@@ -401,12 +416,12 @@ $(function(){
                 $("#resultado").append(data);
                 $('#primero').hide();
 				$('#anterior').hide();
-				$('#cantidad').text($('#resultado').find('td:eq(16)').text());
-				$('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
-				if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+				$('#cantidad').text($('#resultado').find('td:eq(18)').text());
+				$('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
+				if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
-		        }else if(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())<1){
+		        }else if(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())<1){
 		        	$("#resultado").append("<tr><td colspan='13' style='color:red;text-align:center;font-weight:bold'>NO HAY RESULTADOS QUE MOSTRAR</td></tr>");
 		        	$('#siguiente').hide();
 					$('#ultimo').hide();
@@ -435,12 +450,12 @@ $(function(){
                 $("#resultado").append(data);
                 $('#primero').hide();
 				$('#anterior').hide();
-				$('#cantidad').text($('#resultado').find('td:eq(16)').text());
-				$('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
-				if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+				$('#cantidad').text($('#resultado').find('td:eq(18)').text());
+				$('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
+				if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
-		        }else if(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())<1){
+		        }else if(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())<1){
 		        	$("#resultado").append("<tr><td colspan='13' style='color:red;text-align:center;font-weight:bold'>NO HAY RESULTADOS QUE MOSTRAR</td></tr>");
 		        	$('#siguiente').hide();
 					$('#ultimo').hide();
@@ -469,12 +484,12 @@ $(function(){
                 $("#resultado").append(data);
                 $('#primero').hide();
 				$('#anterior').hide();
-				$('#cantidad').text($('#resultado').find('td:eq(16)').text());
-				$('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
-				if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+				$('#cantidad').text($('#resultado').find('td:eq(18)').text());
+				$('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
+				if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
-		        }else if(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())<1){
+		        }else if(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())<1){
 		        	$("#resultado").append("<tr><td colspan='13' style='color:red;text-align:center;font-weight:bold'>NO HAY RESULTADOS QUE MOSTRAR</td></tr>");
 		        	$('#siguiente').hide();
 					$('#ultimo').hide();
@@ -487,7 +502,7 @@ $(function(){
 	});
 	$('#siguiente').click(function(){
 		$('#numero').val(parseInt($('#numero').val())+1);
-		if($('#numero').val()>=Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())){
+		if($('#numero').val()>=Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())){
 			$('#siguiente').hide();
 			$('#ultimo').hide();
 		}
@@ -511,7 +526,7 @@ $(function(){
         });
 	});
 	$('#ultimo').click(function(){
-		$('#numero').val(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+		$('#numero').val(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 		$.ajax({
             type: "POST",
             url: "mn.php",
@@ -583,8 +598,8 @@ $(function(){
 	});
 	$('#numero').on('keyup',function(e){
 		if(e.which == 13){
-			if($('#numero').val()>=Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())){
-				$('#numero').val(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+			if($('#numero').val()>=Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())){
+				$('#numero').val(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 				$('#siguiente').hide();
 				$('#ultimo').hide();
 				$('#primero').show();
@@ -638,7 +653,7 @@ $(function(){
                   $("#resultado").append(data);
                   $('#primero').hide();
 				  $('#anterior').hide();
-				  if (Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val())==1) {
+				  if (Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val())==1) {
 					$('#siguiente').hide();
 					$('#ultimo').hide();
 		          }else{
@@ -647,6 +662,7 @@ $(function(){
 		          }
             }
         });
-		$('#cant').text(Math.ceil($('#resultado').find('td:eq(16)').text()/$('#pagina').val()));
+		$('#cant').text(Math.ceil($('#resultado').find('td:eq(18)').text()/$('#pagina').val()));
 	});
+});
 });

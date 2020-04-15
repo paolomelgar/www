@@ -6,13 +6,13 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']=='ADMIN' || $_SESSION['ca
 <html>
 <head>
   <title>PAGO PROVEEDORES</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <link type="text/css" href="../bootstrap.min.css" rel="stylesheet" />
 <link type="text/css" href="../jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
 <link type="text/css" href="../sweet-alert.css" rel="stylesheet" />
 <script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.10.4.custom.min.js"></script>  
-<script type='text/javascript' src='../picnet.table.filter.min.js'></script> 
+<script type='text/javascript' src='../picnet.table.filter.min.js'></script>
 <script type="text/javascript" src="../sweet-alert.min.js"></script>
 <script type="text/javascript" src="cobranza.js"></script>
 <style type="text/css">

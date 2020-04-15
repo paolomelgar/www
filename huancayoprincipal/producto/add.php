@@ -8,16 +8,16 @@ if(isset($_POST['accion']) && !empty($_POST['accion'])){
             $sq=mysqli_fetch_row(mysqli_query($con,"SELECT MAX(codigo)+1 FROM producto"));
             $s=mysqli_query($con,"UPDATE producto SET codigo='".$sq[0]."' WHERE id='".$row['id']."'");
             if($_FILES['imagen']['tmp_name']!=''){
-                $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0',NOW(),'0',NOW(),'0','0','0','0','0','0','0','0')");
-                $sql2= mysqli_query($con2,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,p_compra,foto,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0',NOW(),NOW(),'0','0','0','0','0','0','0','0')");
+                $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5,antiguedad) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0',NOW(),'0',NOW(),'0','0','0','0','0','0','0','0',NOW())");
+                $sql2= mysqli_query($con2,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,p_compra,foto,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5,antiguedad) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0',NOW(),NOW(),'0','0','0','0','0','0','0','0',NOW())");
             }
             else{
-               $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0','NO','0',NOW(),'0','0','0','0','0','0','0','0')");
-               $sql2= mysqli_query($con2,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,p_compra,foto,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5) 
-                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','NO',NOW(),'0','0','0','0','0','0','0','0')");
+               $sql1= mysqli_query($con,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,caja_master,activo,stock_real,stock_con,p_compra,foto,stock_con1,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5,antiguedad) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','0','".$_POST['activo1']."','0','0','0','NO','0',NOW(),'0','0','0','0','0','0','0','0',NOW())");
+               $sql2= mysqli_query($con2,"INSERT INTO producto (codigo,producto,marca,familia,cant_caja,activo,stock_real,stock_con,p_compra,foto,fecha,p_promotor,p_mayor,p_franquicia,p_1,p_2,p_3,p_4,p_5,antiguedad) 
+                    VALUES ('".$sq[0]."','".$_POST['producto']."','".$_POST['marca']."','".$_POST['familia']."','0','".$_POST['activo1']."','0','0','0','NO',NOW(),'0','0','0','0','0','0','0','0',NOW())");
             }
             move_uploaded_file($_FILES['imagen']['tmp_name'], realpath("../fotos/producto ")."/a".$sq[0].".jpg");
             break;

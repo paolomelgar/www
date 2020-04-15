@@ -44,7 +44,7 @@ while($row=mysqli_fetch_assoc($result)){
         <td contenteditable="true" class="text"><?php echo $row['ubicacion2']; ?></td>
         <?php if($_SESSION['cargo']=='ADMIN' || $_SESSION['cargo']=='ENCARGADOTIENDA' ){ ?>
         <td contenteditable="true" class="text" style="text-align:right"><?php echo $row['cant_caja']; ?></td>
-        <?php if($_SESSION['mysql']=="innovaprincipalL" || $_SESSION['mysql']=="dorispovez"){ ?>
+        <?php if($_SESSION['mysql']=="innovaprincipalL" || $_SESSION['mysql']=="dorispovezz"){ ?>
             <td style="text-align:right;color:red;font-weight:bold"><?php echo $row['stock_real']; ?></td>
             <td style="text-align:right;color:green;font-weight:bold"><?php echo $row['stock_almacen']; ?></td>
             <td contenteditable="true" class="text" style="text-align:right;color:grey;font-weight:bold"><?php echo $row['stock_muestra']; ?></td>

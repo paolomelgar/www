@@ -1,6 +1,6 @@
 <?php
   require_once('../connection.php');
-      $sql=mysqli_query($con,"SELECT * FROM total_pedido WHERE entregado='NO' ORDER BY fecha,nropedido");
+      $sql=mysqli_query($con,"SELECT * FROM total_pedido WHERE entregado='NO' OR entregado='pendiente' ORDER BY fecha,nropedido");
 ?>
     <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
       <thead>
@@ -21,8 +21,16 @@
       <tbody id="listpendientes">
         <?php
         while($row=mysqli_fetch_assoc($sql)){
+          $a;
+          if($row['entregado']=="NO"){
+            $a= "bgcolor='#FF8B8B'";
+          }else if($row['entregado']=="pendiente"){
+            $a= "bgcolor='#EFFF82'";
+          }else{
+            $a= "bgcolor='#74FF64'";
+          }
         ?>
-        <tr bgcolor="#FBEFEF" style="font-size:12px;font-weight:bold">
+        <tr <?php echo $a; ?> style="font-size:12px;font-weight:bold">
           <td width="6%" align="center"><span class='ui-icon ui-icon-trash x' style='cursor:pointer'></td>
           <td width="12%" align="center" style="display:none"><?php echo $row['seriepedido']; ?></td>
           <td width="20%" align="center"><?php echo $row['vendedor']; ?></td>

@@ -22,6 +22,8 @@
     $dat[$i][6]=$row['sesion'];
     $dat[$i][7]=$row['id'];
     $dat[$i][8]=$row['mediopago'];
+    $dat[$i][9]=$row['numfactura'];
+    $dat[$i][10]=date('d/m/Y', strtotime(str_replace('-','/',$row['fechafactura'])));
     $i++;
 
     /* $dat[$i][1]=$row['origen'];

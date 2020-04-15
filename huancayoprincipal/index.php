@@ -410,6 +410,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <ul>
                   <li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
                   <li><a href="cliente/" target="contenedor">CLIENTES</a></li>
+                  <li><a href="cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
                   <li><a href="transportista/" target="contenedor">TRANSPORTISTAS</a></li>
                   <li><a href="usuario/" target="contenedor">USUARIOS</a></li>
                   <li><a href="producto/" target="contenedor">PRODUCTOS</a></li>
@@ -452,8 +453,10 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
                   <li><a href="pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
                   <li><a href="prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
+                  <li><a href="prestamistas/" target="contenedor">PAGO PRESTAMISTAS</a></li>
                   <li><a href="egresos/" target="contenedor">INGRESO/EGRESO</a></li>
                   <li><a href="balancemensual/" target="contenedor">BALANCE MENSUAL</a></li>
+                  <li><a href="contabilidad/" target="contenedor">CONTABILIDAD</a></li>
                 </ul>
               </li>
             </ul>
@@ -477,6 +480,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <ul>
                   <li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
                   <li><a href="cliente/" target="contenedor">CLIENTES</a></li>
+                  <li><a href="cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
                   <li><a href="transportista/" target="contenedor">TRANSPORTISTAS</a></li>                  
                   <li><a href="producto/" target="contenedor">PRODUCTOS</a></li>
                   <li><a href="marca/" target="contenedor">MARCAS</a></li>
@@ -518,7 +522,9 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
                   <li><a href="pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
                   <li><a href="prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
+                  <li><a href="prestamistas/" target="contenedor">PAGO PRESTAMISTAS</a></li>
                   <li><a href="egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+                  <li><a href="contabilidad/" target="contenedor">CONTABILIDAD</a></li>
                 </ul>
               </li>
             </ul>
@@ -572,6 +578,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
               <li style="background-color: #FFF105;"><a href="" >ADMINISTRACION</a>
                   <ul>
                   <li><a href="cliente/" target="contenedor">CLIENTES</a></li>
+                  <li><a href="cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
                   <li><a href="http://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/frameCriterioBusqueda.jsp" target="_blank">RUC</a></li>
                 </ul>
               </li>
@@ -601,7 +608,8 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <li><a href="cajamayortarjeta/" target="contenedor">CAJA MAYOR TARJETA</a></li>
                   <li><a href="cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
                   <li><a href="pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
-                  <li><a href="egresos/" target="contenedor">INGRESO/EGRESO</a></li>                  
+                  <li><a href="egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+                  <li><a href="contabilidad/" target="contenedor">CONTABILIDAD</a></li>
                 </ul>
               </li>
             </ul>
@@ -617,6 +625,7 @@ if($_SESSION['valida']=='huancayoprincipal'){
                   <ul>
                   <li><a href="proveedor/" target="contenedor">PROVEEDORES</a></li>
                   <li><a href="cliente/" target="contenedor">CLIENTES</a></li>
+                  <li><a href="cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
                   <li><a href="transportista/" target="contenedor">TRANSPORTISTAS</a></li>
                   <li><a href="producto/" target="contenedor">PRODUCTOS</a></li>
                   <li><a href="marca/" target="contenedor">MARCAS</a></li>

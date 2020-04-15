@@ -85,10 +85,22 @@ switch ($_POST['t']) {
 		$quer25= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='INTERES PRESTAMO' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
 		$quer26= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='REMODELACION' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
 		$quer27= mysqli_query($con,"SELECT SUM(monto) FROM ingresos WHERE tipo='CAPACITACION' AND MONTH(fecha)='".$m."' AND YEAR(fecha)='".$_POST['y']."' AND ingreso='EGRESO'");
-		$quer28= mysqli_query($con,"SELECT SUM(pendiente) FROM total_ventas WHERE credito='CREDITO' AND entregado='SI'");
-		$quer29= mysqli_query($con,"SELECT SUM(pendiente) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='SOLES'");
-		$quer30= mysqli_query($con,"SELECT SUM(pendiente*cambio) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='DOLARES'");
-		$quer31= mysqli_query($con,"SELECT SUM(monto) FROM prestamos WHERE pendiente='SI'");
+
+
+		$quer30=mysqli_query($con,"SELECT SUM(p_compra*stock_real) FROM producto");
+		$quer31= mysqli_query($con,"SELECT cajareal FROM dineromayorefectivo WHERE id=(SELECT max(id) FROM dineromayorefectivo)");
+		$quer32= mysqli_query($con,"SELECT cajareal FROM dineromayortarjeta WHERE id=(SELECT max(id) FROM dineromayortarjeta)");
+		$quer33= mysqli_query($con,"SELECT SUM(pendiente) FROM total_ventas WHERE credito='CREDITO' AND entregado='SI'");
+		$quer35= mysqli_query($con,"SELECT SUM(pendiente) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='SOLES'");
+		// CAMBIAR TIPO DE CAMBIO PARA SER MAS EXACTOS
+		$quer36= mysqli_query($con,"SELECT SUM(pendiente*3.53) FROM total_compras WHERE credito='CREDITO' AND entregado='SI' AND billete='DOLARES'");
+		$quer37= mysqli_query($con,"SELECT SUM(monto) FROM prestamos WHERE pendiente='SI'");
+		$quer38= mysqli_query($con,"SELECT SUM(monto) FROM prestamistas WHERE pendiente='SI'");
+
+
+		$quer39= mysqli_query($con,"SELECT SUM(pendiente) FROM letra WHERE credito='CREDITO'");
+
+
 		$r1=mysqli_fetch_row($quer1);
 		$r2=mysqli_fetch_row($quer2);
 		$r3=mysqli_fetch_row($quer3);
@@ -116,6 +128,21 @@ switch ($_POST['t']) {
 		$r25=mysqli_fetch_row($quer25);
 		$r26=mysqli_fetch_row($quer26);
 		$r27=mysqli_fetch_row($quer27);
+
+
+		$r30=mysqli_fetch_row($quer30);
+		$r31=mysqli_fetch_row($quer31);
+		$r32=mysqli_fetch_row($quer32);
+		$r33=mysqli_fetch_row($quer33);
+
+		$r35=mysqli_fetch_row($quer35);
+		$r36=mysqli_fetch_row($quer36);
+		$r37=mysqli_fetch_row($quer37);
+		$r38=mysqli_fetch_row($quer38);
+		$r39=mysqli_fetch_row($quer39);
+
+
+
 		$ar=array();
       	$ar[0]=number_format($r1[0]+0, 2, '.', '');
       	$ar[1]=number_format($r2[0]+0, 2, '.', '');
@@ -145,6 +172,22 @@ switch ($_POST['t']) {
       	$ar[25]=number_format($r26[0]+0, 2, '.', '');
       	$ar[26]=number_format($r27[0]+0, 2, '.', '');
       	$ar[27]=number_format($r1[0]+$r2[0]+$r3[0]+$r4[0]+$r5[0]+$r6[0]+$r7[0]+$r8[0]+$r9[0]+$r10[0]+$r11[0]+$r12[0]+$r13[0]+$r14[0]+$r15[0]+$r16[0]+$r17[0]+$r18[0]+$r19[0]+$r20[0]+$r21[0]+$r22[0]+$r23[0]+$r24[0]+$r25[0]+$r26[0]+$r27[0]+0, 2, '.', '');
+
+
+
+      	$ar[30]=number_format($r30[0]+0, 2, '.', '');
+      	$ar[31]=number_format($r31[0]+0, 2, '.', '');
+      	$ar[32]=number_format($r32[0]+0, 2, '.', '');
+      	$ar[33]=number_format($r33[0]+$r39[0]+0, 2, '.', '');
+		$ar[34]=number_format($r30[0]+$r31[0]+$r32[0]+$r33[0]+0, 2, '.', '');
+		$ar[35]=number_format($r35[0]+0, 2, '.', '');
+		$ar[36]=number_format($r36[0]+0, 2, '.', '');
+		$ar[37]=number_format($r37[0]+0, 2, '.', '');
+		$ar[38]=number_format($r38[0]+0, 2, '.', '');
+		$ar[39]=number_format($r35[0]+$r36[0]+$r37[0]+$r38[0]+0, 2, '.', '');
+		$ar[40]=number_format($r30[0]+$r31[0]+$r32[0]+$r33[0]-$r35[0]-$r36[0]-$r37[0]-$r38[0]+0, 2, '.', '');
+
+
 		?>
 		<table>
 			<tr>
@@ -183,6 +226,32 @@ switch ($_POST['t']) {
 								<tr><td align='center' style='color:black'>COLABORACION</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[18]; ?></td></tr>
 								<tr><td align='center' style='color:black'>OTROS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[19]; ?></td></tr>
 								<tr><td align='center' style='color:black'>TOTAL</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[27]; ?></td></tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td width='30%' valign='top'>
+					<div id='productos' style='overflow:auto;height:100%;'>
+						<table border='1' width='100%'>
+							<thead>
+								<tr bgcolor="#428bca" style='font-weight: bold'><td align='center' width='32%'>MONTO</td><td align='center' width='36%'>TOTAL</td></tr>
+							</thead>
+							<tbody id='res'>
+								<tr><td align='center' style='color:black'>INVENTARIO</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[30]; ?></td></tr>
+								<tr><td align='center' style='color:black'>DINERO EFECTIVO</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[31]; ?></td></tr>
+								<tr><td align='center' style='color:black'>DINERO TARJETA</td><td align='center' class='text'  contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[32]; ?></td></tr>
+								<tr><td align='center' style='color:black'>COBRO A CLIENTES</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[33]; ?></td></tr>
+								<tr><td align='center' style='color:blue;font-weight:bold'>SUB TOTAL</td><td align='center' class='text'contenteditable='true' style='color:blue;font-weight:bold'><?php echo $ar[34]; ?></td></tr>
+								<tr><td align='center' style='color:black'>PROVEEDORES SOLES</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[35]; ?></td></tr>
+								<tr><td align='center' style='color:black'>PROVEEDORES DOLARES</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[36]; ?></td></tr>
+								<tr><td align='center' style='color:black'>BANCOS</td><td align='center' class='text'     contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[37]; ?></td></tr>
+								<tr><td align='center' style='color:black'>PRESTAMISTAS</td><td align='center' class='text' contenteditable='true' style='color:red;font-weight:bold'><?php echo $ar[38]; ?></td></tr>
+								<tr><td align='center' style='color:blue;font-weight:bold'>SUB TOTAL</td><td align='center' class='text'contenteditable='true' style='color:blue;font-weight:bold'><?php echo $ar[39]; ?></td></tr>
+								<tr><td align='center' style='color:green;font-weight:bold'>TOTAL</td><td align='center' class='text'   contenteditable='true' style='color:green;font-weight:bold'><?php echo $ar[40]; ?></td></tr>
 							</tbody>
 						</table>
 					</div>

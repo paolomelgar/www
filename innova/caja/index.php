@@ -274,6 +274,11 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
             <img src="sunat.jpg" style="width:60px;display:none;cursor:pointer" id='sunat'/>
             <div id="limitecredito" class='btn-warning'></div>
           </td>
+          <!--  <td align="right">REFERENCIA:</td>
+          <td colspan="1">
+            <input type="text" name="referente" id="referente" class='span3'/>
+          </td>
+          <td colspan="1">-->
           <td>
             <a href="../caja" class="external">Nueva Ventana</a>
           </td>
@@ -546,11 +551,18 @@ if($_SESSION['valida']=='innova' && $_SESSION['cargo']!='VENDEDOR' ){
           <td width="70%">
             COMENTARIOS:<textarea name="comentarios" id="comentario" style="text-transform:uppercase;" class='span8'></textarea>
           </td>
-          <td width='15%'>EFECTIV:<input type='text' id='efectivo' style='text-align:right;font-weight:bold' class='span1'><br>VUELTO: <input type='text' id='vuelto' style='text-align:right;font-weight:bold' class='span1'></td>
+          <td width='15%'>EFECTIV:<input type='text' id='efectivo' style='text-align:right;font-weight:bold' class='span1'>
+            <br>VUELTO: <input type='text' id='vuelto' style='text-align:right;font-weight:bold' class='span1'></td>
           <td width="15%"><input type="button" id="guardarform" value="ENVIAR" style="cursor:pointer;" class='btn btn-success'/></td>
             <div id="procesarenvio" style="display:none">
           </div>
         </tr>
+      </table>
+      <table>
+        <td width="13%" align="right">REFERENCIA:</td>
+          <td>
+            <input type="text" name="referente" id="referente" class='span8'/>
+          </td>
       </table>
     </div>
     <div id="dialog" style="display:none">

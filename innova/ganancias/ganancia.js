@@ -209,7 +209,7 @@ $(function(){
   $("#cliente").autocomplete({
     source:"cliente.php",
     minLength:1
-  }); 
+  });
   $("#producto").autocomplete({
     source:"producto.php",
     minLength:1

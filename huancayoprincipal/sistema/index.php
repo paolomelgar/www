@@ -410,6 +410,7 @@ if($_SESSION['valida']=='true'){
 						  		<ul>
 									<li><a href="../proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../usuario/" target="contenedor">USUARIOS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
@@ -473,6 +474,7 @@ if($_SESSION['valida']=='true'){
 							<li style="background-color: #FFF105;"><a href="" >ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
 									<li><a href="../ubicacion/" target="contenedor">UBICACION</a></li>
@@ -518,6 +520,7 @@ if($_SESSION['valida']=='true'){
 						  		<ul>
 									<li><a href="../proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
 									<li><a href="../marca/" target="contenedor">MARCAS</a></li>

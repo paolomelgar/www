@@ -28,6 +28,8 @@ require_once('../connection.php');
             <td><?php echo $row['clase']; ?></td>
             <td><?php echo $row['celular']; ?></td>
             <td><?php echo $row['correo']; ?></td>
+            <td><?php echo $row['nombrecliente']; ?></td>
+            <td><?php echo date('Y-m-d', strtotime(str_replace('-', '/', $row['fnacimiento']))); ?></td>
             <td><?php echo $row['activo']; ?></td>
             <td style='display:none'><?php echo $row['latitud']; ?></td>
             <td style='display:none'><?php echo $row['longitud']; ?></td>

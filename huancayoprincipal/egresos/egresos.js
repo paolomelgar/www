@@ -24,6 +24,14 @@ $(function(){
     changeYear: true,
     dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
   }).datepicker("setDate", date);
+  $('#fechafactura').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
   $("textarea").keyup(function(){
     var start = this.selectionStart,
         end = this.selectionEnd;
@@ -75,21 +83,23 @@ $(function(){
           var n="<tr class='fila'\n>"+
             "<td width='3%' align='right'>"+(i+1)+"</td>";
             if($('#nombre').val()=='PAULO ANTONY MELGAR POVEZ' || $('#nombre').val()=='JEANIRA PEREZ'){
-              n+="<td width='10%' align='center' contenteditable='true'>"+data[i][0]+"</td>\n"+
-              "<td width='10%' align='center' contenteditable='true'>"+data[i][1]+"</td>\n"+
+              n+="<td width='5%' align='center' contenteditable='true'>"+data[i][0]+"</td>\n"+
+              "<td width='5%' align='center' contenteditable='true'>"+data[i][1]+"</td>\n"+
               "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
               "<td width='10%' align='center' contenteditable='true'>"+data[i][2]+"</td>\n"+
               "<td width='5%' align='right' contenteditable='true'>"+data[i][3]+"</td>\n"+
-              "<td width='39%' contenteditable='true'>"+data[i][4]+"</td>";
+              "<td width='35%' contenteditable='true'>"+data[i][4]+"</td>";
             }else{
-              n+="<td width='10%' align='center'>"+data[i][0]+"</td>\n"+
-              "<td width='10%' align='center'>"+data[i][1]+"</td>\n"+
+              n+="<td width='5%' align='center'>"+data[i][0]+"</td>\n"+
+              "<td width='5%' align='center'>"+data[i][1]+"</td>\n"+
               "<td width='8%' align='center'>"+data[i][8]+"</td>\n"+
               "<td width='10%' align='center'>"+data[i][2]+"</td>\n"+
               "<td width='5%' align='right'>"+data[i][3]+"</td>\n"+
-              "<td width='39%'>"+data[i][4]+"</td>";
+              "<td width='35%'>"+data[i][4]+"</td>";
             }
-            n+="<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
+            n+="<td width='5%' align='center'>"+data[i][9]+"</td>\n"+
+            "<td width='5%' align='center'>"+data[i][10]+"</td>\n"+
+            "<td width='8%' align='center'>"+data[i][5]+"</td>\n"+ //usuario
             "<td width='11%' align='center'>"+data[i][6]+"</td>\n"+
             "<td style='display:none'>"+data[i][7]+"</td>\n"+
             "</tr>";
@@ -101,7 +111,7 @@ $(function(){
           $.ajax({
                 type: "POST",
                 url: "modificar.php",
-                data: "val="+$(this).text()+"&pos="+$(this).index()+"&id="+$(this).parent().find('td:eq(9)').text(),
+                data: "val="+$(this).text()+"&pos="+$(this).index()+"&id="+$(this).parent().find('td:eq(11)').text(),
                 beforeSend:function(){
                 },
                 success: function(data){   
@@ -158,6 +168,8 @@ $(function(){
             "&transportesalida="+$('#transportesalida').val()+
             "&construccion="+$('#construccion').val()+
             "&tributarios="+$('#tributarios').val()+
+            "&numfactura="+$('#numfactura').val()+
+            "&fechafactura="+$('#fechafactura').val()+
             "&encar="+$('#vendedor').val(),
             success:function(data){
               swal($('#operacion').val()+" agregado Correctamente","","success");
@@ -178,6 +190,8 @@ $(function(){
         $('#transporte').val("");
         $('#construccion').val("");
         $('#tributarios').val("");
+        $('#numfactura').val("");
+        $('#fechafactura').val("");
         $('select[id="operacion"]').val("EGRESO");
         $('.transporte').hide();
         $('.detalle').hide();
@@ -186,6 +200,8 @@ $(function(){
         $('.construccion').hide();
         $('.transportesalida').hide();
         $('.tributarios').hide();
+        $('.numfactura').hide();
+        $('.fechafactura').hide();
         $('#tipomov').change(function(){
           if($('select[id="tipomov"]').val()=='TRANSPORTE INGRESO'){
             $('.transporte').show();
@@ -245,6 +261,13 @@ $(function(){
             $('.detalle').show();
           }
         });
+        $('#comprobante').change(function(){
+          if($('select[id="comprobante"]').val()=='SI'){
+            $('.comprobantef').show();
+          }else{
+            $('.comprobantef').hide();
+          }
+        });
         $(this).parents('.ui-dialog-buttonpane button:hass(Si)').focus();
       }
     });
@@ -277,7 +300,7 @@ $(function(){
             data: 'monto='+$('.selected1').find('td:eq(4)').text()+
                   '&sesion='+$('.selected1').find('td:eq(7)').text()+
                   '&tipo='+$('.selected1').find('td:eq(2)').text()+
-                  '&id='+$('.selected1').find('td:eq(9)').text()+
+                  '&id='+$('.selected1').find('td:eq(11)').text()+
                   '&fecha='+$('.selected1').find('td:eq(1)').text(),
             success: function(data){
             }

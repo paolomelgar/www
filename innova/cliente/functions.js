@@ -1,3 +1,14 @@
+$(function(){
+	var date = new Date();
+  $('#fnacimiento').datepicker({
+    firstDay:1,
+    dateFormat:'dd/mm/yy',
+    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    changeMonth: true,
+    changeYear: true,
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  }).datepicker("setDate", date);
+  
 var longit;
 var latit;
 var zoom;
@@ -92,8 +103,8 @@ $(function(){
 		$(this).addClass('selected');
 	});
 	$('#resultado').on('click','.mapa',function(){
-		latit=$(this).parent().find('td:eq(13)').text();
-		longit=$(this).parent().find('td:eq(14)').text();
+		latit=$(this).parent().find('td:eq(15)').text();
+		longit=$(this).parent().find('td:eq(16)').text();
 		zoom=15;
 		var aa=$(this).parent().find('td:eq(1)').text();
 		initialize();
@@ -137,8 +148,13 @@ $(function(){
 		});
 	});
 	$('#resultado').on('click','.addmapa',function(){
-		latit=-12.0696667;
-		longit=-75.2066667;
+		if($_SESSION['mysql']=="innovaprincipal"){
+			latit=-12.0696667;
+			longit=-75.2066667;
+		}else{
+			latit=-9.932211;
+			longit=-76.241930;
+		}
 		zoom=13;
 		var aa=$(this).parent().find('td:eq(1)').text();
 		initialize();
@@ -230,6 +246,8 @@ $(function(){
 			var dato8=$(".selected").children( "td:eq(10)" ).text();
 			var dato9=$(".selected").children( "td:eq(11)" ).text();
 			var dato10=$(".selected").children( "td:eq(12)" ).text();
+			var dato11=$(".selected").children( "td:eq(13)" ).text();
+			var dato12=$(".selected").children( "td:eq(14)" ).text();
 			$("#agregardatos").dialog({
 				title: 'Editar Cliente',
 				open:function(){
@@ -243,7 +261,9 @@ $(function(){
 					$('#formagregar input[id="clase"]').val(dato7);
 					$('#formagregar input[id="celular"]').val(dato8);
 					$('#formagregar input[id="correo"]').val(dato9);
-					$('#formagregar select[id="activo1"]').val(dato10);
+					$('#formagregar input[id="nombrecliente"]').val(dato10);
+					$('#formagregar input[id="fnacimiento"]').val(dato11);
+					$('#formagregar select[id="activo1"]').val(dato12);
 					caso="edit";
 				}
 			});
@@ -335,4 +355,5 @@ $(function(){
 		$('#numero').val(1);
 		total();
 	});
+});
 });

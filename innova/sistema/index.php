@@ -174,6 +174,7 @@ if($_SESSION['valida']=='innova'){
 						  		<ul>
 									<li><a href="../proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../usuario/" target="contenedor">USUARIOS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
@@ -216,7 +217,9 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
+									<li><a href="../prestamistas/" target="contenedor">PAGO PRESTAMISTAS</a></li>
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+									<li><a href="../contabilidad/" target="contenedor">CONTABILIDAD</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -240,6 +243,7 @@ if($_SESSION['valida']=='innova'){
 						  		<ul>
 									<li><a href="../proveedor/" target="contenedor">PROVEEDORES</a></li>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../transportista/" target="contenedor">TRANSPORTISTAS</a></li>
 									<li><a href="../producto/" target="contenedor">PRODUCTOS</a></li>
 									<li><a href="../marca/" target="contenedor">MARCAS</a></li>
@@ -281,7 +285,9 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../prestamos/" target="contenedor">PAGO PRESTAMOS</a></li>
+									<li><a href="../prestamistas/" target="contenedor">PAGO PRESTAMISTAS</a></li>
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+									<li><a href="../contabilidad/" target="contenedor">CONTABILIDAD</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -304,6 +310,7 @@ if($_SESSION['valida']=='innova'){
 							<li style="background-color: #FF6500;"><a href="#" >ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias" target="_blank">RUC</a></li>
 								</ul>
 							</li>
@@ -325,8 +332,9 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
                   					<li><a href="../cajamayortarjeta/" target="contenedor">CAJA MAYOR TARJETA</a></li>
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
-									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>							
+									<li><a href="../pagoproveedor/" target="contenedor">PAGO PROVEEDORES</a></li>
 									<li><a href="../egresos/" target="contenedor">INGRESO/EGRESO</a></li>
+									<li><a href="../contabilidad/" target="contenedor">CONTABILIDAD</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -341,6 +349,7 @@ if($_SESSION['valida']=='innova'){
 							<li style="background-color: #FF6500"><a href="#" >ADMINISTRACION</a>
 						  		<ul>
 									<li><a href="../cliente/" target="contenedor">CLIENTES</a></li>
+									<li><a href="../cumpleclientes/" target="contenedor">CUMPLEAÑOS CLIENTES</a></li>
 									<li><a href="../maps/" target="contenedor">GOOGLE MAPS</a></li>
 								</ul>
 							</li>
@@ -363,6 +372,7 @@ if($_SESSION['valida']=='innova'){
 									<li><a href="../cobranzas/" target="contenedor">COBRO CLIENTES</a></li>
 									<li><a href="../cajamayor/" target="contenedor">CAJA MAYOR</a></li>
 									<li><a href="../cajamayorefectivo/" target="contenedor">CAJA MAYOR EFECTIVO</a></li>
+									<li><a href="../contabilidad/" target="contenedor">CONTABILIDAD</a></li>
 								</ul>
 							</li>				
 						</ul>

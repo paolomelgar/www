@@ -176,7 +176,7 @@ while($r=mysqli_fetch_assoc($query)){
 		$pdf->SetFont('Arial','B',9);
 		$pdf->SetTextColor(80,80,80);
 		if($stock[$j]<=0){
-			$pdf->Cell(49,35,$pdf->Image('../ventasfuera/agotado.png', $pdf->GetX()-54, $pdf->GetY()+10,49,35),'','','C');
+			$pdf->Cell(49,35,$pdf->Image('../ventasfuera/agotado.png', $pdf->GetX()+4, $pdf->GetY()+10,49,35),'','','C');
 		}
 		$pdf->MultiCell(56,4,$ar[$j],'','C',true);
 		$pdf->SetXY($x+62, $y);

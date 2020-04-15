@@ -90,7 +90,7 @@ $(function(){
   function ruc(consulta,e){
     if(e.which!=13 && e.which<37 || e.which>40){
       clearTimeout(typingTimer);
-      typingTimer = setTimeout(function(){  
+      typingTimer = setTimeout(function(){ 
       $.ajax({
         type: "POST",
         url: "cliente.php",
@@ -159,7 +159,11 @@ $(function(){
     }
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+  $("#referente").autocomplete({
+    source:"referente.php",
+    minLength:1
+  }); 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $("#ruc").keyup(function(e){
     ruc($('#ruc').val(),e);
   }); 
